@@ -1,0 +1,26 @@
+{
+  "release": "https://github.com/zhgarylu/claude-video/releases/download/films",
+  "demos": [
+    {
+      "id": "claude-mods", "style": "dark-keynote", "dur": "0:31",
+      "title": "Claude Code 的 mods", "title_en": "Claude Code mods",
+      "layout": "split",
+      "line": "暗色科技发布：讲者在左，右边一个原创界面窗口随口播装上面板、拦截命令、斜杠命令。",
+      "line_en": "Dark Tech Keynote: the host on the left, an original UI window on the right that gains a pane, a command guard and slash commands as they speak."
+    },
+    {
+      "id": "muse", "style": "iso-infographic", "dur": "0:33",
+      "title": "Muse：把事情交给它", "title_en": "Muse: hand it your tasks",
+      "layout": "pip",
+      "line": "等距信息图：讲者缩成右上角小窗，镜头沿一块沙盘横移，四个工位讲清 Muse 的系统。",
+      "line_en": "Isometric Infographic: the host shrinks to a corner window while the camera travels along a diorama of four stations."
+    },
+    {
+      "id": "muse2", "style": "iso-infographic", "dur": "0:34",
+      "title": "Muse：把事情交给它吗？", "title_en": "Muse: would you hand it your tasks?",
+      "layout": "world",
+      "line": "讲者本身就生成在等距小世界里演内容，视频当主画面，两侧用标签卡和引线补上名字、日期和来源。",
+      "line_en": "The host is generated inside the isometric world and acts the story out; the video is the main picture, with callout cards adding names, dates and sources."
+    }
+  ]
+}

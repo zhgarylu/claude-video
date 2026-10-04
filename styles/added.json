@@ -1,0 +1,10 @@
+{
+  "note": "Styles added in this repository. They are not part of lemomo-ai/lemo-opuscar at commit c4bc370, the commit this repository started from. Everything else under styles/ comes from that project.",
+  "base": "lemomo-ai/lemo-opuscar@c4bc370",
+  "author": "zhgarylu, with Claude",
+  "slugs": [
+    "embroidery", "charcoal", "sand-animation", "blue-white", "dunhuang", "natural-history",
+    "neon-sign", "art-nouveau", "constructivist", "y2k-vaporwave", "sheet-music", "comic-pop",
+    "opera-cel", "manga-panel", "pixel-8bit", "super8", "claymation", "origami"
+  ]
+}

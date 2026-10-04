@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Video 风格图鉴</title>
+<meta name="description" content="61 种代码做的影片风格，18 种由本仓库新增，外加一套口播加风格解说的工作流。基于 lemomo-ai/lemo-opuscar（MIT）。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3l11 6.5v13L16 29 5 22.5v-13z' fill='%237B5CF5'/%3E%3Cpath d='M16 3l11 6.5L16 16 5 9.5z' fill='%23A590FF'/%3E%3Cpath d='M16 16l11-6.5v13L16 29z' fill='%235B3FD6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F3EEE3; --bg2: #EAE3D3; --card: #FBF7EE; --ink: #231A2C; --muted: #6A6273; --line: rgba(35,26,44,.14);
+  --violet: #7B5CF5; --violet-ink: #5B3FD6; --teal: #1EA79B; --mustard: #F0B23B; --coral: #EF6F5E; --sky: #3E8FE8;
+  --shadow: 0 1px 0 rgba(35,26,44,.05), 0 10px 30px -12px rgba(35,26,44,.25);
+  --r: 16px; --sans: Jost, "Noto Sans SC", system-ui, -apple-system, "PingFang SC", "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #15121B; --bg2: #1C1824; --card: #221D2C; --ink: #F1ECF7; --muted: #A59DB2; --line: rgba(241,236,247,.14);
+  --violet: #9B83FF; --violet-ink: #B9A8FF; --shadow: 0 1px 0 rgba(0,0,0,.4), 0 14px 34px -14px rgba(0,0,0,.7); } }
+:root[data-theme="dark"] {
+  --bg: #15121B; --bg2: #1C1824; --card: #221D2C; --ink: #F1ECF7; --muted: #A59DB2; --line: rgba(241,236,247,.14);
+  --violet: #9B83FF; --violet-ink: #B9A8FF; --shadow: 0 1px 0 rgba(0,0,0,.4), 0 14px 34px -14px rgba(0,0,0,.7); }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+.wrap { width: min(1240px, 100% - 40px); margin-inline: auto; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px; border: 2px solid var(--ink); background: transparent; color: var(--ink); font: 600 15px var(--sans); text-decoration: none; cursor: pointer; transition: transform .15s, background .15s; }
+.btn:hover { transform: translateY(-2px); }
+.btn.solid { background: var(--ink); color: var(--bg); }
+.btn.violet { background: var(--violet); border-color: var(--violet); color: #fff; }
+.btn:focus-visible, .chip:focus-visible, .card:focus-visible, .seg button:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid var(--violet); outline-offset: 2px; }
+/* header */
+.top { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(14px); background: color-mix(in srgb, var(--bg) 82%, transparent); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; gap: 22px; height: 64px; }
+.logo { display: flex; align-items: center; gap: 10px; white-space: nowrap; font-weight: 700; font-size: 20px; letter-spacing: .01em; text-decoration: none; }
+.logo svg { width: 30px; height: 30px; }
+.top nav { display: flex; gap: 6px; margin-left: 14px; }
+.top nav a { padding: 8px 12px; border-radius: 10px; text-decoration: none; font-weight: 500; color: var(--muted); }
+.top nav a:hover { color: var(--ink); background: var(--bg2); }
+.top .sp { flex: 1; }
+.icon-btn { width: 40px; height: 40px; border-radius: 12px; border: 1px solid var(--line); background: var(--card); color: var(--ink); font: 600 14px var(--sans); cursor: pointer; display: grid; place-items: center; }
+.icon-btn:hover { border-color: var(--ink); }
+/* hero */
+.hero { padding: 64px 0 40px; }
+.hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--card); font-size: 13px; color: var(--muted); font-weight: 500; }
+.eyebrow b { color: var(--violet-ink); }
+h1 { font-size: clamp(38px, 5.4vw, 66px); line-height: 1.06; letter-spacing: -.02em; margin: 18px 0 16px; font-weight: 700; }
+h1 em { font-style: normal; color: var(--violet); }
+html[lang="zh-CN"] h1 { font-size: clamp(34px, 4.6vw, 58px); }
+.lead { font-size: 18px; color: var(--muted); max-width: 34em; margin: 0 0 26px; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 34px; }
+.stats { display: flex; gap: 14px; flex-wrap: wrap; }
+.stat { min-width: 120px; padding: 14px 18px; border: 2px solid var(--ink); border-radius: 14px; background: var(--card); box-shadow: 4px 4px 0 var(--ink); }
+.stat b { display: block; font-size: 34px; line-height: 1; letter-spacing: -.02em; }
+.stat span { font-size: 13px; color: var(--muted); }
+.stat.mine { border-color: var(--violet-ink); box-shadow: 4px 4px 0 var(--violet); } .stat.mine b { color: var(--violet-ink); }
+.collage { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; transform: rotate(-3deg); }
+.collage figure { margin: 0; position: relative; border-radius: 12px; overflow: hidden; border: 2px solid var(--ink); box-shadow: 5px 5px 0 var(--ink); background: var(--card); }
+.collage figure:nth-child(3n+2) { transform: translateY(26px); } .collage figure:nth-child(3n) { transform: translateY(-10px); }
+.collage img { aspect-ratio: 16/10; object-fit: cover; width: 100%; }
+.collage figcaption { position: absolute; left: 6px; bottom: 6px; padding: 2px 8px; border-radius: 999px; background: var(--violet); color: #fff; font-size: 11px; font-weight: 700; }
+/* sections */
+section { padding: 56px 0; }
+.sec-head { max-width: 760px; margin-bottom: 30px; }
+.sec-head .kicker { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--violet-ink); }
+h2 { font-size: clamp(28px, 3.6vw, 42px); line-height: 1.12; letter-spacing: -.015em; margin: 8px 0 12px; }
+.sec-head p { color: var(--muted); font-size: 17px; margin: 0; }
+.band { background: var(--bg2); border-block: 1px solid var(--line); }
+/* talking head */
+.steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; counter-reset: s; margin: 0 0 34px; padding: 0; list-style: none; }
+.steps li { position: relative; padding: 18px 16px 16px; border: 2px solid var(--ink); border-radius: 14px; background: var(--card); }
+.steps li::before { counter-increment: s; content: counter(s, decimal-leading-zero); position: absolute; top: -13px; left: 14px; padding: 0 10px; border-radius: 999px; background: var(--violet); color: #fff; font-weight: 700; font-size: 13px; line-height: 24px; }
+.steps h3 { margin: 4px 0 6px; font-size: 18px; } .steps p { margin: 0; font-size: 14px; color: var(--muted); }
+.steps code, .cmd { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12.5px; }
+.layouts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 36px; }
+.layout { padding: 16px; border: 1px solid var(--line); border-radius: 14px; background: var(--card); }
+.wire { aspect-ratio: 16/9; border-radius: 8px; border: 2px solid var(--ink); background: var(--bg); position: relative; margin-bottom: 12px; overflow: hidden; }
+.wire i { position: absolute; border-radius: 4px; background: var(--violet); opacity: .9; } .wire u { position: absolute; border-radius: 4px; background: repeating-linear-gradient(135deg, var(--line) 0 5px, transparent 5px 10px); border: 1.5px dashed var(--muted); }
+.w-split i { left: 6%; top: 10%; width: 32%; height: 80%; } .w-split u { left: 44%; top: 10%; width: 50%; height: 80%; }
+.w-pip i { right: 5%; top: 8%; width: 17%; height: 36%; } .w-pip u { left: 5%; top: 8%; width: 70%; height: 84%; }
+.w-world i { left: 32%; top: 0; width: 36%; height: 100%; border-radius: 0; opacity: .6; } .w-world u { left: 4%; top: 22%; width: 22%; height: 18%; } .w-world u.b { left: 74%; top: 52%; width: 22%; height: 18%; }
+.layout h3 { margin: 0 0 4px; font-size: 17px; } .layout p { margin: 0; font-size: 14px; color: var(--muted); }
+.demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.demo { border: 2px solid var(--ink); border-radius: var(--r); overflow: hidden; background: var(--card); box-shadow: 6px 6px 0 var(--ink); cursor: pointer; text-align: left; padding: 0; font: inherit; color: inherit; transition: transform .15s, box-shadow .15s; }
+.demo:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--ink); }
+.demo .thumb { position: relative; } .demo .thumb img { aspect-ratio: 16/9; object-fit: cover; width: 100%; }
+.demo .body { padding: 16px 18px 18px; } .demo h3 { margin: 0 0 4px; font-size: 21px; }
+.demo .badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.badge { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid var(--line); background: var(--bg); color: var(--muted); }
+.badge.v { background: var(--violet); border-color: var(--violet); color: #fff; }
+.demo p { margin: 0; font-size: 14.5px; color: var(--muted); }
+.cmdbox { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: space-between; padding: 16px 20px; border-radius: 14px; background: var(--ink); color: var(--bg); }
+.cmdbox .cmd { color: #E7DCCA; word-break: break-all; } .cmdbox .btn { border-color: var(--bg); color: var(--bg); padding: 8px 14px; font-size: 14px; }
+/* play glyph */
+.play { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }
+.play i { width: 54px; height: 54px; border-radius: 50%; background: rgba(251,247,238,.92); border: 2px solid var(--ink); display: grid; place-items: center; transition: transform .15s; }
+.play i::after { content: ""; border-left: 15px solid var(--ink); border-block: 9px solid transparent; margin-left: 4px; }
+.demo:hover .play i, .card:hover .play i { transform: scale(1.1); }
+/* styles */
+.toolbar { display: grid; gap: 14px; margin-bottom: 22px; }
+.row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.search { flex: 1 1 260px; position: relative; } .search input { width: 100%; padding: 12px 16px 12px 42px; border-radius: 12px; border: 2px solid var(--ink); background: var(--card); color: var(--ink); font: 500 16px var(--sans); }
+.search svg { position: absolute; left: 14px; top: 50%; translate: 0 -50%; width: 18px; height: 18px; color: var(--muted); }
+select { padding: 12px 14px; border-radius: 12px; border: 2px solid var(--ink); background: var(--card); color: var(--ink); font: 500 15px var(--sans); }
+.seg { display: inline-flex; border: 2px solid var(--ink); border-radius: 12px; overflow: hidden; background: var(--card); }
+.seg button { padding: 10px 14px; border: 0; background: transparent; color: var(--ink); font: 600 14px var(--sans); cursor: pointer; border-right: 1px solid var(--line); }
+.seg button:last-child { border-right: 0; } .seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); } .seg button.mine[aria-pressed="true"] { background: var(--violet); color: #fff; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); color: var(--ink); font: 500 14px var(--sans); cursor: pointer; }
+.chip:hover { border-color: var(--ink); } .chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.count { color: var(--muted); font-size: 14px; } .legend { font-size: 14px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(262px, 1fr)); gap: 20px; }
+.card { position: relative; border: 1px solid var(--line); border-radius: var(--r); background: var(--card); overflow: hidden; cursor: pointer; transition: transform .15s, box-shadow .15s, border-color .15s; box-shadow: var(--shadow); }
+.card:hover { transform: translateY(-4px); border-color: var(--ink); }
+.card.added { border: 2px solid var(--violet); }
+.card .thumb { position: relative; } .card .thumb img { aspect-ratio: 16/9; object-fit: cover; width: 100%; background: var(--bg2); }
+.tag { position: absolute; top: 10px; left: 10px; padding: 3px 10px; border-radius: 999px; background: var(--violet); color: #fff; font-size: 12px; font-weight: 700; box-shadow: 0 3px 10px -3px rgba(0,0,0,.5); }
+.dur { position: absolute; right: 10px; bottom: 10px; padding: 1px 8px; border-radius: 6px; background: rgba(20,16,26,.78); color: #fff; font-size: 12px; font-variant-numeric: tabular-nums; }
+.card .meta { padding: 12px 14px 15px; } .card h3 { margin: 0; font-size: 18px; line-height: 1.25; } .card .cn { margin: 2px 0 6px; font-size: 14px; color: var(--muted); }
+.card .film { margin: 0; font-size: 13px; color: var(--muted); font-style: italic; }
+.empty { padding: 60px 0; text-align: center; color: var(--muted); }
+/* viewer */
+dialog { border: 0; padding: 0; width: min(1100px, 100% - 28px); max-height: calc(100dvh - 28px); border-radius: 20px; background: var(--card); color: var(--ink); box-shadow: 0 30px 80px -20px rgba(0,0,0,.6); }
+dialog::backdrop { background: rgba(20,16,26,.7); backdrop-filter: blur(4px); }
+.v-wrap { display: grid; grid-template-columns: 1.35fr 1fr; max-height: calc(100dvh - 28px); overflow: auto; }
+.v-media { background: #000; position: relative; min-height: 220px; display: grid; align-content: center; }
+.v-media video, .v-media img { width: 100%; aspect-ratio: 16/9; object-fit: contain; background: #000; }
+.v-info { padding: 26px 26px 24px; display: grid; gap: 12px; align-content: start; }
+.v-info h3 { margin: 0; font-size: 28px; line-height: 1.15; } .v-info .cn { margin: -6px 0 0; color: var(--muted); font-size: 17px; }
+.v-info .film { font-style: italic; font-size: 17px; } .v-info p { margin: 0; color: var(--muted); }
+.uses { display: flex; flex-wrap: wrap; gap: 6px; } .uses span { padding: 3px 10px; border-radius: 999px; background: var(--bg2); font-size: 13px; }
+.origin { padding: 10px 12px; border-radius: 12px; font-size: 14px; background: var(--bg2); border: 1px solid var(--line); }
+.origin.mine { background: color-mix(in srgb, var(--violet) 14%, var(--card)); border-color: var(--violet); }
+.v-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+.v-left { position: relative; background: #000; display: grid; align-content: center; } .v-left .v-media { min-height: 0; }
+.close { position: absolute; top: 12px; right: 12px; z-index: 3; } .nav-b { position: absolute; top: 50%; translate: 0 -50%; z-index: 3; background: rgba(251,247,238,.9); color: #231A2C; border-color: transparent; } .prev { left: 10px; } .next { right: 10px; }
+/* footer */
+footer { padding: 46px 0 60px; border-top: 1px solid var(--line); background: var(--bg2); }
+footer .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 30px; } footer h4 { margin: 0 0 8px; font-size: 16px; } footer p { margin: 0 0 8px; color: var(--muted); font-size: 14.5px; }
+@media (max-width: 960px) {
+  .hero .wrap { grid-template-columns: 1fr; } .collage { max-width: 520px; transform: none; }
+  .steps, .layouts, .demos { grid-template-columns: 1fr 1fr; } .v-wrap { grid-template-columns: 1fr; } footer .wrap { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .steps, .layouts, .demos { grid-template-columns: 1fr; } .top nav { display: none; } .top .wrap { gap: 10px; } .top .btn { padding: 8px 12px; font-size: 14px; } .hero { padding-top: 36px; } section { padding: 40px 0; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="#top" aria-label="Claude Video"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l11 6.5L16 16 5 9.5z" fill="#A590FF"/><path d="M5 9.5L16 16v13L5 22.5z" fill="#7B5CF5"/><path d="M16 16l11-6.5v13L16 29z" fill="#5B3FD6"/></svg>Claude Video</a>
+  <nav><a href="#talking" data-i="nav_talk"></a><a href="#styles" data-i="nav_styles"></a><a href="#about" data-i="nav_about"></a></nav>
+  <span class="sp"></span>
+  <button class="icon-btn" id="lang" aria-label="Language">EN</button>
+  <button class="icon-btn" id="theme" aria-label="Theme">◐</button>
+  <a class="btn" href="https://github.com/zhgarylu/claude-video" target="_blank" rel="noopener">GitHub</a>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap">
+  <div>
+    <span class="eyebrow"><b>★</b><span data-i="eyebrow"></span></span>
+    <h1 data-i-html="h1"></h1>
+    <p class="lead" data-i="lead"></p>
+    <div class="cta"><a class="btn violet" href="#talking" data-i="cta1"></a><a class="btn" href="#styles" data-i="cta2"></a></div>
+    <div class="stats">
+      <div class="stat"><b id="n-total">61</b><span data-i="st_total"></span></div>
+      <div class="stat mine"><b id="n-added">18</b><span data-i="st_added"></span></div>
+      <div class="stat"><b id="n-demos">3</b><span data-i="st_demos"></span></div>
+    </div>
+  </div>
+  <div class="collage" id="collage" aria-hidden="true"></div>
+</div></section>
+
+<section id="talking" class="band"><div class="wrap">
+  <div class="sec-head"><span class="kicker" data-i="t_kicker"></span><h2 data-i="t_h"></h2><p data-i="t_p"></p></div>
+  <ol class="steps" id="steps"></ol>
+  <div class="sec-head"><h2 style="font-size:26px" data-i="t_layouts"></h2></div>
+  <div class="layouts" id="layouts"></div>
+  <div class="demos" id="demos"></div>
+  <div class="cmdbox"><span class="cmd">sh tools/talk/prep.sh host.mp4 films/my-film --lang zh</span>
+    <span class="row"><a class="btn" href="https://github.com/zhgarylu/claude-video/blob/main/TALKING-HEAD.md" target="_blank" rel="noopener">TALKING-HEAD.md</a><a class="btn" href="https://github.com/zhgarylu/claude-video/tree/main/tools/talk" target="_blank" rel="noopener">tools/talk/</a></span></div>
+</div></section>
+
+<section id="styles"><div class="wrap">
+  <div class="sec-head"><span class="kicker" data-i="s_kicker"></span><h2 data-i="s_h"></h2><p data-i="s_p"></p></div>
+  <div class="toolbar">
+    <div class="row">
+      <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="q" type="search" autocomplete="off" data-i-ph="s_search" aria-label="Search"></label>
+      <div class="seg" id="origin" role="group"><button aria-pressed="true" data-v="all" data-i="o_all"></button><button class="mine" aria-pressed="false" data-v="added" data-i="o_added"></button><button aria-pressed="false" data-v="orig" data-i="o_orig"></button></div>
+      <select id="sort" aria-label="Sort"><option value="num" data-i="sort_num"></option><option value="dur" data-i="sort_dur"></option><option value="name" data-i="sort_name"></option></select>
+    </div>
+    <div class="chips" id="cats"></div>
+    <div class="row"><span class="count" id="count"></span><span class="legend"><span class="tag" style="position:static;box-shadow:none" data-i="tag_added"></span><span data-i="legend"></span></span></div>
+  </div>
+  <div class="grid" id="grid"></div>
+  <p class="empty" id="empty" hidden data-i="empty"></p>
+</div></section>
+</main>
+
+<footer id="about"><div class="wrap">
+  <div><h4 data-i="f_h1"></h4><p data-i-html="f_p1"></p><p data-i-html="f_p2"></p></div>
+  <div><h4 data-i="f_h2"></h4><p data-i-html="f_p3"></p><p><a href="https://github.com/lemomo-ai/lemo-opuscar" target="_blank" rel="noopener">lemomo-ai/lemo-opuscar</a> · <a href="https://lemomo-ai.github.io/lemo-opuscar/" target="_blank" rel="noopener" data-i="f_up_gallery"></a> · <a href="https://github.com/zhgarylu/claude-video/blob/main/UPSTREAM-README.md" target="_blank" rel="noopener">UPSTREAM-README</a></p></div>
+</div></footer>
+
+<dialog id="viewer" aria-label="Viewer">
+  <div class="v-wrap">
+    <div class="v-left"><div class="v-media" id="v-media"></div>
+      <button class="icon-btn nav-b prev" id="v-prev" aria-label="Previous">‹</button>
+      <button class="icon-btn nav-b next" id="v-next" aria-label="Next">›</button></div>
+    <div class="v-info" id="v-info"></div>
+  </div>
+  <button class="icon-btn close" id="v-close" aria-label="Close">✕</button>
+</dialog>
+<noscript><p style="padding:24px;text-align:center">This page needs JavaScript. · 本页需要 JavaScript。</p></noscript>
+
+<script src="data.js"></script>
+<script>
+(() => {
+const G = window.GALLERY, S = G.styles, D = G.demos;
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const store = { get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} } };
+
+const T = {
+  zh: {
+    nav_talk: '口播解说', nav_styles: '风格', nav_about: '来源', eyebrow: '基于 Lemo-Opuscar · MIT',
+    h1: '<em>61</em> 种影片风格，<br>外加口播解说工作流', lead: '每种风格都是一份可复用的提示词，配一支完全用代码做出来的短片。本仓库在原项目的 43 种之上新增了 18 种，还有一套把真人（或 AI 生成）口播视频放进风格里的做法。',
+    cta1: '看口播解说 demo', cta2: '浏览全部风格', st_total: '种风格', st_added: '种本仓库新增', st_demos: '个口播 demo',
+    t_kicker: 'Talking-head', t_h: '口播视频 + 风格解说', t_p: '你带来一条讲者的视频，影片用某个风格把解释画在周围：名字、日期、数据、引线、字幕和配乐。讲者的话就是脚本，画面跟着声音走。',
+    t_layouts: '三种版式', demo_play: '播放',
+    steps: [['口播视频', '带上你自己的口播，或让我们写生成视频的提示词（参考图、换装、风格世界）。'], ['预处理', '<code>prep.sh</code> 拆出逐帧图、人声、声音电平、逐词时间码，并列出可用来转场的停顿。'], ['选风格', '按题材选，不按讲者选：软件功能、系统结构、数据、流程各有合适的风格。'], ['搭建', '讲者窗口 + 风格解说 + 字幕 + 原创配乐，一条 <code>build.sh</code> 出片。'], ['检查交付', '可读性检查、响度、联系表、黑帧；如实说明哪些没能确认。']],
+    layouts: [['split', '左右分栏', '讲者约占三分之一，右边是风格里的界面。适合软件功能讲解。'], ['pip', '角落小窗', '讲者缩到约 7% 画面，镜头在风格世界里移动。适合系统与结构。'], ['world', '视频即世界', '讲者本身就生成在风格世界里演内容，视频当主画面，两侧用标签卡补充名字、日期和来源。']],
+    s_kicker: 'Styles', s_h: '全部风格', s_p: '点任意一张看短片、画面和用途。紫色标记的是本仓库新增的风格，其余来自原项目。', s_search: '搜索风格、片名、用途…',
+    o_all: '全部', o_added: '本仓库新增', o_orig: '原项目', sort_num: '按编号', sort_dur: '按时长', sort_name: '按名称', tag_added: '★ 本仓库新增', legend: '紫色边框 = 本仓库新增的风格', empty: '没有符合条件的风格。', count: (n, t) => `显示 ${n} / ${t}`,
+    all: '全部', watch: '播放短片', download: '下载', style_md: 'STYLE.md', demo_md: 'DEMO.md', film: '片名', uses: '适合', close: '关闭',
+    org_added: '★ 本仓库新增的风格，不属于原项目。短片、风格提示词和样片源码都在本仓库。', org_orig: '来自原项目 lemomo-ai/lemo-opuscar（MIT）。短片由原项目托管。',
+    style: '风格', layout: '版式', host: '讲者', demo_note: '讲者视频由用户提供（AI 生成的虚构人物）。',
+    f_h1: '来源与授权', f_p1: '本仓库是 LemoLab 的 <b>lemomo-ai/lemo-opuscar</b> 的衍生版本（MIT）。原有的指南、工具、引擎和 43 种风格照原样使用，原协议和版权声明保留在 <code>LICENSE</code>。', f_p2: '新增的 18 种风格、口播加解说工作流和这个图鉴由 zhgarylu 与 Claude 做成，同样以 MIT 协议提供。', f_h2: '原项目', f_p3: '原项目的图鉴和短片见下面的链接。原 43 种风格的短片由原项目托管，点开时直接从它那里播放。', f_up_gallery: '原项目图鉴'
+  },
+  en: {
+    nav_talk: 'Talking-head', nav_styles: 'Styles', nav_about: 'Credits', eyebrow: 'Based on Lemo-Opuscar · MIT',
+    h1: '<em>61</em> film styles,<br>plus a talking-head workflow', lead: 'Every style is a reusable prompt with a short film made entirely in code. This repository adds 18 styles to the original 43, and a way to put a presenter\'s video (real or AI-generated) inside one.',
+    cta1: 'Watch the talking-head demos', cta2: 'Browse all styles', st_total: 'styles', st_added: 'added here', st_demos: 'talking-head demos',
+    t_kicker: 'Talking-head', t_h: 'A presenter\'s video + a style\'s explainer graphics', t_p: 'Bring a video of someone talking, and the film draws the explanation around them in a style: names, dates, numbers, leaders, subtitles and score. The host\'s words are the script; the picture follows the voice.',
+    t_layouts: 'Three layouts', demo_play: 'Play',
+    steps: [['Presenter video', 'Bring your own, or get a prompt to generate one (reference image, wardrobe, a styled world).'], ['Prepare', '<code>prep.sh</code> extracts frames, voice, voice level and word timings, and lists the pauses you can use for transitions.'], ['Pick a style', 'By topic, not by host: software features, systems, numbers and processes each have a fitting style.'], ['Build', 'Host window + style graphics + subtitles + an original score; one <code>build.sh</code> renders it.'], ['Check & deliver', 'Readability check, loudness, contact sheets, black frames; plus an honest note of what could not be checked.']],
+    layouts: [['split', 'Split panel', 'The host takes about a third; the style\'s UI fills the rest. Good for software tours.'], ['pip', 'Corner window', 'The host shrinks to about 7% of the frame while the camera travels through the style\'s world. Good for systems.'], ['world', 'Video as the world', 'The host is generated inside the style\'s world and acts it out; the video is the main picture and callout cards add names, dates and sources.']],
+    s_kicker: 'Styles', s_h: 'All styles', s_p: 'Open any card for the film, frames and uses. The violet mark is a style added in this repository; the rest come from the original project.', s_search: 'Search styles, film titles, uses…',
+    o_all: 'All', o_added: 'Added here', o_orig: 'Original', sort_num: 'By number', sort_dur: 'By length', sort_name: 'By name', tag_added: '★ Added here', legend: 'violet border = a style added in this repository', empty: 'No styles match.', count: (n, t) => `Showing ${n} of ${t}`,
+    all: 'All', watch: 'Play the film', download: 'Download', style_md: 'STYLE.md', demo_md: 'DEMO.md', film: 'Film', uses: 'Good for', close: 'Close',
+    org_added: '★ Added in this repository, not part of the original project. The film, the style prompt and the demo source are all here.', org_orig: 'From the original project lemomo-ai/lemo-opuscar (MIT). Its film is hosted by that project.',
+    style: 'Style', layout: 'Layout', host: 'Host', demo_note: 'The host video was supplied by the user (an AI-generated fictional person).',
+    f_h1: 'Credits & licence', f_p1: 'This repository is a derivative of <b>lemomo-ai/lemo-opuscar</b> by LemoLab (MIT). The original guides, tools, engine and 43 styles are used as they were; the original licence and copyright notice stay in <code>LICENSE</code>.', f_p2: 'The 18 added styles, the talking-head workflow and this gallery were made by zhgarylu with Claude, also under MIT.', f_h2: 'The original project', f_p3: 'The original gallery and films are linked below. Films of the original 43 styles are hosted by that project and play straight from it.', f_up_gallery: 'Original gallery'
+  }
+};
+let lang = store.get('lang') || ((navigator.language || 'en').toLowerCase().startsWith('zh') ? 'zh' : 'en');
+const L = () => T[lang];
+const pick = (o, k) => (lang === 'zh' ? o[k + '_cn'] ?? o[k] : o[k]);
+const dur = s => `${Math.floor(s / 60)}:${String(Math.round(s % 60)).padStart(2, '0')}`;
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+// ---- state ----
+const st = { q: '', cat: 'all', origin: 'all', sort: 'num' };
+const cats = [...new Map(S.map(s => [s.cat_en, s.cat])).entries()];
+
+function applyI18n() {
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  $$('[data-i]').forEach(e => { const v = L()[e.dataset.i]; if (typeof v === 'string') e.textContent = v; });
+  $$('[data-i-html]').forEach(e => { e.innerHTML = L()[e.dataset.iHtml]; });
+  $$('[data-i-ph]').forEach(e => { e.placeholder = L()[e.dataset.iPh]; });
+  $('#lang').textContent = lang === 'zh' ? 'EN' : '中';
+  document.title = lang === 'zh' ? 'Claude Video 风格图鉴' : 'Claude Video · style gallery';
+  renderSteps(); renderLayouts(); renderDemos(); renderCats(); renderGrid();
+}
+
+// ---- hero & talking-head ----
+function renderCollage() {
+  const pickSlugs = ['art-nouveau', 'sand-animation', 'neon-sign', 'origami', 'claymation', 'blue-white'];
+  $('#collage').innerHTML = pickSlugs.map(sl => { const s = S.find(x => x.slug === sl); return `<figure><img src="${s.frame}" alt="" loading="eager"><figcaption>${esc(s.en)}</figcaption></figure>`; }).join('');
+}
+function renderSteps() { $('#steps').innerHTML = L().steps.map(([h, p]) => `<li><h3>${h}</h3><p>${p}</p></li>`).join(''); }
+function renderLayouts() { $('#layouts').innerHTML = L().layouts.map(([k, h, p]) => `<div class="layout"><div class="wire w-${k}"><i></i><u></u>${k === 'world' ? '<u class="b"></u>' : ''}</div><h3>${h}</h3><p>${p}</p></div>`).join(''); }
+function renderDemos() {
+  $('#demos').innerHTML = D.map(d => `<button class="demo" data-demo="${d.id}"><div class="thumb"><img src="${d.poster}" alt="" loading="lazy"><span class="play"><i></i></span></div>
+    <div class="body"><div class="badges"><span class="badge v">${esc(lang === 'zh' ? d.style_cn : d.style_en)}</span><span class="badge">${L().layouts.find(l => l[0] === d.layout)[1]}</span><span class="badge">${d.dur}</span></div>
+    <h3>${esc(lang === 'zh' ? d.title : d.title_en)}</h3><p>${esc(lang === 'zh' ? d.line : d.line_en)}</p></div></button>`).join('');
+}
+
+// ---- styles ----
+function renderCats() {
+  $('#cats').innerHTML = `<button class="chip" aria-pressed="${st.cat === 'all'}" data-c="all">${L().all}</button>` + cats.map(([en, cn]) => `<button class="chip" aria-pressed="${st.cat === en}" data-c="${esc(en)}">${esc(lang === 'zh' ? cn : en)}</button>`).join('');
+}
+function filtered() {
+  const q = st.q.trim().toLowerCase();
+  let a = S.filter(s => (st.cat === 'all' || s.cat_en === st.cat) && (st.origin === 'all' || (st.origin === 'added') === s.added)
+    && (!q || [s.en, s.cn, s.film, s.line, s.line_cn, s.cat, s.cat_en, (s.uses || []).join(' ')].join(' ').toLowerCase().includes(q)));
+  if (st.sort === 'dur') a.sort((x, y) => y.dur - x.dur); else if (st.sort === 'name') a.sort((x, y) => x.en.localeCompare(y.en)); else a.sort((x, y) => x.num - y.num);
+  return a;
+}
+function renderGrid() {
+  const a = filtered();
+  $('#grid').innerHTML = a.map(s => `<article class="card${s.added ? ' added' : ''}" tabindex="0" data-slug="${s.slug}" aria-label="${esc(s.en)}">
+    <div class="thumb"><img src="${s.frame}" alt="${esc(s.en)}" loading="lazy">${s.added ? `<span class="tag">${L().tag_added}</span>` : ''}<span class="dur">${dur(s.dur)}</span><span class="play"><i></i></span></div>
+    <div class="meta"><h3>${esc(s.en)}</h3><p class="cn">${esc(s.cn)}</p><p class="film">${esc(s.film)}</p></div></article>`).join('');
+  $('#count').textContent = L().count(a.length, S.length);
+  $('#empty').hidden = a.length > 0;
+}
+
+// ---- viewer ----
+const dlg = $('#viewer'); let cur = null;
+function open(kind, id, push = true) {
+  cur = { kind, id }; const l = L();
+  let media, info;
+  if (kind === 'style') {
+    const s = S.find(x => x.slug === id);
+    media = `<img src="${s.frame}" alt="${esc(s.en)}"><span class="play" style="pointer-events:auto;cursor:pointer" data-load="${s.video}" data-poster="${s.frame}"><i></i></span>`;
+    info = `<h3>${esc(s.en)}</h3><p class="cn">${esc(s.cn)} · ${esc(lang === 'zh' ? s.cat : s.cat_en)} · ${dur(s.dur)}</p><p class="film">${l.film}: ${esc(s.film)}</p><p>${esc(lang === 'zh' ? s.line_cn : s.line)}</p>
+      <div><b style="font-size:13px">${l.uses}</b><div class="uses">${(s.uses || []).map(u => `<span>${esc(u)}</span>`).join('')}</div></div>
+      <div class="origin${s.added ? ' mine' : ''}">${s.added ? l.org_added : l.org_orig}</div>
+      <div class="v-actions"><a class="btn violet" href="${s.video}" target="_blank" rel="noopener">${l.download}</a><a class="btn" href="${s.style_md}" target="_blank" rel="noopener">${l.style_md}</a><a class="btn" href="${s.demo_md}" target="_blank" rel="noopener">${l.demo_md}</a></div>`;
+  } else {
+    const d = D.find(x => x.id === id);
+    media = `<img src="${d.poster}" alt=""><span class="play" style="pointer-events:auto;cursor:pointer" data-load="${d.video}" data-poster="${d.poster}"><i></i></span>`;
+    info = `<h3>${esc(lang === 'zh' ? d.title : d.title_en)}</h3><p class="cn">${l.style}: ${esc(lang === 'zh' ? d.style_cn : d.style_en)} · ${d.dur}</p><p>${esc(lang === 'zh' ? d.line : d.line_en)}</p>
+      <div class="uses"><span>${l.layout}: ${l.layouts.find(x => x[0] === d.layout)[1]}</span></div><div class="origin mine">${l.demo_note}</div>
+      <div class="v-actions"><a class="btn violet" href="${d.video}" target="_blank" rel="noopener">${l.download}</a><a class="btn" href="https://github.com/zhgarylu/claude-video/blob/main/TALKING-HEAD.md" target="_blank" rel="noopener">TALKING-HEAD.md</a></div>`;
+  }
+  $('#v-media').innerHTML = media; $('#v-info').innerHTML = info;
+  $('#v-prev').hidden = $('#v-next').hidden = kind !== 'style';
+  if (!dlg.open) dlg.showModal();
+  if (push) history.replaceState(null, '', `#${kind}=${id}`);
+}
+function step(dir) {
+  if (!cur || cur.kind !== 'style') return; const a = filtered(); const i = a.findIndex(s => s.slug === cur.id); if (i < 0 || !a.length) return;
+  open('style', a[(i + dir + a.length) % a.length].slug);
+}
+dlg.addEventListener('close', () => { $('#v-media').innerHTML = ''; history.replaceState(null, '', location.pathname + location.search); cur = null; });
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+$('#v-close').onclick = () => dlg.close(); $('#v-prev').onclick = () => step(-1); $('#v-next').onclick = () => step(1);
+document.addEventListener('keydown', e => { if (!dlg.open) return; if (e.key === 'ArrowLeft') step(-1); if (e.key === 'ArrowRight') step(1); });
+$('#v-media').addEventListener('click', e => {
+  const b = e.target.closest('[data-load]'); if (!b) return;
+  const v = document.createElement('video'); v.controls = true; v.autoplay = true; v.playsInline = true; v.poster = b.dataset.poster; v.src = b.dataset.load;
+  v.addEventListener('error', () => { $('#v-media').insertAdjacentHTML('beforeend', `<p style="position:absolute;inset:auto 12px 12px 12px;margin:0;padding:8px 12px;border-radius:10px;background:rgba(0,0,0,.7);color:#fff;font-size:13px">${lang === 'zh' ? '短片暂时无法播放，可以用右侧的下载按钮。' : 'The film cannot play here right now; use the download button.'}</p>`); });
+  $('#v-media').innerHTML = ''; $('#v-media').appendChild(v);
+});
+
+// ---- events ----
+$('#grid').addEventListener('click', e => { const c = e.target.closest('.card'); if (c) open('style', c.dataset.slug); });
+$('#grid').addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.closest('.card')) { e.preventDefault(); open('style', e.target.closest('.card').dataset.slug); } });
+$('#demos').addEventListener('click', e => { const c = e.target.closest('.demo'); if (c) open('demo', c.dataset.demo); });
+$('#cats').addEventListener('click', e => { const b = e.target.closest('.chip'); if (!b) return; st.cat = b.dataset.c; renderCats(); renderGrid(); });
+$('#origin').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; st.origin = b.dataset.v; $$('#origin button').forEach(x => x.setAttribute('aria-pressed', x === b)); renderGrid(); });
+$('#q').addEventListener('input', e => { st.q = e.target.value; renderGrid(); });
+$('#sort').addEventListener('change', e => { st.sort = e.target.value; renderGrid(); });
+$('#lang').onclick = () => { lang = lang === 'zh' ? 'en' : 'zh'; store.set('lang', lang); applyI18n(); if (cur) open(cur.kind, cur.id, false); };
+$('#theme').onclick = () => { const r = document.documentElement; const dark = r.dataset.theme ? r.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches; r.dataset.theme = dark ? 'light' : 'dark'; store.set('theme', r.dataset.theme); };
+const th = store.get('theme'); if (th) document.documentElement.dataset.theme = th;
+
+// ---- init ----
+$('#n-total').textContent = G.counts.total; $('#n-added').textContent = G.counts.added; $('#n-demos').textContent = G.counts.demos;
+renderCollage(); applyI18n();
+const m = /^#(style|demo)=([\w-]+)/.exec(location.hash); if (m) open(m[1], m[2], false);
+})();
+</script>
+</body>
+</html>
