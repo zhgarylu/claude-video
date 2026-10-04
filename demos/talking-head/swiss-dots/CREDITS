@@ -1,0 +1,19 @@
+Dots：把事情交给它（Swiss Motion Graphics 口播解说）· 第三方素材与许可
+
+画面
+- 讲者视频 src/host.mp4（dots视频1.mp4）：由用户提供（AI 生成），版权与使用责任归用户；画面未改动，未加任何 logo。
+- 版式与风格：Swiss Motion Graphics（本库 styles/swiss-motion/STYLE.md）；格子、数字、色块、问号均为原创绘制。“Slack”只以文字出现。
+- 页底色逐帧取自视频自身的墙与地面颜色（不取绿板），所以左页与棚内连成一体。
+
+字体（SIL Open Font License 1.1，经 Google Fonts 取子集，位于 fonts/）
+- Inter — The Inter Project Authors
+- Noto Sans SC — Google LLC / Adobe
+
+声音
+- 配乐与拟音：本片原创，numpy 合成（马林巴、木鱼、拨弦低音、颤音琴、活字/切刀/尺规拟音），无采样、无第三方音源。速度与每个落点由 score.json 决定，画面与音乐读同一份数据。人声：视频自带音轨。
+
+资料（2026 年 9 月 29 日 OpenAI DevDay）
+- InfoQ：OpenAI DevDay 2026 Recap for Developers
+- BGR：Everything OpenAI Announced At DevDay 2026
+- digitalapplied：OpenAI DevDay 2026 — All 25 Announcements and Who Gets Them
+- 套餐细节各家说法不一，口播只说“部分付费套餐已经能用，企业要管理员开启”，未逐条对照官方页面。

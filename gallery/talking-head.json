@@ -33,6 +33,17 @@
       "line": "讲者本身就生成在等距小世界里演内容，视频当主画面，两侧用标签卡和引线补上名字、日期和来源。",
       "line_en": "The host is generated inside the isometric world and acts the story out; the video is the main picture, with callout cards adding names, dates and sources.",
       "source": "demos/talking-head/muse2"
+    },
+    {
+      "id": "swiss-dots",
+      "style": "swiss-motion",
+      "dur": "0:30",
+      "title": "Dots：把事情交给它",
+      "title_en": "Dots: hand it your tasks",
+      "layout": "world",
+      "line": "瑞士动态排版：讲者在自己的瑞士海报棚里演内容，页底色取自视频本身；一颗绿点是全片唯一不吸附网格的元素。",
+      "line_en": "Swiss Motion Graphics: the host acts in a Swiss-poster studio of their own, the page colour taken from the video itself; one green dot is the only element that leaves the grid.",
+      "source": "demos/talking-head/swiss-dots"
     }
   ]
 }

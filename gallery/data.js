@@ -1392,6 +1392,22 @@ window.GALLERY = {
    "source_url": "https://github.com/zhgarylu/claude-video/tree/main/demos/talking-head/muse2",
    "style_en": "Isometric Infographic",
    "style_cn": "等距信息图"
+  },
+  {
+   "id": "swiss-dots",
+   "style": "swiss-motion",
+   "dur": "0:30",
+   "title": "Dots：把事情交给它",
+   "title_en": "Dots: hand it your tasks",
+   "layout": "world",
+   "line": "瑞士动态排版：讲者在自己的瑞士海报棚里演内容，页底色取自视频本身；一颗绿点是全片唯一不吸附网格的元素。",
+   "line_en": "Swiss Motion Graphics: the host acts in a Swiss-poster studio of their own, the page colour taken from the video itself; one green dot is the only element that leaves the grid.",
+   "source": "demos/talking-head/swiss-dots",
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/swiss-dots.mp4",
+   "poster": "../docs/talking-head/swiss-dots.jpg",
+   "source_url": "https://github.com/zhgarylu/claude-video/tree/main/demos/talking-head/swiss-dots",
+   "style_en": "Swiss Motion Graphics",
+   "style_cn": "瑞士动态排版"
   }
  ],
  "prompts": [
@@ -1471,6 +1487,6 @@ window.GALLERY = {
  "counts": {
   "total": 61,
   "added": 18,
-  "demos": 3
+  "demos": 4
  }
 };

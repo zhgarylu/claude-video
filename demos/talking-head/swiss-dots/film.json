@@ -1,0 +1,21 @@
+{
+ "layout": "world",
+ "title": "Dots",
+ "subtitle": "",
+ "lang": "zh",
+ "tail": 0,
+ "captions": {
+  "style": "card",
+  "cues": "auto"
+ },
+ "theme": {},
+ "cards": [],
+ "split": {
+  "side": "left"
+ },
+ "pip": {
+  "corner": "tr",
+  "width": 330
+ },
+ "world": {}
+}

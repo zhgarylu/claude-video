@@ -24,8 +24,8 @@ Pick a style, bring your own story (or your own presenter video), and let your c
 - **Talking-head workflow · 口播加解说工作流**: bring a video of a presenter talking, and the film draws the explanation around them in one of the styles. See [`TALKING-HEAD.md`](TALKING-HEAD.md) and the tools in [`tools/talk/`](tools/talk/): footage preparation, word timings and pauses, drawing the host into a page, mixing under the voice. · 你给一条真人（或 AI 生成）的口播视频，影片用某个风格把解释画在周围。见 [`TALKING-HEAD.md`](TALKING-HEAD.md) 和 [`tools/talk/`](tools/talk/) 里的工具：素材预处理、逐词时间码与停顿、把讲者画进页面、人声下的混音。
 - **A new gallery and index · 新的图鉴和索引**: [`gallery/`](https://zhgarylu.github.io/claude-video/gallery/) is a new style gallery (filter by category, search, "Added here" filter, film viewer, bilingual, light/dark) with the talking-head demos; the [style index](styles/README.md) and the style frames in `docs/frames/` cover all 61 styles, and the 18 added styles are marked ★. The original-project gallery in `styleboard/` is kept. · [`gallery/`](https://zhgarylu.github.io/claude-video/gallery/) 是新的风格图鉴（按分类筛选、搜索、"本仓库新增"筛选、短片查看器、中英双语、浅色/深色），带口播 demo；[风格索引](styles/README.md)和 `docs/frames/` 里的风格画面覆盖全部 61 种，18 种新增风格标有 ★。原项目风格的图鉴 `styleboard/` 保留。
 
-Finished films are not stored in git: the films of the 18 added styles and the three demos are release assets of this repository (`films`), and the original project hosts the films of its 43 styles (`styles/*/*.mp4` is ignored). The styles are tuned for Claude Opus 5.5, as the original project says; other models may not reproduce them.<br>
-成片不放进 git：18 种新增风格和三个 demo 的成片是本仓库 release（`films`）里的文件，原 43 种风格的成片由原项目托管（`styles/*/*.mp4` 被忽略）。和原项目说的一样，风格是按 Claude Opus 5.5 调出来的，换成其他模型不保证能做出同样的效果。
+Finished films are not stored in git: the films of the 18 added styles and the four demos are release assets of this repository (`films`), and the original project hosts the films of its 43 styles (`styles/*/*.mp4` is ignored). The styles are tuned for Claude Opus 5.5, as the original project says; other models may not reproduce them.<br>
+成片不放进 git：18 种新增风格和四个 demo 的成片是本仓库 release（`films`）里的文件，原 43 种风格的成片由原项目托管（`styles/*/*.mp4` 被忽略）。和原项目说的一样，风格是按 Claude Opus 5.5 调出来的，换成其他模型不保证能做出同样的效果。
 
 Every film was directed, drawn, scored and mixed by an AI agent writing code: canvas and WebGL pages rendered frame by frame, original music from free sample libraries, text-to-speech narration. No video generation, no stock footage.
 
@@ -33,13 +33,16 @@ Every film was directed, drawn, scored and mixed by an AI agent writing code: ca
 
 ## Talking-head films · 口播加解说
 
-Bring a video of a presenter talking, and the film draws the explanation around them in one of the styles. The host's words are the script; the picture follows the voice. Three demos, three layouts: · 带上一条讲者的口播视频，影片用某个风格把解释画在周围。讲者的话就是脚本，画面跟着声音走。三个 demo，三种版式：
+Bring a video of a presenter talking, and the film draws the explanation around them in one of the styles. The host's words are the script; the picture follows the voice. Four demos, three layouts: · 带上一条讲者的口播视频，影片用某个风格把解释画在周围。讲者的话就是脚本，画面跟着声音走。四个 demo，三种版式：
 
 <table>
 <tr>
 <td width="33%" valign="top"><a href="https://github.com/zhgarylu/claude-video/releases/download/films/claude-mods.mp4"><img src="docs/talking-head/claude-mods.jpg" alt="Claude Code mods"></a><br><b>Claude Code mods</b> · 0:31<br><i>Dark Tech Keynote · split panel · 左右分栏</i><br><sub>The host on the left, an original UI window that gains a pane, a command guard and slash commands.<br>讲者在左，右边的原创界面窗口随口播装上面板、拦截命令、斜杠命令。</sub></td>
 <td width="33%" valign="top"><a href="https://github.com/zhgarylu/claude-video/releases/download/films/muse.mp4"><img src="docs/talking-head/muse.jpg" alt="Muse: hand it your tasks"></a><br><b>Muse: hand it your tasks</b> · 0:33<br><i>Isometric Infographic · corner window · 角落小窗</i><br><sub>The host shrinks to a corner while the camera travels along a diorama of four stations.<br>讲者缩到角落，镜头沿一块沙盘横移，四个工位讲清系统。</sub></td>
 <td width="33%" valign="top"><a href="https://github.com/zhgarylu/claude-video/releases/download/films/muse2.mp4"><img src="docs/talking-head/muse2.jpg" alt="Muse: would you hand it your tasks?"></a><br><b>Muse: would you hand it your tasks?</b> · 0:34<br><i>Isometric Infographic · video as the world · 视频即世界</i><br><sub>The host is generated inside the isometric world and acts it out; callout cards add names, dates and sources.<br>讲者本身就生成在等距世界里演内容，两侧用标签卡补上名字、日期和来源。</sub></td>
+</tr>
+<tr>
+<td width="33%" valign="top"><a href="https://github.com/zhgarylu/claude-video/releases/download/films/swiss-dots.mp4"><img src="docs/talking-head/swiss-dots.jpg" alt="Dots: hand it your tasks"></a><br><b>Dots: hand it your tasks</b> · 0:30<br><i>Swiss Motion Graphics · video as the world · 视频即世界</i><br><sub>The host acts in a Swiss-poster studio of their own; the page colour is taken from the video, and one green dot is the only element that leaves the grid.<br>讲者在自己的瑞士海报棚里演内容，页底色取自视频，一颗绿点是唯一不吸附网格的元素。</sub></td>
 </tr>
 </table>
 
