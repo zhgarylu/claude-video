@@ -1,0 +1,19 @@
+Muse：把事情交给它吗？（第二版）· 第三方素材与许可
+
+画面
+- 讲者世界视频 src/host.mp4：由用户提供（AI 生成的等距风格视频），版权与使用责任归用户。视频里日历上的“13”在预处理帧里被改为“9/8”（patch_calendar.py），原视频文件未改动。
+- 版式与风格：Isometric Infographic（本库 styles/iso-infographic/STYLE.md）；标签卡、路线条、图标均为原创绘制。
+- 品牌：Muse 使用原创字标与通用四角星符号，不是官方标志；Meta、Slack、Canva、Asana、Zoom、Intuit、Box 仅以文字名牌出现（指称性使用）。官方 logo 请放入 src/brand/（见 TREATMENT.md）。
+
+字体（SIL Open Font License 1.1，经 Google Fonts 取子集，位于 fonts/）
+- Jost — The Jost Project Authors
+- Noto Sans SC — Google LLC / Adobe
+
+声音
+- 配乐与拟音：本片原创，numpy 合成，无采样、无第三方音源。人声：视频自带音轨。
+
+资料（2026 年 9 月）
+- Meta 官方介绍：about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/
+- TechCrunch：Everything new coming to Meta's AI agent Muse（2026-09-23）
+- CNBC：Meta launches Muse for Small Business（2026-09-29）
+片中“数字形象”“智能眼镜”按报道为“即将推出”，已在卡片上标注“即将上线”。

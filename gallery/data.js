@@ -1354,8 +1354,10 @@ window.GALLERY = {
    "layout": "split",
    "line": "暗色科技发布：讲者在左，右边一个原创界面窗口随口播装上面板、拦截命令、斜杠命令。",
    "line_en": "Dark Tech Keynote: the host on the left, an original UI window on the right that gains a pane, a command guard and slash commands as they speak.",
+   "source": "demos/talking-head/claude-mods",
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/claude-mods.mp4",
    "poster": "../docs/talking-head/claude-mods.jpg",
+   "source_url": "https://github.com/zhgarylu/claude-video/tree/main/demos/talking-head/claude-mods",
    "style_en": "Dark Tech Keynote",
    "style_cn": "暗色科技发布"
   },
@@ -1368,8 +1370,10 @@ window.GALLERY = {
    "layout": "pip",
    "line": "等距信息图：讲者缩成右上角小窗，镜头沿一块沙盘横移，四个工位讲清 Muse 的系统。",
    "line_en": "Isometric Infographic: the host shrinks to a corner window while the camera travels along a diorama of four stations.",
+   "source": "demos/talking-head/muse",
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/muse.mp4",
    "poster": "../docs/talking-head/muse.jpg",
+   "source_url": "https://github.com/zhgarylu/claude-video/tree/main/demos/talking-head/muse",
    "style_en": "Isometric Infographic",
    "style_cn": "等距信息图"
   },
@@ -1382,8 +1386,10 @@ window.GALLERY = {
    "layout": "world",
    "line": "讲者本身就生成在等距小世界里演内容，视频当主画面，两侧用标签卡和引线补上名字、日期和来源。",
    "line_en": "The host is generated inside the isometric world and acts the story out; the video is the main picture, with callout cards adding names, dates and sources.",
+   "source": "demos/talking-head/muse2",
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/muse2.mp4",
    "poster": "../docs/talking-head/muse2.jpg",
+   "source_url": "https://github.com/zhgarylu/claude-video/tree/main/demos/talking-head/muse2",
    "style_en": "Isometric Infographic",
    "style_cn": "等距信息图"
   }

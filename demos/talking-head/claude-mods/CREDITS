@@ -1,0 +1,17 @@
+Claude Code 的 mods · 口播解说片 · 第三方素材与许可
+
+画面
+- 讲者口播视频 src/host.mp4：由用户提供（AI 生成的虚构人物），版权与使用责任归用户。
+- 风格：Dark Tech Keynote（本库 styles/dark-keynote/STYLE.md）。全部界面均为原创绘制，未使用任何真实产品的截图、标志或界面。
+
+字体（SIL Open Font License 1.1，经 Google Fonts 取子集，位于 fonts/）
+- Inter — The Inter Project Authors
+- JetBrains Mono — The JetBrains Mono Project Authors
+- Noto Sans SC — Google LLC / Adobe
+
+声音
+- 配乐与全部拟音：本片原创，numpy 合成（马林巴、颤音琴、毡垫、低频脉冲、沙锤、玻璃点击、铃），无采样、无第三方音源。
+- 人声：讲者视频自带音轨。
+
+文字内容
+- 关于 Claude Code mods 的功能描述依据 Anthropic 官方文档与公开资料（code.claude.com/docs/en/plugins/mods/create），界面示例（任务面板、拦截命令、/ship 流程）为示意，非真实产品画面。

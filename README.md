@@ -43,6 +43,8 @@ Bring a video of a presenter talking, and the film draws the explanation around 
 </tr>
 </table>
 
+**Start in one command · 一条命令开始**: `sh tools/talk/new-film.sh <host.mp4> films/<name> --layout split|pip|world` prepares the footage, writes `film.json` with captions from the transcript and renders a first cut. The three layouts are ready-made in [`tools/talk/layouts.js`](tools/talk/layouts.js) (`splitLayout`, `pipLayout`, `worldLayout`, plus captions, bullets and callout cards), and each demo's full source is in [`demos/talking-head/`](demos/talking-head/). · 准备素材、用转写生成字幕、渲染第一版，一条命令。三种版式在 `layouts.js` 里有现成代码，三条 demo 的完整源码在 `demos/talking-head/`。
+
 The workflow, in five steps · 工作流五步：
 
 1. **Presenter video · 口播视频**: bring your own, or get a prompt to generate one (reference image, wardrobe changes, or a host inside a styled world). · 带你自己的，或让 agent 写生成视频的提示词（参考图、换装、或让讲者直接生成在风格世界里）。

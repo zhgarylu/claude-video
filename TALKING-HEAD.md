@@ -4,6 +4,24 @@ Use this when the user brings (or wants to make) a **video of a presenter talkin
 
 Not for editing or re-cutting the user's footage. The host video is used as given: no trimming, no speed changes, no lip-sync changes.
 
+## Quick start: a first cut in one command
+
+```sh
+sh tools/talk/new-film.sh <host.mp4> films/<name> --layout split|pip|world --title "…" --lang zh
+```
+
+It copies [`tools/talk/template/`](tools/talk/template/) into the project, runs `prep.sh` (frames, voice, word timings), writes `film.json` with captions made from the transcript, and renders `<name>.mp4`. The result is a plain but complete film: the host in the chosen layout, a title, the items from `film.json`, subtitles and the voice. Then you make it good: edit `film.json` (title, theme, `cards`, the exact caption text), replace `drawContent()` in `main.js` with the style's own graphics, add a score and foley in `mix.py`, rebuild with `sh films/<name>/build.sh`.
+
+The three layouts are ready-made in [`tools/talk/layouts.js`](tools/talk/layouts.js), and each has a finished demo with its source in [`demos/talking-head/`](demos/talking-head/):
+
+| `--layout` | Function | The host | Content area | Demo |
+|---|---|---|---|---|
+| `split` | `splitLayout()` | a panel on one side, about a third of the width, with a "speaking" indicator; a caption band under the panels | the other panel: the style's UI, or `bullets()` | [`claude-mods`](demos/talking-head/claude-mods/) |
+| `pip` | `pipLayout()` | a corner window, about 7% of the frame; slides out when the footage ends | the whole frame | [`muse`](demos/talking-head/muse/) |
+| `world` | `worldLayout()` | the video itself, near full height, four edges feathered, ground colour following the video's corners | callout cards on both sides with leaders to objects in the video; the video shrinks aside for an end card | [`muse2`](demos/talking-head/muse2/) |
+
+Also in `layouts.js`: `captions.card()` and `captions.pill()` (two caption looks), `cuesFromWords()` (subtitles from the transcript: breaks at sentences, pauses and punctuation; fix the text by hand, speech-to-text mishears names), `bullets()`, `drawCallout()` and `isoCube()`. Colours and fonts come from a `theme` you pass in; nothing in the layouts knows about a style.
+
 ## 1. The brief (one round of questions, DIRECTOR.md §1, plus)
 
 - **Do they have the host video?** If yes, take its path. If not, offer to write the video-generation prompt (section 3) and wait for the file. Never invent a presenter.
@@ -55,7 +73,7 @@ Sometimes the user generates the presenter **already inside a style's world** (a
 - **Video at near full height**, centred; feather its four edges and make the ground colour follow the video's own corner colours every frame, so it melts into the canvas with no frame and no halo (the video's background shifts when it dims or brightens a scene).
 - **Callout cards on both sides, with leaders to the objects in the video.** Put in the cards what the video cannot draw: names, dates, numbers, "coming soon" tags, sources. Anchors are `[t, x, y]` in the video's own pixels (overlay a coordinate grid on a few frames to read them). Retract a leader when its object leaves the frame; the card can stay as a caption until its reading time is up.
 - Add a **route strip** (01 → 05) and a small wordmark; end by shrinking the video to one side and putting the summary on the other.
-- Look for **errors in the generated video** before building: a wrong date on a prop, a misspelt sign, a hand with six fingers. If a prop's text contradicts the script, fix it in the extracted frames (never in the user's file) and say so; `films/<name>/patch_calendar.py` in a past film detected the dark digits on a calendar page, painted them out with row-wise interpolation and drew the right text in the same size and colour.
+- Look for **errors in the generated video** before building: a wrong date on a prop, a misspelt sign, a hand with six fingers. If a prop's text contradicts the script, fix it in the extracted frames (never in the user's file) and say so; `demos/talking-head/muse2/patch_calendar.py` detected the dark digits on a calendar page, painted them out with row-wise interpolation and drew the right text in the same size and colour.
 - Props in generated video do not carry text or real marks. Put the names in cards, and the user's own logos in `src/brand/`.
 
 Prompt for such a host video: the same time-axis template as section 3, but describe the **world** (projection, three tones per face, palette by meaning, platform, props that grow out of the floor and sink back, no text on props) and give the host an action per sentence instead of outfit changes; put scene changes in the silent gaps. If the tool drifts from the style, make one still per scene first and animate each.
@@ -84,14 +102,16 @@ Write the cue map from `words.json`: for every spoken **keyword**, the visual th
 
 ## 6. Build
 
-The page is an ordinary `window.render(t)` page. Add the host:
+The page is an ordinary `window.render(t)` page. Add the host with a layout (section "Quick start") or draw it yourself:
 
 ```js
 import { loadHost, drawPip, level } from '/tools/talk/host.js';
+import { worldLayout, captions } from '/tools/talk/layouts.js';
 const host = await loadHost('src');                       // decode every frame before READY
-// in render(t):
-drawPip(ctx, host, t, { x: W - 40 - 330, y: 40, w: 330, h: 443, r: 22, border: ink });   // level(host, t) is 0..1 for a speaking indicator
+const L = worldLayout(host, { W, H, cards, endAt: 29.95 });
+// in render(t):  L.drawGround(ctx, t); L.drawVideo(ctx, t); L.drawCards(ctx, t); captions.card(ctx, cues, t, { W, H });
 ```
+`level(host, t)` is the voice level 0..1, for speaking indicators.
 
 (In skill mode the project is served at `/@film/`; the library module URL `/tools/talk/host.js` stays the same.)
 
@@ -121,3 +141,6 @@ Deliver: `<name>.mp4`, `<name>.srt`, `poster.jpg` (a wide, clean frame with a ti
 - **Wardrobe changes that cover the face** (sweaters, hoodies) destroy the lip-sync; use open layers.
 - **faster-whisper fails to open files on some installs** with `metadata_errors`: `analyze.py` passes a numpy array to avoid it. Use `large-v3-turbo` for Chinese.
 - **Do not freeze the host.** If the footage is shorter than the film, animate it away.
+- **Captions need their own band.** In the split layout the panels stop above a band (`bottom`, 132 px) so the caption never covers the host or the content.
+- **Auto captions are a draft.** `cuesFromWords()` breaks at sentences and pauses, but the transcript has mishearings (names, product words): correct them in `film.json` (`captions.cues`).
+- **Only the latest few bullets stay on screen** (`bullets({ max })`); a long transcript otherwise overflows the content area.

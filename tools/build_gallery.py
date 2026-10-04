@@ -31,7 +31,7 @@ by = {s['slug']: s for s in styles}
 demos = []
 for d in talk['demos']:
     st = by[d['style']]
-    demos.append({**d, 'video': f"{MINE}/{d['id']}.mp4", 'poster': f"../docs/talking-head/{d['id']}.jpg",
+    demos.append({**d, 'video': f"{MINE}/{d['id']}.mp4", 'poster': f"../docs/talking-head/{d['id']}.jpg", 'source_url': f"https://github.com/zhgarylu/claude-video/tree/main/{d['source']}",
                   'style_en': st['en'], 'style_cn': st['cn']})
 missing = ADDED - set(by)
 assert not missing, missing

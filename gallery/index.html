@@ -24,6 +24,7 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 76px; }
 body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+[hidden] { display: none !important; }
 img { display: block; max-width: 100%; }
 a { color: inherit; }
 .wrap { width: min(1240px, 100% - 40px); margin-inline: auto; }
@@ -83,7 +84,7 @@ h2 { font-size: clamp(28px, 3.6vw, 42px); line-height: 1.12; letter-spacing: -.0
 .w-split i { left: 6%; top: 10%; width: 32%; height: 80%; } .w-split u { left: 44%; top: 10%; width: 50%; height: 80%; }
 .w-pip i { right: 5%; top: 8%; width: 17%; height: 36%; } .w-pip u { left: 5%; top: 8%; width: 70%; height: 84%; }
 .w-world i { left: 32%; top: 0; width: 36%; height: 100%; border-radius: 0; opacity: .6; } .w-world u { left: 4%; top: 22%; width: 22%; height: 18%; } .w-world u.b { left: 74%; top: 52%; width: 22%; height: 18%; }
-.layout h3 { margin: 0 0 4px; font-size: 17px; } .layout p { margin: 0; font-size: 14px; color: var(--muted); }
+.layout h3 { margin: 0 0 4px; font-size: 17px; } .layout p { margin: 0; font-size: 14px; color: var(--muted); } .layout code { display: inline-block; margin-top: 6px; padding: 1px 8px; border-radius: 6px; background: var(--bg2); font: 600 12.5px ui-monospace, "SF Mono", Menlo, monospace; color: var(--violet-ink); }
 .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .demo { border: 2px solid var(--ink); border-radius: var(--r); overflow: hidden; background: var(--card); box-shadow: 6px 6px 0 var(--ink); cursor: pointer; text-align: left; padding: 0; font: inherit; color: inherit; transition: transform .15s, box-shadow .15s; }
 .demo:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--ink); }
@@ -183,8 +184,8 @@ footer .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 30px; } foo
   <div class="sec-head"><h2 style="font-size:26px" data-i="t_layouts"></h2></div>
   <div class="layouts" id="layouts"></div>
   <div class="demos" id="demos"></div>
-  <div class="cmdbox"><span class="cmd">sh tools/talk/prep.sh host.mp4 films/my-film --lang zh</span>
-    <span class="row"><a class="btn" href="https://github.com/zhgarylu/claude-video/blob/main/TALKING-HEAD.md" target="_blank" rel="noopener">TALKING-HEAD.md</a><a class="btn" href="https://github.com/zhgarylu/claude-video/tree/main/tools/talk" target="_blank" rel="noopener">tools/talk/</a></span></div>
+  <div class="cmdbox"><span class="cmd">sh tools/talk/new-film.sh host.mp4 films/my-film --layout world --lang zh</span>
+    <span class="row"><a class="btn" href="https://github.com/zhgarylu/claude-video/blob/main/TALKING-HEAD.md" target="_blank" rel="noopener">TALKING-HEAD.md</a><a class="btn" href="https://github.com/zhgarylu/claude-video/tree/main/tools/talk" target="_blank" rel="noopener">tools/talk/</a><a class="btn" href="https://github.com/zhgarylu/claude-video/tree/main/demos/talking-head" target="_blank" rel="noopener" data-i="demos_src"></a></span></div>
 </div></section>
 
 <section id="styles"><div class="wrap">
@@ -232,9 +233,9 @@ const T = {
     h1: '<em>61</em> 种影片风格，<br>外加口播解说工作流', lead: '每种风格都是一份可复用的提示词，配一支完全用代码做出来的短片。本仓库在原项目的 43 种之上新增了 18 种，还有一套把真人（或 AI 生成）口播视频放进风格里的做法。',
     cta1: '看口播解说 demo', cta2: '浏览全部风格', st_total: '种风格', st_added: '种本仓库新增', st_demos: '个口播 demo',
     t_kicker: 'Talking-head', t_h: '口播视频 + 风格解说', t_p: '你带来一条讲者的视频，影片用某个风格把解释画在周围：名字、日期、数据、引线、字幕和配乐。讲者的话就是脚本，画面跟着声音走。',
-    t_layouts: '三种版式', demo_play: '播放',
-    steps: [['口播视频', '带上你自己的口播，或让我们写生成视频的提示词（参考图、换装、风格世界）。'], ['预处理', '<code>prep.sh</code> 拆出逐帧图、人声、声音电平、逐词时间码，并列出可用来转场的停顿。'], ['选风格', '按题材选，不按讲者选：软件功能、系统结构、数据、流程各有合适的风格。'], ['搭建', '讲者窗口 + 风格解说 + 字幕 + 原创配乐，一条 <code>build.sh</code> 出片。'], ['检查交付', '可读性检查、响度、联系表、黑帧；如实说明哪些没能确认。']],
-    layouts: [['split', '左右分栏', '讲者约占三分之一，右边是风格里的界面。适合软件功能讲解。'], ['pip', '角落小窗', '讲者缩到约 7% 画面，镜头在风格世界里移动。适合系统与结构。'], ['world', '视频即世界', '讲者本身就生成在风格世界里演内容，视频当主画面，两侧用标签卡补充名字、日期和来源。']],
+    t_layouts: '三种版式，都有现成代码', demo_play: '播放', demos_src: 'demo 源码', source: '源码',
+    steps: [['口播视频', '带上你自己的口播，或让我们写生成视频的提示词（参考图、换装、风格世界）。'], ['预处理', '<code>new-film.sh</code> 一条命令：拆出逐帧图、人声、逐词时间码，列出可用来转场的停顿，并出第一版。'], ['选风格', '按题材选，不按讲者选：软件功能、系统结构、数据、流程各有合适的风格。'], ['搭建', '选一个版式，换上风格的画面、字幕和配乐，一条 <code>build.sh</code> 出片。'], ['检查交付', '可读性检查、响度、联系表、黑帧；如实说明哪些没能确认。']],
+    layouts: [['split', '左右分栏', '讲者约占三分之一，右边是风格里的界面。适合软件功能讲解。<code>splitLayout()</code>'], ['pip', '角落小窗', '讲者缩到约 7% 画面，镜头在风格世界里移动。适合系统与结构。<code>pipLayout()</code>'], ['world', '视频即世界', '讲者本身就生成在风格世界里演内容，视频当主画面，两侧用标签卡补充名字、日期和来源。<code>worldLayout()</code>']],
     s_kicker: 'Styles', s_h: '全部风格', s_p: '点任意一张看短片、画面和用途。紫色标记的是本仓库新增的风格，其余来自原项目。', s_search: '搜索风格、片名、用途…',
     o_all: '全部', o_added: '本仓库新增', o_orig: '原项目', sort_num: '按编号', sort_dur: '按时长', sort_name: '按名称', tag_added: '★ 本仓库新增', legend: '紫色边框 = 本仓库新增的风格', empty: '没有符合条件的风格。', count: (n, t) => `显示 ${n} / ${t}`,
     all: '全部', watch: '播放短片', download: '下载', style_md: 'STYLE.md', demo_md: 'DEMO.md', film: '片名', uses: '适合', close: '关闭',
@@ -247,9 +248,9 @@ const T = {
     h1: '<em>61</em> film styles,<br>plus a talking-head workflow', lead: 'Every style is a reusable prompt with a short film made entirely in code. This repository adds 18 styles to the original 43, and a way to put a presenter\'s video (real or AI-generated) inside one.',
     cta1: 'Watch the talking-head demos', cta2: 'Browse all styles', st_total: 'styles', st_added: 'added here', st_demos: 'talking-head demos',
     t_kicker: 'Talking-head', t_h: 'A presenter\'s video + a style\'s explainer graphics', t_p: 'Bring a video of someone talking, and the film draws the explanation around them in a style: names, dates, numbers, leaders, subtitles and score. The host\'s words are the script; the picture follows the voice.',
-    t_layouts: 'Three layouts', demo_play: 'Play',
-    steps: [['Presenter video', 'Bring your own, or get a prompt to generate one (reference image, wardrobe, a styled world).'], ['Prepare', '<code>prep.sh</code> extracts frames, voice, voice level and word timings, and lists the pauses you can use for transitions.'], ['Pick a style', 'By topic, not by host: software features, systems, numbers and processes each have a fitting style.'], ['Build', 'Host window + style graphics + subtitles + an original score; one <code>build.sh</code> renders it.'], ['Check & deliver', 'Readability check, loudness, contact sheets, black frames; plus an honest note of what could not be checked.']],
-    layouts: [['split', 'Split panel', 'The host takes about a third; the style\'s UI fills the rest. Good for software tours.'], ['pip', 'Corner window', 'The host shrinks to about 7% of the frame while the camera travels through the style\'s world. Good for systems.'], ['world', 'Video as the world', 'The host is generated inside the style\'s world and acts it out; the video is the main picture and callout cards add names, dates and sources.']],
+    t_layouts: 'Three layouts, ready-made in code', demo_play: 'Play', demos_src: 'Demo sources', source: 'Source',
+    steps: [['Presenter video', 'Bring your own, or get a prompt to generate one (reference image, wardrobe, a styled world).'], ['Prepare', 'One command, <code>new-film.sh</code>: frames, voice, word timings, the pauses you can use for transitions, and a first cut.'], ['Pick a style', 'By topic, not by host: software features, systems, numbers and processes each have a fitting style.'], ['Build', 'Pick a layout, add the style\'s graphics, subtitles and score; one <code>build.sh</code> renders it.'], ['Check & deliver', 'Readability check, loudness, contact sheets, black frames; plus an honest note of what could not be checked.']],
+    layouts: [['split', 'Split panel', 'The host takes about a third; the style\'s UI fills the rest. Good for software tours. <code>splitLayout()</code>'], ['pip', 'Corner window', 'The host shrinks to about 7% of the frame while the camera travels through the style\'s world. Good for systems. <code>pipLayout()</code>'], ['world', 'Video as the world', 'The host is generated inside the style\'s world and acts it out; the video is the main picture and callout cards add names, dates and sources. <code>worldLayout()</code>']],
     s_kicker: 'Styles', s_h: 'All styles', s_p: 'Open any card for the film, frames and uses. The violet mark is a style added in this repository; the rest come from the original project.', s_search: 'Search styles, film titles, uses…',
     o_all: 'All', o_added: 'Added here', o_orig: 'Original', sort_num: 'By number', sort_dur: 'By length', sort_name: 'By name', tag_added: '★ Added here', legend: 'violet border = a style added in this repository', empty: 'No styles match.', count: (n, t) => `Showing ${n} of ${t}`,
     all: 'All', watch: 'Play the film', download: 'Download', style_md: 'STYLE.md', demo_md: 'DEMO.md', film: 'Film', uses: 'Good for', close: 'Close',
@@ -328,7 +329,7 @@ function open(kind, id, push = true) {
     media = `<img src="${d.poster}" alt=""><span class="play" style="pointer-events:auto;cursor:pointer" data-load="${d.video}" data-poster="${d.poster}"><i></i></span>`;
     info = `<h3>${esc(lang === 'zh' ? d.title : d.title_en)}</h3><p class="cn">${l.style}: ${esc(lang === 'zh' ? d.style_cn : d.style_en)} · ${d.dur}</p><p>${esc(lang === 'zh' ? d.line : d.line_en)}</p>
       <div class="uses"><span>${l.layout}: ${l.layouts.find(x => x[0] === d.layout)[1]}</span></div><div class="origin mine">${l.demo_note}</div>
-      <div class="v-actions"><a class="btn violet" href="${d.video}" target="_blank" rel="noopener">${l.download}</a><a class="btn" href="https://github.com/zhgarylu/claude-video/blob/main/TALKING-HEAD.md" target="_blank" rel="noopener">TALKING-HEAD.md</a></div>`;
+      <div class="v-actions"><a class="btn violet" href="${d.video}" target="_blank" rel="noopener">${l.download}</a><a class="btn" href="${d.source_url}" target="_blank" rel="noopener">${l.source}</a><a class="btn" href="https://github.com/zhgarylu/claude-video/blob/main/TALKING-HEAD.md" target="_blank" rel="noopener">TALKING-HEAD.md</a></div>`;
   }
   $('#v-media').innerHTML = media; $('#v-info').innerHTML = info;
   $('#v-prev').hidden = $('#v-next').hidden = kind !== 'style';

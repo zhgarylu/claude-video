@@ -1,0 +1,11 @@
+# the host videos, their frames and every render stay out of git
+*/src/host.mp4
+*/src/frames/
+*/src/voice.wav
+*/src/env.json
+*/src/meta.json
+*/out/
+*/stills/
+*/events.json
+*/*.mp4
+*/*.srt
