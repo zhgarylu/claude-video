@@ -96,6 +96,15 @@ h2 { font-size: clamp(28px, 3.6vw, 42px); line-height: 1.12; letter-spacing: -.0
 .demo p { margin: 0; font-size: 14.5px; color: var(--muted); }
 .cmdbox { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: space-between; padding: 16px 20px; border-radius: 14px; background: var(--ink); color: var(--bg); }
 .cmdbox .cmd { color: #E7DCCA; word-break: break-all; } .cmdbox .btn { border-color: var(--bg); color: var(--bg); padding: 8px 14px; font-size: 14px; }
+/* prompts */
+.prompts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
+.pcard { min-width: 0; border: 2px solid var(--ink); border-radius: var(--r); background: var(--card); padding: 18px 18px 16px; box-shadow: 6px 6px 0 var(--ink); display: grid; gap: 10px; }
+.pcard h3 { margin: 0; font-size: 20px; line-height: 1.25; } .pcard .world { margin: 0; font-size: 14.5px; color: var(--muted); }
+.pcard .badges { display: flex; flex-wrap: wrap; gap: 6px; }
+.badge.ok { background: #1f8f4a; border-color: #1f8f4a; color: #fff; }
+.pcard details { border-top: 1px solid var(--line); padding-top: 10px; } .pcard summary { cursor: pointer; font-weight: 600; font-size: 14.5px; }
+.pcard pre { margin: 10px 0 0; max-height: 340px; overflow: auto; padding: 12px; border-radius: 10px; background: var(--bg2); border: 1px solid var(--line); white-space: pre-wrap; word-break: break-word; font: 13px/1.65 ui-monospace, "SF Mono", Menlo, "PingFang SC", monospace; }
+.pcard .row .btn { padding: 8px 14px; font-size: 14px; }
 /* play glyph */
 .play { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }
 .play i { width: 54px; height: 54px; border-radius: 50%; background: rgba(251,247,238,.92); border: 2px solid var(--ink); display: grid; place-items: center; transition: transform .15s; }
@@ -144,10 +153,10 @@ footer { padding: 46px 0 60px; border-top: 1px solid var(--line); background: va
 footer .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 30px; } footer h4 { margin: 0 0 8px; font-size: 16px; } footer p { margin: 0 0 8px; color: var(--muted); font-size: 14.5px; }
 @media (max-width: 960px) {
   .hero .wrap { grid-template-columns: 1fr; } .collage { max-width: 520px; transform: none; }
-  .steps, .layouts, .demos { grid-template-columns: 1fr 1fr; } .v-wrap { grid-template-columns: 1fr; } footer .wrap { grid-template-columns: 1fr; }
+  .steps, .layouts, .demos, .prompts { grid-template-columns: 1fr 1fr; } .v-wrap { grid-template-columns: 1fr; } footer .wrap { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
-  .steps, .layouts, .demos { grid-template-columns: 1fr; } .top nav { display: none; } .top .wrap { gap: 10px; } .top .btn { padding: 8px 12px; font-size: 14px; } .hero { padding-top: 36px; } section { padding: 40px 0; }
+  .steps, .layouts, .demos, .prompts { grid-template-columns: 1fr; } .top nav { display: none; } .top .wrap { gap: 10px; } .top .btn { padding: 8px 12px; font-size: 14px; } .hero { padding-top: 36px; } section { padding: 40px 0; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
 </style>
@@ -155,7 +164,7 @@ footer .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 30px; } foo
 <body>
 <header class="top"><div class="wrap">
   <a class="logo" href="#top" aria-label="Claude Video"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l11 6.5L16 16 5 9.5z" fill="#A590FF"/><path d="M5 9.5L16 16v13L5 22.5z" fill="#7B5CF5"/><path d="M16 16l11-6.5v13L16 29z" fill="#5B3FD6"/></svg>Claude Video</a>
-  <nav><a href="#talking" data-i="nav_talk"></a><a href="#styles" data-i="nav_styles"></a><a href="#about" data-i="nav_about"></a></nav>
+  <nav><a href="#talking" data-i="nav_talk"></a><a href="#prompts" data-i="nav_prompts"></a><a href="#styles" data-i="nav_styles"></a><a href="#about" data-i="nav_about"></a></nav>
   <span class="sp"></span>
   <button class="icon-btn" id="lang" aria-label="Language">EN</button>
   <button class="icon-btn" id="theme" aria-label="Theme">◐</button>
@@ -186,6 +195,13 @@ footer .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 30px; } foo
   <div class="demos" id="demos"></div>
   <div class="cmdbox"><span class="cmd">sh tools/talk/new-film.sh host.mp4 films/my-film --layout world --lang zh</span>
     <span class="row"><a class="btn" href="https://github.com/zhgarylu/claude-video/blob/main/TALKING-HEAD.md" target="_blank" rel="noopener">TALKING-HEAD.md</a><a class="btn" href="https://github.com/zhgarylu/claude-video/tree/main/tools/talk" target="_blank" rel="noopener">tools/talk/</a><a class="btn" href="https://github.com/zhgarylu/claude-video/tree/main/demos/talking-head" target="_blank" rel="noopener" data-i="demos_src"></a></span></div>
+</div></section>
+
+<section id="prompts"><div class="wrap">
+  <div class="sec-head"><span class="kicker" data-i="p_kicker"></span><h2 data-i="p_h"></h2><p data-i="p_p"></p></div>
+  <div class="prompts" id="prompts-list"></div>
+  <div class="cmdbox"><span class="cmd">sh tools/talk/new-film.sh host.mp4 films/my-film --layout world --lang zh</span>
+    <span class="row"><a class="btn" href="https://github.com/zhgarylu/claude-video/tree/main/prompts/talking-head" target="_blank" rel="noopener" data-i="p_all"></a></span></div>
 </div></section>
 
 <section id="styles"><div class="wrap">
@@ -223,7 +239,7 @@ footer .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 30px; } foo
 <script src="data.js"></script>
 <script>
 (() => {
-const G = window.GALLERY, S = G.styles, D = G.demos;
+const G = window.GALLERY, S = G.styles, D = G.demos, P = G.prompts || [];
 const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const store = { get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} } };
 
@@ -233,7 +249,7 @@ const T = {
     h1: '<em>61</em> 种影片风格，<br>外加口播解说工作流', lead: '每种风格都是一份可复用的提示词，配一支完全用代码做出来的短片。本仓库在原项目的 43 种之上新增了 18 种，还有一套把真人（或 AI 生成）口播视频放进风格里的做法。',
     cta1: '看口播解说 demo', cta2: '浏览全部风格', st_total: '种风格', st_added: '种本仓库新增', st_demos: '个口播 demo',
     t_kicker: 'Talking-head', t_h: '口播视频 + 风格解说', t_p: '你带来一条讲者的视频，影片用某个风格把解释画在周围：名字、日期、数据、引线、字幕和配乐。讲者的话就是脚本，画面跟着声音走。',
-    t_layouts: '三种版式，都有现成代码', demo_play: '播放', demos_src: 'demo 源码', source: '源码',
+    t_layouts: '三种版式，都有现成代码', nav_prompts: '视频提示词', p_kicker: 'Prompts', p_h: '口播视频提示词', p_p: '给 AI 视频工具用：让讲者站在风格世界里演内容。生成后拿去做“视频即世界”的口播解说。世界里的东西都是空白的，字由后期画。', p_copy: '复制提示词', p_copied: '已复制', p_view: '看源文件', p_show: '展开提示词', p_all: '全部提示词与写法', p_used: '已做成片', p_untested: '未试', p_template: '填空模板', p_facts: '事实截至',  demo_play: '播放', demos_src: 'demo 源码', source: '源码',
     steps: [['口播视频', '带上你自己的口播，或让我们写生成视频的提示词（参考图、换装、风格世界）。'], ['预处理', '<code>new-film.sh</code> 一条命令：拆出逐帧图、人声、逐词时间码，列出可用来转场的停顿，并出第一版。'], ['选风格', '按题材选，不按讲者选：软件功能、系统结构、数据、流程各有合适的风格。'], ['搭建', '选一个版式，换上风格的画面、字幕和配乐，一条 <code>build.sh</code> 出片。'], ['检查交付', '可读性检查、响度、联系表、黑帧；如实说明哪些没能确认。']],
     layouts: [['split', '左右分栏', '讲者约占三分之一，右边是风格里的界面。适合软件功能讲解。<code>splitLayout()</code>'], ['pip', '角落小窗', '讲者缩到约 7% 画面，镜头在风格世界里移动。适合系统与结构。<code>pipLayout()</code>'], ['world', '视频即世界', '讲者本身就生成在风格世界里演内容，视频当主画面，两侧用标签卡补充名字、日期和来源。<code>worldLayout()</code>']],
     s_kicker: 'Styles', s_h: '全部风格', s_p: '点任意一张看短片、画面和用途。紫色标记的是本仓库新增的风格，其余来自原项目。', s_search: '搜索风格、片名、用途…',
@@ -248,7 +264,7 @@ const T = {
     h1: '<em>61</em> film styles,<br>plus a talking-head workflow', lead: 'Every style is a reusable prompt with a short film made entirely in code. This repository adds 18 styles to the original 43, and a way to put a presenter\'s video (real or AI-generated) inside one.',
     cta1: 'Watch the talking-head demos', cta2: 'Browse all styles', st_total: 'styles', st_added: 'added here', st_demos: 'talking-head demos',
     t_kicker: 'Talking-head', t_h: 'A presenter\'s video + a style\'s explainer graphics', t_p: 'Bring a video of someone talking, and the film draws the explanation around them in a style: names, dates, numbers, leaders, subtitles and score. The host\'s words are the script; the picture follows the voice.',
-    t_layouts: 'Three layouts, ready-made in code', demo_play: 'Play', demos_src: 'Demo sources', source: 'Source',
+    t_layouts: 'Three layouts, ready-made in code', nav_prompts: 'Prompts', p_kicker: 'Prompts', p_h: 'Host-video prompts', p_p: 'For AI video tools: the host acts the story out inside a style\'s world, then the film adds the explanation around the video. Everything in the world is blank; the film draws the text. The prompts are in Chinese, the language the hosts speak.', p_copy: 'Copy prompt', p_copied: 'Copied', p_view: 'View source', p_show: 'Show the prompt', p_all: 'All prompts and tips', p_used: 'Used in a film', p_untested: 'Not tried yet', p_template: 'Template', p_facts: 'Facts as of',  demo_play: 'Play', demos_src: 'Demo sources', source: 'Source',
     steps: [['Presenter video', 'Bring your own, or get a prompt to generate one (reference image, wardrobe, a styled world).'], ['Prepare', 'One command, <code>new-film.sh</code>: frames, voice, word timings, the pauses you can use for transitions, and a first cut.'], ['Pick a style', 'By topic, not by host: software features, systems, numbers and processes each have a fitting style.'], ['Build', 'Pick a layout, add the style\'s graphics, subtitles and score; one <code>build.sh</code> renders it.'], ['Check & deliver', 'Readability check, loudness, contact sheets, black frames; plus an honest note of what could not be checked.']],
     layouts: [['split', 'Split panel', 'The host takes about a third; the style\'s UI fills the rest. Good for software tours. <code>splitLayout()</code>'], ['pip', 'Corner window', 'The host shrinks to about 7% of the frame while the camera travels through the style\'s world. Good for systems. <code>pipLayout()</code>'], ['world', 'Video as the world', 'The host is generated inside the style\'s world and acts it out; the video is the main picture and callout cards add names, dates and sources. <code>worldLayout()</code>']],
     s_kicker: 'Styles', s_h: 'All styles', s_p: 'Open any card for the film, frames and uses. The violet mark is a style added in this repository; the rest come from the original project.', s_search: 'Search styles, film titles, uses…',
@@ -276,7 +292,7 @@ function applyI18n() {
   $$('[data-i-ph]').forEach(e => { e.placeholder = L()[e.dataset.iPh]; });
   $('#lang').textContent = lang === 'zh' ? 'EN' : '中';
   document.title = lang === 'zh' ? 'Claude Video 风格图鉴' : 'Claude Video · style gallery';
-  renderSteps(); renderLayouts(); renderDemos(); renderCats(); renderGrid();
+  renderSteps(); renderLayouts(); renderDemos(); renderPrompts(); renderCats(); renderGrid();
 }
 
 // ---- hero & talking-head ----
@@ -292,6 +308,13 @@ function renderDemos() {
     <h3>${esc(lang === 'zh' ? d.title : d.title_en)}</h3><p>${esc(lang === 'zh' ? d.line : d.line_en)}</p></div></button>`).join('');
 }
 
+function renderPrompts() {
+  const l = L(), lab = { used: l.p_used, untested: l.p_untested, template: l.p_template };
+  $('#prompts-list').innerHTML = P.map(p => `<article class="pcard"><div class="badges"><span class="badge ${p.status === 'used' ? 'ok' : p.status === 'template' ? 'v' : ''}">${esc(lab[p.status] || p.status)}</span>${p.facts ? `<span class="badge">${l.p_facts} ${esc(p.facts)}</span>` : ''}</div>
+    <h3>${esc(lang === 'zh' ? p.title : p.title_en)}</h3><p class="world">${esc(lang === 'zh' ? p.world : p.world_en)}</p>
+    <details><summary>${l.p_show}</summary><pre>${esc(p.text)}</pre></details>
+    <div class="row"><button class="btn violet" data-copy="${p.id}">${l.p_copy}</button><a class="btn" href="${p.url}" target="_blank" rel="noopener">${l.p_view}</a></div></article>`).join('');
+}
 // ---- styles ----
 function renderCats() {
   $('#cats').innerHTML = `<button class="chip" aria-pressed="${st.cat === 'all'}" data-c="all">${L().all}</button>` + cats.map(([en, cn]) => `<button class="chip" aria-pressed="${st.cat === en}" data-c="${esc(en)}">${esc(lang === 'zh' ? cn : en)}</button>`).join('');
@@ -355,6 +378,11 @@ $('#v-media').addEventListener('click', e => {
 $('#grid').addEventListener('click', e => { const c = e.target.closest('.card'); if (c) open('style', c.dataset.slug); });
 $('#grid').addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.closest('.card')) { e.preventDefault(); open('style', e.target.closest('.card').dataset.slug); } });
 $('#demos').addEventListener('click', e => { const c = e.target.closest('.demo'); if (c) open('demo', c.dataset.demo); });
+$('#prompts-list').addEventListener('click', async e => {
+  const b = e.target.closest('[data-copy]'); if (!b) return; const p = P.find(x => x.id === b.dataset.copy), old = b.textContent;
+  try { await navigator.clipboard.writeText(p.text); } catch (err) { const ta = document.createElement('textarea'); ta.value = p.text; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e2) {} ta.remove(); }
+  b.textContent = L().p_copied; setTimeout(() => { b.textContent = old; }, 1400);
+});
 $('#cats').addEventListener('click', e => { const b = e.target.closest('.chip'); if (!b) return; st.cat = b.dataset.c; renderCats(); renderGrid(); });
 $('#origin').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; st.origin = b.dataset.v; $$('#origin button').forEach(x => x.setAttribute('aria-pressed', x === b)); renderGrid(); });
 $('#q').addEventListener('input', e => { st.q = e.target.value; renderGrid(); });

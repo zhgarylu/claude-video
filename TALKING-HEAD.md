@@ -78,6 +78,8 @@ Sometimes the user generates the presenter **already inside a style's world** (a
 
 Prompt for such a host video: the same time-axis template as section 3, but describe the **world** (projection, three tones per face, palette by meaning, platform, props that grow out of the floor and sink back, no text on props) and give the host an action per sentence instead of outfit changes; put scene changes in the silent gaps. If the tool drifts from the style, make one still per scene first and animate each.
 
+Ready-to-paste prompts for such host videos (a Swiss white studio in two signal colours, an isometric island, and a fill-in template), with the rules that make them work: [`prompts/talking-head/`](prompts/talking-head/).
+
 ## 4. Prepare the footage
 
 ```sh

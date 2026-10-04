@@ -43,6 +43,8 @@ Bring a video of a presenter talking, and the film draws the explanation around 
 </tr>
 </table>
 
+**Host-video prompts · 口播视频提示词**: ready-to-paste prompts for AI video tools, so the host stands inside a style's world and acts the story out ("video as the world"), plus a fill-in template and the rules behind them: [`prompts/talking-head/`](prompts/talking-head/), also in the [gallery](https://zhgarylu.github.io/claude-video/gallery/#prompts). · 给 AI 视频工具用的现成提示词，让讲者站在风格世界里演内容（“视频即世界”），另有填空模板和写法：[`prompts/talking-head/`](prompts/talking-head/)，画廊里也有。
+
 **Start in one command · 一条命令开始**: `sh tools/talk/new-film.sh <host.mp4> films/<name> --layout split|pip|world` prepares the footage, writes `film.json` with captions from the transcript and renders a first cut. The three layouts are ready-made in [`tools/talk/layouts.js`](tools/talk/layouts.js) (`splitLayout`, `pipLayout`, `worldLayout`, plus captions, bullets and callout cards), and each demo's full source is in [`demos/talking-head/`](demos/talking-head/). · 准备素材、用转写生成字幕、渲染第一版，一条命令。三种版式在 `layouts.js` 里有现成代码，三条 demo 的完整源码在 `demos/talking-head/`。
 
 The workflow, in five steps · 工作流五步：
