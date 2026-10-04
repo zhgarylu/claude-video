@@ -8,6 +8,8 @@
 Pick a style, bring your own story (or your own presenter video), and let your coding agent direct the film.<br>
 选一个风格，带上你自己的故事（或你自己的口播视频），让你的编程 agent 来当导演。
 
+[**▶ Open the gallery · 打开图鉴**](https://zhgarylu.github.io/claude-video/gallery/)
+
 </div>
 
 > **Based on Lemo-Opuscar · 基于 Lemo-Opuscar**
@@ -20,7 +22,7 @@ Pick a style, bring your own story (or your own presenter video), and let your c
 
 - **18 new styles (43 → 61) · 新增 18 种风格**: Embroidery & Knit 刺绣与针织 · Charcoal Sketch Animation 木炭素描动画 · Sand Animation 沙画 · Blue-and-White Porcelain 青花瓷 · Dunhuang Mural 敦煌壁画 · Natural History Plate 博物图鉴 · Neon Signage 霓虹灯牌 · Art Nouveau 新艺术 · Bauhaus & Constructivist Poster 包豪斯构成主义 · Vaporwave & Y2K Chrome 蒸汽波与 Y2K · Sheet-music Motion 乐谱音乐可视化 · Comic Panel Pop Art 美漫分格波普 · Peking Opera Cel Animation 国风戏曲动画 · Manga Panel 漫画黑白网点 · 8-bit Console Pixel 8-bit 红白机像素 · Super 8 Home Movie 老胶片家庭录像 · Claymation / Stop-motion 粘土定格动画 · Origami Fold 折纸. Each has a `STYLE.md`, a `DEMO.md` and the demo's source. · 每种都有 `STYLE.md`、`DEMO.md` 和样片源码。
 - **Talking-head workflow · 口播加解说工作流**: bring a video of a presenter talking, and the film draws the explanation around them in one of the styles. See [`TALKING-HEAD.md`](TALKING-HEAD.md) and the tools in [`tools/talk/`](tools/talk/): footage preparation, word timings and pauses, drawing the host into a page, mixing under the voice. · 你给一条真人（或 AI 生成）的口播视频，影片用某个风格把解释画在周围。见 [`TALKING-HEAD.md`](TALKING-HEAD.md) 和 [`tools/talk/`](tools/talk/) 里的工具：素材预处理、逐词时间码与停顿、把讲者画进页面、人声下的混音。
-- **A new gallery and index · 新的图鉴和索引**: [`gallery/`](gallery/index.html) is a new style gallery (filter by category, search, "Added here" filter, film viewer, bilingual, light/dark) with the talking-head demos; the [style index](styles/README.md) and the style frames in `docs/frames/` cover all 61 styles, and the 18 added styles are marked ★. The original-project gallery in `styleboard/` is kept. · [`gallery/`](gallery/index.html) 是新的风格图鉴（按分类筛选、搜索、"本仓库新增"筛选、短片查看器、中英双语、浅色/深色），带口播 demo；[风格索引](styles/README.md)和 `docs/frames/` 里的风格画面覆盖全部 61 种，18 种新增风格标有 ★。原项目风格的图鉴 `styleboard/` 保留。
+- **A new gallery and index · 新的图鉴和索引**: [`gallery/`](https://zhgarylu.github.io/claude-video/gallery/) is a new style gallery (filter by category, search, "Added here" filter, film viewer, bilingual, light/dark) with the talking-head demos; the [style index](styles/README.md) and the style frames in `docs/frames/` cover all 61 styles, and the 18 added styles are marked ★. The original-project gallery in `styleboard/` is kept. · [`gallery/`](https://zhgarylu.github.io/claude-video/gallery/) 是新的风格图鉴（按分类筛选、搜索、"本仓库新增"筛选、短片查看器、中英双语、浅色/深色），带口播 demo；[风格索引](styles/README.md)和 `docs/frames/` 里的风格画面覆盖全部 61 种，18 种新增风格标有 ★。原项目风格的图鉴 `styleboard/` 保留。
 
 Finished films are not stored in git: the films of the 18 added styles and the three demos are release assets of this repository (`films`), and the original project hosts the films of its 43 styles (`styles/*/*.mp4` is ignored). The styles are tuned for Claude Opus 5.5, as the original project says; other models may not reproduce them.<br>
 成片不放进 git：18 种新增风格和三个 demo 的成片是本仓库 release（`films`）里的文件，原 43 种风格的成片由原项目托管（`styles/*/*.mp4` 被忽略）。和原项目说的一样，风格是按 Claude Opus 5.5 调出来的，换成其他模型不保证能做出同样的效果。
@@ -49,7 +51,7 @@ The workflow, in five steps · 工作流五步：
 4. **Build · 搭建**: host window + style graphics + subtitles + an original score; `tools/talk/host.js` draws the host into the page and `tools/talk/mix_helpers.py` handles the voice bus, ducking and digital silence. · 讲者窗口 + 风格解说 + 字幕 + 原创配乐；`host.js` 把讲者画进页面，`mix_helpers.py` 处理人声、压低音乐和数字静音。
 5. **Check and deliver · 检查交付**: readability check, loudness, contact sheets, black frames, and an honest note of what could not be checked. · 可读性检查、响度、联系表、黑帧，并如实说明哪些没能确认。
 
-Details in [`TALKING-HEAD.md`](TALKING-HEAD.md); the tools are in [`tools/talk/`](tools/talk/); the demos play in the [gallery · 图鉴](gallery/index.html).
+Details in [`TALKING-HEAD.md`](TALKING-HEAD.md); the tools are in [`tools/talk/`](tools/talk/); the demos play in the [gallery · 图鉴](https://zhgarylu.github.io/claude-video/gallery/).
 
 ## How to use · 怎么用
 
@@ -96,7 +98,7 @@ The agent reads three guides and works like a small studio · agent 会读三份
 
 Click a frame for its `STYLE.md` · 点图片看它的 `STYLE.md`。<br>Styles marked **★ Added here** are new in this repository; the others come from the original project. · 标有 **★ 本仓库新增** 的是本仓库新增的风格，其余来自原项目。
 
-Browse them with films in the [**gallery · 图鉴**](gallery/index.html).
+Browse them with films in the [**gallery · 图鉴**](https://zhgarylu.github.io/claude-video/gallery/).
 
 <!-- styles:start -->
 
