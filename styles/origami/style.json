@@ -1,0 +1,18 @@
+{
+ "slug": "origami",
+ "num": "61",
+ "en": "Origami Fold",
+ "cn": "折纸",
+ "category_en": "Materials & 3D",
+ "category_cn": "材质与 3D",
+ "film": "The Seventh Fold",
+ "line": "A strip of paper is folded in half six times and the seventh will not close; the same strip is pleated, gathers into a wing, and opens with one pull.",
+ "line_cn": "一条纸带对折六次，第七次再也折不动；换成风琴褶，同一条纸带收成一排折页，一拉就展开。",
+ "uses": [
+  "How-it-works explainers",
+  "Product packaging and unboxing",
+  "Instruction sheets and craft tutorials"
+ ],
+ "frame_sec": 32.5,
+ "dur": 50
+}

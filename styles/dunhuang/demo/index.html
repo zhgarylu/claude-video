@@ -1,0 +1,14 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Borrowed Lamplight</title>
+<style>
+@font-face{font-family:'Ma Shan Zheng';src:url('fonts/sub/MaShanZheng.ttf')}
+@font-face{font-family:'Noto Serif SC';src:url('fonts/sub/NotoSerifSC.ttf');font-weight:600}
+html,body{margin:0;background:#120c08}canvas{display:block}</style></head>
+<body><canvas id="c" width="1920" height="1080"></canvas>
+<script type="module">
+import { renderFilm, filmTexts, buildEvents, DUR } from './film.js';
+const out = document.getElementById('c').getContext('2d');
+window.DUR = DUR; window.EV = buildEvents(); window.TEXTS = filmTexts;
+(async () => { await Promise.all(['64px "Ma Shan Zheng"', '600 54px "Noto Serif SC"'].map(f => document.fonts.load(f, '借灯洞里没有光只盏来的走到哪墙就醒丝带还在吹风是画进去一格每笔都人用手过颜色会退线条')));
+window.render = t => renderFilm(out, t);
+window.READY = true; })();
+</script></body></html>

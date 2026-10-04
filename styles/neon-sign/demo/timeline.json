@@ -1,0 +1,464 @@
+{
+ "BPM": 72,
+ "BEAT": 0.8333333333333334,
+ "BAR": 3.3333333333333335,
+ "DUR": 54,
+ "T": {
+  "tick": 1.2,
+  "catch": 1.6,
+  "fail": 2,
+  "hold": 3,
+  "pull0": 5,
+  "pull1": 9.2,
+  "frame0": 5,
+  "frameEnd": 11,
+  "bowl": 7,
+  "bowlDur": 1,
+  "lettersFrom": 8.3333,
+  "letterGap": 0.4167,
+  "letterDur": 0.7,
+  "open": 10,
+  "openDur": 0.9,
+  "pan0": 12,
+  "off24": 15,
+  "offBar": 17.5,
+  "offHotel": 20,
+  "ret0": 20.5,
+  "ret1": 23.3,
+  "eFlick": 23.4,
+  "lDie0": 24.5,
+  "lDead": 27.5,
+  "push0": 23.4,
+  "macro0": 28,
+  "macro1": 31.5,
+  "blackout": 33.3333,
+  "restart": 35.8333,
+  "tilt0": 37.5,
+  "tilt1": 40.5,
+  "walk0": 38.2,
+  "walk1": 46.3,
+  "step": 0.52,
+  "dawn0": 43.5,
+  "dawn1": 49,
+  "rain0": 21,
+  "rain1": 44,
+  "rain2": 48,
+  "hand0": 48.4,
+  "breaker": 50
+ },
+ "EV": [
+  {
+   "t": 1.2,
+   "type": "tick"
+  },
+  {
+   "t": 1.6,
+   "type": "crackle",
+   "dur": 0.2,
+   "g": 0.6
+  },
+  {
+   "t": 1.78,
+   "type": "sputter",
+   "g": 0.5
+  },
+  {
+   "t": 2.9,
+   "type": "tick"
+  },
+  {
+   "t": 3,
+   "type": "crackle",
+   "dur": 0.3,
+   "g": 0.6
+  },
+  {
+   "t": 5,
+   "type": "crackle",
+   "dur": 6,
+   "g": 0.8
+  },
+  {
+   "t": 7,
+   "type": "relay"
+  },
+  {
+   "t": 7,
+   "type": "crackle",
+   "dur": 1,
+   "g": 0.7
+  },
+  {
+   "t": 8.3333,
+   "type": "crackle",
+   "dur": 0.7,
+   "g": 0.55
+  },
+  {
+   "t": 8.75,
+   "type": "crackle",
+   "dur": 0.7,
+   "g": 0.55
+  },
+  {
+   "t": 9.166699999999999,
+   "type": "crackle",
+   "dur": 0.7,
+   "g": 0.55
+  },
+  {
+   "t": 9.5834,
+   "type": "crackle",
+   "dur": 0.7,
+   "g": 0.55
+  },
+  {
+   "t": 10.0001,
+   "type": "crackle",
+   "dur": 0.7,
+   "g": 0.55
+  },
+  {
+   "t": 10.416799999999999,
+   "type": "crackle",
+   "dur": 0.7,
+   "g": 0.55
+  },
+  {
+   "t": 10.833499999999999,
+   "type": "crackle",
+   "dur": 0.7,
+   "g": 0.55
+  },
+  {
+   "t": 8.3333,
+   "type": "relay"
+  },
+  {
+   "t": 10,
+   "type": "crackle",
+   "dur": 0.9,
+   "g": 0.45
+  },
+  {
+   "t": 15,
+   "type": "thump"
+  },
+  {
+   "t": 17.5,
+   "type": "thump"
+  },
+  {
+   "t": 20,
+   "type": "thump",
+   "big": 1
+  },
+  {
+   "t": 20.35,
+   "type": "whoosh"
+  },
+  {
+   "t": 23.65,
+   "type": "sputter"
+  },
+  {
+   "t": 24.15,
+   "type": "sputter"
+  },
+  {
+   "t": 24.9,
+   "type": "sputter"
+  },
+  {
+   "t": 25.5,
+   "type": "sputter"
+  },
+  {
+   "t": 26.2,
+   "type": "sputter"
+  },
+  {
+   "t": 26.8,
+   "type": "sputter",
+   "g": 0.8
+  },
+  {
+   "t": 27.5,
+   "type": "dead"
+  },
+  {
+   "t": 30.6,
+   "type": "sputter",
+   "g": 0.4
+  },
+  {
+   "t": 32.2,
+   "type": "sputter",
+   "g": 0.35
+  },
+  {
+   "t": 33.3333,
+   "type": "blackout"
+  },
+  {
+   "t": 35.8333,
+   "type": "thump",
+   "big": 1
+  },
+  {
+   "t": 35.8833,
+   "type": "relay"
+  },
+  {
+   "t": 35.8833,
+   "type": "crackle",
+   "dur": 1.9,
+   "g": 0.8
+  },
+  {
+   "t": 48.45,
+   "type": "hand"
+  },
+  {
+   "t": 50,
+   "type": "breaker"
+  },
+  {
+   "t": 38.5,
+   "type": "step",
+   "pan": -0.25,
+   "splash": false
+  },
+  {
+   "t": 39.02,
+   "type": "step",
+   "pan": 0.25,
+   "splash": true
+  },
+  {
+   "t": 39.540000000000006,
+   "type": "step",
+   "pan": -0.25,
+   "splash": false
+  },
+  {
+   "t": 40.06000000000001,
+   "type": "step",
+   "pan": 0.25,
+   "splash": false
+  },
+  {
+   "t": 40.58000000000001,
+   "type": "step",
+   "pan": -0.25,
+   "splash": true
+  },
+  {
+   "t": 41.100000000000016,
+   "type": "step",
+   "pan": 0.25,
+   "splash": false
+  },
+  {
+   "t": 41.62000000000002,
+   "type": "step",
+   "pan": -0.25,
+   "splash": false
+  },
+  {
+   "t": 42.14000000000002,
+   "type": "step",
+   "pan": 0.25,
+   "splash": true
+  },
+  {
+   "t": 42.660000000000025,
+   "type": "step",
+   "pan": -0.25,
+   "splash": false
+  },
+  {
+   "t": 43.18000000000003,
+   "type": "step",
+   "pan": 0.25,
+   "splash": false
+  },
+  {
+   "t": 43.70000000000003,
+   "type": "step",
+   "pan": -0.25,
+   "splash": true
+  },
+  {
+   "t": 44.220000000000034,
+   "type": "step",
+   "pan": 0.25,
+   "splash": false
+  },
+  {
+   "t": 44.74000000000004,
+   "type": "step",
+   "pan": -0.25,
+   "splash": false
+  },
+  {
+   "t": 45.26000000000004,
+   "type": "step",
+   "pan": 0.25,
+   "splash": true
+  },
+  {
+   "t": 45.780000000000044,
+   "type": "step",
+   "pan": -0.25,
+   "splash": false
+  }
+ ],
+ "HUM": [
+  [
+   0,
+   0.03
+  ],
+  [
+   1.5,
+   0.03
+  ],
+  [
+   1.6,
+   0.14
+  ],
+  [
+   1.95,
+   0.14
+  ],
+  [
+   2,
+   0.03
+  ],
+  [
+   2.95,
+   0.03
+  ],
+  [
+   3,
+   0.16
+  ],
+  [
+   5,
+   0.22
+  ],
+  [
+   11,
+   0.62
+  ],
+  [
+   12,
+   0.76
+  ],
+  [
+   15,
+   0.76
+  ],
+  [
+   15.06,
+   0.64
+  ],
+  [
+   17.5,
+   0.64
+  ],
+  [
+   17.56,
+   0.5
+  ],
+  [
+   20,
+   0.5
+  ],
+  [
+   20.06,
+   0.34
+  ],
+  [
+   27.5,
+   0.34
+  ],
+  [
+   27.56,
+   0.3
+  ],
+  [
+   33.33,
+   0.3
+  ],
+  [
+   33.4,
+   0
+  ],
+  [
+   35.8,
+   0
+  ],
+  [
+   35.9,
+   0.05
+  ],
+  [
+   37.6,
+   0.3
+  ],
+  [
+   48,
+   0.3
+  ],
+  [
+   50,
+   0.24
+  ],
+  [
+   50.02,
+   0
+  ]
+ ],
+ "MUSIC": {
+  "start": 5,
+  "gate1": 20,
+  "back1": 23.3333,
+  "gate2": 33.3333,
+  "back2": 35.8333,
+  "dawn": 43.3333,
+  "end": 50
+ },
+ "VO": [
+  {
+   "id": "v1",
+   "t": 5.6,
+   "text": "I light it every evening."
+  },
+  {
+   "id": "v2",
+   "t": 8.9,
+   "text": "Tube by tube."
+  },
+  {
+   "id": "v3",
+   "t": 13.6,
+   "text": "By midnight, the street is dark."
+  },
+  {
+   "id": "v4",
+   "t": 25.1,
+   "text": "Then one piece goes out."
+  },
+  {
+   "id": "v5",
+   "t": 36.4,
+   "text": "I left it."
+  },
+  {
+   "id": "v6",
+   "t": 40.7,
+   "text": "The last light on Pell Street."
+  }
+ ]
+}

@@ -1,0 +1,18 @@
+{
+ "slug": "natural-history",
+ "num": "60",
+ "en": "Natural History Plate",
+ "cn": "博物图鉴",
+ "category_en": "Print & Printmaking",
+ "category_cn": "印刷与版画",
+ "film": "Plate IV: The Spiral, in Four Makers",
+ "line": "A blank sheet fills with a hand-coloured plate: a chambered shell is drawn, halved and magnified, then a snail, a sunflower head and a fern crozier join it, each pinned, until the page curls away.",
+ "line_cn": "一张空白图版被一笔笔画满：鹦鹉螺先被画出、剖开、放大，随后蜗牛、向日葵花盘和蕨类拳卷幼叶依次画好并钉住，最后整页被翻走。",
+ "uses": [
+  "Museum and science-communication explainers",
+  "Species, anatomy and process 'field guide' films",
+  "Product or ingredient catalogues dressed as scientific plates"
+ ],
+ "frame_sec": 46.0,
+ "dur": 60
+}

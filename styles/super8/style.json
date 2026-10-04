@@ -1,0 +1,18 @@
+{
+ "slug": "super8",
+ "num": "65",
+ "en": "Super 8 Home Movie",
+ "cn": "老胶片家庭录像",
+ "category_en": "Cinema & Eras",
+ "category_cn": "电影与时代",
+ "film": "Dad Was Here Too",
+ "line": "A father films his family's 1976 seaside day without once appearing in it, until his daughter takes the camera and the reel burns out on him.",
+ "line_cn": "爸爸把 1976 年一家人的海边一天拍成一卷胶片，自己从没入镜；直到女儿接过摄影机，胶片在他身上烧尽。",
+ "uses": [
+  "Family, travel & memory films",
+  "Nostalgic brand stories",
+  "Anniversaries & tributes"
+ ],
+ "frame_sec": 18.0,
+ "dur": 56.7
+}

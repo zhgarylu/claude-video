@@ -1,0 +1,135 @@
+{
+ "dur": 50,
+ "bpm": 96,
+ "beat": 0.625,
+ "captions": [
+  {
+   "t0": 1,
+   "t1": 4.8,
+   "text": "Fold a sheet in half. Again."
+  },
+  {
+   "t0": 5,
+   "t1": 9.4,
+   "text": "Every fold doubles the layers."
+  },
+  {
+   "t0": 10.3,
+   "t1": 12.8,
+   "text": "64 layers."
+  },
+  {
+   "t0": 13,
+   "t1": 17.4,
+   "text": "The seventh fold will not close."
+  },
+  {
+   "t0": 19,
+   "t1": 23.6,
+   "text": "Unfolded, the sheet keeps a record."
+  },
+  {
+   "t0": 26,
+   "t1": 30.2,
+   "text": "Fold it back and forth instead."
+  },
+  {
+   "t0": 30.4,
+   "t1": 35.2,
+   "text": "Each crease bends one layer, not sixty-four."
+  },
+  {
+   "t0": 35.6,
+   "t1": 39.6,
+   "text": "One pull and it opens."
+  },
+  {
+   "t0": 41,
+   "t1": 46.4,
+   "text": "Twelve folds took 1,200 metres of paper."
+  },
+  {
+   "t0": 46.6,
+   "t1": 50,
+   "text": "Fold smarter, not more."
+  }
+ ],
+ "folds": [
+  [
+   0.625,
+   1.875
+  ],
+  [
+   2.55,
+   3.75
+  ],
+  [
+   4.525,
+   5.625
+  ],
+  [
+   6.5,
+   7.5
+  ],
+  [
+   7.85,
+   8.75
+  ],
+  [
+   9.15,
+   10
+  ]
+ ],
+ "landBeats": [
+  3,
+  6,
+  9,
+  12,
+  14,
+  16
+ ],
+ "seven": [
+  [
+   12.5,
+   0
+  ],
+  [
+   13.5,
+   0.26
+  ],
+  [
+   13.85,
+   0.24
+  ],
+  [
+   14.5,
+   0.36
+  ],
+  [
+   15,
+   0.36
+  ],
+  [
+   15.7,
+   0
+  ]
+ ],
+ "unfold": {
+  "t0": 17.5,
+  "win": 0.8,
+  "step": 0.92
+ },
+ "pleat": {
+  "n": 8,
+  "collapse": [
+   25.625,
+   31.25
+  ],
+  "hold": 34.375,
+  "pull": [
+   34.375,
+   38.75
+  ],
+  "max": 0.9
+ }
+}

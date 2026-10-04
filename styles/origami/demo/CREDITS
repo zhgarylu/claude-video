@@ -1,0 +1,6 @@
+The Seventh Fold: third-party assets
+- three.js r170 (MIT), including RoomEnvironment (studio environment lighting): https://threejs.org
+- Fredoka (SIL Open Font License 1.1), subset in core/fonts: https://github.com/google/fonts/tree/main/ofl/fredoka
+- Everything else is generated in code: paper (fibre, grain, printed patterns, creases), table, geometry, diagram layer.
+- Sound: all music (marimba, kalimba, pizzicato) and foley are synthesised in demo/mix.py with numpy/scipy and core/audio/sfx.py (MIT); no samples, no voice.
+- Facts: demo/FACTS.md (sources: Wikipedia, CC BY-SA, quoted briefly; the person is not named in the film).

@@ -1,0 +1,11 @@
+The Last Pineapple Bun (manga-panel demo): third-party assets
+
+Fonts (SIL Open Font License 1.1, subset to the characters in film.js by demo/fonts/fetch.sh, not committed)
+- Noto Sans SC 700 and 900 (The Noto Project Authors): balloons, narration boxes, title, page numbers. https://fonts.google.com/noto/specimen/Noto+Sans+SC
+- ZCOOL QingKe HuangYou (ZCOOL / Zhang Yu): sound words. https://fonts.google.com/specimen/ZCOOL+QingKe+HuangYou
+
+Picture
+- Everything is drawn in code on a 2D canvas (demo/engine.js, chars.js, panels.js, film.js): no images, footage or textures.
+
+Sound
+- Score and foley are synthesised with numpy/scipy in demo/mix.py (core/audio/sfx.py helpers): no samples, no voice, no downloads.

@@ -1,0 +1,39 @@
+[
+ {
+  "id": "l1",
+  "text": "洞里没有光，只有一盏借来的灯。",
+  "voice": "zh-CN-YunxiNeural",
+  "rate": "-10%",
+  "pitch": "-4Hz"
+ },
+ {
+  "id": "l2",
+  "text": "灯走到哪里，墙就醒到哪里。",
+  "voice": "zh-CN-YunxiNeural",
+  "rate": "-10%",
+  "pitch": "-4Hz",
+  "asr": "灯走到哪里,墙就行到哪里。"
+ },
+ {
+  "id": "l3",
+  "text": "丝带还在吹，风，是画进去的。",
+  "voice": "zh-CN-YunxiNeural",
+  "rate": "-4%",
+  "pitch": "-4Hz",
+  "asr": "四代还在吹,风是化进去的。"
+ },
+ {
+  "id": "l4",
+  "text": "一格一格，每一笔都有人用手画过。",
+  "voice": "zh-CN-YunxiNeural",
+  "rate": "-10%",
+  "pitch": "-4Hz"
+ },
+ {
+  "id": "l5",
+  "text": "颜色会退，线条还在。",
+  "voice": "zh-CN-YunxiNeural",
+  "rate": "-12%",
+  "pitch": "-4Hz"
+ }
+]

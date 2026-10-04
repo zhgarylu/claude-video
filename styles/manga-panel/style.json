@@ -1,0 +1,18 @@
+{
+ "slug": "manga-panel",
+ "num": "67",
+ "en": "Manga Panel",
+ "cn": "漫画黑白网点",
+ "category_en": "Cartoon & Anime",
+ "category_cn": "卡通与动画",
+ "film": "The Last Pineapple Bun",
+ "line": "A girl and a middle-aged salaryman sprint for the last pineapple bun of the day, reach it in the same second, and split it: a black-and-white manga spread read right to left, panel by panel.",
+ "line_cn": "女孩和中年上班族为当天最后一个菠萝包冲刺，同一秒伸手，最后一人一半：一页从右往左、一格一格读下去的黑白漫画。",
+ "uses": [
+  "Comic-style explainers and how-tos",
+  "Slice-of-life and gag shorts",
+  "Chapter openers, trailers and social teasers"
+ ],
+ "frame_sec": 52.0,
+ "dur": 55.2
+}

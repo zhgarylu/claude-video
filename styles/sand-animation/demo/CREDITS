@@ -1,0 +1,7 @@
+Sand Animation demo: Where the Sparrow Went
+
+Picture: generated in code (demo/sand.js, shapes.js, main.js). No images, footage or textures.
+Music and sound: synthesised in code (demo/mix.py, numpy/scipy). No samples, no sample libraries.
+Font: IM Fell English (Regular), Copyright (c) 2007 Igino Marini, SIL Open Font License 1.1, via core/fonts/ (subset of Latin glyphs); used only to rasterise the word "home." into sand grains.
+Voice: none.
+Tools: Node, Playwright/Chromium (rendering), ffmpeg (mux, loudnorm, grain), Python with numpy, scipy, soundfile.

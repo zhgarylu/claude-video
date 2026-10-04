@@ -1,0 +1,18 @@
+{
+ "slug": "charcoal",
+ "num": "64",
+ "en": "Charcoal Sketch Animation",
+ "cn": "木炭素描动画",
+ "category_en": "Hand-drawn & Painting",
+ "category_cn": "手绘与绘画",
+ "film": "The Bend",
+ "line": "One pinned sheet keeps nine years of a river: each spring the bank is rubbed out and redrawn nearer the house, the ghosts stay, and the red door is finally moved uphill.",
+ "line_cn": "同一张图钉固定的纸记下一条河的九年：每年春天河岸被擦掉、重画得离房子更近，旧岸的幽灵留在纸上，最后那扇红门被搬到了山坡上。",
+ "uses": [
+  "Memory and time-passing stories",
+  "Documentary and place portraits",
+  "Quiet explainers about change and loss"
+ ],
+ "frame_sec": 31.0,
+ "dur": 57
+}

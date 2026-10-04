@@ -1,0 +1,18 @@
+The Blue Only Arrives in the Fire — Blue-and-White Porcelain — Lemo-Opuscar · LemoLab × Claude Opus 5.5
+
+Picture
+- Every vessel (lathe meshes), brush stroke, wash, calligraphy stroke, glaze shader, crackle, kiln, shard, brush and plaque is drawn in code (demo/engine/*.js, demo/film.js). No generated or stock images, no photographs, no footage.
+
+Fonts (SIL Open Font License 1.1; subset via the Google Fonts API into demo/fonts/)
+- Cormorant Garamond (600, italic 500) — Christian Thalmann / Catharsis Fonts: Latin subtitle plaques
+
+Voice
+- None (no voice-over).
+
+Music
+- Original composition, synthesised in numpy (demo/mix.py): Karplus-Strong guqin and pipa, additive bamboo flute, frame drum and struck bowl. No samples.
+
+Sound design
+- All foley (brush, wheel, iris, kiln roar and ticks, shards, glaze taps, drip, birds) and room tone synthesised in numpy (demo/mix.py).
+
+Facts shown on screen: see demo/FACTS.md (sources and wording).

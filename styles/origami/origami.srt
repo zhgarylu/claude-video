@@ -1,0 +1,39 @@
+1
+00:00:01,000 --> 00:00:04,800
+Fold a sheet in half. Again.
+
+2
+00:00:05,000 --> 00:00:09,400
+Every fold doubles the layers.
+
+3
+00:00:10,300 --> 00:00:12,800
+64 layers.
+
+4
+00:00:13,000 --> 00:00:17,400
+The seventh fold will not close.
+
+5
+00:00:19,000 --> 00:00:23,600
+Unfolded, the sheet keeps a record.
+
+6
+00:00:26,000 --> 00:00:30,200
+Fold it back and forth instead.
+
+7
+00:00:30,400 --> 00:00:35,200
+Each crease bends one layer, not sixty-four.
+
+8
+00:00:35,600 --> 00:00:39,600
+One pull and it opens.
+
+9
+00:00:41,000 --> 00:00:46,400
+Twelve folds took 1,200 metres of paper.
+
+10
+00:00:46,600 --> 00:00:50,000
+Fold smarter, not more.

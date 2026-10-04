@@ -1,0 +1,18 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Natural History Plate: Plate IV</title>
+<link rel="stylesheet" href="/core/fonts/fonts.css">
+<style>html,body{margin:0;background:#111}canvas{display:block}</style></head>
+<body><canvas id="c" width="1920" height="1080"></canvas>
+<script type="module">
+import * as film from './film.js';
+const cv = document.getElementById('c'), ctx = cv.getContext('2d');
+window.DUR = film.DUR;
+window.TEXTS = t => film.texts(t, cv.width, cv.height);
+window.render = t => film.render(ctx, t, cv.width, cv.height);
+async function boot() {
+  await document.fonts.load('22px "IM Fell English"'); await document.fonts.load('italic 22px "IM Fell English"'); await document.fonts.ready;
+  film.build();
+  window.EV = film.events();
+  window.READY = true;
+}
+addEventListener('load', () => setTimeout(boot, 30));
+</script></body></html>

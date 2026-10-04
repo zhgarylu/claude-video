@@ -1,0 +1,14 @@
+Dusklight — 8-bit Console Pixel · Lemo-Opuscar · LemoLab × Claude Opus 5.5
+
+Picture
+- Every tile, sprite, sky band, lamp, tower, moth, coin and letter is painted or authored in code (demo/scenes.js, demo/sprites.js, demo/font.js) and compiled by demo/ppu.js. No generated or stock images.
+- "Dusklight", Wick the lamplighter, the beacon and the moths are fictional. No real game, character, logo or product appears.
+
+Fonts
+- None. All text is an original 8x8 tile font drawn in code (demo/font.js).
+
+Music and sound
+- Original compositions and effects, synthesised in numpy by demo/apu.py (two pulse, triangle, noise) from the chip's published timer, duty, LFSR and mixer tables, scored in demo/mix.py. No samples, no recordings.
+
+Voice
+- None.

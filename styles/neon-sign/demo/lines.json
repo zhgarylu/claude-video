@@ -1,0 +1,38 @@
+[
+ {
+  "id": "v1",
+  "text": "I light it every evening.",
+  "voice": "bm_george",
+  "speed": 0.9
+ },
+ {
+  "id": "v2",
+  "text": "Tube by tube.",
+  "voice": "bm_george",
+  "speed": 0.9
+ },
+ {
+  "id": "v3",
+  "text": "By midnight, the street is dark.",
+  "voice": "bm_george",
+  "speed": 0.9
+ },
+ {
+  "id": "v4",
+  "text": "Then one piece goes out.",
+  "voice": "bm_george",
+  "speed": 0.9
+ },
+ {
+  "id": "v5",
+  "text": "I left it.",
+  "voice": "bm_george",
+  "speed": 0.9
+ },
+ {
+  "id": "v6",
+  "text": "The last light on Pell Street.",
+  "voice": "bm_george",
+  "speed": 0.9
+ }
+]

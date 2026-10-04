@@ -1,0 +1,18 @@
+{
+ "slug": "claymation",
+ "num": "55",
+ "en": "Claymation / Stop-motion",
+ "cn": "粘土定格动画",
+ "category_en": "Materials & 3D",
+ "category_cn": "材质与 3D",
+ "film": "Proof",
+ "line": "A worried lump of dough on a hand-built kitchen counter waits all night to rise; at dawn a giant clay finger pokes it, and it springs back.",
+ "line_cn": "手捏小厨房里，一团忐忑的面团整夜不敢发酵；天亮时一根巨大的泥手指戳了它一下，它弹了回来。",
+ "uses": [
+  "Kids & family stories",
+  "Food & craft",
+  "Gentle explainers"
+ ],
+ "frame_sec": 31.5,
+ "dur": 50.8
+}

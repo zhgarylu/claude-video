@@ -1,0 +1,45 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Charcoal Sketch Animation: style frames</title>
+<style>
+@font-face{font-family:'Caveat';font-weight:400 700;src:url(fonts/Caveat-500.ttf) format('truetype')}
+html,body{margin:0;background:#111}canvas{display:block}
+</style></head>
+<body><canvas id="c" width="1920" height="1080"></canvas>
+<script type="module">
+const ss = (a, b, x) => { x = (x - a) / (b - a); x = x < 0 ? 0 : x > 1 ? 1 : x; return x * x * (3 - 2 * x); };
+import { Sheet, W, H } from './engine/sheet.js';
+import { drawTool, drawPins, drawSlip, vignette } from './engine/tools.js';
+import { build, CAM, DUR } from './film.js';
+
+const cv = document.getElementById('c'), ctx = cv.getContext('2d');
+const q = new URLSearchParams(location.search);
+await document.fonts.load('500 52px Caveat'); await document.fonts.load('700 130px Caveat'); await document.fonts.ready;
+const sheet = new Sheet(), { tl, cap, hits } = build();
+const camOverride = q.get('cam') ? q.get('cam').split(',').map(Number) : null;
+window.DUR = DUR;
+window.EV = [...tl.events(), ...cap.map(c => ({ t: c.t0, d: c.t1 - c.t0, type: 'cap', text: c.text })), ...hits.map(([id, t]) => ({ t, type: 'hit', id }))].sort((a, b) => a.t - b.t);
+const TITLE = { t0: 52.7, box: [330, 1390 - 200, 1380, 1420] };
+window.TEXTS = t => {
+  const out = cap.filter(c => t >= c.t0 + 0.7 && t <= c.t1 - 0.7).map(c => ({ id: 'cap' + c.t0, text: c.text.replace('\n', ' '), x0: 290, y0: 850, x1: 970, y1: 1012 }));
+  if (t >= TITLE.t0) { const [cx, cy, z] = CAM(t), [x0, y0, x1, y1] = TITLE.box, sx = x => 960 + (x - cx) * z, sy = y => 540 + (y - cy) * z; out.push({ id: 'title', text: 'THE BEND', x0: sx(x0), y0: sy(y0), x1: sx(x1), y1: sy(y1) }); }
+  return out;
+};
+window.render = t => {
+  tl.advance(sheet, t);
+  const img = sheet.composite();
+  const [cx, cy, z] = camOverride || CAM(t);
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.fillStyle = '#2a2724'; ctx.fillRect(0, 0, 1920, 1080);
+  ctx.setTransform(z, 0, 0, z, 960 - cx * z, 540 - cy * z); ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
+  ctx.drawImage(img, 0, 0);
+  drawPins(ctx);
+  drawTool(ctx, q.get('notool') ? null : tl.toolAt(t), z);
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  vignette(ctx, 1920, 1080);
+  if (!q.get('nocap')) for (const c of cap) {
+    const a = ss(c.t0, c.t0 + 0.6, t) * (1 - ss(c.t1 - 0.6, c.t1, t));
+    if (a > 0.01) drawSlip(ctx, c.text, 520 + 110, 930, { alpha: a, w: 600 });
+  }
+};
+window.dbg = { sheet, tl };
+window.READY = true;
+</script></body></html>

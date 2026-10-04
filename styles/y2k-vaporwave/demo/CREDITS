@@ -1,0 +1,6 @@
+Fonts (all SIL Open Font License 1.1; full text in fonts/OFL.txt; downloaded from https://github.com/google/fonts/tree/main/ofl, not committed):
+- Unbounded (variable wght), by NAN Studio / Google Fonts: hero chrome type and captions. fonts/Unbounded.ttf
+- Silkscreen Regular and Bold, by Jason Kottke: window titles and buttons. fonts/Silkscreen-*.ttf
+- VT323, by Peter Hull: window body text. fonts/VT323-Regular.ttf
+
+Everything else (sky, sun, grid, chrome, marble, bubbles, windows, palms, sparkles, damage passes) is generated in code in this folder. No images, models, textures or samples. Sound is not built yet; it will be synthesised in code.

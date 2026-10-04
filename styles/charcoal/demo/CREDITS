@@ -1,0 +1,16 @@
+The Bend — Charcoal Sketch Animation — Lemo-Opuscar · LemoLab × Claude Opus 5.5
+
+Picture
+- Every mark, smudge, erasure, paper tooth, board, pin, stick, eraser, thumb and caption slip is drawn in code (demo/engine/*.js, demo/film.js). No generated or stock images, no photographs, no footage.
+
+Fonts (SIL Open Font License 1.1)
+- Caveat (weights 500 and 700) — The Caveat Project Authors, from Google Fonts (https://github.com/google/fonts/tree/main/ofl/caveat); kept locally in demo/fonts/ (not committed). Used for the pencil caption slip and the charcoal title mask.
+
+Voice
+- None.
+
+Music
+- Original composition, synthesised in numpy (demo/mix.py): bowed cello, Karplus-Strong plucked bass, felted piano, bowed vibraphone and frame drum. No samples.
+
+Sound design
+- All foley (charcoal rasp, thumb, eraser, paper, wood tick, room tone, clock) synthesised in numpy (demo/mix.py, core/audio/sfx.py) from the hand operations in events.json.

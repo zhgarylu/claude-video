@@ -1,0 +1,16 @@
+The Iris Hour (art-nouveau demo): third-party assets
+
+Library demo made by LemoLab × Claude Opus 5.5.
+
+Fonts
+- Cormorant Garamond (roman and italic, variable), by Christian Thalmann (Catharsis Fonts), SIL Open Font License 1.1.
+  Source: https://github.com/google/fonts/tree/main/ofl/cormorantgaramond . Used for the subtitles. Files go in demo/fonts/ (not committed; download them as in TECHNIQUE section 11).
+
+Voice
+- Kokoro-82M via kokoro-onnx (voice af_nicole), Apache-2.0, https://github.com/thewh1teagle/kokoro-onnx . Checked with faster-whisper (MIT).
+
+Music and sound
+- Score and foley are synthesised in code (demo/mix.py: Karplus-Strong harp and pizzicato, bowed cello, flute, celesta, bells, noise foley). No samples, no recordings.
+
+Picture
+- Everything (curves, flora, ornament, lettering skeletons, figure, paper texture) is generated in code in demo/engine/ and demo/show.js. No images, models or footage.

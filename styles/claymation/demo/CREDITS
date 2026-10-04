@@ -1,0 +1,14 @@
+Claymation / Stop-motion demo "Proof": third-party assets
+
+Code
+- three.js r170 (MIT), loaded from node_modules; its addons EffectComposer, GTAOPass, UnrealBloomPass, OutputPass, RoomEnvironment, BufferGeometryUtils.mergeVertices.
+- Library tools under core/ (core/three/post.js, core/render/*, core/audio/sfx.py).
+
+Font
+- Fredoka (Google Fonts, SIL Open Font License 1.1): the caption and title plates. Subset shipped in core/fonts (see core/fonts/OFL.md).
+
+Picture
+- Every surface, texture, shape and the painted sky is generated in code. No image, model or HDRI is used; the studio environment is three.js's built-in RoomEnvironment.
+
+Sound
+- The score and all foley are synthesised in styles/claymation/demo/mix.py (numpy, scipy, soundfile; BSD licences). No samples, no sample library, no voice engine.

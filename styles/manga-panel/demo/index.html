@@ -1,0 +1,23 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>manga-panel demo</title>
+<style>
+@font-face{font-family:'Noto Sans SC';font-weight:700;src:url(fonts/NotoSansSC-700.ttf) format('truetype');font-display:block}
+@font-face{font-family:'Noto Sans SC';font-weight:900;src:url(fonts/NotoSansSC-900.ttf) format('truetype');font-display:block}
+@font-face{font-family:'ZCOOL QingKe HuangYou';font-weight:400;src:url(fonts/ZCOOLQingKeHuangYou.ttf) format('truetype');font-display:block}
+html,body{margin:0;background:#18171b}canvas{display:block}
+</style></head>
+<body><canvas id="c" width="1920" height="1080"></canvas>
+<script src="engine.js"></script>
+<script src="chars.js"></script>
+<script src="panels.js"></script>
+<script src="film.js"></script>
+<script>
+(async () => {
+  const q = new URLSearchParams(location.search);
+  try {
+    await Promise.all([document.fonts.load('700 30px "Noto Sans SC"', window.FONT_PROBE), document.fonts.load('900 30px "Noto Sans SC"', window.FONT_PROBE), document.fonts.load('40px "ZCOOL QingKe HuangYou"', window.FONT_PROBE)]);
+  } catch (e) {}
+  window.READY = true;
+  if (q.get('t')) window.render(parseFloat(q.get('t')));
+})();
+</script></body></html>

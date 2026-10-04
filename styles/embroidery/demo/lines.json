@@ -1,0 +1,28 @@
+[
+ {
+  "id": "l1",
+  "text": "Every mend begins with a hole.",
+  "voice": "af_nicole",
+  "speed": 0.86,
+  "asr": "Every mend begins with a whole."
+ },
+ {
+  "id": "l2",
+  "text": "Over, and under.",
+  "voice": "af_nicole",
+  "speed": 0.86
+ },
+ {
+  "id": "l3",
+  "text": "Under every clean stitch, there is a knot.",
+  "voice": "af_nicole",
+  "speed": 0.86,
+  "asr": "Under every clean stitch, there is a nod."
+ },
+ {
+  "id": "l4",
+  "text": "Mend it. Wear it.",
+  "voice": "af_nicole",
+  "speed": 0.86
+ }
+]

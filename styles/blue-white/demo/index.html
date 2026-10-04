@@ -1,0 +1,21 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>The Blue Only Arrives in the Fire</title>
+<style>
+@font-face{font-family:'Cormorant Garamond';font-weight:600;src:url(fonts/CormorantGaramond-600.ttf)}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:500;src:url(fonts/CormorantGaramond-italic-500.ttf)}
+html,body{margin:0;background:#101216}canvas{display:block}
+</style></head>
+<body><canvas id="c" width="1920" height="1080"></canvas>
+<script type="module">
+import * as film from './film.js';
+const ctx = document.getElementById('c').getContext('2d');
+const q = new URLSearchParams(location.search);
+window.DUR = film.DUR;
+await Promise.all(['600 40px "Cormorant Garamond"', 'italic 500 40px "Cormorant Garamond"'].map(f => document.fonts.load(f, 'AaBb')));
+await document.fonts.ready;
+film.init(ctx, q);
+window.EV = film.events();
+window.TEXTS = film.texts;
+window.render = t => film.render(ctx, t);
+window.READY = true;
+</script></body></html>

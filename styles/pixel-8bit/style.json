@@ -1,0 +1,18 @@
+{
+ "slug": "pixel-8bit",
+ "num": "72",
+ "en": "8-bit Console Pixel",
+ "cn": "8-bit 红白机像素",
+ "category_en": "Games",
+ "category_cn": "游戏",
+ "film": "Dusklight",
+ "line": "Wick the lamplighter races the dusk through two scrolling stages, climbs a beacon tower, lights it through a moth swarm that overloads the sprite hardware, and sets a new high score.",
+ "line_cn": "提灯人 Wick 在两段横版关卡里和黄昏赛跑，爬上灯塔，穿过让精灵硬件超载闪烁的飞蛾群点亮它，刷新最高分。",
+ "uses": [
+  "Game trailers and nostalgia pieces",
+  "Countdowns, progress and score recaps",
+  "Product feature lists told as stages"
+ ],
+ "frame_sec": 14.5,
+ "dur": 54.4
+}

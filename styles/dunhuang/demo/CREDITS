@@ -1,0 +1,13 @@
+Dunhuang Mural demo "Borrowed Lamplight"
+
+Everything in the picture (plaster, pigments, figures, patterns, lamp) is generated in code by this folder; no image, texture or model files are used.
+
+Fonts (OFL 1.1, subset to the characters the film uses and fetched through the Google Fonts CSS API; the page loads only the subsets in fonts/sub/):
+- Noto Serif SC SemiBold, Copyright The Noto Project Authors, https://fonts.google.com/noto/specimen/Noto+Serif+SC
+- Ma Shan Zheng, Copyright 2011 The Ma Shan Zheng Project Authors (Ma Shan Zheng, Chang Ding-bo), https://fonts.google.com/specimen/Ma+Shan+Zheng
+
+Voice: Microsoft Edge online text-to-speech, voice zh-CN-YunxiNeural, through the edge-tts package (LGPL-3.0), used via core/tts/tts_zh.py. Speech check: faster-whisper (MIT) with the Systran faster-whisper-small model (MIT).
+
+Music and sound: synthesised with numpy (Karplus-Strong strings, additive flute and bell partials, filtered noise); no samples, no sample libraries.
+
+Reference works named in TREATMENT.md (grammar only, nothing taken): Cave of Forgotten Dreams (2010); Nine-Colored Deer (1981).

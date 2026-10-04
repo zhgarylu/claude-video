@@ -1,0 +1,13 @@
+Fonts (SIL Open Font License 1.1). The page loads subsets only (demo/fonts/sub/, made by subset_fonts.py from the characters in timeline.js);
+the full font files are downloaded to a cache by the build, stay out of git, and must never ship with the film:
+- Ma Shan Zheng (MaShanZheng-Regular.ttf), https://github.com/google/fonts/tree/main/ofl/mashanzheng : title and end card
+- ZCOOL XiaoWei (ZCOOLXiaoWei-Regular.ttf), https://github.com/google/fonts/tree/main/ofl/zcoolxiaowei : end-card line
+- Noto Serif SC (NotoSerifSC[wght].ttf, Bold instance), https://github.com/google/fonts/tree/main/ofl/notoserifsc : subtitles
+
+Voices: Microsoft Edge online neural voices zh-CN-XiaoxiaoNeural (Qingluan) and zh-CN-YunxiNeural (Shigong), via edge-tts (https://github.com/rany2/edge-tts, LGPL-3.0, used as a tool).
+Check the Microsoft service terms before commercial use of these voices. Lines are verified with faster-whisper (MIT).
+
+Music, percussion, foley and ambience: synthesised with numpy in mix.py. No samples, no third-party music.
+Pictures: every shape, texture, pattern and character is generated in code (brush.js, scenery.js, hero.js, facepaint.js, spirit.js, world.js); no images are imported.
+
+NOTE: the full ttf files (about 37 MB together) are large; the film build ships subsets only.

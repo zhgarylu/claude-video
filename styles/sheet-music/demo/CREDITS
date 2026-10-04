@@ -1,0 +1,13 @@
+Four Notes - Sheet-music Motion - Lemo-Opuscar - LemoLab x Claude Opus 5.5
+
+Picture
+- Every stave, bar line, stem, beam, slur, ledger line, bloom, ribbon, paper fibre and desk texture is drawn in code (demo/engrave.js, demo/main.js). No generated or stock images.
+- The composition is original, generated in code (demo/score.js). No existing melody, no real people, brands or events.
+
+Fonts (SIL Open Font License 1.1; licence texts in demo/fonts/; the files are not committed, build.sh downloads them)
+- Bravura (SMuFL notation glyphs) - Steinberg Media Technologies GmbH, https://github.com/steinbergmedia/bravura
+- EB Garamond - The EB Garamond Project Authors, via google/fonts (ofl/ebgaramond)
+
+Music and sound
+- Original composition. Every note is synthesised in numpy from the same event list that lights the picture (demo/mix.py): glass-like lead (additive sines), marimba-like mallets (sine + inharmonic partials), sine bass with harmonics, a noise-impulse-response room. No samples.
+- Foley (pen scratch, ink ticks, paper slide, room tone) is synthesised in numpy (demo/mix.py, core/audio/sfx.py). No recordings.

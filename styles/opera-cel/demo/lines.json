@@ -1,0 +1,6 @@
+[
+  { "id": "ql1", "text": "泉断三春久，求公放一线。", "voice": "zh-CN-XiaoxiaoNeural", "rate": "+4%", "pitch": "+2Hz", "asr": "全断三春酒,求公放一线。" },
+  { "id": "sg1", "text": "欲得山泉水，先接三招！", "voice": "zh-CN-YunxiNeural", "rate": "+2%", "pitch": "-8Hz", "asr": "御德山泉水,先接三兆。" },
+  { "id": "ql2", "text": "原来，这把锁，是面锣。", "voice": "zh-CN-XiaoxiaoNeural", "rate": "-12%", "pitch": "+0Hz", "asr": "原来,这把锁是面罗。" },
+  { "id": "sg2", "text": "哈哈哈，好一记响锣！", "voice": "zh-CN-YunxiNeural", "rate": "-6%", "pitch": "-6Hz", "asr": "哈哈,好一季想罗。" }
+]

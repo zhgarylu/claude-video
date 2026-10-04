@@ -1,0 +1,15 @@
+Thirty Metres (constructivist demo): third-party assets
+
+Fonts (SIL Open Font License 1.1, self-hosted in demo/fonts/, not committed; build.sh names the source)
+- Barlow Medium (The Barlow Project Authors, jpt/barlow; google/fonts repository, ofl/barlow): small type in bars and lettering, thickened with a stroke in code. Licence: demo/fonts/OFL-barlow.txt
+- The giant numerals and the title words THIRTY METRES are a drawn stroke alphabet (demo/engine.js, numeral()), not a font.
+- Anton, Archivo Black, Alfa Slab One (OFL) are named in STYLE.md as preferred faces for this style; they are NOT used in this film.
+
+Picture
+- Everything is drawn in code on 2D canvases (demo/engine.js, demo/scenes.js): plates, paper, halftone figures, numerals. No images, footage or textures. The runners, the lane and the team are fictional; no real athlete, federation, logo or event appears.
+
+Sound
+- Score and foley are synthesised with numpy/scipy in demo/mix.py (core/audio/sfx.py helpers): drums, trumpet, trombone, bass, accordion, paper and print foley. No samples, no recordings, no voice.
+
+Facts
+- demo/FACTS.md (World Athletics Technical Rules, Book C2.1, rules 24.1, 24.3, 24.7).

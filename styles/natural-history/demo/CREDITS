@@ -1,0 +1,5 @@
+IM Fell English (roman and italic), Igino Marini, SIL Open Font License 1.1, from core/fonts/ (see core/fonts/OFL.md). The only font in the film.
+Voice: Kokoro-82M voice bm_george, via kokoro-onnx (Apache-2.0), rendered locally by core/tts/tts.py. Speech check: faster-whisper.
+Music and foley: synthesised in code (numpy/scipy): Karplus-Strong harpsichord and pizzicato viola, glass-harmonica pad, music-box celesta, noise-based graphite, pen, brush and paper foley. No samples.
+Everything else (paper, ink, wash, organisms, labels, page curl) is generated in code by this demo; no images or footage.
+Planned for a Chinese version: Noto Serif SC and LXGW WenKai (OFL), subset per TECHNIQUE section 11.

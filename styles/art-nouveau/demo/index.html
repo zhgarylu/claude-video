@@ -1,0 +1,16 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Art Nouveau: The Iris Hour</title>
+<style>
+@font-face{font-family:'Cormorant Garamond';src:url('fonts/CormorantGaramond.ttf');font-weight:300 700;font-style:normal}
+@font-face{font-family:'Cormorant Garamond';src:url('fonts/CormorantGaramond-Italic.ttf');font-weight:300 700;font-style:italic}
+html,body{margin:0;background:#222}canvas{display:block}</style></head>
+<body><canvas id="c" width="1920" height="1080"></canvas>
+<script type="module">
+const show = await import('./show.js');
+const ctx = document.getElementById('c').getContext('2d');
+window.DUR = show.DUR; window.EV = show.EV; window.TEXTS = show.TEXTS;
+window.render = t => show.render(ctx, t);
+await document.fonts.load('italic 600 46px "Cormorant Garamond"'); await document.fonts.ready;
+await show.warm();
+window.READY = true;
+</script></body></html>

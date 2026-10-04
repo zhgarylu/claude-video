@@ -1,0 +1,14 @@
+Butter Side Down (comic-pop demo): third-party assets
+
+Fonts (SIL Open Font License 1.1, self-hosted in demo/fonts/, not committed; build.sh names the source)
+- Bangers (Vernon Adams / The Bangers Project Authors): sound words, captions, balloons. https://github.com/google/fonts/tree/main/ofl/bangers  (licence: demo/fonts/OFL-bangers.txt)
+- Lilita One (Juan Montoreano): fallback face only; core/fonts/ of this library (OFL, core/fonts/OFL.md).
+
+Picture
+- Everything is drawn in code on a 2D canvas: no images, footage or textures.
+
+Sound
+- Score and foley are synthesised with numpy/scipy in demo/mix.py (core/audio/sfx.py helpers): no samples, no voice, no downloads.
+
+Facts
+- Toast tumbling (about half a turn from table height, butter side down): R. A. J. Matthews, "Tumbling toast, Murphy's Law and the fundamental constants", European Journal of Physics 29 (2008) 889-892. The 3 m figure is a round estimate for "enough fall time for a full turn".

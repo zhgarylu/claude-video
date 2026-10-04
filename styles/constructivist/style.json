@@ -1,0 +1,18 @@
+{
+ "slug": "constructivist",
+ "num": "63",
+ "en": "Bauhaus & Constructivist Poster",
+ "cn": "包豪斯构成主义",
+ "category_en": "Graphic & Type",
+ "category_cn": "图形与排版",
+ "film": "Thirty Metres",
+ "line": "A relay poster builds itself block by block on a steep diagonal, and the whole film narrows to the one place a race is won: the thirty-metre box where the baton changes hands.",
+ "line_cn": "一张接力赛海报沿陡峭的对角线一块一块搭起来，整部片子收窄到决定胜负的那 30 米交接区：接力棒在这里换手。",
+ "uses": [
+  "Event and campaign announcements",
+  "Stage-by-stage process explainers",
+  "Sports, civic and maker stories"
+ ],
+ "frame_sec": 5.5,
+ "dur": 52.0
+}

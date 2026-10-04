@@ -1,0 +1,19 @@
+{
+ "slug": "sheet-music",
+ "num": "66",
+ "en": "Sheet-music Motion",
+ "cn": "乐谱音乐可视化",
+ "category_en": "Information & Keynote",
+ "category_cn": "信息与发布",
+ "film": "Four Notes",
+ "line": "A four-note seed is repeated, mirrored and stretched on an engraved page, then the page unrolls into a landscape where the same score blooms, ripples and draws itself as ribbons.",
+ "line_cn": "四个音符的动机被重复、倒影、拉长；乐谱随后铺开成风景，同一份乐谱开花、起浪、画出旋律的丝带。",
+ "uses": [
+  "Explaining a musical idea",
+  "Podcast intro",
+  "Brand sting",
+  "Music lesson"
+ ],
+ "frame_sec": 37.3,
+ "dur": 50.0
+}

@@ -1,0 +1,17 @@
+Every Mend Begins with a Hole — Embroidery & Knit — Lemo-Opuscar · LemoLab × Claude Opus 5.5
+
+Picture
+- Every stitch, knit loop, weave crossing, hoop, needle, skein, label and pair of scissors is drawn in code (demo/engine/*.js, demo/show.js). No generated or stock images, no photographs, no footage.
+
+Fonts (SIL Open Font License 1.1)
+- Fredoka (weight 600) — The Fredoka Project Authors; the subset in core/fonts/ (licence: core/fonts/OFL.md). Used only as the mask for satin-stitched lettering.
+
+Voice
+- Kokoro TTS v1.0 (hexgrad/Kokoro-82M, Apache-2.0), voice af_nicole, via kokoro-onnx
+- Speech check: faster-whisper (MIT), development only
+
+Music
+- Original composition, synthesised in numpy (demo/mix.py): Karplus-Strong nylon guitar, kalimba, music box, felted piano and viola pad. No samples.
+
+Sound design
+- All foley (needle, thread pull, knots, hoop knock, cloth, scissors) and room tone synthesised in numpy (demo/mix.py, core/audio/sfx.py)

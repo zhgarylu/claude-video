@@ -1,0 +1,66 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Thirty Metres: constructivist demo</title>
+<style>
+@font-face{font-family:'BarlowH';src:url(fonts/Barlow-Medium.ttf) format('truetype');font-weight:500;font-display:block}
+html,body{margin:0;background:#e8dcc0}canvas{display:block}
+</style></head>
+<body><canvas id="cv" width="1920" height="1080"></canvas>
+<script type="module">
+import { clamp, lerp, seg } from '/core/lib.js';
+import * as E from './engine.js';
+import { SHEETS } from './scenes.js';
+
+const cv = document.getElementById('cv'), out = cv.getContext('2d');
+const DUR = 52, BPM = 120, BEAT = 60 / BPM;
+window.DUR = DUR;
+const WIPE_ANGLE = -33;
+
+/* ---------- one timeline: a dry run of every sheet collects its hits and texts, in sheet-local beats ---------- */
+const EV = [{ t: 0, type: 'meta', bpm: BPM, dur: DUR }], TX = [];
+function build() {
+SHEETS.forEach((s, i) => {
+  E.begin(); const R = { hits: [], texts: [] }; s.draw(1e9, R); s.hits = R.hits;
+  const nxt = SHEETS[i + 1], tEnd = nxt ? nxt.w0 : DUR;
+  for (const h of R.hits) { const t = s.o + h.b * BEAT; if (t >= s.w0 - 1e-6) EV.push({ t: +t.toFixed(4), type: 'hit', id: h.id, kind: h.kind }); }
+  if (s.wd > 0) EV.push({ t: s.w0, type: 'wipe', d: s.wd }); else if (i > 0) EV.push({ t: s.w0, type: 'cut' });
+  for (const x of R.texts) {
+    const t0 = Math.max(s.o + x.b * BEAT + .3, s.w0 + s.wd), xs = x.pts.map(p => p[0]), ys = x.pts.map(p => p[1]);
+    const box = { x0: Math.min(...xs), y0: Math.min(...ys), x1: Math.max(...xs), y1: Math.max(...ys) };
+    if (box.x0 < 0 || box.y0 < 0 || box.x1 > 1920 || box.y1 > 1080) console.warn('text box leaves the frame:', s.id, x.text, JSON.stringify(box));
+    TX.push({ id: s.id + ':' + x.text, text: x.text, t0, t1: tEnd, ...box }); EV.push({ t: +t0.toFixed(3), type: 'text', t1: tEnd, text: x.text });
+  }
+});
+EV.push({ t: 28.5, type: 'quiet', d: 1.5 }, { t: 31.5, type: 'quiet', d: 3.5 });
+EV.sort((a, b) => a.t - b.t);
+}
+window.EV = EV;
+window.TEXTS = t => TX.filter(x => t >= x.t0 && t < x.t1).map(x => ({ id: x.id, text: x.text, x0: x.x0, y0: x.y0, x1: x.x1, y1: x.y1 }));
+
+/* ---------- drawing one sheet to a canvas ---------- */
+function jolt(s, lt) { let j = 0; for (const h of s.hits) if (h.j > 0) { const d = lt - h.b * BEAT; if (d >= 0 && d < .22) j = Math.max(j, h.j * Math.pow(1 - d / .22, 2)); } return j; }
+function paint(s, t, g) {
+  const lt = t - s.o; E.begin(s.cam ? s.cam(lt) : null); s.draw(lt, null);
+  E.print(g, { jolt: jolt(s, lt), reg: s.reg ? s.reg(lt) : 1 });
+}
+const sheet = document.createElement('canvas'); sheet.width = 1920; sheet.height = 1080; const sg = sheet.getContext('2d');
+const fillTri = (g, tri) => { g.beginPath(); tri.forEach(([x, y], k) => k ? g.lineTo(x, y) : g.moveTo(x, y)); g.closePath(); g.fill(); };
+
+window.render = (t) => {
+  out.setTransform(1, 0, 0, 1, 0, 0);
+  let i = 0; SHEETS.forEach((s, k) => { if (t >= s.w0 + s.wd) i = k; });
+  const cur = SHEETS[i], nxt = SHEETS[i + 1];
+  paint(cur, t, out);
+  if (nxt && t >= nxt.w0 && nxt.wd > 0) {                       // a wedge wipe is running: the next sheet is revealed behind its apex
+    const p = clamp((t - nxt.w0) / nxt.wd), q = p * p * (3 - 2 * p), tri = E.wedgeBands(q, WIPE_ANGLE, 30);
+    E.begin(); fillTri(E.ink('r'), tri.red); fillTri(E.ink('k'), tri.black); E.print(out, { paper: false, reg: 0 });   // red band, black band: printed ink in front of the reveal
+    paint(nxt, t, sg);
+    out.save(); out.beginPath(); tri.reveal.forEach(([x, y], k) => k ? out.lineTo(x, y) : out.moveTo(x, y)); out.closePath(); out.clip(); out.drawImage(sheet, 0, 0); out.restore();
+  }
+};
+
+(async () => {
+  await document.fonts.load('500 100px BarlowH');
+  E.initPaper(); build();
+  window.READY = true;
+})();
+</script></body></html>

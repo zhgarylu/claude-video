@@ -1,0 +1,19 @@
+The Last Bowl on Pell Street — Neon Signage · Lemo-Opuscar · LemoLab × Claude Opus 5.5
+
+Picture
+- Every tube, letter, icon, brick, cable, box, reflection, rain streak and silhouette is drawn in code (demo/glyphs.js, demo/neon.js, demo/main.js). No generated or stock images.
+- "Pell Street", the noodle bar and the passer-by are fictional; BAR / HOTEL / 24H neighbours are generic signs. No real brand, shop or logo appears.
+
+Fonts (SIL Open Font License 1.1, licence file in demo/fonts/OFL.txt; the .ttf is not committed, build.sh downloads it)
+- Barlow Medium — The Barlow Project Authors (jpt/barlow), via google/fonts
+- Sign lettering is a single-stroke tube alphabet written for this style (demo/glyphs.js), not a font.
+
+Voice
+- Kokoro TTS v1.0 (hexgrad/Kokoro-82M, Apache-2.0), voice bm_george, via kokoro-onnx
+- Speech check only (not in the film): faster-whisper / OpenAI Whisper (MIT)
+
+Music
+- Original composition, synthesised in numpy (demo/mix.py): electric piano (FM), detuned-saw pad, sine bass, brush hats, vibrato lead with tape delay. No samples.
+
+Sound design
+- Mains hum, transformer buzz, ignition crackle, relay, thumps, footsteps, rain, traffic, birds and the breaker are synthesised in numpy (demo/mix.py, core/audio/sfx.py). No recordings.

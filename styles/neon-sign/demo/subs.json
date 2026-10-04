@@ -1,0 +1,44 @@
+[
+ {
+  "id": "v1",
+  "t0": 5.6,
+  "t1": 8.85,
+  "text": "I light it every evening.",
+  "speech": 2.022
+ },
+ {
+  "id": "v2",
+  "t0": 8.9,
+  "t1": 11.367,
+  "text": "Tube by tube.",
+  "speech": 1.571
+ },
+ {
+  "id": "v3",
+  "t0": 13.6,
+  "t1": 17.333,
+  "text": "By midnight, the street is dark.",
+  "speech": 2.484
+ },
+ {
+  "id": "v4",
+  "t0": 25.1,
+  "t1": 28.3,
+  "text": "Then one piece goes out.",
+  "speech": 1.931
+ },
+ {
+  "id": "v5",
+  "t0": 36.4,
+  "t1": 38.667,
+  "text": "I left it.",
+  "speech": 1.129
+ },
+ {
+  "id": "v6",
+  "t0": 40.7,
+  "t1": 44.3,
+  "text": "The last light on Pell Street.",
+  "speech": 2.324
+ }
+]

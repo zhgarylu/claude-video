@@ -1,0 +1,18 @@
+{
+ "slug": "sand-animation",
+ "num": "70",
+ "en": "Sand Animation",
+ "cn": "沙画",
+ "category_en": "Hand-drawn & Painting",
+ "category_cn": "手绘与绘画",
+ "film": "Where the Sparrow Went",
+ "line": "A stream of sand builds a heap that rises into a tree, flies off as a bird, breaks as a wave, stands as a lighthouse and falls back into a heap that spells home, with no cut.",
+ "line_cn": "一道沙流堆成沙丘，沙丘长成大树，大树化作飞鸟，飞鸟翻成海浪，海浪立成灯塔，最后落回沙丘，拼出一个“home”，全程没有一次剪切。",
+ "uses": [
+  "Life stories & memorials",
+  "Brand origins & journeys",
+  "Seasons, time & change"
+ ],
+ "frame_sec": 20.9,
+ "dur": 58.4
+}

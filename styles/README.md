@@ -15,6 +15,9 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | One-line Drawing | 一笔画 | [`one-line`](one-line/STYLE.md) | *The Line That Never Lifted* |
 | Whiteboard Explainer | 白板讲解 | [`whiteboard`](whiteboard/STYLE.md) | *Einstein in Your Pocket* |
 | Urban Sketch · Pen & Wash | 钢笔淡彩 | [`urban-sketch`](urban-sketch/STYLE.md) | *Where the Wind Went* |
+| Embroidery & Knit | 刺绣与针织 | [`embroidery`](embroidery/STYLE.md) | *Every Mend Begins with a Hole* |
+| Charcoal Sketch Animation | 木炭素描动画 | [`charcoal`](charcoal/STYLE.md) | *The Bend* |
+| Sand Animation | 沙画 | [`sand-animation`](sand-animation/STYLE.md) | *Where the Sparrow Went* |
 
 ## East Asian Traditions · 东方传统
 
@@ -24,6 +27,8 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | Ukiyo-e | 浮世绘 | [`ukiyoe`](ukiyoe/STYLE.md) | *A Journey Toward the Mountain* |
 | Red Paper-cut | 红色窗花剪纸 | [`papercut-red`](papercut-red/STYLE.md) | *Nian Comes to Town* |
 | Paper-cut Lightbox | 纸雕灯影 | [`paper-lantern`](paper-lantern/STYLE.md) | *A Mooncake's Longing* |
+| Blue-and-White Porcelain | 青花瓷 | [`blue-white`](blue-white/STYLE.md) | *The Blue Only Arrives in the Fire* |
+| Dunhuang Mural | 敦煌壁画 | [`dunhuang`](dunhuang/STYLE.md) | *Borrowed Lamplight* |
 
 ## Print & Printmaking · 印刷与版画
 
@@ -34,6 +39,7 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | Woodcut Print | 木刻版画 | [`woodcut`](woodcut/STYLE.md) | *The Bell Founder* |
 | Copperplate Engraving | 铜版画 | [`engraving`](engraving/STYLE.md) | *The Honeybee, Plate VII* |
 | Silkscreen Travel Poster | 丝印旅行海报 | [`silkscreen-poster`](silkscreen-poster/STYLE.md) | *Three Trails* |
+| Natural History Plate | 博物图鉴 | [`natural-history`](natural-history/STYLE.md) | *Plate IV: The Spiral, in Four Makers* |
 
 ## Graphic & Type · 图形与排版
 
@@ -46,6 +52,10 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | Stained Glass | 彩色玻璃窗 | [`stained-glass`](stained-glass/STYLE.md) | *The Dragon of the East Window* |
 | Pictogram Motion | 象形运动图形 | [`pictogram-motion`](pictogram-motion/STYLE.md) | *Aichi-Nagoya 2026 — All 43 Sports* |
 | ASCII / CRT Terminal | ASCII / CRT 终端 | [`ascii-crt`](ascii-crt/STYLE.md) | *Tranquility.log* |
+| Neon Signage | 霓虹灯牌 | [`neon-sign`](neon-sign/STYLE.md) | *The Last Bowl on Pell Street* |
+| Art Nouveau | 新艺术 | [`art-nouveau`](art-nouveau/STYLE.md) | *The Iris Hour* |
+| Bauhaus & Constructivist Poster | 包豪斯构成主义 | [`constructivist`](constructivist/STYLE.md) | *Thirty Metres* |
+| Vaporwave & Y2K Chrome | 蒸汽波与 Y2K | [`y2k-vaporwave`](y2k-vaporwave/STYLE.md) | *Installing Summer* |
 
 ## Information & Keynote · 信息与发布
 
@@ -56,6 +66,7 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | Dark Tech Keynote | 暗色科技发布 | [`dark-keynote`](dark-keynote/STYLE.md) | *Room to Think* |
 | Living Screencast | 活体实机录屏 | [`living-screencast`](living-screencast/STYLE.md) | *Clawd Moves In* |
 | Sci-fi Hologram HUD | 科幻全息界面 | [`hologram-hud`](hologram-hud/STYLE.md) | *Volt · Spec Scan* |
+| Sheet-music Motion | 乐谱音乐可视化 | [`sheet-music`](sheet-music/STYLE.md) | *Four Notes* |
 
 ## Cartoon & Anime · 卡通与动画
 
@@ -65,6 +76,9 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | 80s Cel Anime | 80 年代赛璐璐动画 | [`cel-anime-80s`](cel-anime-80s/STYLE.md) | *City Lights, 1987* |
 | Sci-Fi Sitcom Toon | 科幻情景喜剧卡通 | [`scifi-toon`](scifi-toon/STYLE.md) | *Coffee Run* |
 | Mid-century Cartoon | 50s 扁平卡通 | [`midcentury-toon`](midcentury-toon/STYLE.md) | *Meet Pip* |
+| Comic Panel Pop Art | 美漫分格波普 | [`comic-pop`](comic-pop/STYLE.md) | *Butter Side Down* |
+| Peking Opera Cel Animation | 国风戏曲动画 | [`opera-cel`](opera-cel/STYLE.md) | *One Gong at Stone Gate* |
+| Manga Panel | 漫画黑白网点 | [`manga-panel`](manga-panel/STYLE.md) | *The Last Pineapple Bun* |
 
 ## Games · 游戏
 
@@ -74,6 +88,7 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | HD-2D | HD-2D | [`hd-2d`](hd-2d/STYLE.md) | *The Lampbearer* |
 | Microgame Frenzy | 微游戏快闪（瓦里奥制造式） | [`microgame`](microgame/STYLE.md) | *Five-Second Astronaut* |
 | Game Show Flat | 综艺节奏扁平 | [`game-show`](game-show/STYLE.md) | *Rhythm of AI, 1997 → 2026* |
+| 8-bit Console Pixel | 8-bit 红白机像素 | [`pixel-8bit`](pixel-8bit/STYLE.md) | *Dusklight* |
 
 ## Cinema & Eras · 电影与时代
 
@@ -81,6 +96,7 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 |---|---|---|---|
 | 1920s Silent Film | 1920s 默片 | [`silent-film`](silent-film/STYLE.md) | *The Runaway Loaf* |
 | Liminal Found Footage | 后室 / 新怪谈 | [`backrooms`](backrooms/STYLE.md) | *Night Shift Orientation* |
+| Super 8 Home Movie | 老胶片家庭录像 | [`super8`](super8/STYLE.md) | *Dad Was Here Too* |
 
 ## Materials & 3D · 材质与 3D
 
@@ -91,3 +107,5 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | Tilt-Shift Miniature | 移轴微缩 | [`tilt-shift`](tilt-shift/STYLE.md) | *Toy Town Rush Hour* |
 | Low-poly Isometric Island | 低多边形等距 | [`lowpoly-island`](lowpoly-island/STYLE.md) | *The Island That Grew* |
 | Glass Product Render | 玻璃质感产品 | [`glass-product`](glass-product/STYLE.md) | *Aura — Hear the Light* |
+| Claymation / Stop-motion | 粘土定格动画 | [`claymation`](claymation/STYLE.md) | *Proof* |
+| Origami Fold | 折纸 | [`origami`](origami/STYLE.md) | *The Seventh Fold* |

@@ -1,0 +1,28 @@
+<!doctype html><html><head><meta charset="utf-8"><title>One Gong at Stone Gate</title>
+<style>
+@font-face{font-family:'MaShan';src:url('fonts/sub/MaShanZheng-Regular.sub.ttf')}
+@font-face{font-family:'XiaoWei';src:url('fonts/sub/ZCOOLXiaoWei-Regular.sub.ttf')}
+@font-face{font-family:'NotoSerif';src:url('fonts/sub/NotoSerifSC.sub.ttf');font-weight:700}
+html,body{margin:0;background:#1b1410}canvas{display:block}</style></head>
+<body><canvas id="c" width="1920" height="1080"></canvas>
+<script type="module">
+import { renderFilm, filmTexts, VOICE } from './film.js';
+import { SHOTS } from './frames.js';
+import { DUR, EV, LINES } from './timeline.js';
+const cv = document.getElementById('c'), ctx = cv.getContext('2d');
+const q = new URLSearchParams(location.search);
+window.DUR = DUR; window.EV = EV;
+await Promise.all(['64px MaShan', '64px XiaoWei', '700 64px NotoSerif'].map(f => document.fonts.load(f, '石门一锣国风戏曲动画山LemoLab')));
+try { const r = await fetch('voices/dur.json'); if (r.ok) Object.assign(VOICE.dur, await r.json()); } catch (e) {}
+window.LINES = LINES; window.VOICE = VOICE;
+window.TEXTS = filmTexts;
+window.render = (t) => {
+  const name = q.get('shot');
+  if (name) {   // style-frame mode (the gate-1 stills)
+    const s = SHOTS.find(s => s.name === name) || SHOTS[0];
+    ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, 1920, 1080); s.draw(ctx, 1920, 1080, t - s.t0); return;
+  }
+  renderFilm(ctx, t);
+};
+window.READY = true;
+</script></body></html>

@@ -1,0 +1,24 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Embroidery &amp; Knit: style frames</title>
+<link rel="stylesheet" href="/core/fonts/fonts.css">
+<style>html,body{margin:0;background:#111}canvas{display:block}</style></head>
+<body><canvas id="c" width="1920" height="1080"></canvas>
+<script type="module">
+import { drawSprig, drawDarn, buildSprig, buildDarn } from './film.js';
+import * as show from './show.js';
+const ctx = document.getElementById('c').getContext('2d');
+const q = new URLSearchParams(location.search), shot = q.get('shot') || 'hoop';
+const full = !q.get('shot');
+const sprig = full ? null : buildSprig(), darn = full ? null : buildDarn();
+window.DUR = 50; window.EV = show.EV; window.TEXTS = show.TEXTS;
+// For the style frames, t selects the moment in the chosen shot (?shot=hoop|darn|macro).
+window.render = t => {
+  if (full) return show.render(ctx, t);
+  if (shot === 'darn') drawDarn(ctx, t, { cx: 960, cy: 540, z: 1 }, darn);
+  else if (shot === 'macro') drawSprig(ctx, t, { cam: { cx: +(q.get('cx') || 1000), cy: +(q.get('cy') || 330), z: +(q.get('z') || 2.5) }, needleOn: false }, sprig);
+  else drawSprig(ctx, t, { withTape: q.get('tape') || 'Every mend begins with a hole.' }, sprig);
+};
+await document.fonts.load('600 40px Fredoka'); await document.fonts.ready;
+if (full) show.warm();
+window.READY = true;
+</script></body></html>

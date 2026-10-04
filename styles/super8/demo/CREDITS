@@ -1,0 +1,10 @@
+Super 8 Home Movie demo: "Dad Was Here Too"
+Everything on screen and in the sound is generated in code (numpy synthesis for music, projector and foley; Canvas 2D and WebGL2 for picture). No samples, no photos, no video.
+
+Fonts (all SIL Open Font License 1.1, from Google Fonts, self-hosted in demo/fonts, Latin subsets):
+- Caveat Brush (Pretzel Studio) - felt-pen titles - https://fonts.google.com/specimen/Caveat+Brush
+- Reenie Beanie (James Grieshaber) - small hand - https://fonts.google.com/specimen/Reenie+Beanie
+- Courier Prime Bold (Quote-Unquote Apps) - date stamp - https://fonts.google.com/specimen/Courier+Prime
+
+Libraries: playwright-core (Apache-2.0), numpy / scipy / soundfile (BSD) via the library's .venv; ffmpeg for muxing.
+Voice engine: none (the film has no voice). Music: original, written for this film.

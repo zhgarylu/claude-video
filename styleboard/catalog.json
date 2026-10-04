@@ -119,6 +119,57 @@
   "dur": 32.4
  },
  {
+  "slug": "embroidery",
+  "num": "56",
+  "en": "Embroidery & Knit",
+  "cn": "刺绣与针织",
+  "cat": "手绘与绘画",
+  "cat_en": "Hand-drawn & Painting",
+  "film": "Every Mend Begins with a Hole",
+  "line": "A worn knit elbow is darned, a flower grows stitch by stitch over the darn, and the mended sleeve walks out the door.",
+  "line_cn": "针织袖肘磨出一个洞，先织补，再一针一针在上面绣出一朵花，补好的袖子走出了门。",
+  "uses": [
+   "Craft and repair stories",
+   "Gentle brand films",
+   "Seasonal greetings and keepsakes"
+  ],
+  "dur": 50
+ },
+ {
+  "slug": "charcoal",
+  "num": "64",
+  "en": "Charcoal Sketch Animation",
+  "cn": "木炭素描动画",
+  "cat": "手绘与绘画",
+  "cat_en": "Hand-drawn & Painting",
+  "film": "The Bend",
+  "line": "One pinned sheet keeps nine years of a river: each spring the bank is rubbed out and redrawn nearer the house, the ghosts stay, and the red door is finally moved uphill.",
+  "line_cn": "同一张图钉固定的纸记下一条河的九年：每年春天河岸被擦掉、重画得离房子更近，旧岸的幽灵留在纸上，最后那扇红门被搬到了山坡上。",
+  "uses": [
+   "Memory and time-passing stories",
+   "Documentary and place portraits",
+   "Quiet explainers about change and loss"
+  ],
+  "dur": 57
+ },
+ {
+  "slug": "sand-animation",
+  "num": "70",
+  "en": "Sand Animation",
+  "cn": "沙画",
+  "cat": "手绘与绘画",
+  "cat_en": "Hand-drawn & Painting",
+  "film": "Where the Sparrow Went",
+  "line": "A stream of sand builds a heap that rises into a tree, flies off as a bird, breaks as a wave, stands as a lighthouse and falls back into a heap that spells home, with no cut.",
+  "line_cn": "一道沙流堆成沙丘，沙丘长成大树，大树化作飞鸟，飞鸟翻成海浪，海浪立成灯塔，最后落回沙丘，拼出一个“home”，全程没有一次剪切。",
+  "uses": [
+   "Life stories & memorials",
+   "Brand origins & journeys",
+   "Seasons, time & change"
+  ],
+  "dur": 58.4
+ },
+ {
   "slug": "shadow-puppet",
   "num": "07",
   "en": "Shadow Puppetry",
@@ -185,6 +236,40 @@
    "Cultural stories"
   ],
   "dur": 121.8
+ },
+ {
+  "slug": "blue-white",
+  "num": "68",
+  "en": "Blue-and-White Porcelain",
+  "cn": "青花瓷",
+  "cat": "东方传统",
+  "cat_en": "East Asian Traditions",
+  "film": "The Blue Only Arrives in the Fire",
+  "line": "A brush paints a river round a turning vase, the camera falls through its rim into the painted landscape, and the kiln turns grey strokes to blue.",
+  "line_cn": "一支笔在转动的瓷瓶上画出一条河，镜头从瓶口落进画里的山水，入窑一烧，灰色笔痕变成青蓝。",
+  "uses": [
+   "Cultural and heritage stories",
+   "Craft, tea and tableware brands",
+   "Poetry and landscape narratives"
+  ],
+  "dur": 54.0
+ },
+ {
+  "slug": "dunhuang",
+  "num": "69",
+  "en": "Dunhuang Mural",
+  "cn": "敦煌壁画",
+  "cat": "东方传统",
+  "cat_en": "East Asian Traditions",
+  "film": "Borrowed Lamplight",
+  "line": "A borrowed oil lamp walks along a cave wall; every register it passes wakes from weathered plaster to its first colour, and when the flame sinks the wall remembers.",
+  "line_cn": "借来的一盏油灯沿着洞窟墙壁走过，灯光所到之处，褪色的壁画一层层醒回最初的颜色；火苗落下时，墙还记得。",
+  "uses": [
+   "Heritage and museum films",
+   "Silk-road, tea and craft origin stories",
+   "Festival, calligraphy and pattern-design brands"
+  ],
+  "dur": 53.3
  },
  {
   "slug": "risograph",
@@ -270,6 +355,23 @@
    "Event posters"
   ],
   "dur": 38.4
+ },
+ {
+  "slug": "natural-history",
+  "num": "60",
+  "en": "Natural History Plate",
+  "cn": "博物图鉴",
+  "cat": "印刷与版画",
+  "cat_en": "Print & Printmaking",
+  "film": "Plate IV: The Spiral, in Four Makers",
+  "line": "A blank sheet fills with a hand-coloured plate: a chambered shell is drawn, halved and magnified, then a snail, a sunflower head and a fern crozier join it, each pinned, until the page curls away.",
+  "line_cn": "一张空白图版被一笔笔画满：鹦鹉螺先被画出、剖开、放大，随后蜗牛、向日葵花盘和蕨类拳卷幼叶依次画好并钉住，最后整页被翻走。",
+  "uses": [
+   "Museum and science-communication explainers",
+   "Species, anatomy and process 'field guide' films",
+   "Product or ingredient catalogues dressed as scientific plates"
+  ],
+  "dur": 60
  },
  {
   "slug": "swiss-motion",
@@ -391,6 +493,74 @@
   "dur": 59.8
  },
  {
+  "slug": "neon-sign",
+  "num": "58",
+  "en": "Neon Signage",
+  "cn": "霓虹灯牌",
+  "cat": "图形与排版",
+  "cat_en": "Graphic & Type",
+  "film": "The Last Bowl on Pell Street",
+  "line": "A noodle bar's neon sign is lit tube by tube at dusk, loses one stroke of a letter in the small hours, and is switched off to grey glass at dawn.",
+  "line_cn": "一家面馆的霓虹灯牌被一根根点亮，后半夜一个字母的笔画永远熄了，天亮时被一只手拉闸，只剩灰色的玻璃管。",
+  "uses": [
+   "Bars, diners & night economy",
+   "Openings, countdowns & event teasers",
+   "Brand and slogan reveals"
+  ],
+  "dur": 54.0
+ },
+ {
+  "slug": "art-nouveau",
+  "num": "62",
+  "en": "Art Nouveau",
+  "cn": "新艺术",
+  "cat": "图形与排版",
+  "cat_en": "Graphic & Type",
+  "film": "The Iris Hour",
+  "line": "A single gilded line becomes a vine that carries us past three arched windows, from a frosted bud to an iris in bloom, and the title is lettered out of its stem.",
+  "line_cn": "一根鎏金的线变成藤蔓，带我们穿过三扇拱窗，从结霜的花苞走到盛开的鸢尾，片名就从花茎里写出来。",
+  "uses": [
+   "Botanical, perfume & beauty brands",
+   "Theatre, concerts & exhibitions",
+   "Seasonal and nature storytelling"
+  ],
+  "dur": 52.5
+ },
+ {
+  "slug": "constructivist",
+  "num": "63",
+  "en": "Bauhaus & Constructivist Poster",
+  "cn": "包豪斯构成主义",
+  "cat": "图形与排版",
+  "cat_en": "Graphic & Type",
+  "film": "Thirty Metres",
+  "line": "A relay poster builds itself block by block on a steep diagonal, and the whole film narrows to the one place a race is won: the thirty-metre box where the baton changes hands.",
+  "line_cn": "一张接力赛海报沿陡峭的对角线一块一块搭起来，整部片子收窄到决定胜负的那 30 米交接区：接力棒在这里换手。",
+  "uses": [
+   "Event and campaign announcements",
+   "Stage-by-stage process explainers",
+   "Sports, civic and maker stories"
+  ],
+  "dur": 52.0
+ },
+ {
+  "slug": "y2k-vaporwave",
+  "num": "71",
+  "en": "Vaporwave & Y2K Chrome",
+  "cn": "蒸汽波与 Y2K",
+  "cat": "图形与排版",
+  "cat_en": "Graphic & Type",
+  "film": "Installing Summer",
+  "line": "A setup wizard installs one summer: the bar crawls under a sinking banded sun, hangs at 99 % in silence, then completes in spinning chrome type before the last dialog is dismissed.",
+  "line_cn": "一个安装向导在安装一个夏天：进度条在沉落的条纹夕阳下爬行，静默中卡在 99%，然后以旋转的铬金属字完成，最后点掉最后一个对话框。",
+  "uses": [
+   "Nostalgia, music and album-style visuals",
+   "Fashion, lifestyle and youth-culture brands",
+   "Launch teasers, countdowns and loading-screen stories"
+  ],
+  "dur": 49.4
+ },
+ {
   "slug": "dataviz",
   "num": "23",
   "en": "Data Storytelling",
@@ -476,6 +646,24 @@
   "dur": 39.0
  },
  {
+  "slug": "sheet-music",
+  "num": "66",
+  "en": "Sheet-music Motion",
+  "cn": "乐谱音乐可视化",
+  "cat": "信息与发布",
+  "cat_en": "Information & Keynote",
+  "film": "Four Notes",
+  "line": "A four-note seed is repeated, mirrored and stretched on an engraved page, then the page unrolls into a landscape where the same score blooms, ripples and draws itself as ribbons.",
+  "line_cn": "四个音符的动机被重复、倒影、拉长；乐谱随后铺开成风景，同一份乐谱开花、起浪、画出旋律的丝带。",
+  "uses": [
+   "Explaining a musical idea",
+   "Podcast intro",
+   "Brand sting",
+   "Music lesson"
+  ],
+  "dur": 50.0
+ },
+ {
   "slug": "rubber-hose",
   "num": "26",
   "en": "1930s Rubber Hose Cartoon",
@@ -542,6 +730,57 @@
    "How-to steps"
   ],
   "dur": 40.0
+ },
+ {
+  "slug": "comic-pop",
+  "num": "57",
+  "en": "Comic Panel Pop Art",
+  "cn": "美漫分格波普",
+  "cat": "卡通与动画",
+  "cat_en": "Cartoon & Anime",
+  "film": "Butter Side Down",
+  "line": "A slice of toast slides off a 75 cm table, gets exactly half a spin, and lands butter side down: the physics of Murphy's law in a comic page that builds itself panel by panel.",
+  "line_cn": "一片吐司从 75 厘米高的桌边滑落，只来得及转半圈，黄油面朝下：墨菲定律背后的物理，用一页自己拼起来的美漫。",
+  "uses": [
+   "Explainers with a punchline",
+   "Product or feature stories in beats",
+   "Social shorts and ads"
+  ],
+  "dur": 47.1
+ },
+ {
+  "slug": "opera-cel",
+  "num": "59",
+  "en": "Peking Opera Cel Animation",
+  "cn": "国风戏曲动画",
+  "cat": "卡通与动画",
+  "cat_en": "Cartoon & Anime",
+  "film": "One Gong at Stone Gate",
+  "line": "A young stage-warrior duels a stone spirit at a mountain gate, then opens the shut spring with one struck gong instead of her spear.",
+  "line_cn": "年轻的武旦与石精在山门对阵，最后没有出枪，只敲了一记锣，封住的泉水便涌了出来。",
+  "uses": [
+   "Heritage and festival films",
+   "Brand legends and origin stories",
+   "Fables and idioms for learners"
+  ],
+  "dur": 52.5
+ },
+ {
+  "slug": "manga-panel",
+  "num": "67",
+  "en": "Manga Panel",
+  "cn": "漫画黑白网点",
+  "cat": "卡通与动画",
+  "cat_en": "Cartoon & Anime",
+  "film": "The Last Pineapple Bun",
+  "line": "A girl and a middle-aged salaryman sprint for the last pineapple bun of the day, reach it in the same second, and split it: a black-and-white manga spread read right to left, panel by panel.",
+  "line_cn": "女孩和中年上班族为当天最后一个菠萝包冲刺，同一秒伸手，最后一人一半：一页从右往左、一格一格读下去的黑白漫画。",
+  "uses": [
+   "Comic-style explainers and how-tos",
+   "Slice-of-life and gag shorts",
+   "Chapter openers, trailers and social teasers"
+  ],
+  "dur": 55.2
  },
  {
   "slug": "pixel-rpg",
@@ -612,6 +851,23 @@
   "dur": 148.8
  },
  {
+  "slug": "pixel-8bit",
+  "num": "72",
+  "en": "8-bit Console Pixel",
+  "cn": "8-bit 红白机像素",
+  "cat": "游戏",
+  "cat_en": "Games",
+  "film": "Dusklight",
+  "line": "Wick the lamplighter races the dusk through two scrolling stages, climbs a beacon tower, lights it through a moth swarm that overloads the sprite hardware, and sets a new high score.",
+  "line_cn": "提灯人 Wick 在两段横版关卡里和黄昏赛跑，爬上灯塔，穿过让精灵硬件超载闪烁的飞蛾群点亮它，刷新最高分。",
+  "uses": [
+   "Game trailers and nostalgia pieces",
+   "Countdowns, progress and score recaps",
+   "Product feature lists told as stages"
+  ],
+  "dur": 54.4
+ },
+ {
   "slug": "silent-film",
   "num": "34",
   "en": "1920s Silent Film",
@@ -644,6 +900,23 @@
    "Game teasers"
   ],
   "dur": 59.7
+ },
+ {
+  "slug": "super8",
+  "num": "65",
+  "en": "Super 8 Home Movie",
+  "cn": "老胶片家庭录像",
+  "cat": "电影与时代",
+  "cat_en": "Cinema & Eras",
+  "film": "Dad Was Here Too",
+  "line": "A father films his family's 1976 seaside day without once appearing in it, until his daughter takes the camera and the reel burns out on him.",
+  "line_cn": "爸爸把 1976 年一家人的海边一天拍成一卷胶片，自己从没入镜；直到女儿接过摄影机，胶片在他身上烧尽。",
+  "uses": [
+   "Family, travel & memory films",
+   "Nostalgic brand stories",
+   "Anniversaries & tributes"
+  ],
+  "dur": 56.7
  },
  {
   "slug": "brick-toy",
@@ -729,5 +1002,39 @@
    "Beauty"
   ],
   "dur": 32.0
+ },
+ {
+  "slug": "claymation",
+  "num": "55",
+  "en": "Claymation / Stop-motion",
+  "cn": "粘土定格动画",
+  "cat": "材质与 3D",
+  "cat_en": "Materials & 3D",
+  "film": "Proof",
+  "line": "A worried lump of dough on a hand-built kitchen counter waits all night to rise; at dawn a giant clay finger pokes it, and it springs back.",
+  "line_cn": "手捏小厨房里，一团忐忑的面团整夜不敢发酵；天亮时一根巨大的泥手指戳了它一下，它弹了回来。",
+  "uses": [
+   "Kids & family stories",
+   "Food & craft",
+   "Gentle explainers"
+  ],
+  "dur": 50.8
+ },
+ {
+  "slug": "origami",
+  "num": "61",
+  "en": "Origami Fold",
+  "cn": "折纸",
+  "cat": "材质与 3D",
+  "cat_en": "Materials & 3D",
+  "film": "The Seventh Fold",
+  "line": "A strip of paper is folded in half six times and the seventh will not close; the same strip is pleated, gathers into a wing, and opens with one pull.",
+  "line_cn": "一条纸带对折六次，第七次再也折不动；换成风琴褶，同一条纸带收成一排折页，一拉就展开。",
+  "uses": [
+   "How-it-works explainers",
+   "Product packaging and unboxing",
+   "Instruction sheets and craft tutorials"
+  ],
+  "dur": 50
  }
 ]

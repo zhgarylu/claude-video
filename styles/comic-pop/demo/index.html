@@ -1,0 +1,497 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>comic-pop demo</title>
+<link rel="stylesheet" href="/core/fonts/fonts.css">
+<style>@font-face{font-family:'Bangers';src:url(fonts/Bangers-Regular.ttf) format('truetype');font-display:block}html,body{margin:0;background:#f3ead3}canvas{display:block}</style></head>
+<body><canvas id="cv" width="1920" height="1080"></canvas>
+<script type="module">
+import { clamp, lerp, seg, eio, eo, ei, back, mulberry, hash, TAU } from '/core/lib.js';
+
+const W = 1920, H = 1080;
+const cv = document.getElementById('cv'), c = cv.getContext('2d');
+const INK = { paper: '#f3ead3', k: '#16110f', r: '#e4372b', y: '#ffd21f', b: '#1a8fd8', w: '#fffaf0' };
+const FONT = '"Bangers", "Lilita One", sans-serif';
+
+/* ---------- print layers ----------
+   Every panel is drawn in three passes: 'fill' (colour inks, shifted a few px = off-register),
+   'line' (black keyline, true position), 'top' (lettering that stays crisp). */
+let LAYER = 'fill';
+const OFF = { x: 5, y: 4 };
+function shape(g, pathFn, color, lw = 10, occ = true) {
+  g.beginPath(); pathFn(g);
+  if (LAYER === 'fill' && color) { g.fillStyle = color; g.fill(); }
+  else if (LAYER === 'line' && lw) {
+    if (occ && color) { g.save(); g.globalCompositeOperation = 'destination-out'; g.fillStyle = '#000'; g.fill(); g.restore(); }   // opaque things hide the lines behind them
+    g.lineWidth = lw; g.strokeStyle = INK.k; g.lineJoin = 'round'; g.lineCap = 'round'; g.stroke(); }
+}
+// Ben-Day dots on a page-fixed rotated grid; radius follows density(x,y). Overprints with multiply.
+function dots(g, box, step, ang, dens, color, k = .66) {
+  const cx = box.x + box.w / 2, cy = box.y + box.h / 2, R = Math.hypot(box.w, box.h) / 2 + step;
+  const ca = Math.cos(ang), sa = Math.sin(ang), n = Math.ceil(R / step);
+  g.save(); g.globalCompositeOperation = 'multiply'; g.fillStyle = color; g.beginPath();
+  for (let i = -n; i <= n; i++) for (let j = -n; j <= n; j++) {
+    const u = i * step, v = j * step, x = cx + u * ca - v * sa, y = cy + u * sa + v * ca;
+    if (x < box.x - step || x > box.x + box.w + step || y < box.y - step || y > box.y + box.h + step) continue;
+    const d = dens(x, y); if (d <= .04) continue;
+    const r = step * k * Math.sqrt(Math.min(1, d)); g.moveTo(x + r, y); g.arc(x, y, r, 0, TAU);
+  }
+  g.fill(); g.restore();
+}
+const radial = (cx, cy, r0, r1) => (x, y) => 1 - clamp((Math.hypot(x - cx, y - cy) - r0) / (r1 - r0));
+const ramp = (x0, y0, x1, y1, a = 0, b = 1) => (x, y) => { const dx = x1 - x0, dy = y1 - y0; return lerp(a, b, clamp(((x - x0) * dx + (y - y0) * dy) / (dx * dx + dy * dy))); };
+const flat = d => () => d;
+
+/* ---------- small drawing kit ---------- */
+function poly(g, pts) { g.moveTo(pts[0][0], pts[0][1]); for (let i = 1; i < pts.length; i++) g.lineTo(pts[i][0], pts[i][1]); g.closePath(); }
+function burst(g, cx, cy, r1, r2, n, rot, seed) {
+  const R = mulberry(seed); g.moveTo(cx, cy);
+  for (let i = 0; i < n * 2; i++) {
+    const a = rot + i / (n * 2) * TAU, r = i % 2 ? r2 * (.85 + R() * .3) : r1 * (.8 + R() * .4);
+    (i ? g.lineTo : g.moveTo).call(g, cx + Math.cos(a) * r, cy + Math.sin(a) * r);
+  }
+  g.closePath();
+}
+function rays(g, fx, fy, n, rot, R2 = 3000, phase = 0, every = 2) {   // wedge sunburst, every other wedge
+  for (let i = 0; i < n; i += every) {
+    const a0 = rot + i / n * TAU, a1 = rot + (i + 1) / n * TAU;
+    g.moveTo(fx, fy); g.lineTo(fx + Math.cos(a0) * R2, fy + Math.sin(a0) * R2); g.lineTo(fx + Math.cos(a1) * R2, fy + Math.sin(a1) * R2); g.closePath();
+  }
+}
+function speedLines(g, fx, fy, n, seed, r0, r1, wid, rot = 0, span = TAU) {   // tapered ink lines pointing at the focus
+  const R = mulberry(seed); g.fillStyle = INK.k;
+  for (let i = 0; i < n; i++) {
+    const a = rot + (i + R() * .8) / n * span, a2 = wid / r1 * (.5 + R()), ra = r0 + R() * (r1 - r0) * .35, rb = r1 * (.8 + R() * .4);
+    g.beginPath(); g.moveTo(fx + Math.cos(a) * ra, fy + Math.sin(a) * ra);
+    g.lineTo(fx + Math.cos(a - a2) * rb, fy + Math.sin(a - a2) * rb); g.lineTo(fx + Math.cos(a + a2) * rb, fy + Math.sin(a + a2) * rb); g.closePath(); g.fill();
+  }
+}
+function blob(g, cx, cy, rx, ry, n, wob, seed) {   // wobbly closed puddle
+  const R = mulberry(seed), pts = [];
+  for (let i = 0; i < n; i++) { const a = i / n * TAU, k = 1 + (R() - .5) * wob; pts.push([cx + Math.cos(a) * rx * k, cy + Math.sin(a) * ry * k]); }
+  const mid = (a, b) => [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+  const m0 = mid(pts[n - 1], pts[0]); g.moveTo(m0[0], m0[1]);
+  for (let i = 0; i < n; i++) { const m = mid(pts[i], pts[(i + 1) % n]); g.quadraticCurveTo(pts[i][0], pts[i][1], m[0], m[1]); }
+  g.closePath();
+}
+
+/* ---------- the hero prop: a slice of toast (drawn from nothing but paths) ---------- */
+function toastPath(g, s = 1) {
+  g.moveTo(-125 * s, 140 * s); g.lineTo(125 * s, 140 * s); g.lineTo(130 * s, 20 * s);
+  g.bezierCurveTo(175 * s, 10 * s, 185 * s, -70 * s, 140 * s, -110 * s);
+  g.bezierCurveTo(100 * s, -150 * s, 30 * s, -135 * s, 0, -125 * s);
+  g.bezierCurveTo(-30 * s, -135 * s, -100 * s, -150 * s, -140 * s, -110 * s);
+  g.bezierCurveTo(-185 * s, -70 * s, -175 * s, 10 * s, -130 * s, 20 * s); g.closePath();
+}
+function toast(g, x, y, sc, rot, o = {}) {
+  const base = g.getTransform(), butter = o.butter !== false, flatY = o.flatY || 1;
+  g.save(); g.translate(x, y); g.rotate(rot); g.scale(sc * (o.sx || 1), sc * flatY);
+  const light = (px, py) => clamp(.25 + ((px - x) * .35 + (py - y) * .75) / (260 * sc));   // light from upper-left, page-fixed
+  const area = { x: x - 260 * sc, y: y - 260 * sc, w: 520 * sc, h: 520 * sc };
+  // crust
+  shape(g, gg => toastPath(gg, 1), INK.y, 11);
+  if (LAYER === 'fill') { g.save(); g.beginPath(); toastPath(g, 1); g.clip(); g.setTransform(base); dots(g, area, 17, .52, flat(o.brown ?? .55), INK.r); g.restore(); }
+  // crumb
+  g.save(); g.translate(0, 8); g.scale(.74, .73);
+  shape(g, gg => toastPath(gg, 1), butter ? '#fff1c2' : INK.y, 8);
+  if (LAYER === 'fill' && butter) { g.save(); g.beginPath(); toastPath(g, 1); g.clip(); g.setTransform(base); dots(g, area, 17, .52, (px, py) => light(px, py) * .55, INK.y, .7); g.restore(); }
+  g.restore();
+  if (butter) {   // the butter pat
+    g.save(); g.translate(0, 8); g.rotate(-.12);
+    shape(g, gg => { gg.roundRect(-66, -40, 132, 80, 12); }, INK.y, 8);
+    if (LAYER === 'fill') { g.fillStyle = INK.w; g.beginPath(); g.moveTo(-46, -28); g.lineTo(18, -28); g.lineTo(-46, -8); g.closePath(); g.fill(); }
+    g.restore();
+  }
+  if (!butter && LAYER === 'line') {   // back of the toast: a few crumb flecks
+    g.fillStyle = INK.k; for (let i = 0; i < 9; i++) { const R = hash(i + 3); g.beginPath(); g.arc(-70 + R * 140, -30 + hash(i * 7) * 120, 3 + hash(i * 3) * 3, 0, TAU); g.fill(); }
+  }
+  g.restore();
+}
+
+/* ---------- lettering ---------- */
+function measure(g, text, size) { g.font = `${size}px ${FONT}`; return g.measureText(text).width; }
+// caption box: yellow rectangle, black keyline, hard offset shadow
+function caption(g, x, y, text, size = 40, rot = 0, bg = INK.y, ink = INK.k) {
+  const lines = text.split('\n'), w = Math.max(...lines.map(l => measure(g, l, size))) + 44, h = lines.length * size * 1.12 + 26;
+  g.save(); g.translate(x, y); g.rotate(rot);
+  g.fillStyle = INK.k; g.fillRect(9, 9, w, h);
+  g.fillStyle = bg; g.fillRect(0, 0, w, h);
+  g.lineWidth = 6; g.strokeStyle = INK.k; g.lineJoin = 'miter'; g.strokeRect(0, 0, w, h);
+  g.fillStyle = ink; g.textBaseline = 'alphabetic'; g.font = `${size}px ${FONT}`;
+  lines.forEach((l, i) => g.fillText(l, 22, 13 + size * .92 + i * size * 1.12));
+  g.restore(); return { w, h };
+}
+// speech balloon: white ellipse, keyline, one tail to (tx,ty)
+function balloon(g, cx, cy, text, size, tx, ty, o = {}) {
+  const lines = text.split('\n'), tw = Math.max(...lines.map(l => measure(g, l, size))), th = lines.length * size * 1.1;
+  const rx = tw / 2 * 1.28 + 26, ry = th / 2 * 1.32 + 22;
+  const ang = Math.atan2(ty - cy, tx - cx), a0 = ang - .26, a1 = ang + .26;
+  const ex = a => [cx + Math.cos(a) * rx, cy + Math.sin(a) * ry];
+  g.save(); g.lineJoin = 'round'; g.lineWidth = 7; g.strokeStyle = INK.k; g.fillStyle = o.bg || INK.w;
+  const p = () => { g.beginPath(); g.ellipse(cx, cy, rx, ry, 0, a1, a0 + TAU); const q0 = ex(a0); g.quadraticCurveTo((q0[0] + tx) / 2 + 10, (q0[1] + ty) / 2 - 12, tx, ty); const q1 = ex(a1); g.quadraticCurveTo((q1[0] + tx) / 2 - 8, (q1[1] + ty) / 2 + 12, q1[0], q1[1]); g.closePath(); };
+  p(); g.save(); g.translate(7, 7); g.fillStyle = INK.k; g.fill(); g.restore();
+  p(); g.fill(); g.stroke();
+  g.fillStyle = INK.k; g.textAlign = 'center'; g.font = `${size}px ${FONT}`;
+  lines.forEach((l, i) => g.fillText(l, cx, cy - th / 2 + size * .9 + i * size * 1.1)); g.restore();
+}
+// onomatopoeia: letters on a gentle arc, jittered size, black extrusion, white rim, colour fill
+function sfx(g, text, cx, cy, size, rot, fill, o = {}) {
+  const ex = o.extrude ?? 16, rim = o.rim ?? 14, R = mulberry(o.seed || 5), n = text.length;
+  g.save(); g.translate(cx, cy); g.rotate(rot); g.textBaseline = 'middle'; g.lineJoin = 'round'; g.miterLimit = 2;
+  const items = []; let tot = 0;
+  for (let i = 0; i < n; i++) { const k = (i % 2 ? .93 : 1.06) * (.94 + R() * .14), sz = size * k; g.font = `${sz}px ${FONT}`; const w = g.measureText(text[i]).width * 1.02; items.push({ ch: text[i], sz, w, rot: (R() - .5) * .16 }); tot += w; }
+  let x = -tot / 2; items.forEach((it, i) => { it.x = x + it.w / 2; x += it.w; const u = (it.x) / (tot / 2); it.y = (o.arc ?? 40) * (u * u - .3) * -1 + (i % 2 ? 8 : -6); it.rot += u * (o.fan ?? .1); });
+  const each = fn => items.forEach(it => { g.save(); g.translate(it.x, it.y); g.rotate(it.rot); g.font = `${it.sz}px ${FONT}`; g.textAlign = 'center'; fn(it); g.restore(); });
+  const dirx = o.dx ?? .7, diry = o.dy ?? .72;
+  for (let s = ex; s >= 1; s -= 2) each(it => { g.lineWidth = rim * 2 + 6; g.strokeStyle = INK.k; g.strokeText(it.ch, dirx * s, diry * s); g.fillStyle = INK.k; g.fillText(it.ch, dirx * s, diry * s); });
+  each(it => { g.lineWidth = rim * 2 + 6; g.strokeStyle = INK.k; g.strokeText(it.ch, 0, 0); });
+  each(it => { g.lineWidth = rim * 2 - 2; g.strokeStyle = o.rimColor || INK.w; g.strokeText(it.ch, 0, 0); });
+  each(it => { g.fillStyle = fill; g.fillText(it.ch, 0, 0); });
+  if (o.dotsOn) {   // halftone through the letters (overprint ink)
+    g.save(); g.globalCompositeOperation = 'source-atop'; g.restore();
+  }
+  each(it => { g.lineWidth = 5; g.strokeStyle = INK.k; g.strokeText(it.ch, 0, 0); });
+  g.restore();
+}
+
+
+/* ====================================================================
+   THE FILM: "Butter Side Down". One timeline (112 BPM, 22 bars) drives picture, events and score.
+   ==================================================================== */
+const BPM = 112, BEAT = 60 / BPM, BAR = BEAT * 4;
+const bar = (n, b = 0) => n * BAR + b * BEAT;
+const DUR = 22 * BAR;
+window.DUR = DUR;
+const FULL = [W / 2, H / 2, 1];
+
+const P = {
+  p1: [[50, 50], [1040, 50], [1000, 470], [50, 500]],
+  p2: [[1080, 50], [1870, 50], [1870, 450], [1040, 470]],
+  p3: [[50, 540], [1000, 510], [1160, 1030], [50, 1030]],
+  p4: [[1040, 510], [1870, 490], [1870, 1030], [1200, 1030]],
+  cov: [[-40, -40], [1960, -40], [1960, 1120], [-40, 1120]],
+  q1: [[50, 50], [660, 50], [620, 690], [50, 690]],
+  q2: [[700, 50], [1300, 50], [1260, 690], [660, 690]],
+  q3: [[1340, 50], [1870, 50], [1870, 690], [1300, 690]],
+  q4: [[50, 740], [1870, 720], [1870, 1030], [50, 1030]],
+};
+const bboxOf = pts => { const xs = pts.map(p => p[0]), ys = pts.map(p => p[1]); const x = Math.min(...xs), y = Math.min(...ys); return { x, y, w: Math.max(...xs) - x, h: Math.max(...ys) - y }; };
+const cenOf = pts => [pts.reduce((a, p) => a + p[0], 0) / pts.length, pts.reduce((a, p) => a + p[1], 0) / pts.length];
+
+const LC = document.createElement('canvas'); LC.width = W; LC.height = H; const lc = LC.getContext('2d');
+let TT = 0;      // content time of the panel being drawn, stepped at 12 fps
+
+/* ---------- small scene helpers ---------- */
+function tableSide(g, x0, x1, topY, floorY, topCol, legCol) {
+  shape(g, gg => poly(gg, [[x0, topY], [x1, topY], [x1, topY + 26], [x0, topY + 26]]), topCol, 9);
+  shape(g, gg => poly(gg, [[x0 + 18, topY + 26], [x0 + 44, topY + 26], [x0 + 44, floorY], [x0 + 18, floorY]]), legCol, 8);
+  shape(g, gg => poly(gg, [[x1 - 44, topY + 26], [x1 - 18, topY + 26], [x1 - 18, floorY], [x1 - 44, floorY]]), legCol, 8);
+}
+function floorStrip(g, x0, x1, y0, y1, col) { shape(g, gg => poly(gg, [[x0, y0], [x1, y0], [x1, y1], [x0, y1]]), col, 10); }
+function pathDots(g, pts, r0, r1) {
+  if (LAYER !== 'line') return;
+  g.fillStyle = INK.k; pts.forEach((p, i) => { const r = lerp(r0, r1, i / (pts.length - 1)); g.beginPath(); g.arc(p[0], p[1], r, 0, TAU); g.fill(); });
+}
+const faceUp = r => Math.cos(r) > 0;
+const flipSX = r => Math.pow(Math.max(.14, Math.abs(Math.cos(r))), .6);   // card-flip squash around the face switch   // face-on sprite: which side shows
+
+/* ---- panel 1: the table ---- */
+function panel1(g, b) {
+  if (LAYER === 'fill') {
+    g.fillStyle = INK.y; g.fillRect(b.x, b.y, b.w, b.h);
+    dots(g, b, 20, Math.PI / 4, radial(900, 120, 30, 520), INK.r);
+  }
+  shape(g, gg => poly(gg, [[30, 340], [700, 340], [700, 392], [30, 392]]), INK.b, 10);
+  shape(g, gg => poly(gg, [[60, 392], [670, 392], [670, 540], [60, 540]]), '#5cb8ee', 10);
+  if (LAYER === 'fill') dots(g, b, 16, .5, (x, y) => (x > 60 && x < 670 && y > 392) ? clamp(.95 - (y - 392) / 150) : 0, INK.b, .7);
+  // anticipation: a small rock back, then the tip
+  const tip = TT < .9 ? lerp(.22, .16, eio(seg(TT, .35, .9))) : lerp(.16, .52, eio(seg(TT, 1.0, 2.6)));
+  toast(g, 700 + Math.sin(tip) * 119, 340 - Math.cos(tip) * 119, .85, tip, { butter: true });
+}
+
+/* ---- panel 2: the fall ---- */
+function panel2(g, b) {
+  const fx = 1560, fy = 290;
+  if (LAYER === 'fill') {
+    g.fillStyle = INK.y; g.fillRect(b.x, b.y, b.w, b.h);
+    g.save(); g.beginPath(); rays(g, fx, fy, 28, .2 + TT * .03, 3000); g.fillStyle = INK.r; g.fill(); g.restore();
+    dots(g, b, 18, Math.PI / 4, radial(fx, fy, 120, 300), INK.w, .6);
+  }
+  if (LAYER === 'line') {
+    speedLines(g, fx, fy + 60, 50, 11, 250, 900, 15, -2.75, 2.2);
+    pathDots(g, Array.from({ length: 9 }, (_, i) => { const u = i / 8; return [1180 + u * 260, 170 + Math.sin(u * 2.2) * 150 - u * 30 + 60 * u * u]; }), 11, 5);
+  }
+  shape(g, gg => gg.arc(fx, fy, 128, 0, TAU), INK.w, 8);
+  const r = lerp(.3, Math.PI, eio(seg(TT, .4, 4.1)));
+  toast(g, fx, fy, .66, r, { butter: faceUp(r), sx: flipSX(r) });
+}
+
+/* ---- panel 3: the landing ---- */
+function panel3(g, b) {
+  const cx = 560, cy = 800;
+  if (LAYER === 'fill') {
+    g.fillStyle = INK.b; g.fillRect(b.x, b.y, b.w, b.h);
+    dots(g, b, 20, Math.PI / 4, radial(cx, cy - 60, 100, 760), INK.w, .5);
+    g.fillStyle = INK.y; g.beginPath(); burst(g, cx, cy - 40, 300, 480, 16, .1, 4); g.fill();
+    dots(g, b, 20, Math.PI / 4, radial(cx, cy - 60, 40, 420), INK.r, .5);
+  }
+  if (LAYER === 'line') speedLines(g, cx, cy - 20, 44, 9, 400, 760, 16, 0, TAU);
+  shape(g, gg => burst(gg, cx, cy - 40, 300, 480, 16, .1, 4), LAYER === 'line' ? INK.y : null, 9);
+  const vpx = cx, vpy = 420, colX = i => cx + (i - 4) * 120, tx = (i, y) => vpx + (colX(i) - vpx) * (y - vpy) / (1030 - vpy);
+  const ys = [925, 965, 1010, 1060];
+  for (let r = 0; r < 3; r++) for (let i = 0; i < 9; i++) {
+    const q = [[tx(i, ys[r]), ys[r]], [tx(i + 1, ys[r]), ys[r]], [tx(i + 1, ys[r + 1]), ys[r + 1]], [tx(i, ys[r + 1]), ys[r + 1]]];
+    shape(g, gg => poly(gg, q), (i + r) % 2 ? INK.r : INK.w, 7);
+  }
+  const sq = TT > .2 && TT < 1.2 ? 1 + Math.exp(-(TT - .2) * 6) * Math.cos((TT - .2) * 22) * .12 : 1;   // squash on landing
+  const spread = lerp(.7, 1, eo(seg(TT, 0, .5)));
+  shape(g, gg => blob(gg, cx, cy + 105, 320 * spread, 82 * spread, 11, .3, 8), INK.y, 10);
+  if (LAYER === 'fill') { g.fillStyle = INK.w; g.beginPath(); g.ellipse(cx - 190 * spread, cy + 100, 62 * spread, 11, -.1, 0, TAU); g.fill(); }
+  toast(g, cx + 10, cy + 55, .95, -.08, { butter: false, flatY: .55 * sq, brown: .62 });
+}
+
+/* ---- panel 4: the number (splits into two panels) ---- */
+function panel4(g, b) {
+  if (LAYER === 'fill') {
+    g.fillStyle = INK.w; g.fillRect(b.x, b.y, b.w, b.h);
+    dots(g, b, 20, Math.PI / 4, ramp(b.x, b.y, b.x + b.w, b.y + b.h, 1, .1), INK.b, .62);
+    dots(g, b, 20, Math.PI / 12, radial(1460, 640, 20, 300), INK.r, .5);
+  }
+  toast(g, 1770, 905, .3, Math.PI * .96, { butter: true });
+}
+
+/* ---- cover: the question ---- */
+function panelCov(g, b) {
+  if (LAYER === 'fill') {
+    g.fillStyle = INK.y; g.fillRect(b.x, b.y, b.w, b.h);
+    g.save(); g.beginPath(); rays(g, 960, 540, 40, TT * .03, 3000); g.fillStyle = INK.b; g.fill(); g.restore();
+    dots(g, b, 20, Math.PI / 4, radial(960, 540, 150, 700), INK.w, .55);
+  }
+}
+
+/* ---- page 2, panel 1: the 75 cm table ---- */
+function panelQ1(g, b) {
+  if (LAYER === 'fill') {
+    g.fillStyle = INK.y; g.fillRect(b.x, b.y, b.w, b.h);
+    dots(g, b, 20, Math.PI / 4, radial(150, 120, 30, 480), INK.r);
+  }
+  tableSide(g, 80, 320, 480, 600, INK.b, '#5cb8ee');
+  floorStrip(g, 30, 700, 600, 760, INK.b);
+  if (LAYER === 'fill') dots(g, b, 16, .5, (x, y) => (y > 600) ? clamp(.9 - (y - 600) / 140) : 0, INK.w, .55);
+  const pt = u => [330 + u * 140, 450 + 130 * u * u];
+  pathDots(g, Array.from({ length: 8 }, (_, i) => pt(i / 7)), 9, 4);
+  const u = eio(seg(TT, .5, 2.6)), p = pt(u), rot = u * Math.PI;
+  const land = seg(u, .9, 1);
+  if (u > 0.9) shape(g, gg => blob(gg, 470, 598, 85, 20, 9, .25, 3), INK.y, 8);
+  toast(g, p[0], p[1] - lerp(0, 4, land), .27, rot, { butter: faceUp(rot), flatY: lerp(1, .5, land), brown: .6, sx: flipSX(rot) });
+}
+
+/* ---- page 2, panel 2: the 3 m table ---- */
+function panelQ2(g, b) {
+  if (LAYER === 'fill') {
+    g.fillStyle = INK.b; g.fillRect(b.x, b.y, b.w, b.h);
+    dots(g, b, 20, Math.PI / 4, radial(1050, 330, 80, 520), INK.w, .5);
+  }
+  tableSide(g, 700, 940, 130, 600, INK.r, INK.r);
+  floorStrip(g, 640, 1320, 600, 760, INK.y);
+  if (LAYER === 'fill') dots(g, b, 16, .5, (x, y) => (y > 600) ? clamp(.9 - (y - 600) / 140) : 0, INK.r, .55);
+  const pt = u => [960 + u * 170, 120 + 470 * u * u];
+  pathDots(g, Array.from({ length: 12 }, (_, i) => pt(i / 11)), 10, 4);
+  const u = eio(seg(TT, .5, 3.8)), land = seg(u, .93, 1);
+  for (const k of [.2, .1]) { if (u - k > 0.02) { const p = pt(u - k), rot = (u - k) * TAU; toast(g, p[0], p[1], .22, rot, { butter: faceUp(rot), sx: flipSX(rot) }); } }
+  const p = pt(u), rot = u * TAU;
+  toast(g, p[0], p[1] - lerp(0, 3, land), .27, rot, { butter: faceUp(rot), flatY: lerp(1, .5, land), brown: .6, sx: flipSX(rot) });
+}
+
+/* ---- page 2, panel 3: butter side up ---- */
+function panelQ3(g, b) {
+  const fx = 1585, fy = 440;
+  if (LAYER === 'fill') {
+    g.fillStyle = INK.y; g.fillRect(b.x, b.y, b.w, b.h);
+    g.save(); g.beginPath(); rays(g, fx, fy, 24, .1 + TT * .03, 3000); g.fillStyle = INK.r; g.fill(); g.restore();
+    dots(g, b, 18, Math.PI / 4, radial(fx, fy, 100, 280), INK.w, .6);
+  }
+  if (LAYER === 'line') speedLines(g, fx, fy, 40, 17, 330, 800, 14, 0, TAU);
+  for (let i = 0; i < 9; i++) for (let r = 0; r < 2; r++) {
+    const x0 = 1280 + i * 70, y0 = 590 + r * 50;
+    shape(g, gg => poly(gg, [[x0, y0], [x0 + 70, y0], [x0 + 70, y0 + 50], [x0, y0 + 50]]), (i + r) % 2 ? INK.r : INK.w, 6);
+  }
+  const hop = TT < .35 ? Math.sin(TT / .35 * Math.PI) * 24 : 0;
+  toast(g, fx + 10, 540 - hop, .62, .08, { butter: true, flatY: .66 });
+}
+
+/* ---- page 2, panel 4: the punchline strip ---- */
+function panelQ4(g, b) {
+  if (LAYER === 'fill') {
+    g.fillStyle = INK.w; g.fillRect(b.x, b.y, b.w, b.h);
+    dots(g, b, 20, Math.PI / 4, ramp(b.x, b.y, b.x + b.w, b.y, .9, .15), INK.b, .62);
+    dots(g, b, 20, Math.PI / 12, radial(1450, 880, 20, 360), INK.r, .5);
+  }
+  toast(g, 1710, 880, .5, .3, { butter: true });
+}
+
+const PANELS = [
+  { id: 'p1', page: 1, pts: P.p1, fn: panel1, t0: bar(0, 1), rot: -.05 },
+  { id: 'p2', page: 1, pts: P.p2, fn: panel2, t0: bar(1), rot: .05 },
+  { id: 'p3', page: 1, pts: P.p3, fn: panel3, t0: bar(3), rot: -.04 },
+  { id: 'p4', page: 1, pts: P.p4, fn: panel4, t0: bar(7), rot: .05, split: [bar(8), bar(8) + .5] },
+  { id: 'cov', page: 1, pts: P.cov, fn: panelCov, t0: bar(11), rot: 0, cover: true },
+  { id: 'q1', page: 2, pts: P.q1, fn: panelQ1, t0: bar(13), rot: -.04 },
+  { id: 'q2', page: 2, pts: P.q2, fn: panelQ2, t0: bar(14), rot: .04 },
+  { id: 'q3', page: 2, pts: P.q3, fn: panelQ3, t0: bar(15), rot: -.04 },
+  { id: 'q4', page: 2, pts: P.q4, fn: panelQ4, t0: bar(13, 3), rot: .03 },
+];
+const PAGE2_T = bar(13);
+
+/* ---------- lettering items (page coordinates) ---------- */
+const ITEMS = [
+  { panel: 'p1', at: bar(0, 3), kind: 'cap', x: 78, y: 78, text: 'THE TABLE:\n75 CM TALL.', size: 52, rot: -.02 },
+  { panel: 'p1', at: bar(0, 5), kind: 'bal', cx: 850, cy: 400, text: 'BREAKFAST\nIS READY!', size: 46, tx: 990, ty: 462 },
+  { panel: 'p2', at: bar(1, .6), kind: 'sfx', text: 'FLIP!', cx: 1320, cy: 200, size: 138, rot: -.12, fill: INK.b, o: { seed: 2, extrude: 14, rim: 11, arc: 26 } },
+  { panel: 'p2', at: bar(1, 2.5), kind: 'cap', x: 1110, y: 346, text: 'THE FALL:\n0.4 SECONDS.', size: 42, rot: .015, bg: INK.w },
+  { panel: 'p3', at: bar(3, .3), kind: 'sfx', text: 'SPLAT!', cx: 520, cy: 650, size: 200, rot: -.1, fill: INK.r, o: { seed: 6, extrude: 20, rim: 15, arc: 50, fan: .08 } },
+  { panel: 'p3', at: bar(3, 3), kind: 'cap', x: 70, y: 925, text: 'BUTTER SIDE DOWN.\nAGAIN.', size: 42, rot: -.015 },
+  { panel: 'p4', at: bar(7, .3), kind: 'sfx', text: '0.5', cx: 1440, cy: 640, size: 290, rot: .05, fill: INK.y, o: { seed: 3, extrude: 18, rim: 11, arc: 10, fan: .02 } },
+  { panel: 'p4', at: bar(8, 3), kind: 'cap', x: 1240, y: 880, text: 'TURNS. NOT BAD LUCK:\nJUST NOT ENOUGH TIME.', size: 38, rot: -.01 },
+  { panel: 'cov', at: bar(11, 1), kind: 'cap', cx: 960, cy: 470, text: 'WHAT IF THE TABLE\nWERE TALLER?', size: 96, rot: -.02, bg: INK.w },
+  { panel: 'cov', at: bar(11, 3), kind: 'sfx', text: '?!', cx: 960, cy: 800, size: 260, rot: .06, fill: INK.r, o: { seed: 9, extrude: 20, rim: 14, arc: 10, fan: .04 } },
+  { panel: 'q1', at: bar(13, 1.5), kind: 'cap', x: 78, y: 78, text: '75 CM TABLE:\nHALF A TURN.', size: 44, rot: -.02 },
+  { panel: 'q1', at: bar(13, 3.5), kind: 'sfx', text: 'SPLAT!', cx: 360, cy: 330, size: 110, rot: -.1, fill: INK.r, o: { seed: 7, extrude: 12, rim: 10, arc: 24 } },
+  { panel: 'q2', at: bar(14, 1.5), kind: 'cap', x: 960, y: 78, text: '3 M TABLE:\nA FULL TURN.', size: 44, rot: .02, bg: INK.w },
+  { panel: 'q3', at: bar(15, .2), kind: 'sfx', text: 'TA-DA!', cx: 1580, cy: 220, size: 130, rot: -.07, fill: INK.b, o: { seed: 4, extrude: 14, rim: 11, arc: 20 } },
+  { panel: 'q3', at: bar(15, 3), kind: 'cap', x: 1350, y: 640, text: 'BUTTER SIDE UP!', size: 44, rot: .01 },
+  { panel: 'q4', at: bar(14, 0), until: bar(16, 1), kind: 'cap', x: 90, y: 790, text: 'SAME TOAST.\nDIFFERENT TABLE.', size: 70, rot: -.012 },
+  { panel: 'q4', at: bar(16, 1), kind: 'cap', x: 90, y: 790, text: 'NOT BAD LUCK.\nJUST A SHORT TABLE.', size: 70, rot: -.012 },
+  { panel: 'q4', at: bar(20, 3), kind: 'sfx', text: 'CRUNCH!', cx: 1260, cy: 880, size: 150, rot: -.06, fill: INK.r, o: { seed: 5, extrude: 18, rim: 13, arc: 30 } },
+];
+
+/* ---------- camera: poses [cx, cy, scale], eased between keys ---------- */
+const P3V = [540, 790, 1.85], DOT = [760, 700, 3.8], P4V = [1330, 770, 1.5], RV = [1420, 400, 1.85];
+const CAM = [
+  [0, FULL], [bar(4), FULL], [bar(5), P3V], [bar(5, 2.5) + .25, P3V], [bar(5, 2.5) + .5, DOT], [bar(6, 1.5), DOT], [bar(7), FULL],
+  [bar(8, 3), FULL], [bar(9, 1), P4V], [bar(10), P4V], [bar(10, 3.5), FULL],
+  [PAGE2_T, FULL], [bar(18), FULL], [bar(19), RV], [bar(19, 3), RV], [bar(20, 1), FULL],
+];
+function camera(t) {
+  let i = 0; while (i < CAM.length - 2 && t >= CAM[i + 1][0]) i++;
+  const [t0, a] = CAM[i], [t1, b2] = CAM[i + 1], e = eio(seg(t, t0, t1));
+  const sc = Math.exp(lerp(Math.log(a[2]), Math.log(b2[2]), e));
+  return { x: lerp(a[0], b2[0], e), y: lerp(a[1], b2[1], e), sc };
+}
+const FREEZE = [[bar(3) + .2, bar(3) + .2 + 3 / 24], [bar(11) + .2, bar(11) + .2 + 3 / 24], [bar(15, .2) + .1, bar(15, .2) + .1 + 3 / 24]];   // 3-frame freezes on the hits
+const tmap = t => { for (const [a, b] of FREEZE) if (t >= a && t < b) return a; return t; };
+
+/* ---------- audio events (the same numbers as the picture) ---------- */
+const EV = [{ t: 0, type: 'meta', bpm: BPM, dur: DUR }];
+PANELS.forEach(p => EV.push({ t: p.t0, type: 'slam', id: p.id }));
+ITEMS.forEach(it => EV.push({ t: it.at, type: it.kind === 'sfx' ? 'word' : 'pop', text: it.text.replace(/\n/g, ' '), panel: it.panel }));
+for (let i = 0; i < CAM.length - 1; i++) if (CAM[i][1] !== CAM[i + 1][1]) EV.push({ t: CAM[i][0], type: 'move', d: CAM[i + 1][0] - CAM[i][0], to: CAM[i + 1][1][2] });
+EV.push({ t: bar(8), type: 'split' }, { t: bar(0, 3.5), type: 'creak' }, { t: bar(1, .5), type: 'spin', d: 3.7 }, { t: bar(13, 1.5), type: 'spin', d: 2.2 }, { t: bar(14, 1), type: 'spin', d: 3.3 });
+[[bar(3) - .22, bar(3)], [bar(5, 2.5) - .1, bar(5, 2.5) + .5], [bar(20, 2) + .5, bar(20, 3)], [bar(11) - .15, bar(11)]].forEach(([a, b]) => EV.push({ t: a, type: 'quiet', d: b - a }));
+window.EV = EV;
+
+/* ---------- paper ---------- */
+let PAPER;
+function buildPaper() {
+  const pc = document.createElement('canvas'); pc.width = W; pc.height = H; const g = pc.getContext('2d');
+  g.fillStyle = INK.paper; g.fillRect(0, 0, W, H);
+  const id = g.getImageData(0, 0, W, H), d = id.data, R = mulberry(77);
+  for (let i = 0; i < d.length; i += 4) { const n = (R() - .5) * 16; d[i] += n; d[i + 1] += n * .95; d[i + 2] += n * .85; }
+  g.putImageData(id, 0, 0);
+  const gr = g.createRadialGradient(W / 2, H / 2, 300, W / 2, H / 2, 1200); gr.addColorStop(0, 'rgba(0,0,0,0)'); gr.addColorStop(1, 'rgba(90,60,20,.16)');
+  g.fillStyle = gr; g.fillRect(0, 0, W, H);
+  PAPER = pc;
+}
+
+/* ---------- lettering drawing + text log for readcheck ---------- */
+let TLOG = [];
+function itemGeom(it) {   // rect in page coords, centre
+  c.font = `${it.size}px ${FONT}`;
+  if (it.kind === 'cap') {
+    const lines = it.text.split('\n'), w = Math.max(...lines.map(l => measure(c, l, it.size))) + 44, h = lines.length * it.size * 1.12 + 26;
+    const x = it.cx != null ? it.cx - w / 2 : it.x, y = it.cy != null ? it.cy - h / 2 : it.y;
+    return { x0: x, y0: y, x1: x + w + 9, y1: y + h + 9, cx: x + w / 2, cy: y + h / 2, x, y };
+  }
+  if (it.kind === 'bal') {
+    const lines = it.text.split('\n'), tw = Math.max(...lines.map(l => measure(c, l, it.size))), th = lines.length * it.size * 1.1;
+    const rx = tw / 2 * 1.28 + 26, ry = th / 2 * 1.32 + 22;
+    return { x0: it.cx - rx, y0: it.cy - ry, x1: it.cx + rx + 7, y1: it.cy + ry + 7, cx: it.cx, cy: it.cy };
+  }
+  const w = measure(c, it.text, it.size) * 1.04 + 2 * ((it.o.rim ?? 14) + 6) + (it.o.extrude ?? 16), h = it.size * 1.05 + 2 * ((it.o.rim ?? 14) + 6) + (it.o.extrude ?? 16);
+  const ca = Math.abs(Math.cos(it.rot)), sa = Math.abs(Math.sin(it.rot)), ww = w * ca + h * sa, hh = w * sa + h * ca;
+  return { x0: it.cx - ww / 2, y0: it.cy - hh / 2, x1: it.cx + ww / 2, y1: it.cy + hh / 2, cx: it.cx, cy: it.cy };
+}
+function drawItem(g, it, t, dy, settled) {
+  const gm = itemGeom(it), lp = seg(t, it.at, it.at + .22); if (lp <= 0 || (it.until && t >= it.until)) return;
+  const pop = it.kind === 'sfx' ? lerp(1.5, 1, ei(clamp(lp / .6))) * back(Math.min(1, lp), 2.0) : back(lp, 2.2);
+  g.save(); g.translate(0, dy); g.translate(gm.cx, gm.cy); g.scale(pop, pop); g.translate(-gm.cx, -gm.cy);
+  if (it.kind === 'cap') caption(g, gm.x, gm.y, it.text, it.size, it.rot, it.bg || INK.y);
+  else if (it.kind === 'bal') balloon(g, it.cx, it.cy, it.text, it.size, it.tx, it.ty);
+  else sfx(g, it.text, it.cx, it.cy, it.size, it.rot, it.fill, it.o);
+  g.restore();
+  if (lp >= 1 && settled) {
+    const M = g.getTransform(), pts = [[gm.x0, gm.y0 + dy], [gm.x1, gm.y0 + dy], [gm.x0, gm.y1 + dy], [gm.x1, gm.y1 + dy]].map(([x, y]) => { const q = M.transformPoint(new DOMPoint(x, y)); return [q.x, q.y]; });
+    TLOG.push({ id: it.panel + ':' + it.text, text: it.text.replace(/\n/g, ' '), x0: Math.min(...pts.map(p => p[0])), y0: Math.min(...pts.map(p => p[1])), x1: Math.max(...pts.map(p => p[0])), y1: Math.max(...pts.map(p => p[1])) });
+  }
+}
+
+/* ---------- panel drawing ---------- */
+function drawPanel(g, pn, t) {
+  const p = seg(t, pn.t0, pn.t0 + .5); if (p <= 0) return;
+  TT = Math.floor((t - pn.t0) * 12 + 1e-6) / 12;                         // contents step at 12 fps; camera and slam stay smooth
+  const k = clamp((t - pn.t0) / .16), slam = t < pn.t0 + .16 ? lerp(1.3, 1, ei(k)) : 1;
+  const rot = t < pn.t0 + .16 ? pn.rot * (1 - ei(k)) : 0;
+  const sh = (t > pn.t0 + .14 && t < pn.t0 + .7) ? Math.exp(-(t - pn.t0 - .14) * 7) * 12 : 0;
+  const [cx, cy] = cenOf(pn.pts), b = bboxOf(pn.pts);
+  const flash = clamp(1 - Math.abs(t - pn.t0 - .15) / .08) * (pn.cover ? .5 : .65);
+  const split = pn.split ? eo(seg(t, pn.split[0], pn.split[1])) : 0;
+  const gap = split * 30, cut = b.y + b.h * .5 + 25;
+  const parts = split > 0 ? [-1, 1] : [0];
+  for (const part of parts) {
+    g.save();
+    g.translate(cx + Math.sin(t * 90) * sh * .6, cy + Math.cos(t * 110) * sh); g.rotate(rot); g.scale(slam, slam); g.translate(-cx, -cy);
+    if (part) g.translate(0, part * gap);
+    const cutRect = part < 0 ? [b.x - 80, b.y - 80, b.w + 160, cut - (b.y - 80)] : [b.x - 80, cut, b.w + 160, b.y + b.h + 80 - cut];
+    const clipTo = (gg, dx = 0, dy = 0) => { gg.beginPath(); poly(gg, pn.pts.map(q => [q[0] + dx, q[1] + dy])); gg.clip(); if (part) { gg.beginPath(); gg.rect(...cutRect); gg.clip(); } };
+    LAYER = 'fill';
+    g.save(); clipTo(g, OFF.x, OFF.y); g.translate(OFF.x, OFF.y); pn.fn(g, b); g.restore();
+    LAYER = 'line';
+    lc.setTransform(1, 0, 0, 1, 0, 0); lc.clearRect(0, 0, W, H); lc.setTransform(g.getTransform());
+    pn.fn(lc, b);
+    g.save(); clipTo(g); const T = g.getTransform(); g.setTransform(1, 0, 0, 1, 0, 0); g.drawImage(LC, 0, 0); g.setTransform(T); g.restore();
+    g.save(); g.lineWidth = 13; g.strokeStyle = INK.k; g.lineJoin = 'miter'; g.miterLimit = 6;
+    if (part) { g.beginPath(); g.rect(...cutRect); g.clip(); }
+    g.beginPath(); poly(g, pn.pts); g.stroke(); g.restore();
+    if (part) { g.save(); g.beginPath(); poly(g, pn.pts); g.clip(); g.fillStyle = INK.k; g.fillRect(b.x - 20, cut - 6.5, b.w + 40, 13); g.restore(); }
+    if (flash > 0) { g.save(); g.beginPath(); poly(g, pn.pts); g.clip(); g.fillStyle = `rgba(255,255,255,${flash})`; g.fillRect(b.x - 50, b.y - 50, b.w + 100, b.h + 100); g.restore(); }
+    g.restore();
+  }
+  LAYER = 'top';
+  ITEMS.filter(it => it.panel === pn.id).forEach(it => {
+    const gm = itemGeom(it), part = split > 0 ? (gm.cy < cut ? -1 : 1) : 0;
+    drawItem(g, it, t, part * gap, t >= pn.t0 + .75);
+  });
+}
+
+/* ---------- frame ---------- */
+function render(t) {
+  const tp = tmap(t); TLOG = [];
+  c.setTransform(1, 0, 0, 1, 0, 0); c.globalAlpha = 1; c.globalCompositeOperation = 'source-over';
+  c.drawImage(PAPER, 0, 0);
+  const cam = camera(tp);
+  c.save(); c.translate(W / 2, H / 2); c.scale(cam.sc, cam.sc); c.translate(-cam.x, -cam.y);
+  for (const pn of PANELS) {
+    if (tp >= PAGE2_T ? pn.page !== 2 : pn.page !== 1) continue;
+    drawPanel(c, pn, tp);
+  }
+  c.restore();
+  const R = mulberry(Math.floor(tp * 8) + 1); c.fillStyle = 'rgba(22,17,15,.35)';
+  for (let i = 0; i < 90; i++) { c.beginPath(); c.arc(R() * W, R() * H, .6 + R() * 1.4, 0, TAU); c.fill(); }
+  c.fillStyle = 'rgba(255,250,235,.4)';
+  for (let i = 0; i < 90; i++) { c.beginPath(); c.arc(R() * W, R() * H, .6 + R() * 1.6, 0, TAU); c.fill(); }
+}
+window.render = render;
+window.TEXTS = t => TLOG.slice();
+(async () => {
+  await Promise.all([document.fonts.load('40px "Bangers"', 'ABC0.5!?-'), document.fonts.load('40px "Lilita One"', 'ABC')]);
+  buildPaper(); render(0); window.READY = true;
+})();
+</script></body></html>

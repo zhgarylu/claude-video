@@ -1,0 +1,52 @@
+[
+ {
+  "id": "v1",
+  "text": "Every plate begins with a guide, drawn lightly in pencil.",
+  "voice": "bm_george",
+  "speed": 0.9
+ },
+ {
+  "id": "v2",
+  "text": "A chambered shell. It grows by adding rooms, one at a time.",
+  "voice": "bm_george",
+  "speed": 0.9
+ },
+ {
+  "id": "v3",
+  "text": "Cut it open, and the spiral is a record: each chamber sealed off as the animal outgrew it.",
+  "voice": "bm_george",
+  "speed": 0.9
+ },
+ {
+  "id": "v4",
+  "text": "A thin tube, the sigh-funkle, runs through every wall.",
+  "sub": "A thin tube, the siphuncle, runs through every wall.",
+  "voice": "bm_george",
+  "speed": 0.9,
+  "asr": "A thin tube, the siphonkel, runs through every wall."
+ },
+ {
+  "id": "v5",
+  "text": "A garden snail coils its shell too.",
+  "voice": "bm_george",
+  "speed": 0.9
+ },
+ {
+  "id": "v6",
+  "text": "A sunflower packs its seeds in spirals: thirty-four one way, fifty-five the other.",
+  "voice": "bm_george",
+  "speed": 0.9
+ },
+ {
+  "id": "v7",
+  "text": "A young fern keeps its tip rolled in a coil until it is ready to open.",
+  "voice": "bm_george",
+  "speed": 0.9
+ },
+ {
+  "id": "v8",
+  "text": "Four makers, one shape. Not the same curve, but the same habit: grow outward, and keep what you made.",
+  "voice": "bm_george",
+  "speed": 0.9
+ }
+]
