@@ -1,0 +1,22 @@
+Midnight at the Starlight Hotel — Lemo-Opuscar · Art Deco demo
+LemoLab × Claude Opus 5.5
+
+Picture: everything drawn in code (Canvas2D), no generated images, no third-party artwork.
+Story, characters, score and sound design: original (Lemo-Opuscar).
+
+Fonts (SIL Open Font License 1.1, licence texts in fonts/):
+  Limelight — Eben Sorkin
+  Poiret One — Denis Masharov
+  Josefin Sans — Santiago Orozco
+  Italiana — Santiago Orozco
+
+Voices: Kokoro-82M (Apache 2.0), voices bm_fable (announcer), am_puck (bellboy).
+
+Music samples:
+  Piano: "Salamander Grand Piano V3" by Alexander Holm, CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)
+  CC0: VS Chamber Orchestra: Community Edition and Versilian Community Sample Library (Versilian Studios);
+       Karoryfer Samples / sfzinstruments.
+  All sound effects synthesised in code (numpy).
+
+References (grammar only, nothing copied): A. M. Cassandre posters; Chrysler Building / Rockefeller Center ornament;
+Busby Berkeley overhead choreography (1930s); The Great Gatsby (2013) title sequence; Gershwin-era symphonic jazz.

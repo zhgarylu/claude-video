@@ -1,0 +1,17 @@
+{
+  "name": "lemolab",
+  "owner": {
+    "name": "Lemomo",
+    "url": "https://github.com/lemomo-ai"
+  },
+  "metadata": {
+    "description": "LemoLab skills: film styles for coding agents."
+  },
+  "plugins": [
+    {
+      "name": "lemo-opuscar",
+      "source": "./plugin",
+      "description": "Make a film in one of the library's code-rendered styles: your agent directs, draws, scores and mixes it."
+    }
+  ]
+}

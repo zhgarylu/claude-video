@@ -1,0 +1,20 @@
+Room to Think — Dark Tech Keynote · Lemo-Opuscar · LemoLab × Claude Opus 5.5
+
+Picture
+- All UI, icons, photos, windows and typography layouts are drawn in code (demo/engine.js). No generated or stock images.
+- "Tidy" is a fictional app. No real product, brand, logo or system interface appears.
+
+Fonts (SIL Open Font License 1.1, licence files in demo/fonts/)
+- Inter — Rasmus Andersson (rsms/inter)
+- Inter Tight — Rasmus Andersson
+- JetBrains Mono — The JetBrains Mono Project Authors
+
+Voice
+- Kokoro TTS v1.0 (hexgrad/Kokoro-82M, Apache-2.0), voice af_kore, via kokoro-onnx
+
+Music (original composition, demo/music/score.py)
+- Samples: VCSL — Versilian Community Sample Library (CC0 1.0): marimba, vibraphone (hard mallets), vibraphone (bowed), glockenspiel
+- Pad, pulse, shaker and rise are synthesised in numpy
+
+Sound design
+- All foley and ambience synthesised in numpy (demo/mix.py, core/audio/sfx.py)

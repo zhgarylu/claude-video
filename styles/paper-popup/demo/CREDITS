@@ -1,0 +1,40 @@
+Paper Pop-up Book — "The Little Sprite's Adventure" (Pip's Paper Adventure) · asset credits
+==========================================================================================
+
+All characters, pop-up sets, page art, the book cover and the story are original and drawn in code
+(art.js / sets.js / book.js, Canvas2D + three.js). All sound effects and ambience are synthesized in mix.py.
+
+MUSIC — Kevin MacLeod (incompetech.com), Creative Commons Attribution 4.0 (CC BY 4.0)
+  https://creativecommons.org/licenses/by/4.0/
+  Used in the film (edited in music/edit.py; credited on the end card):
+  - "Dreamy Flashback"   — opening on the desk (0–16 s)            https://incompetech.com/music/royalty-free/
+  - "Jaunty Gumption"    — the paper world, bar-aligned jump cut (15.4–104.2 s)
+  - "Heartwarming"       — the real world / ending (104.8–133 s)
+  Attribution text: "<title>" Kevin MacLeod (incompetech.com) · Licensed under Creative Commons: By Attribution 4.0
+  Candidates auditioned but NOT used (music/survey.py): Carefree, Easy Lemon, Fluffing a Duck, Life of Riley,
+  Merry Go, Monkeys Spinning Monkeys, Pippin the Hunchback, Sneaky Adventure, Wallpaper, Wholesome
+  — all Kevin MacLeod, CC BY 4.0. Credit them if you ever use them.
+
+3D SCENE — Poly Haven (polyhaven.com), CC0 (public domain)
+  - HDRI "Lythwood Lounge" (lythwood_lounge_2k.hdr)          https://polyhaven.com/a/lythwood_lounge
+  - Texture "American Walnut Veneer" (walnut_diff/nor/rough)  https://polyhaven.com/a/american_walnut_veneer
+  - Model "Desk Lamp Arm 01"   (desk_lamp_arm_01)             https://polyhaven.com/a/desk_lamp_arm_01
+  - Model "Tea Set 01"         (tea_set_01)                   https://polyhaven.com/a/tea_set_01
+  - Model "Alarm Clock 01"     (alarm_clock_01)               https://polyhaven.com/a/alarm_clock_01
+  - Model "Potted Plant 04"    (potted_plant_04)              https://polyhaven.com/a/potted_plant_04
+  - Test-only HDRIs (gltest.mjs / test.html, not in the film): pine_attic_2k.hdr https://polyhaven.com/a/pine_attic ,
+    wooden_lounge_2k.hdr https://polyhaven.com/a/wooden_lounge
+  (lythwood_lounge, walnut, desk lamp and tea set are byte-identical to core/assets/polyhaven/.)
+
+VOICE — Kokoro TTS
+  - Model Kokoro-82M (hexgrad), Apache-2.0 — https://huggingface.co/hexgrad/Kokoro-82M
+  - Runtime kokoro-onnx (thewh1teagle), MIT — model files shared from core/tts/ (kokoro-v1.0.onnx, voices-v1.0.bin)
+  - Voice: af_bella, speed 0.9, en-us
+  - Proof-listening: faster-whisper base.en (MIT)
+
+FONTS — Google Fonts, all SIL Open Font License 1.1 (downloaded by fetch_fonts.mjs into fonts/, CJK subset)
+  - Fredoka (subtitles, bubbles, sign)          - Lilita One (cover, chapter banners, NICE!/GREAT!, end title)
+  - IM Fell English (cover tagline, "The End" page, "The End?")  - ZCOOL KuaiLe (Chinese subtitles & bubbles)
+
+CODE
+  - three.js r170 (MIT) · playwright-core (Apache-2.0) · ffmpeg (LGPL/GPL build) for encoding

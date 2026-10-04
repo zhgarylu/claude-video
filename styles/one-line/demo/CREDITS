@@ -1,0 +1,14 @@
+The Line That Never Lifted — One-line Drawing (Lemo-Opuscar · LemoLab × Claude Opus 5.5)
+
+Everything visual is drawn by code in this folder (one continuous SVG-sampled path, Canvas2D ink renderer, procedural paper).
+
+Fonts (SIL Open Font License 1.1, license texts in fonts/):
+  Caveat — Impallari Type (github.com/google/fonts/tree/main/ofl/caveat)
+  Sacramento — Astigmatic (github.com/google/fonts/tree/main/ofl/sacramento)
+
+Music: original score (music/score.py), rendered with core/audio/sampler.py
+  Samples (CC0 1.0): Versilian Studios — VS Chamber Orchestra: Community Edition (cellos, cellos_pizz)
+                     and Versilian Community Sample Library (hand_chimes)
+
+Voice: Kokoro TTS (Apache-2.0), voice am_liam; verified with faster-whisper.
+Sound effects: synthesized in mix.py (pen on paper, tap, ink bloom, room tone).

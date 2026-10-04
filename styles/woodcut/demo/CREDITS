@@ -1,0 +1,22 @@
+The Bell Founder — a Woodcut Print demo (Lemo-Opuscar · LemoLab × Claude Opus 5.5)
+
+Everything in the picture is drawn in code (engine/, *.js): no generated images, no traced artwork.
+
+Voice
+  Kokoro-82M TTS, voice am_onyx (speed 0.88) — Apache-2.0 (hexgrad/Kokoro-82M)
+
+Music (original score, music/score.py)
+  VS Chamber Orchestra: Community Edition — Versilian Studios, CC0
+  Versilian Community Sample Library (VCSL) — Versilian Studios, CC0
+  Anvil: original numpy modal synthesis (no samples)
+
+Sound effects (mix.py)
+  All foley and the bell synthesised in numpy/scipy (wood, paper, brass, clay, fire, molten metal, modal bell)
+
+Type
+  IM Fell English / IM Fell English SC / IM Fell English Italic — Igino Marini, SIL Open Font License 1.1 (fonts/OFL-IMFell.txt)
+
+Images
+  core/assets/polyhaven/walnut_diff.jpg — "American Walnut Veneer", Poly Haven, CC0 (the table under the block, 7–9 s)
+  assets/bearded_man_cc0.jpg — CC0 photo by ThuyHaBich (Pixabay, via Wikimedia Commons); used only for the filter test
+    still demo/stills/filter_v1.jpg, not in the film

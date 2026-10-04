@@ -1,0 +1,9 @@
+Coffee Run — Sci-Fi Sitcom Toon demo · asset sources & licenses
+
+Music        Original score, synthesized in code (music/score.py, numpy). No samples.
+Sound FX     Synthesized in code (mix.py + core/audio/sfx.py). No samples.
+Voices       Kokoro TTS v1.0 (kokoro-onnx), Apache-2.0 — voices am_onyx (Vask), am_eric (Gary), af_sky +7 st (Coffee).
+Fonts        Baloo 2 (Ek Type), Titan One (Rodrigo Fuenzalida), Bungee (David Jonathan Ross), VT323 (Peter Hull) — Google Fonts, SIL Open Font License 1.1.
+             Files in fonts/ are the unmodified latin subsets served by fonts.gstatic.com.
+Artwork      All characters, creatures, props and backgrounds drawn procedurally in code (toon.js / chars.js / worlds.js).
+Style        Inspired by adult-swim-era sci-fi sitcom cartoons. No characters, names, catchphrases, logos or props from any existing show are used.

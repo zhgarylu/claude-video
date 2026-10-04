@@ -1,0 +1,18 @@
+Toy Town Rush Hour — Tilt-Shift Miniature demo · credits
+
+Everything visual is procedural (three.js code in this folder): city, traffic, train, ducks, sky. No image assets.
+
+Fonts
+- Overpass & Overpass Mono — Delve Withrington, Dave Bailey, Thomas Jockin (Red Hat) — SIL Open Font License 1.1 (demo/fonts/OFL-Overpass.txt)
+
+Voice
+- Kokoro-82M TTS (voice am_adam), Apache-2.0, via kokoro-onnx
+
+Music (original composition, demo/music/score.py)
+- Samples (CC0): VS Chamber Orchestra: Community Edition (Versilian Studios / Sam Gossner), Versilian Community Sample Library (Versilian Studios)
+
+Sound effects
+- All synthesized in demo/mix.py with core/audio/sfx.py (no recorded samples)
+
+Libraries
+- three.js (MIT), playwright-core (Apache-2.0), ffmpeg (LGPL/GPL)

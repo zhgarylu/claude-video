@@ -1,0 +1,22 @@
+Coffee Cup Chase — 1930s Rubber Hose Cartoon (Lemo-Opuscar · rubber-hose)
+LemoLab × Claude Opus 5.5
+
+Picture
+- All characters, props, backgrounds, film damage and titles drawn in code (Canvas2D) — original.
+
+Music (original composition, rendered with samples; see music/score.py)
+- VS Chamber Orchestra: Community Edition — Versilian Studios — CC0 1.0
+  (upright piano, trumpet incl. mute, trombone, clarinet, tuba, snare, kick, cymbals)
+- Versilian Community Sample Library (VCSL) — Versilian Studios — CC0 1.0 (xylophone, woodblock)
+- Drums: "MuldjordKit" by Lars Muldjord (drumgizmo.org), FreePats version,
+  licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) (toms)
+- Banjo: physical-modelling pluck (core/audio/pluck.py), slide whistle / spring / brush swish synthesized in numpy
+
+Sound effects
+- All foley synthesized in code (mix.py, core/audio/sfx.py)
+
+Voice
+- Kokoro TTS v1.0 (Apache-2.0), voice bm_lewis
+
+Fonts (SIL Open Font License 1.1, license files in fonts/)
+- Shrikhand (Jonny Pinhorn), Limelight (Nicole Fally / Sorkin Type), IM Fell English SC (Igino Marini)

@@ -1,0 +1,18 @@
+Aura — Hear the Light · Glass Product Render demo · LemoLab × Claude Opus 5.5
+
+All 3D models, materials, lighting, caustics, typography layout and animation: generated in code (three.js) for this film. Product, brand name and design are fictional.
+Music: original composition, synthesized from scratch with numpy (music/score.py). No samples.
+Sound effects: synthesized (mix.py, core/audio/sfx.py).
+
+Font
+- Inter Tight (variable) — Tim Brown / Rasmus Andersson, SIL Open Font License 1.1 — https://fonts.google.com/specimen/Inter+Tight
+
+Voice
+- Kokoro-82M TTS (voice am_michael) — Apache-2.0 — https://huggingface.co/hexgrad/Kokoro-82M (kokoro-onnx runtime, MIT)
+- faster-whisper (base.en) used for verification only — MIT
+
+Libraries
+- three.js r170 — MIT (MeshPhysicalMaterial transmission/dispersion, Reflector, RectAreaLight, UnrealBloomPass)
+- core/three/post.js (this repo): depth of field, bloom, grade
+
+No Poly Haven assets are used in this film (the studio environment is a procedural strip-light scene baked to PMREM every frame).

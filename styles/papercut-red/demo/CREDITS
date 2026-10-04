@@ -1,0 +1,19 @@
+Nian Comes to Town — Red Paper-cut (Lemo-Opuscar demo)
+All visuals are procedurally generated in code (Canvas2D): paper textures, cut patterns, characters, village, lighting. No images or footage used.
+
+Fonts
+- Fraunces by Undercase Type (Phaedra Charles, Flavia Zimbardi) — SIL Open Font License 1.1 (fonts/OFL-Fraunces.txt)
+- Ma Shan Zheng by Ma Shan Zheng — SIL Open Font License 1.1 (fonts/OFL-MaShanZheng.txt)
+
+Voice
+- Kokoro-82M (hexgrad), voice af_sarah — Apache License 2.0, via kokoro-onnx (MIT)
+
+Music (original composition, music/score.py)
+- Samples (CC0 1.0): VS Chamber Orchestra: Community Edition and Versilian Community Sample Library (Versilian Studios / Sam Gossner) — flute, dan tranh, woodblock, gong, frame drum
+- Erhu: Karoryfer Samples "aliexpress-erhu" (CC0 1.0)
+- Pipa: physical-model plucked string (core/audio/pluck.py), original synthesis
+
+Sound effects
+- All synthesized in mix.py (numpy / scipy), original.
+
+Speech check: faster-whisper (MIT), OpenAI Whisper base.en weights (MIT)

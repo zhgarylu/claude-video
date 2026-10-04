@@ -1,0 +1,35 @@
+一个月饼的相思 · A Mooncake's Longing — Paper-cut Lightbox (Lemo-Opuscar demo)
+LemoLab × Claude Opus 5.5
+
+All paper layers, figures, props, calligraphy layouts and the lightbox are drawn by code in this folder
+(Canvas2D paper layers + three.js renderer). No photos or AI-generated images inside the box.
+Story, script and shot design are original.
+
+Music (both used in the film, crossfaded at ~37 s):
+- "Ripples" — Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0 License
+  http://creativecommons.org/licenses/by/4.0/  · file: music/km_Ripples.mp3
+- "Nu Flute" — Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0 License
+  http://creativecommons.org/licenses/by/4.0/  · file: music/km_Nu_Flute.mp3
+Candidate tracks kept in music/ but NOT used in the film (sources and licences in music/MUSIC.md):
+- "Echoes Of Home", "The Long Way Home" — Scott Buckley, CC BY 4.0
+- "Asian - Asian China Chinese Music" — NastelBom; "Mo Li Hua - Chinese Jasmine Flower" — NourishedByMusic; Pixabay Content License
+
+3D assets and textures (Poly Haven, CC0), loaded from core/assets/polyhaven/ (identical copies also in demo/assets/):
+- tea_set_01 — https://polyhaven.com/a/tea_set_01
+- american_walnut_veneer (walnut_diff / walnut_nor / walnut_rough) — https://polyhaven.com/a/american_walnut_veneer
+Environment lighting: three.js RoomEnvironment (procedural, MIT). No HDRI is used.
+
+Fonts (SIL Open Font License 1.1, Google Fonts; files in fonts/src/, licence texts not bundled — see fonts.google.com):
+- Ma Shan Zheng — titles, poem, seals
+- Zhi Mang Xing — running-script notes
+- Long Cang — the granddaughter's handwriting
+- Noto Serif SC — subtitles and credits
+
+Voice: Microsoft Edge neural TTS voice zh-CN-XiaoxiaoNeural, generated with the open-source edge-tts client
+(github.com/rany2/edge-tts). Check Microsoft's terms of use before commercial redistribution of the audio.
+Speech check / word timings: faster-whisper (MIT) with the Systran faster-whisper-medium model (MIT).
+Sound effects: synthesized in mix.py (no samples).
+
+Texts quoted: 苏轼《水调歌头·明月几时有》(Song dynasty); 田汝成《西湖游览志余》(Ming dynasty) — public domain.
+
+Software: three.js (MIT), playwright-core (Apache-2.0), FFmpeg (LGPL/GPL).

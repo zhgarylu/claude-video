@@ -1,0 +1,17 @@
+Three Trails — Silkscreen Travel Poster demo · credits
+
+All artwork, poster designs, the park, trails and data are fictional and drawn by code in this folder (engine/, film.js). No generated images.
+
+Fonts (SIL Open Font License 1.1)
+- Big Shoulders Display — Patric King / The Chicago Design Collective — fonts/BigShouldersDisplay.ttf, license fonts/OFL-BigShouldersDisplay.txt — https://github.com/google/fonts/tree/main/ofl/bigshouldersdisplay
+- Outfit — Rodrigo Fuenzalida — fonts/Outfit.ttf, license fonts/OFL-Outfit.txt — https://github.com/google/fonts/tree/main/ofl/outfit
+- League Gothic — The League of Moveable Type (bundled, not used in the final cut) — fonts/LeagueGothic.ttf, license fonts/OFL-LeagueGothic.txt
+
+Music (music/compose.py; original, 100 BPM open-D folk)
+- Acoustic guitar: physical-model strums (core/audio/pluck.py); slide guitar: additive synthesis in numpy.
+- VCSL — Versilian Community Sample Library (CC0 1.0), https://github.com/sgossner/VCSL: harmonica, cajon, snare (brushes), shaker.
+- VSCO 2 Community Edition (CC0 1.0), https://github.com/sgossner/VSCO-2-CE: suspended cymbal.
+- Karoryfer Samples "Sneakybass" upright bass (CC0 1.0), https://github.com/sfzinstruments
+
+Sound effects and ambience
+- Synthesized in mix.py: squeegee on mesh, ink bead, screen hinge, paper stamps, registration clamp, pine brush, lake, waterfall, wind, visitor-center room.

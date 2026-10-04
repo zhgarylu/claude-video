@@ -1,0 +1,9 @@
+Living Screencast · "Clawd Moves In" (59.4 s) — LemoLab × Claude Opus 5.5 · Unofficial fan film, not affiliated with Anthropic.
+Clawd and the Claude app interface are redrawn from scratch in HTML/CSS/SVG (no screenshots); they belong to Anthropic.
+
+Voice: Kokoro-82M (hexgrad, Apache 2.0) via kokoro-onnx, voice am_michael. Checked with faster-whisper medium.en.
+Fonts (SIL OFL 1.1): Inter (Rasmus Andersson), Newsreader (Production Type), JetBrains Mono (JetBrains). Licences in fonts/.
+Piano: "Salamander Grand Piano V3" by Alexander Holm, licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)
+Drums: "MuldjordKit" by Lars Muldjord (drumgizmo.org), FreePats version, licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+Samples (CC0): Karoryfer Samples / sfzinstruments (jazz bass), VS Chamber Orchestra: Community Edition and Versilian Community Sample Library (Versilian Studios) — glockenspiel, violins, claps, shaker.
+Chiptune voice of Clawd, UI foley and all sound effects: synthesised in sound.py.

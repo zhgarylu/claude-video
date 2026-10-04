@@ -1,0 +1,8 @@
+TRANQUILITY.LOG — credits
+Font: VT323 by Peter Hull, SIL Open Font License 1.1 (demo/fonts/OFL-VT323.txt), https://github.com/google/fonts/tree/main/ofl/vt323
+Voice: Kokoro-82M (Apache-2.0) via kokoro-onnx, voice am_echo; processed in demo/voice_fx.py
+Speech check: faster-whisper base.en (MIT)
+Music: original, synthesized from scratch in demo/music/score.py (no samples)
+Foley: all synthesized in demo/mix.py (no recordings)
+Pictures: all drawn by code as characters (demo/art.js, demo/term.js, demo/main.js); continent outlines are hand-typed coarse lon/lat polygons (geographic facts)
+CRT post adapted from core/post/crt.js

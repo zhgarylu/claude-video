@@ -1,0 +1,28 @@
+Halftone Dossier demo — 《胖橘案卷 Case File: Chubby》 (30.0 s)
+Credits and licences for everything used in this folder.
+
+PICTURE
+- All artwork (cat, props, halftone dots, stamps, paper texture, grain, transitions) is drawn procedurally
+  by code in index.html (SVG + Canvas 2D). No images, textures, photos or 3D assets are used.
+- Rendering: Playwright (playwright-core 1.63.0, Apache-2.0) driving Chromium headless shell;
+  encoding with FFmpeg (libx264, LGPL/GPL).
+
+MUSIC AND SOUND EFFECTS
+- Original score and all SFX synthesized from scratch by music.py (NumPy + SciPy, BSD-3-Clause).
+  No samples, loops or third-party recordings. Written for this film; free to reuse with the repo.
+
+VOICE
+- None. The film has no narration and no TTS; all storytelling is on-screen Chinese title cards.
+
+FONTS (downloaded from Google Fonts by fetch_fonts.mjs into fonts/ + fonts.css; all SIL Open Font License 1.1)
+- Noto Serif SC (weight 900)            — Google / Adobe (Source Han Serif)   — OFL 1.1   headlines 为什么 / 测试重力 / 结论
+- Noto Sans SC (weights 500, 900)       — Google / Adobe (Source Han Sans)    — OFL 1.1   captions, stamps, profile text
+- ZCOOL KuaiLe (站酷快乐体, 400)        — ZCOOL                               — OFL 1.1   cute lines 喵 / 太可爱了 / 呼噜～
+- Bagel Fat One (400)                   — Kyungwon Kim (JAMO)                 — OFL 1.1   CHUBBY, giant numerals 01/03, 99+
+- JetBrains Mono (weights 500, 800)     — JetBrains                           — OFL 1.1   case numbers, HUD, clock, cm ruler
+  OFL text: https://openfontlicense.org  ·  sources: https://fonts.google.com
+  The woff2 files in fonts/ are the unmodified Google Fonts unicode-range slices (f0–f392).
+
+CREDIT LINE IN THE FILM
+- End card (26.8–30 s): 「本片由 Claude 用代码一帧一帧画完。胖橘表示：全程没有配合。」
+  Bottom line of the end card (27.6–30 s): "LemoLab × Claude Opus 5.5" (added 2026-09-26; previous cut kept as halftone-dossier_v1.mp4).

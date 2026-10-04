@@ -1,0 +1,20 @@
+Einstein in Your Pocket — Whiteboard Explainer v2 (Lemo-Opuscar) · LemoLab × Claude Opus 5.5
+All pictures are drawn by code (demo/engine/wb.js). No generated images, no third-party artwork.
+
+Lettering (on the board)
+  EMS Tech — SIL Open Font License 1.1. Single-line font by Sheldon B. Michaels, derived from
+  "Architects Daughter" by Kimberly Geswein; SVG conversion by Windell H. Oskay (Evil Mad Scientist).
+  Obtained from the npm package "hersheytext" (MIT, James T / techninja). License text: fonts/EMSTech.svg <metadata>.
+  EMS Readability / EMS Felix (same terms) are included but unused.
+Subtitles
+  Architects Daughter — Kimberly Geswein, SIL Open Font License 1.1 (fonts/OFL-ArchitectsDaughter.txt).
+Voice
+  Kokoro-82M (Apache 2.0) via kokoro-onnx, voice bm_george, lang en-gb.
+Music samples (CC0 1.0)
+  VS Chamber Orchestra: Community Edition (Versilian Studios / Sam Gossner),
+  Versilian Community Sample Library (Versilian Studios), FreePats project (freepats.zenvoid.org).
+  Instruments used: marimba, glockenspiel, vibraphone, vibraphone_bowed, harp, tubular_bells, glass,
+  cellos_pizz, contrabass_pizz, violins_pizz, violins, violas, contrabass, horn, tuba_stac, bassoon_stac,
+  clarinet, clarinet_stac, timpani, crash, sus_cymbal, gran_cassa, snare2, woodblock, claps, shaker.
+Score, foley and sound design
+  Original, synthesized in demo/music.py and demo/mix.py.

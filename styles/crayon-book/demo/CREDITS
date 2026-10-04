@@ -1,0 +1,14 @@
+The Moon Can't Sleep — Crayon Picture Book demo · LemoLab × Claude Opus 5.5
+
+Story, characters, animation, crayon/watercolour engine, sound design: original (procedural code in this folder).
+Music: original score (demo/music/score.py). Lullaby melody, motifs and arrangement are original.
+  Samples (CC0 1.0): VS Chamber Orchestra: Community Edition — Versilian Studios / Sam Gossner
+    (flute, flute staccato, clarinet, clarinet staccato);
+    Versilian Community Sample Library — Versilian Studios (glockenspiel, harp).
+  Music box: physical/modal synthesis, core/audio/pluck.py (no samples). Toy piano: numpy synthesis.
+Voice: Kokoro TTS v1.0 (Apache-2.0), voice af_heart (v3; v1–v2 used bf_emma).
+Fonts (SIL Open Font License 1.1, licence files in demo/fonts/):
+  Patrick Hand — Patrick Wagesreiter (subtitles, book text)
+  Gaegu — JIKJI SOFT (title, "The End")
+  Short Stack, Gochi Hand, Caveat Brush, Sniglet — downloaded for tests, not used in the film.
+Reference for grammar only (nothing copied): Raymond Briggs, "The Snowman" (1982).

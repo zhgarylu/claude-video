@@ -1,0 +1,18 @@
+Volt · Spec Scan — Sci-fi Hologram HUD · Lemo-Opuscar · LemoLab × Claude Opus 5.5
+
+Picture
+- Every wireframe, HUD element, grid and light effect is drawn in code (demo/engine/holo.js, demo/engine/hud.js). No generated or stock images.
+- "VOLT CE-01" (city e-bike) and "KITE M2" (drone, content-swap test) are fictional products; models are built from code primitives (demo/models/gen_*.mjs). No real product, brand or logo appears.
+
+Fonts (SIL Open Font License 1.1, licence files in demo/fonts/)
+- Rajdhani — Indian Type Foundry
+- Share Tech Mono — Carrois Apostrophe
+
+Voice
+- Kokoro TTS v1.0 (hexgrad/Kokoro-82M, Apache-2.0), voice af_heart, via kokoro-onnx
+
+Music
+- Original composition, synthesised in numpy (demo/music/score.py). No samples.
+
+Sound design
+- All UI sounds, mechanical foley and ambience synthesised in numpy (demo/mix.py, core/audio/sfx.py)

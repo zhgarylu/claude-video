@@ -1,0 +1,19 @@
+Blueprint · Patent Pending: The Cloud Catcher — credits
+
+Fonts (SIL Open Font License 1.1), in demo/fonts/
+- Architects Daughter — Kimberly Geswein — https://github.com/google/fonts/tree/main/ofl/architectsdaughter
+- B612 / B612 Mono — PolarSys / Airbus — https://github.com/google/fonts/tree/main/ofl/b612 , ofl/b612mono
+- Allura — Rob Leuschke (TypeSETit) — https://github.com/google/fonts/tree/main/ofl/allura
+
+Voice
+- Kokoro-82M (Apache-2.0), voice bm_daniel, via core/tts (kokoro-onnx)
+
+Music (original composition, rendered with core/audio/sampler.py)
+- Harpsichord, harp: VCSL (CC0 1.0) — https://github.com/sgossner/VCSL
+- Bassoon staccato, violins/cellos spiccato, string sustains: VSCO 2 Community Edition (CC0 1.0) — https://github.com/sgossner/VSCO-2-CE
+
+Sound effects
+- All synthesized in code (demo/mix.py, core/audio/sfx.py). No recorded samples.
+
+Everything else (paper, drawing engine, machine, characters, story) is original code in this directory.
+The fictional inventor "Cornelius Wrenfield", drawing number and dates are invented.

@@ -1,0 +1,20 @@
+The Last Save Point — pixel-rpg demo · credits & licenses
+
+ORIGINAL (made for this demo, by code in this folder)
+- All pixel art: characters ARLO / WREN (rig + hand-placed ASCII heads & portraits), kid and 8-bit versions,
+  the Shade, the save crystal (procedural 3D, palette-quantized), the door, corridor, village, campfire, battle,
+  UI windows, hand cursor, end card. (sprites.js, portraits.js, memsprites.js, props.js, scenes.js, memscenes.js, ui.js)
+- Pixel font (variable width, upper/lower case): font.js
+- Music: original chiptune, synthesized with numpy (music/score.py). Motif and all melodies original.
+- Sound effects: all synthesized (mix.py, using core/audio/sfx.py helpers).
+- Story, characters, place names (Hollowmere, Ember Ridge, Ashfall Keep) are original.
+
+PALETTE
+- Master palette = ENDESGA 32 by ENDESGA (public palette, lospec.com/palette-list/endesga-32), used freely as a color list.
+- 8-bit (13+2 colors), 4-color and "faded" palettes are custom values chosen for this film.
+
+VOICE
+- Kokoro-82M TTS (Apache-2.0), voice bm_george, via kokoro-onnx (MIT). core/tts/
+- Checked with faster-whisper base.en (MIT).
+
+No third-party images, fonts, samples or recordings are used.

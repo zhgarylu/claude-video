@@ -1,0 +1,15 @@
+The Dragon of the East Window — a Stained Glass film (Lemo-Opuscar · LemoLab × Claude Opus 5.5)
+
+All images, characters, glass, lead, stone and light are drawn procedurally in code (no image assets).
+Story, melody and characters are original.
+
+Narration: Kokoro TTS (kokoro-onnx, voice bf_alice), Apache-2.0.
+Music: original score written in code with the repo sampler (core/audio/sampler.py).
+Samples (CC0): FreePats project (freepats.zenvoid.org), VS Chamber Orchestra: Community Edition (Versilian Studios), Versilian Community Sample Library (Versilian Studios).
+Foley: synthesized in mix.py (glass modes, crack, lead creak, air, stone hall), no recordings.
+
+Fonts (SIL Open Font License 1.1):
+- Cinzel — Natanael Gama (carved title and end card)
+- IM Fell English — Igino Marini (subtitle banderole)
+- Cormorant Garamond, Uncial Antiqua (downloaded, used only on test pages)
+Licences in demo/fonts/OFL-*.txt.

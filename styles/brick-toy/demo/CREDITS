@@ -1,0 +1,12 @@
+Rocket from Spare Parts — Brick Toy demo · LemoLab × Claude Opus 5.5 · asset sources & licenses
+
+Music        Kevin MacLeod (incompetech.com), licensed under Creative Commons: By Attribution 4.0
+             "Monkeys Spinning Monkeys", "Heroic Age" — edited to the picture by music/edit.py
+Sound FX     Synthesized in code (mix.py + core/audio/sfx.py). No samples.
+Voices       Kokoro TTS v1.0 (kokoro-onnx), Apache-2.0 — bm_george (narrator), am_adam (radio)
+3D assets    Poly Haven, CC0 (see core/assets/polyhaven/SOURCES.md):
+             photo_studio_loft_hall HDRI, american_walnut_veneer texture, tea_set_01, desk_lamp_arm_01
+Bricks       Brick geometry, characters and the rocket built procedurally in code (bricks.js / actors.js / rockets.js).
+             Generic interlocking-brick shapes only; no LEGO logos, minifigure designs or set models.
+Font         Fredoka (core/fonts) — Google Fonts, SIL Open Font License 1.1
+Code         three.js (MIT)

@@ -1,0 +1,40 @@
+Follow the Rain (跟着雨走) — Watercolor Brush demo · asset sources and licences
+==========================================================================
+
+MUSIC
+  "Wildflowers" by Scott Buckley — Creative Commons Attribution 4.0 (CC BY 4.0)
+  https://www.scottbuckley.com.au/library/  (file: .../wp-content/uploads/2025/12/Wildflowers.mp3)
+  Edited: one beat-aligned jump (61.23 s -> 265.61 s, 0.18 s crossfade), faded out; mixed under voice and SFX.
+  Credited on the end card: MUSIC "Wildflowers" by Scott Buckley · CC BY 4.0 · scottbuckley.com.au
+
+VOICE
+  Kokoro-82M text-to-speech (hexgrad/Kokoro-82M, Apache License 2.0), run locally with
+  kokoro-onnx (thewh1teagle/kokoro-onnx, MIT). Voice "af_heart", speed 0.93. Model files: core/tts/.
+  Transcription check: faster-whisper (SYSTRAN, MIT) with the OpenAI Whisper "base.en" model (MIT).
+
+MAP DATA
+  Coastline: Natural Earth 1:50m admin-0 countries (public domain), via world-atlas 2.0.2
+  (Mike Bostock, ISC licence) -> demo/vendor/countries-50m.json, decoded with topojson-client 3.1.0
+  (Mike Bostock, ISC licence) -> demo/vendor/topojson-client.min.cjs. Licence texts in demo/vendor/.
+  Rainfall bands: ~90 approximate long-term annual rainfall values typed in by hand (main.js STN) and
+  inverse-distance interpolated; schematic only (stated on the end card). The 50 Ma -> today map is an
+  illustrative uniform "drying" of today's pattern, not a palaeoclimate reconstruction.
+
+FONTS (SIL Open Font License 1.1, downloaded from Google Fonts by fetch_fonts.mjs into demo/fonts/)
+  Cormorant Garamond — Christian Thalmann (Catharsis Fonts)
+  Caveat — Impallari Type
+  IBM Plex Mono — IBM / Mike Abbink, Bold Monday
+  Noto Serif SC — Google / Adobe (subset to the characters used)
+
+PAPER, STROKES, PLANTS, ANIMALS, SOUND EFFECTS
+  All generated in code for this film (paper.py, engine.js, plants.js, scene.js, main.js, mix.py). No samples,
+  photographs or third-party artwork.
+
+FACTS (narration)
+  Rainfall thresholds, spinifex (~1/5 of the land), eucalypts (800+ species, ~3/4 of forests), mountain ash
+  (tallest flowering plant, ~100 m), rainforest (<1 % of the land), ~50 Ma widespread rainforest: general
+  figures from standard Australian botany/ecology references (e.g. Australia's State of the Forests reports,
+  Australian National Botanic Gardens). Rounded for narration.
+
+FILM
+  Directed and coded by Claude Opus 5.5 for LemoLab.

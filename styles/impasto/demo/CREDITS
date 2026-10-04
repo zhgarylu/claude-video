@@ -1,0 +1,6 @@
+The Colour of Rain — impasto (palette-knife)
+All pictures painted in code (engine/impasto.js + engine/plate.js). No generated images, no photos.
+Music composed and rendered in code with core/audio/sampler.py:
+  Samples (CC0): VS Chamber Orchestra: Community Edition and Versilian Community Sample Library (Versilian Studios); FreePats project (freepats.zenvoid.org)
+Sound effects synthesized in code (mix.py).
+Font: Cormorant Garamond / Cormorant SC — Copyright 2015 the Cormorant Project Authors, SIL Open Font License 1.1 (fonts/OFL.txt)

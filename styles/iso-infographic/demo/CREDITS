@@ -1,0 +1,19 @@
+From Bean to Cup — Isometric Infographic · Lemo-Opuscar · LemoLab × Claude Opus 5.5
+
+All picture is drawn in code (Canvas 2D). No generated or photographic imagery.
+
+Font
+- Jost (Owen Earl / indestructible type*), SIL Open Font License 1.1 — demo/fonts/Jost.ttf, licence demo/fonts/Jost-OFL.txt
+
+Voice
+- Kokoro-82M TTS (hexgrad), Apache-2.0, voice bf_alice — via core/tts (kokoro-onnx)
+
+Music (original composition, demo/music/score.py) — sampled instruments via core/audio/sampler.py
+- FreePats project (freepats.zenvoid.org): guitar_nylon, kalimba, world_perc — CC0 1.0
+- Versilian Community Sample Library (VCSL, Versilian Studios): shaker, cajon, conga — CC0 1.0
+- Karoryfer Samples / sfzinstruments (Sneakybass): jazz_bass — CC0 1.0
+
+Sound effects
+- All foley and ambience synthesised in demo/mix.py (numpy/scipy), building on core/audio/sfx.py.
+
+Isotype reference (grammar only): Otto Neurath & Gerd Arntz. All icons here are original.

@@ -1,0 +1,20 @@
+The Runaway Loaf — Lemo-Opuscar · 1920s Silent Film demo
+LemoLab × Claude Opus 5.5
+
+Picture: everything drawn in code (Canvas2D tonal painting → WebGL2 ink redraw → WebGL2 film-print post), no generated images.
+Story, characters, score and sound design: original (Lemo-Opuscar). No narration; intertitles only.
+
+Fonts (SIL Open Font License 1.1, licence texts in fonts/):
+  Playfair Display / Playfair Display SC — Claus Eggers Sørensen
+  Old Standard TT — Alexey Kryukov
+
+Music samples (CC0 1.0):
+  Upright piano: VS Chamber Orchestra: Community Edition (Versilian Studios)
+  Accordion (used as a reed organ): FreePats project (freepats.zenvoid.org)
+  Projector sound: synthesised in code (numpy).
+
+Redraw-mode sample (stills/redraw_v1.jpg only, not in the film):
+  "DiagonalCrosswalkYongeDundas.webm", Raysonho, CC0, Wikimedia Commons (assets/redraw_src.jpg is one frame of it).
+
+References (grammar only, nothing copied): Buster Keaton, The General (1926) and Sherlock Jr. (1924); Harold Lloyd, Safety Last! (1923);
+Georges Méliès (iris transitions); The Artist (2011); 1920s photoplay piano cue sheets.

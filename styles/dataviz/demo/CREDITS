@@ -1,0 +1,24 @@
+A Hundred Summers — Data Storytelling (Lemo-Opuscar) · LemoLab × Claude Opus 5.5
+
+DATA
+- NASA GISS Surface Temperature Analysis (GISTEMP v4), GISTEMP Team, NASA Goddard Institute for Space Studies.
+  File: GLB.Ts+dSST.csv (global land–ocean temperature index), column JJA (June–August mean), anomaly vs 1951–1980, °C.
+  https://data.giss.nasa.gov/gistemp/ — US Government work, public domain. Retrieved 2026-09-26; copied unchanged to data/.
+  The 2026 value (+1.28 °C) is preliminary and may be revised by later GISTEMP releases.
+- Colour ramp: ColorBrewer RdBu family (Cynthia Brewer, Apache License 2.0), used the way the "warming stripes" are made
+  (centred on a reference-period mean, symmetric span). Grammar reference only; no stripes graphic is copied.
+
+FONTS (SIL Open Font License 1.1, licence texts in fonts/)
+- Newsreader — Production Type
+- Caveat — Impallari Type
+- IBM Plex Mono — IBM
+
+VOICE
+- Kokoro-82M (hexgrad), voice af_alloy, Apache License 2.0; run locally via kokoro-onnx.
+
+MUSIC & SOUND
+- Original score and all sound effects synthesized in numpy (music/score.py, mix.py). No samples, except:
+- Music-box note (1958): physical model from core/audio/pluck.py (original code, no recording).
+
+PICTURES
+- All drawn in code (engine.js). Story and annotations are fiction; every data value is real.

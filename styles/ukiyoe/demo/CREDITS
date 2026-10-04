@@ -1,0 +1,16 @@
+Toward the Mountain · 山へ五景 — Ukiyo-e Lemo-Opuscar demo · asset sources & licenses
+
+Artwork     All drawn procedurally in code (print.js / nature.js / traveler.js / views.js / wave.js):
+            paper, woodgrain, baren rubbing, woodblock colour separations, characters, landscapes, the wave.
+            Original compositions; no existing print, character, logo or brand is reproduced.
+Music       Original score (music/score.py). Shamisen = physical model (core/audio/pluck.py, no samples).
+            Shakuhachi = processed samples "flute" (VSCO 2 CE, Versilian Studios, CC0 1.0) and "recorder" (VCSL, CC0 1.0).
+            Taiko / hyoshigi = synthesis + samples "gran_cassa", "toms", "frame_drum", "woodblock" (VCSL, CC0 1.0),
+            "claves" (FreePats world percussion, CC0 1.0).
+            Samples (CC0): Versilian Studios VSCO 2 CE & VCSL, FreePats — with thanks.
+Sound FX    Synthesized in code (mix.py + core/audio/sfx.py). No recordings.
+Voice       Kokoro TTS v1.0 (kokoro-onnx), Apache-2.0 — voice am_adam.
+Fonts       Shippori Mincho B1 (FONTDASU), Yuji Syuku (Kinuta Font Factory) — Google Fonts, SIL Open Font License 1.1.
+            fonts/ holds the unmodified latin subset and text= kanji subsets served by fonts.gstatic.com.
+Reference   Grammar studied (not copied): Katsushika Hokusai "Thirty-six Views of Mount Fuji", Utagawa Hiroshige
+            travel & rain prints, the anime "Mononoke" (2007), Japanese handscroll format.

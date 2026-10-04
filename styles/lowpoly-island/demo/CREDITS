@@ -1,0 +1,9 @@
+The Island That Grew — Low-poly Isometric Island (Lemo-Opuscar)
+
+3D scene, animation, post-processing: original code (three.js, MIT) — no textures, no models, no images.
+Music: original, synthesized in code (demo/music/score.py); melody generated from the film's own build events.
+  See demo/music/CREDITS_music.txt for details.
+Sound effects & ambience: original, synthesized in code (demo/mix.py, core/audio/sfx.py).
+Voice: Kokoro TTS v1.0 (Apache-2.0), voice af_sky.
+Fonts: Josefin Sans (Santiago Orozco) — SIL Open Font License 1.1; Quicksand (Andrew Paglinawan) — SIL Open Font License 1.1. Downloaded from Google Fonts into demo/fonts/.
+Style references (studied for grammar only, nothing copied): Townscaper (Oskar Stålberg), Monument Valley (ustwo games).
