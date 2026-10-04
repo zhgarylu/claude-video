@@ -101,6 +101,9 @@ h2 { font-size: clamp(28px, 3.6vw, 42px); line-height: 1.12; letter-spacing: -.0
 .pcard { min-width: 0; border: 2px solid var(--ink); border-radius: var(--r); background: var(--card); padding: 18px 18px 16px; box-shadow: 6px 6px 0 var(--ink); display: grid; gap: 10px; }
 .pcard h3 { margin: 0; font-size: 20px; line-height: 1.25; } .pcard .world { margin: 0; font-size: 14.5px; color: var(--muted); }
 .pcard .badges { display: flex; flex-wrap: wrap; gap: 6px; }
+.demo.v .thumb img { object-fit: contain; background: #0b0b0d; }
+.v-media.portrait { justify-items: center; }
+.v-media.portrait img, .v-media.portrait video { width: auto; max-height: min(78dvh, 760px); aspect-ratio: 9/16; margin: 0 auto; }
 .badge.ok { background: #1f8f4a; border-color: #1f8f4a; color: #fff; }
 .pcard details { border-top: 1px solid var(--line); padding-top: 10px; } .pcard summary { cursor: pointer; font-weight: 600; font-size: 14.5px; }
 .pcard pre { margin: 10px 0 0; max-height: 340px; overflow: auto; padding: 12px; border-radius: 10px; background: var(--bg2); border: 1px solid var(--line); white-space: pre-wrap; word-break: break-word; font: 13px/1.65 ui-monospace, "SF Mono", Menlo, "PingFang SC", monospace; }
@@ -303,8 +306,8 @@ function renderCollage() {
 function renderSteps() { $('#steps').innerHTML = L().steps.map(([h, p]) => `<li><h3>${h}</h3><p>${p}</p></li>`).join(''); }
 function renderLayouts() { $('#layouts').innerHTML = L().layouts.map(([k, h, p]) => `<div class="layout"><div class="wire w-${k}"><i></i><u></u>${k === 'world' ? '<u class="b"></u>' : ''}</div><h3>${h}</h3><p>${p}</p></div>`).join(''); }
 function renderDemos() {
-  $('#demos').innerHTML = D.map(d => `<button class="demo" data-demo="${d.id}"><div class="thumb"><img src="${d.poster}" alt="" loading="lazy"><span class="play"><i></i></span></div>
-    <div class="body"><div class="badges"><span class="badge v">${esc(lang === 'zh' ? d.style_cn : d.style_en)}</span><span class="badge">${L().layouts.find(l => l[0] === d.layout)[1]}</span><span class="badge">${d.dur}</span></div>
+  $('#demos').innerHTML = D.map(d => `<button class="demo${d.aspect === '9x16' ? ' v' : ''}" data-demo="${d.id}"><div class="thumb"><img src="${d.poster}" alt="" loading="lazy"><span class="play"><i></i></span></div>
+    <div class="body"><div class="badges"><span class="badge v">${esc(lang === 'zh' ? d.style_cn : d.style_en)}</span><span class="badge">${L().layouts.find(l => l[0] === d.layout)[1]}</span><span class="badge">${d.aspect === '9x16' ? '9:16 · ' : ''}${d.dur}</span></div>
     <h3>${esc(lang === 'zh' ? d.title : d.title_en)}</h3><p>${esc(lang === 'zh' ? d.line : d.line_en)}</p></div></button>`).join('');
 }
 
@@ -355,6 +358,7 @@ function open(kind, id, push = true) {
       <div class="v-actions"><a class="btn violet" href="${d.video}" target="_blank" rel="noopener">${l.download}</a><a class="btn" href="${d.source_url}" target="_blank" rel="noopener">${l.source}</a><a class="btn" href="https://github.com/zhgarylu/claude-video/blob/main/TALKING-HEAD.md" target="_blank" rel="noopener">TALKING-HEAD.md</a></div>`;
   }
   $('#v-media').innerHTML = media; $('#v-info').innerHTML = info;
+  $('#v-media').classList.toggle('portrait', kind === 'demo' && (D.find(x => x.id === id) || {}).aspect === '9x16');
   $('#v-prev').hidden = $('#v-next').hidden = kind !== 'style';
   if (!dlg.open) dlg.showModal();
   if (push) history.replaceState(null, '', `#${kind}=${id}`);

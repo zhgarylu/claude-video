@@ -1,0 +1,185 @@
+{
+ "aspect": "9x16",
+ "layout": "world",
+ "title": "Dots",
+ "subtitle": "",
+ "lang": "zh",
+ "tail": 0,
+ "captions": {
+  "cues": "auto",
+  "karaoke": {
+   "y": 1390,
+   "hot": "#22DD46"
+  }
+ },
+ "theme": {
+  "ink": "#111111",
+  "paper": "#FFFFFF",
+  "muted": "#5C5C5C",
+  "accent": "#17B83A",
+  "hues": {
+   "green": "#22DD46",
+   "ink": "#111111",
+   "grey": "#8A8A8A"
+  }
+ },
+ "cards": [
+  {
+   "id": "cloud",
+   "side": "L",
+   "hue": "green",
+   "title": "自己的电脑",
+   "sub": "云端电脑 + 浏览器",
+   "t0": 8.3,
+   "t1": 11.4,
+   "anchor": [
+    [
+     8.3,
+     330,
+     360
+    ]
+   ]
+  },
+  {
+   "id": "apps",
+   "side": "R",
+   "hue": "green",
+   "title": "4,000+ 应用",
+   "sub": "比如 Slack",
+   "tag": "连接",
+   "t0": 10.5,
+   "t1": 13.5,
+   "anchor": [
+    [
+     10.5,
+     330,
+     350
+    ]
+   ]
+  },
+  {
+   "id": "read",
+   "side": "L",
+   "hue": "ink",
+   "title": "只读权限",
+   "sub": "你不在时替你看",
+   "t0": 14.4,
+   "t1": 17.5,
+   "anchor": [
+    [
+     14.4,
+     320,
+     330
+    ]
+   ]
+  },
+  {
+   "id": "prep",
+   "side": "R",
+   "hue": "ink",
+   "title": "先准备好",
+   "sub": "发现该做的事",
+   "t0": 17.0,
+   "t1": 19.9,
+   "anchor": [
+    [
+     17.0,
+     330,
+     340
+    ]
+   ]
+  },
+  {
+   "id": "ok",
+   "side": "L",
+   "hue": "green",
+   "title": "等你批准",
+   "tag": "你决定",
+   "t0": 18.6,
+   "t1": 21.5,
+   "anchor": [
+    [
+     19.0,
+     330,
+     330
+    ]
+   ]
+  },
+  {
+   "id": "allow",
+   "side": "R",
+   "hue": "green",
+   "title": "能做",
+   "sub": "先放行",
+   "t0": 21.8,
+   "t1": 24.4,
+   "anchor": [
+    [
+     21.8,
+     320,
+     280
+    ]
+   ]
+  },
+  {
+   "id": "ask",
+   "side": "L",
+   "hue": "grey",
+   "title": "先问",
+   "sub": "要你点头",
+   "t0": 22.9,
+   "t1": 25.5,
+   "anchor": [
+    [
+     22.9,
+     320,
+     280
+    ]
+   ]
+  },
+  {
+   "id": "never",
+   "side": "R",
+   "hue": "ink",
+   "title": "不许碰",
+   "sub": "绝对禁止",
+   "tag": "红线",
+   "t0": 23.8,
+   "t1": 26.5,
+   "anchor": [
+    [
+     23.8,
+     320,
+     280
+    ]
+   ]
+  },
+  {
+   "id": "plans",
+   "side": "L",
+   "hue": "green",
+   "title": "部分付费套餐",
+   "sub": "企业：管理员开启",
+   "t0": 25.3,
+   "t1": 28.9,
+   "anchor": [
+    [
+     25.3,
+     310,
+     250
+    ]
+   ]
+  }
+ ],
+ "split": {
+  "side": "left"
+ },
+ "pip": {
+  "corner": "tr",
+  "width": 330
+ },
+ "world": {
+  "width": 1230,
+  "top": 50
+ }
+}

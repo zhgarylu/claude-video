@@ -44,6 +44,18 @@
       "line": "瑞士动态排版：讲者在自己的瑞士海报棚里演内容，页底色取自视频本身；一颗绿点是全片唯一不吸附网格的元素。",
       "line_en": "Swiss Motion Graphics: the host acts in a Swiss-poster studio of their own, the page colour taken from the video itself; one green dot is the only element that leaves the grid.",
       "source": "demos/talking-head/swiss-dots"
+    },
+    {
+      "id": "dots-v",
+      "style": "swiss-motion",
+      "dur": "0:30",
+      "aspect": "9x16",
+      "title": "Dots（竖屏版）",
+      "title_en": "Dots (portrait)",
+      "layout": "world",
+      "line": "竖屏 9:16 的“视频即世界”：视频铺满画面，底色取自视频，标注卡贴在两侧并用引线指进视频，逐字高亮的大字幕避开平台界面区。",
+      "line_en": "Portrait 9:16 \"video as the world\": the video fills the frame, the ground colour comes from the video, callout cards sit on the edges with leaders into it, and karaoke captions stay clear of the platform UI.",
+      "source": "demos/talking-head/dots-v"
     }
   ]
 }

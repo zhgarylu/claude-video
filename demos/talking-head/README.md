@@ -1,16 +1,17 @@
 # Talking-head demos · 口播加解说 demo
 
-The source of the four demo films shown in the [gallery](https://zhgarylu.github.io/claude-video/gallery/). They are complete, hand-made projects: the page (`main.js`), the timeline (`timeline.js`: captions, camera, events), the mix (`mix.py`), the build script, the treatment (`TREATMENT.md`) and the credits. Use them to see how a finished film is put together; to start your own, use [`tools/talk/new-film.sh`](../../tools/talk/new-film.sh) and the layouts in [`tools/talk/layouts.js`](../../tools/talk/layouts.js).
-四条 demo 的完整源码：页面、时间线（字幕、镜头、事件）、混音、构建脚本、创作说明和来源。看它们是怎么做出来的；要做自己的，用 `tools/talk/new-film.sh` 和 `tools/talk/layouts.js`。
+The source of the five demo films shown in the [gallery](https://zhgarylu.github.io/claude-video/gallery/). They are complete, hand-made projects: the page (`main.js`), the timeline (`timeline.js`: captions, camera, events), the mix (`mix.py`), the build script, the treatment (`TREATMENT.md`) and the credits. Use them to see how a finished film is put together; to start your own, use [`tools/talk/new-film.sh`](../../tools/talk/new-film.sh) and the layouts in [`tools/talk/layouts.js`](../../tools/talk/layouts.js).
+五条 demo 的完整源码：页面、时间线（字幕、镜头、事件）、混音、构建脚本、创作说明和来源。看它们是怎么做出来的；要做自己的，用 `tools/talk/new-film.sh` 和 `tools/talk/layouts.js`。
 
 | Demo | Style · layout | What it shows |
 |---|---|---|
 | [`claude-mods/`](claude-mods/) | Dark Tech Keynote · split panel · 左右分栏 | host on the left; an original UI window gains a pane, a command guard and slash commands as they speak · 讲者在左，界面窗口随口播装上面板、拦截命令、斜杠命令 |
 | [`muse/`](muse/) | Isometric Infographic · corner window · 角落小窗 | the host in a corner while the camera travels along a diorama of four stations · 讲者在角落，镜头沿沙盘横移 |
 | [`swiss-dots/`](swiss-dots/) | Swiss Motion Graphics · video as the world · 视频即世界 | the host acts in a Swiss-poster studio; the page colour is taken from the video, tempo and landings come from one `score.json` shared by picture and music, one green dot leaves the grid · 讲者在瑞士海报棚里演内容，页底色取自视频，画面与配乐共读一份 `score.json`，一颗绿点离开网格 |
+| [`dots-v/`](dots-v/) | Swiss Motion Graphics · portrait 9:16, video as the world · 竖屏视频即世界 | the same talk as a short video: `worldLayoutV`, karaoke captions, cards on the edges, a light music bed (`music.py`) · 同一个口播做成短视频：竖屏世界版式、逐字字幕、卡片贴边、一段轻配乐 |
 | [`muse2/`](muse2/) | Isometric Infographic · video as the world · 视频即世界 | the host video is itself a styled world and the main picture; callout cards add names, dates, sources · 视频本身是风格世界，两侧用标签卡补名字、日期、来源 |
 
-The films: [release `films`](https://github.com/zhgarylu/claude-video/releases/tag/films) (`claude-mods.mp4`, `muse.mp4`, `muse2.mp4`, `swiss-dots.mp4`).
+The films: [release `films`](https://github.com/zhgarylu/claude-video/releases/tag/films) (`claude-mods.mp4`, `muse.mp4`, `muse2.mp4`, `swiss-dots.mp4`, `dots-v.mp4`).
 
 ## What is not here · 这里没有的
 
@@ -28,3 +29,5 @@ sh demos/talking-head/muse2/build.sh        # prepares the footage (tools/talk/p
 `muse/` and `muse2/` look for the user's own logos in `src/brand/<name>.png` (muse, meta, slack, canva, asana, zoom, intuit, box); without them the brand names are plain text. · 如果 `src/brand/` 里有你有权使用的 logo，会自动替换品牌名字牌；没有就用文字。
 
 `swiss-dots/` needs its host video at `swiss-dots/src/host.mp4`; its transcript was corrected by hand (`words.fixed.json`, copied over the speech-to-text result by `build.sh`). · `swiss-dots/` 需要把讲者视频放在 `swiss-dots/src/host.mp4`；它的逐字稿是手工校对过的（`words.fixed.json`，`build.sh` 会覆盖转写结果）。
+
+`dots-v/` is a portrait film (`--size 1080x1920`); put its host video at `dots-v/src/host.mp4`. Like `swiss-dots/` it replaces the transcript with `words.fixed.json`. · `dots-v/` 是竖屏片（1080×1920），讲者视频放 `dots-v/src/host.mp4`；和 `swiss-dots/` 一样用手工校对的 `words.fixed.json` 覆盖转写。

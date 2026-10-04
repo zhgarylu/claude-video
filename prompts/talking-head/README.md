@@ -7,6 +7,7 @@ Prompts for AI video tools. The result is a presenter video you can bring to the
 | 提示词 | 世界 | 状态 |
 |---|---|---|
 | [`swiss-dots`](swiss-dots.md) | 瑞士白棚 · 信号绿 · 地上绿点 | **已用它做成片**（Dots，30 s） |
+| [`swiss-dots-vertical`](swiss-dots-vertical.md) | 同上，竖屏 9:16 构图 | 未试 |
 | [`swiss-gemini4`](swiss-gemini4.md) | 瑞士白棚 · 信号红 · 地面红线 | 未试 |
 | [`swiss-devday-four`](swiss-devday-four.md) | 瑞士白棚 · 信号绿 · 四块色板 | 未试 |
 | [`swiss-three-news`](swiss-three-news.md) | 瑞士白棚 · 信号红 | 未试 |

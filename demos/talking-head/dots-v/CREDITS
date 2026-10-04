@@ -1,0 +1,16 @@
+Dots（竖屏 9:16 版）· 第三方素材与许可
+
+画面
+- 讲者视频 src/host.mp4：由用户提供（AI 生成的虚构人物），版权与使用责任归用户；画面未改动，未加任何 logo。不在本仓库里。
+- 版式：tools/talk/layouts.js 的 worldLayoutV（竖屏“视频即世界”）和 captions.karaoke；标注卡、标题条为原创绘制。“Slack”只以文字出现。
+- 页底色逐帧取自视频自身的墙与地面颜色。
+
+字体
+- 页面使用系统字体（Noto Sans SC / PingFang SC / system-ui），没有随仓库分发字体文件。不同机器上字形略有差别；正式发布前可按 TECHNIQUE.md §11 取子集。
+
+声音
+- 配乐 music.py：原创，numpy 合成（点击、马林巴、拨弦低音），无采样、无第三方音源。人声：视频自带音轨。
+
+资料（2026 年 9 月 29 日 OpenAI DevDay）
+- InfoQ：OpenAI DevDay 2026 Recap for Developers；BGR：Everything OpenAI Announced At DevDay 2026；digitalapplied：OpenAI DevDay 2026 — All 25 Announcements and Who Gets Them。
+- 套餐细节各家说法不一，口播只说“部分付费套餐已经能用，企业要管理员开启”，未逐条对照官方页面。

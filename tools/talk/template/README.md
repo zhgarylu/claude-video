@@ -1,6 +1,6 @@
 # Talking-head film template
 
-Made by `sh tools/talk/new-film.sh <host.mp4> films/<name> --layout split|pip|world`. It copies this folder, runs `prep.sh` on your host video, writes `film.json` with captions from the transcript, and renders a first cut.
+Made by `sh tools/talk/new-film.sh <host.mp4> films/<name> --layout split|pip|world` (add `--aspect 9x16` for a portrait short video: always the `world` layout, karaoke captions, cards on the edges; see TALKING-HEAD.md §3c). It copies this folder, runs `prep.sh` on your host video, writes `film.json` with captions from the transcript, and renders a first cut.
 
 - `film.json`: layout, title, theme, caption style, `cards` (the items that appear with the voice), per-layout options. Edit it, then `sh films/<name>/build.sh`.
 - `main.js`: the page. `drawContent()` is a placeholder (title + bullets); replace it with your style's graphics. The layouts and captions come from `tools/talk/layouts.js`.

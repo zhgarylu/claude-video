@@ -227,20 +227,26 @@ export const captions = {
 /**
  * Subtitle cues from the transcript (words.json from prep.sh). Each transcript segment is a sentence: cues break there, at pauses
  * longer than `gap`, after punctuation once a cue has `softChars` characters, and at `maxChars`. Each cue is held for
- * max(minHold, speech + tail) without running into the next one. Fix the text by hand afterwards: speech-to-text mishears names.
+ * max(minHold, speech + tail) without running into the next one. `balance: true` splits long sentences into equal parts (short-video captions).
+ * Fix the text by hand afterwards: speech-to-text mishears names.
  */
-export function cuesFromWords(segments, { maxChars = 28, softChars = 12, gap = .5, minHold = 1.8, tail = .6 } = {}) {
+export function cuesFromWords(segments, { maxChars = 28, softChars = 12, gap = .5, minHold = 1.8, tail = .6, balance = false } = {}) {
   const cues = []; let cur = null;
   const flush = () => { if (cur && cur.text.trim()) cues.push(cur); cur = null; };
   const end = /[，,。.！!？?、;；]$/;
   for (const s of segments) {
     flush();
-    for (const w of s.words) {
-      const raw = w.w; if (!raw.trim()) continue;
-      if (cur && (w.t0 - cur.last > gap || (cur.text + raw).trim().length > maxChars || (end.test(cur.text.trim()) && cur.text.trim().length >= softChars))) flush();
+    const ws = s.words.filter(w => w.w.trim()), total = ws.reduce((a, w) => a + w.w.length, 0);
+    // balance: cut a long sentence into equal parts (nearest token boundary, preferring one after punctuation) instead of a full line plus an orphan;
+    // a sentence only slightly over the limit stays whole
+    const n = balance ? Math.ceil(total / maxChars - (total <= maxChars + 3 ? 1 : 0)) : 1, cuts = new Set();
+    if (balance && n > 1) { let acc = 0; const pos = ws.map(w => (acc += w.w.length)); for (let k = 1; k < n; k++) { const want = total * k / n; let best = -1, bd = 1e9; pos.forEach((p, i) => { if (i === pos.length - 1) return; const d = Math.abs(p - want) - (end.test(ws[i].w.trim()) ? 2 : 0); if (d < bd) { bd = d; best = i; } }); if (best >= 0) cuts.add(best + 1); } }
+    ws.forEach((w, wi) => {
+      const raw = w.w;
+      if (cur && (w.t0 - cur.last > gap || cuts.has(wi) || (!balance && (cur.text + raw).trim().length > maxChars) || (!balance && end.test(cur.text.trim()) && cur.text.trim().length >= softChars))) flush();
       if (!cur) cur = { t0: w.t0, last: w.t1, text: '' };
       cur.text += raw; cur.last = w.t1;
-    }
+    });
   }
   flush();
   const fix = t => { t = t.replace(/\s+/g, ' ').trim(); if (/[\u4e00-\u9fff]/.test(t)) t = t.replace(/,/g, '，').replace(/\?/g, '？').replace(/!/g, '！').replace(/\.$/, '。'); return t.replace(/[，、,。.]+$/, ''); };
@@ -249,3 +255,116 @@ export function cuesFromWords(segments, { maxChars = 28, softChars = 12, gap = .
     return { t0: +t0.toFixed(2), t1: +Math.min(next, Math.max(t0 + minHold, c.last + tail)).toFixed(2), text: fix(c.text) };
   });
 }
+
+// ───────────────────────────── vertical (9:16): the host video is the world, on a portrait canvas ─────────────────────────────
+/**
+ * Word timings for each cue (for karaoke captions). `segments` is words.json. Returns, per cue, [{ s: text, t0 }]; a cue that cannot be
+ * matched to the transcript (hand-written cues) gets its characters spread evenly over its duration.
+ */
+export function cueWords(cues, segments) {
+  const toks = segments.flatMap(s => s.words).filter(w => w.w.trim());
+  return cues.map(c => {
+    const i0 = toks.findIndex(w => w.t0 >= c.t0 - .03), out = []; let n = 0;
+    if (i0 >= 0) for (let i = i0; i < toks.length && n < c.text.length; i++) { const w = toks[i]; out.push({ s: c.text.slice(n, n + w.w.length), t0: w.t0 }); n += w.w.length; }
+    if (n >= c.text.length - 1 && out.length) { out[out.length - 1].s += c.text.slice(n); return out; }
+    const ch = [...c.text]; return ch.map((s, k) => ({ s, t0: lerp(c.t0, c.t1 - .3, k / ch.length) }));
+  });
+}
+
+/**
+ * Portrait version of `world`: the host video is fitted to the width (a 3:4 video leaves a band above and below, a 9:16 video fills the
+ * frame), the ground colour is sampled from the video's own edge every frame so the bands melt into it, and callout cards sit on the
+ * left and right edges with leaders into the video. Keep text out of the bottom ~330 px (the platforms' own UI) and the right ~120 px.
+ * options: W (1080), H (1920), width (W: make it wider to crop the sides and fill more of the height), top (110: where the video starts when it is shorter than the frame), align (0..1, for a video taller than the frame),
+ *          rightSafe (96: keeps right-hand cards clear of the platforms' like/comment buttons), feather {top, bottom} (36, 140), sample {top:[[cx,cy]…], bottom:[…]} (cells of an 8×8 thumbnail used for the ground colour; default
+ *          the 70th percentile over the top row and the bottom row, which ignores a few dark cells covered by props or the host), cards [], theme
+ * returns { video, scale, bandBottom, toScreen(t, vx, vy), drawGround, drawVideo, drawCards, allocate }  (card as in worldLayout; `side` picks the edge)
+ */
+export function worldLayoutV(host, o = {}) {
+  const th = T(o.theme), W = o.W ?? 1080, H = o.H ?? 1920, vw = o.width ?? W, vh = Math.round(vw * host.h / host.w);
+  const top = o.top ?? (vh >= H ? Math.round((H - vh) * (o.align ?? 0)) : Math.max(0, Math.min(110, H - 330 - vh))), video = { x: Math.round((W - vw) / 2), y: top, w: vw, h: vh };
+  const S = vh / host.h, fe = { top: 36, bottom: 140, side: 0, ...(o.feather || {}) }, cards = o.cards || [];
+  const sample = { top: [[1, 0], [3, 0], [4, 0], [6, 0]], bottom: [[0, 7], [1, 7], [3, 7], [4, 7], [6, 7], [7, 7]], ...(o.sample || {}) };
+  const toScreen = (t, vx, vy) => [video.x + vx / host.w * vw, video.y + vy / host.h * vh];
+  const sc8 = document.createElement('canvas'); sc8.width = sc8.height = 8; const sx8 = sc8.getContext('2d', { willReadFrequently: true });
+  const vc = document.createElement('canvas'); vc.width = vw; vc.height = vh; const vctx = vc.getContext('2d');
+  const anchorAt = (c, t) => { const a = c.anchor; if (t <= a[0][0] || a.length === 1) return [a[0][1], a[0][2]]; for (let i = 0; i < a.length - 1; i++) if (t <= a[i + 1][0]) { const u = seg(t, a[i][0], a[i + 1][0]); return [lerp(a[i][1], a[i + 1][1], u), lerp(a[i][2], a[i + 1][2], u)]; } const l = a[a.length - 1]; return [l[1], l[2]]; };
+  const avg = (cells) => { const ps = cells.map(([x, y]) => sx8.getImageData(x, y, 1, 1).data); return [0, 1, 2].map(i => { const v = ps.map(p => p[i]).sort((m, n) => m - n); return v[Math.min(v.length - 1, Math.floor(v.length * .7))]; }); };   // 70th percentile: props and the host's shoes are darker, so a few cells covered by them do not tint the ground
+  const api = {
+    video, scale: S, bandBottom: { x: 0, y: video.y + vh, w: W, h: H - video.y - vh }, toScreen,
+    allocate() {                                                  // card heights: next to their anchors, at least 190 px apart on the same side
+      for (const side of ['L', 'R']) {
+        const placed = [];
+        for (const c of cards.filter(c => c.side === side).sort((a, b) => a.t0 - b.t0)) {
+          if (c.y) { placed.push(c); continue; }
+          const a = anchorAt(c, c.t0), want = clamp(video.y + a[1] * S, 230, H - 480), cand = [0, 190, -190, 380, -380, 570, -570].map(d => want + d).filter(y => y >= 230 && y <= H - 480);
+          c.y = cand.find(y => placed.every(p => !(p.t0 < c.t1 && c.t0 < p.t1) || Math.abs(p.y - y) >= 190)) ?? want; placed.push(c);
+        }
+      }
+    },
+    drawGround(ctx, t, { time } = {}) {
+      sx8.drawImage(hostFrame(host, time ?? t), 0, 0, 8, 8);
+      const a = avg(sample.top), b = avg(sample.bottom), g = ctx.createLinearGradient(0, video.y, 0, video.y + vh);
+      g.addColorStop(0, `rgb(${a})`); g.addColorStop(1, `rgb(${b})`); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    },
+    drawVideo(ctx, t, { time } = {}) {
+      vctx.globalCompositeOperation = 'source-over'; vctx.clearRect(0, 0, vw, vh); vctx.drawImage(hostFrame(host, time ?? t), 0, 0, vw, vh);
+      vctx.globalCompositeOperation = 'destination-in';
+      if (fe.side) { const g = vctx.createLinearGradient(0, 0, vw, 0), F = fe.side / vw; g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(F, '#000'); g.addColorStop(1 - F, '#000'); g.addColorStop(1, 'rgba(0,0,0,0)'); vctx.fillStyle = g; vctx.fillRect(0, 0, vw, vh); }
+      const g2 = vctx.createLinearGradient(0, 0, 0, vh); g2.addColorStop(0, video.y > 0 ? 'rgba(0,0,0,0)' : '#000'); g2.addColorStop(video.y > 0 ? fe.top / vh : 0, '#000');
+      const bt = video.y + vh < H ? fe.bottom / vh : 0; g2.addColorStop(1 - bt, '#000'); g2.addColorStop(1, bt ? 'rgba(0,0,0,0)' : '#000'); vctx.fillStyle = g2; vctx.fillRect(0, 0, vw, vh);
+      ctx.drawImage(vc, video.x, video.y);
+    },
+    drawCards(ctx, t, { texts } = {}) { for (const c of cards) drawCalloutV(ctx, c, t, { th, toScreen, anchorAt, W, texts, rightSafe: o.rightSafe }); },
+  };
+  api.allocate();
+  return api;
+}
+
+function drawCalloutV(ctx, c, t, { th, toScreen, anchorAt, W, texts, rightSafe }) {
+  if (t < c.t0 || t > c.t1 + .05) return;
+  ctx.font = th.font(800, 52); const tw = ctx.measureText(c.title).width; ctx.font = th.font(500, 31); const sw = c.sub ? ctx.measureText(c.sub).width : 0;
+  const w = Math.min(620, Math.max(340, Math.max(tw, sw) + 128)), h = c.sub ? 146 : 108, u = back(seg(t, c.t0, c.t0 + .4), 1.7), out = 1 - ss(seg(t, c.t1 - .35, c.t1)), a = clamp(u * 2) * out; if (a <= 0) return;
+  const left = c.side === 'L', dir = left ? -1 : 1, x = (left ? 22 : W - 22 - (rightSafe ?? 96) - w) + dir * (1 - clamp(u)) * 60 + dir * (1 - out) * 40, y = c.y - h / 2, col = th.hues[c.hue] || c.hue || th.accent;
+  ctx.save(); ctx.globalAlpha = a;
+  const [ax, ay] = toScreen(t, ...anchorAt(c, t)), sx = left ? x + w : x, sy = c.y, p = ss(seg(t, c.t0 + .12, c.t0 + .55)) * (1 - ss(seg(t, c.objEnd ?? 1e9, (c.objEnd ?? 1e9) + .3)));
+  ctx.strokeStyle = th.ink; ctx.lineWidth = 3.4; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(lerp(sx, ax, p), lerp(sy, ay, p)); ctx.stroke();
+  if (p > .92) { ctx.beginPath(); ctx.arc(ax, ay, 11, 0, TAU); ctx.fillStyle = th.paper; ctx.fill(); ctx.stroke(); ctx.beginPath(); ctx.arc(ax, ay, 4, 0, TAU); ctx.fillStyle = col; ctx.fill(); }
+  ctx.shadowColor = 'rgba(0,0,0,0.22)'; ctx.shadowBlur = 20; ctx.shadowOffsetY = 6; rr(ctx, x, y, w, h, 18); ctx.fillStyle = th.paper; ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.strokeStyle = th.ink; ctx.lineWidth = 3.4; rr(ctx, x, y, w, h, 18); ctx.stroke();
+  isoCube(ctx, x + 48, y + h / 2 + 14, 24, col);
+  ctx.font = th.font(800, 52); ctx.fillStyle = th.ink; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic'; const ty = c.sub ? y + 66 : y + h / 2 + 18; ctx.fillText(c.title, x + 96, ty);
+  if (c.sub) { ctx.font = th.font(500, 31); ctx.fillStyle = th.muted; ctx.fillText(c.sub, x + 96, y + 118); }
+  if (c.tag) { ctx.font = th.font(700, 22); const tg = ctx.measureText(c.tag).width + 28; rr(ctx, x + w - tg - 14, y - 15, tg, 32, 16); ctx.fillStyle = col; ctx.fill(); ctx.fillStyle = th.paper; ctx.textAlign = 'center'; ctx.fillText(c.tag, x + w - tg / 2 - 14, y + 8); }
+  ctx.restore();
+  if (texts && u > .95 && out > .98) texts.push({ id: 'card-' + c.id, text: c.title, x0: x + 96, y0: ty - 52, x1: x + 96 + tw, y1: ty + 10 });
+}
+
+/**
+ * Short-video captions: big bold words with a dark outline, the word being spoken in the accent colour. `toks` = cueWords(cues, words).
+ * options: W, H, theme, y (baseline of the last line, 1400: above the platform's bottom UI), size (62), maxW (W - 120), hot (accent), stroke (outline colour)
+ */
+captions.karaoke = function (ctx, cues, toks, t, { W = 1080, H = 1920, theme, y = 1400, size = 62, maxW, hot, stroke, texts } = {}) {
+  const th = T(theme), k = cues.findIndex(c => t >= c.t0 && t < c.t1); if (k < 0) return; const c = cues[k], tk = toks[k];
+  maxW = maxW ?? W - 120; ctx.font = th.font(800, size);
+  const widths = tk.map(w => ctx.measureText(w.s).width), total = widths.reduce((a, b) => a + b, 0);
+  if (total > maxW && total <= maxW * 1.3) { size = Math.max(size * .75, size * maxW / total); ctx.font = th.font(800, size); }      // a little too long: shrink to one line
+  const ws2 = tk.map(w => ctx.measureText(w.s).width), tot2 = ws2.reduce((a, b) => a + b, 0), lines = []; let cur = { w: 0, items: [] }, acc = 0;
+  const two = tot2 > maxW;                                                                                                              // still too long: two balanced lines
+  tk.forEach((tok, i) => { if (two && lines.length === 0 && cur.items.length && acc + ws2[i] / 2 > tot2 / 2) { lines.push(cur); cur = { w: 0, items: [] }; } cur.items.push({ ...tok, wd: ws2[i], x: cur.w }); cur.w += ws2[i]; acc += ws2[i]; });
+  lines.push(cur);
+  const lh = size * 1.3, a = ss(seg(t, c.t0, c.t0 + .12)) * (1 - ss(seg(t, c.t1 - .12, c.t1))), rise = (1 - ss(seg(t, c.t0, c.t0 + .18))) * 16;
+  let act = -1; tk.forEach((w, i) => { if (t >= w.t0) act = i; });
+  ctx.save(); ctx.globalAlpha = a; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic'; ctx.lineJoin = 'round';
+  let n = 0;
+  lines.forEach((ln, li) => {
+    const by = y - (lines.length - 1 - li) * lh + rise;
+    for (const it of ln.items) {
+      const x = W / 2 - ln.w / 2 + it.x, on = n === act, pop = on ? 1 + .10 * Math.sin(Math.PI * clamp((t - it.t0) / .22)) : 1;
+      ctx.save(); ctx.translate(x + it.wd / 2, by - size * .35); ctx.scale(pop, pop); ctx.translate(-(x + it.wd / 2), -(by - size * .35));
+      ctx.font = th.font(800, size); ctx.lineWidth = size * .24; ctx.strokeStyle = stroke ?? th.ink; ctx.strokeText(it.s, x, by); ctx.fillStyle = on ? (hot ?? th.accent) : '#FFFFFF'; ctx.fillText(it.s, x, by); ctx.restore(); n++;
+    }
+  });
+  ctx.restore();
+  if (texts) texts.push({ id: 'kcap-' + k, text: c.text, x0: W / 2 - Math.max(...lines.map(l => l.w)) / 2, y0: y - (lines.length - 1) * lh - size, x1: W / 2 + Math.max(...lines.map(l => l.w)) / 2, y1: y + 12 });
+};

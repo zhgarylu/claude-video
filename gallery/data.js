@@ -1408,6 +1408,23 @@ window.GALLERY = {
    "source_url": "https://github.com/zhgarylu/claude-video/tree/main/demos/talking-head/swiss-dots",
    "style_en": "Swiss Motion Graphics",
    "style_cn": "瑞士动态排版"
+  },
+  {
+   "id": "dots-v",
+   "style": "swiss-motion",
+   "dur": "0:30",
+   "aspect": "9x16",
+   "title": "Dots（竖屏版）",
+   "title_en": "Dots (portrait)",
+   "layout": "world",
+   "line": "竖屏 9:16 的“视频即世界”：视频铺满画面，底色取自视频，标注卡贴在两侧并用引线指进视频，逐字高亮的大字幕避开平台界面区。",
+   "line_en": "Portrait 9:16 \"video as the world\": the video fills the frame, the ground colour comes from the video, callout cards sit on the edges with leaders into it, and karaoke captions stay clear of the platform UI.",
+   "source": "demos/talking-head/dots-v",
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/dots-v.mp4",
+   "poster": "../docs/talking-head/dots-v.jpg",
+   "source_url": "https://github.com/zhgarylu/claude-video/tree/main/demos/talking-head/dots-v",
+   "style_en": "Swiss Motion Graphics",
+   "style_cn": "瑞士动态排版"
   }
  ],
  "prompts": [
@@ -1446,6 +1463,18 @@ window.GALLERY = {
    "facts": "2026-10-04",
    "text": "参考图中的男博主，是同一个人、同一张脸、同一套日常休闲上衣（全程不换装）。\n竖幅 3:4，时长 30 秒，24 帧，固定机位，中景偏全景：博主占画面高度约一半，站在画面中间偏下。\n\n【场景】\n一间极简的纯白摄影棚，墙面和地面是干净的浅灰白，只有一种点缀色：信号绿。\n空间里有四块方方正正的大色块和粗黑线框，像瑞士海报的网格，从左到右依次排开，每块之间留出站人的空位：一块绿色竖板，一块黑色横板，一块白色空白方框，一块深灰竖板。\n不要出现任何文字、标志、数字和屏幕上的字，画面里的牌子都是空白的。\n光线柔和均匀，没有杂乱的道具。\n\n【动作与口播】（普通话，语速自然偏快，口型清楚，口播不要被打断）\n0–5 秒：博主面对镜头，抬手打招呼，随后用食指指向自己的头顶，像在说“开发者”。\n口播：“9月29日，OpenAI开发者大会，对做开发的人来说，有四件事值得看。”\n\n5–7.5 秒：不说话。博主转向最左边的绿色竖板，抬手一指，再转回正面。\n\n7.5–12.5 秒：博主伸出一根手指，另一只手在空中点几下，像在操作一块看不见的屏幕。\n口播：“第一，Agents API进入公测，智能体可以直接操作软件界面。”\n\n12.5–14 秒：不说话。博主向右走一步，站到黑色横板前。\n\n14–18.5 秒：博主伸出两根手指，一只手的掌心向下按，再向下一压，像压低价格。\n口播：“第二，GPT-6.1 Sol，价格大约是上一代Astra的五分之一，能力也接近。”\n\n18.5–20 秒：不说话。博主再向右走一步，站到白色空白方框前，抬手做出“展开”的手势。\n\n20–25 秒：博主伸出三根手指，另一只手从身前向远处一推，像把任务发出去。\n口播：“第三，Codex能在云端环境里跑，你可以在别的设备上发起远程任务。”\n\n25–30 秒：博主回到画面中间，伸出四根手指，随后双手摊开，面向镜头，表情认真。\n口播：“第四，还有常驻智能体Dots。别光看发布，先挑一件，试一下。”\n\n【画面要求】\n博主全程在同一个白色棚里，背景只有大色块、粗线框，保持静止，不要随镜头乱动。\n博主占画面比例不要超过一半。动作从容、清楚，手势要明显，方便后期在旁边加说明。\n不要换装，不要戴眼镜，不要出现第二个人，不要出现水印和字幕。\n口型和口播对齐，说话声清晰，没有背景音乐。",
    "url": "https://github.com/zhgarylu/claude-video/blob/main/prompts/talking-head/swiss-devday-four.md"
+  },
+  {
+   "id": "swiss-dots-vertical",
+   "title": "Dots（竖屏 9:16 版）",
+   "title_en": "Dots (portrait 9:16)",
+   "world": "瑞士白色摄影棚 · 信号绿 · 竖屏构图",
+   "world_en": "Swiss white studio · signal green · portrait framing",
+   "style": "swiss-motion",
+   "status": "untested",
+   "facts": "2026-10-04",
+   "text": "参考图中的男博主，是同一个人、同一张脸、同一套日常休闲上衣（全程不换装）。\n竖幅 9:16（1080×1920），时长 30 秒，24 帧，固定机位，竖屏中景：博主占画面高度约三分之二（从头顶到膝盖偏下），站在画面中间，脚下留出一段地面。\n\n【场景】\n一间极简的纯白摄影棚，墙面和地面是干净的浅灰白，只有一种点缀色：信号绿。\n空间里有三样东西，都放在画面中间 80% 以内，不要贴到画面边缘：左后方一块绿色竖板，右后方一块黑色竖板，中间后方一个白色的空白方框（像一面空白的画框）。\n地面上有一串小小的绿色圆点，从博主脚边一路向画面深处排开，像一条延伸出去的“点”之路。\n画面最上面约 12% 是干净的墙面，最下面约 15% 是干净的地面，两处都不放任何东西。\n不要出现任何文字、标志、数字和屏幕上的字，画面里的牌子都是空白的。\n光线柔和均匀，没有杂乱的道具。\n\n【动作与口播】（普通话，语速自然偏快，口型清楚，口播不要被打断）\n0–5 秒：博主面对镜头，抬手打招呼，随后用食指在身前点一个“点”。\n口播：“OpenAI这次开发者大会，最值得说的是Dots，一个24小时在线的智能体。”\n\n5–7.5 秒：不说话。博主低头看地上的绿点，蹲下用手指碰一下其中一个，站起来。\n\n7.5–13 秒：博主伸出一根手指，另一只手在身侧画出一个方框，像在说“它自己的电脑”。\n口播：“第一，它有自己的云端电脑和浏览器，能连四千多个应用，比如Slack。”\n\n13–14.5 秒：不说话。博主向右走一步，站到黑色竖板前。\n\n14.5–20 秒：博主伸出两根手指，一只手做出“检查”的动作，另一只手摊开。\n口播：“第二，你不在的时候，它会用只读权限替你看已连接的应用，发现该做的事，先准备好，等你批准。”\n\n20–21.5 秒：不说话。博主回到画面中间，抬起手掌，做出“停”的手势。\n\n21.5–26 秒：博主伸出三根手指，另一只手在身前划出“三道线”。\n口播：“第三，你定规则：什么能做，什么要先问，什么绝对不许碰。”\n\n26–30 秒：博主面向镜头，表情认真，双手自然下垂。\n口播：“部分付费套餐已经能用，企业要管理员开启。你敢把哪件事交给它？”\n\n【画面要求】\n博主全程在同一个白色棚里，保持在画面中间，走位不超过画面宽度的三分之一，不要离开画面。\n动作从容、清楚，手势要明显，方便后期在两侧加说明。\n不要换装，不要戴眼镜，不要出现第二个人，不要出现水印和字幕。\n口型和口播对齐，说话声清晰，没有背景音乐。",
+   "url": "https://github.com/zhgarylu/claude-video/blob/main/prompts/talking-head/swiss-dots-vertical.md"
   },
   {
    "id": "swiss-gemini4",
@@ -1487,6 +1516,6 @@ window.GALLERY = {
  "counts": {
   "total": 61,
   "added": 18,
-  "demos": 4
+  "demos": 5
  }
 };

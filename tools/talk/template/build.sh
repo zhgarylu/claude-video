@@ -9,8 +9,9 @@ NAME=$(basename "$HERE")
 [ -f "$HERE/src/frames/0001.jpg" ] || { echo "run first: sh $LIB/tools/talk/prep.sh <host.mp4> $HERE"; exit 1; }
 cd "$LIB"
 mkdir -p "$HERE/out"
-node core/render/events.mjs "$HERE"
-node core/render/video.mjs "$HERE" --fps 24 --workers 3 --out "$HERE/out/video.mp4"
+SIZE=$(node -e "const f=JSON.parse(require('fs').readFileSync('$HERE/film.json','utf8'));console.log((f.aspect||'16x9')==='9x16'?'1080x1920':'1920x1080')")   # aspect in film.json
+node core/render/events.mjs "$HERE" --size $SIZE
+node core/render/video.mjs "$HERE" --fps 24 --workers 3 --size $SIZE --out "$HERE/out/video.mp4"
 "$LIB/.venv/bin/python" "$HERE/mix.py"
 node "$HERE/cues.mjs"
 "$LIB/.venv/bin/python" core/render/srt.py "$HERE/out/cues.json" "$HERE/$NAME.srt"

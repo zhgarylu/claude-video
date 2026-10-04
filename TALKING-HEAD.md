@@ -19,6 +19,7 @@ The three layouts are ready-made in [`tools/talk/layouts.js`](tools/talk/layouts
 | `split` | `splitLayout()` | a panel on one side, about a third of the width, with a "speaking" indicator; a caption band under the panels | the other panel: the style's UI, or `bullets()` | [`claude-mods`](demos/talking-head/claude-mods/) |
 | `pip` | `pipLayout()` | a corner window, about 7% of the frame; slides out when the footage ends | the whole frame | [`muse`](demos/talking-head/muse/) |
 | `world` | `worldLayout()` | the video itself, near full height, four edges feathered, ground colour following the video's corners | callout cards on both sides with leaders to objects in the video; the video shrinks aside for an end card | [`muse2`](demos/talking-head/muse2/) |
+| `world` + `--aspect 9x16` | `worldLayoutV()` | portrait short video: the video fitted to the width (or wider, cropping the sides), ground colour from the video's own edge, bands above and below melt into it | callout cards on the left/right edges with leaders into the video, karaoke captions (`captions.karaoke()`), a title chip in the top safe area | [`dots-v`](demos/talking-head/dots-v/) |
 
 Also in `layouts.js`: `captions.card()` and `captions.pill()` (two caption looks), `cuesFromWords()` (subtitles from the transcript: breaks at sentences, pauses and punctuation; fix the text by hand, speech-to-text mishears names), `bullets()`, `drawCallout()` and `isoCube()`. Colours and fonts come from a `theme` you pass in; nothing in the layouts knows about a style.
 
@@ -79,6 +80,16 @@ Sometimes the user generates the presenter **already inside a style's world** (a
 Prompt for such a host video: the same time-axis template as section 3, but describe the **world** (projection, three tones per face, palette by meaning, platform, props that grow out of the floor and sink back, no text on props) and give the host an action per sentence instead of outfit changes; put scene changes in the silent gaps. If the tool drifts from the style, make one still per scene first and animate each.
 
 Ready-to-paste prompts for such host videos (a Swiss white studio in two signal colours, an isometric island, and a fill-in template), with the rules that make them work: [`prompts/talking-head/`](prompts/talking-head/).
+
+## 3c. Portrait (9:16) short videos
+
+`sh tools/talk/new-film.sh host.mp4 films/<name> --aspect 9x16` makes a 1080×1920 film (always the `world` layout, see `worldLayoutV()` in `tools/talk/layouts.js`). It is for Douyin / Xiaohongshu / Shorts / Reels, where the host video is the picture and the film adds a thin layer:
+
+- **Host video.** Generate it 9:16 (best) or 3:4. A 3:4 video is fitted to the width and leaves a band above and below that takes the video's own edge colour, so there is no letterbox. To fill more of the height, set `"world": { "width": 1230, "top": 50 }` in `film.json`: the video gets wider than the frame and its sides are cropped, so keep props and the host inside the central 80%.
+- **Safe zones.** Platforms put their own UI over the bottom ~330 px and the right ~120 px (like, comment, share, the caption line). Keep text out of them: captions sit at y ≈ 1390, cards keep `rightSafe` (96 px) away from the right edge, the title chip is in the top-left.
+- **Captions.** `captions.karaoke()`: big bold words with a dark outline, the word being spoken in the accent colour. `cuesFromWords(words, { maxChars: 14, balance: true })` splits long sentences into equal parts instead of a full line plus an orphan; a line that is a little too long shrinks to one line, a very long one becomes two balanced lines. `cueWords()` gives each cue's word times. Captions follow the voice, so they are not part of the reading-time check.
+- **Cards.** `{ id, side:'L'|'R', hue, title, sub?, tag?, t0, t1, anchor:[[t, vx, vy]…] }`, `anchor` in the host video's own pixels. A card needs about `speech + 2 s`: it takes 0.4 s to arrive and 0.35 s to leave, and `readcheck` counts the time it sits fully still.
+- **Cheap tricks that work.** Cards on the edges cover the generated world's side props, so ask for blank, symmetric props when you generate the video. Prompts for a 9:16 host video: [`prompts/talking-head/`](prompts/talking-head/) (`swiss-dots-vertical`).
 
 ## 4. Prepare the footage
 
