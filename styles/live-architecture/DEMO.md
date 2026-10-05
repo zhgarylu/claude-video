@@ -2,7 +2,7 @@
 
 One example among many. Don't reuse its story, arc, shots, props or timings.
 
-Demo: *What Happens When You Open a Web Page* (54 s, 16:9) · `live-architecture.mp4` · source in [`demo/`](demo/)
+Demo: *What Happens When You Open a Web Page* (56 s, 16:9) · `live-architecture.mp4` · source in [`demo/`](demo/)
 
 ## Story & structure
 
@@ -31,6 +31,8 @@ One scene; the map builds as it is talked about.
 | 46 to 54 | the closing bar: near is fast, far is slow; the plucked chord | overview |
 
 Leg timings are offsets from the start of the line that names them; the line starts come from `voices/dur.json`, so the film re-times itself when a line changes.
+
+Times in the tables are from the first (slightly faster) voice and drift by a few seconds at normal speed; the film re-times itself from the voice (`voices/dur.json`).
 
 ## Score structure
 

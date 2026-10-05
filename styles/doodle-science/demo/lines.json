@@ -2,86 +2,72 @@
  {
   "id": "h1",
   "text": "是谁，从来没想过，天空为什么是蓝的？",
-  "voice": "zh-CN-YunxiNeural",
-  "rate": "+6%"
+  "voice": "zh-CN-YunxiNeural"
  },
  {
   "id": "h2",
   "text": "别划走，我现在就画给你看。",
   "voice": "zh-CN-YunxiNeural",
-  "rate": "+6%",
   "asr": "别画走,我现在就画给你看"
  },
  {
   "id": "a1",
   "text": "先记住：太阳光看着是白的，其实是七种颜色混在一起。",
-  "voice": "zh-CN-YunxiNeural",
-  "rate": "+6%"
+  "voice": "zh-CN-YunxiNeural"
  },
  {
   "id": "a2",
   "text": "它冲进大气层，就会撞上空气分子。",
-  "voice": "zh-CN-YunxiNeural",
-  "rate": "+6%"
+  "voice": "zh-CN-YunxiNeural"
  },
  {
   "id": "a3",
   "text": "蓝光的波长短，最容易被撞得四处乱跑；红光的波长长，几乎直直穿过去。",
-  "voice": "zh-CN-YunxiNeural",
-  "rate": "+6%"
+  "voice": "zh-CN-YunxiNeural"
  },
  {
   "id": "a4",
   "text": "于是天空的每个方向，都有蓝光飞进你的眼睛。这就叫散射。",
-  "voice": "zh-CN-YunxiNeural",
-  "rate": "+6%"
+  "voice": "zh-CN-YunxiNeural"
  },
  {
   "id": "q1",
   "text": "可紫光的波长更短，那为啥天空不是紫色的？",
-  "voice": "zh-CN-YunxiNeural",
-  "rate": "+6%"
+  "voice": "zh-CN-YunxiNeural"
  },
  {
   "id": "r1",
   "text": "第一，太阳光里，紫光本来就比蓝光少。",
-  "voice": "zh-CN-YunxiNeural",
-  "rate": "+6%"
+  "voice": "zh-CN-YunxiNeural"
  },
  {
   "id": "r2",
   "text": "第二，我们的眼睛，对紫色不太敏感。",
-  "voice": "zh-CN-YunxiNeural",
-  "rate": "+6%"
+  "voice": "zh-CN-YunxiNeural"
  },
  {
   "id": "r3",
   "text": "第三，高层大气还会吸收掉一部分紫光。",
-  "voice": "zh-CN-YunxiNeural",
-  "rate": "+6%"
+  "voice": "zh-CN-YunxiNeural"
  },
  {
   "id": "r4",
   "text": "几项叠在一起，蓝色就赢了。",
-  "voice": "zh-CN-YunxiNeural",
-  "rate": "+6%"
+  "voice": "zh-CN-YunxiNeural"
  },
  {
   "id": "s1",
   "text": "那傍晚的天，为什么是红的呢？",
-  "voice": "zh-CN-YunxiNeural",
-  "rate": "+6%"
+  "voice": "zh-CN-YunxiNeural"
  },
  {
   "id": "s2",
   "text": "太阳低了，光要穿过更厚的大气，蓝光在半路被散得差不多了，只剩红橙光到你眼前。",
-  "voice": "zh-CN-YunxiNeural",
-  "rate": "+6%"
+  "voice": "zh-CN-YunxiNeural"
  },
  {
   "id": "s3",
   "text": "下次抬头，别忘了这个小故事。",
-  "voice": "zh-CN-YunxiNeural",
-  "rate": "+6%"
+  "voice": "zh-CN-YunxiNeural"
  }
 ]

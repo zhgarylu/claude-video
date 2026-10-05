@@ -235,7 +235,7 @@ window.GALLERY = {
     "Explainers for kids and general audiences that need a friendly guide character",
     "Short-video knowledge channels that draw the answer in front of the viewer instead of showing stock footage"
    ],
-   "dur": 62.4,
+   "dur": 65.3,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/doodle-science.mp4",
    "frame": "../docs/frames/doodle-science.jpg",
@@ -1227,7 +1227,7 @@ window.GALLERY = {
     "Tech-channel explainers that need the viewer to follow a thing moving through boxes",
     "Architecture reviews and onboarding videos: layers, boundaries and what each layer protects"
    ],
-   "dur": 54.0,
+   "dur": 56.0,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/live-architecture.mp4",
    "frame": "../docs/frames/live-architecture.jpg",
@@ -1249,7 +1249,7 @@ window.GALLERY = {
     "Fact-check and critical-reading videos that need to show the exact sentence being discussed",
     "Study and exam-review videos on any text: contract clauses, policy documents, textbook passages"
    ],
-   "dur": 52.4,
+   "dur": 54.2,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/paper-annotation.mp4",
    "frame": "../docs/frames/paper-annotation.jpg",

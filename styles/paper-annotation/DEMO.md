@@ -2,7 +2,7 @@
 
 One example among many. Don't reuse its story, arc, shots, props or timings.
 
-Demo: *How to Read a Paper* (52 s, 16:9) · `paper-annotation.mp4` · source in [`demo/`](demo/)
+Demo: *How to Read a Paper* (54 s, 16:9) · `paper-annotation.mp4` · source in [`demo/`](demo/)
 
 ## Story & structure
 
@@ -28,6 +28,8 @@ Native moves spent: say the claim then test it, mark then ring, margin notes, ca
 | 46.4 to 52 | card "Three questions" with three ticks | overview |
 
 Line starts come from `voices/dur.json`; every highlight, ring and card is an offset from the line that names it.
+
+Times in the tables are from the first (slightly faster) voice and drift by a few seconds at normal speed; the film re-times itself from the voice (`voices/dur.json`).
 
 ## Score structure
 

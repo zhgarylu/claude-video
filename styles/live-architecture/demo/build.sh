@@ -19,5 +19,5 @@ node core/render/readcheck.mjs $D --size 1920x1080 || echo "readcheck: voice-syn
 $PY $D/mix.py
 node core/render/video.mjs $D --fps 24 --workers ${WORKERS:-2} --size 1920x1080 --resume --out $D/out/video.mp4
 sh core/render/mux.sh $D/out/video.mp4 $D/mix.wav $O/$NAME.mp4 24 0
-node core/render/still.mjs $D 24.0 --size 1920x1080 --out $D/out --prefix sf_ && cp $D/out/sf_24.0.jpg $D/stills/styleframe.jpg   # the gallery card (frame_sec in style.json)
+node core/render/still.mjs $D 38.0 --size 1920x1080 --out $D/out --prefix sf_ && cp $D/out/sf_38.0.jpg $D/stills/styleframe.jpg   # the gallery card (frame_sec in style.json)
 node core/render/still.mjs $D 8.0 --size 1920x1080 --out $D/out --prefix po_ && cp $D/out/po_8.0.jpg $O/poster.jpg

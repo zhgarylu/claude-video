@@ -2,7 +2,7 @@
 
 One example among many. Don't reuse its story, arc, shots, props or timings.
 
-Demo: *Why Is the Sky Blue?* (62 s, 9:16) · `doodle-science.mp4` (also built in 16:9 with `ASPECT=16x9`) · source in [`demo/`](demo/)
+Demo: *Why Is the Sky Blue?* (65 s, 9:16) · `doodle-science.mp4` (also built in 16:9 with `ASPECT=16x9`) · source in [`demo/`](demo/)
 
 ## Story & structure
 
@@ -25,6 +25,8 @@ Five pages; the page sweep (a paper-coloured band with an ink edge) is the only 
 | S sunset | 51 to 62 | orange wash, the sun low, the guide small on the ground; a band of thick air between them, a long double arrow, blue travellers peeling away, red and orange ones arriving; the sign-off | locked |
 
 The line starts come from the voice durations (`voices/dur.json`) plus gaps in `timeline.js`, so the film re-times itself when a line changes.
+
+Times in the tables are from the first (slightly faster) voice and drift by a few seconds at normal speed; the film re-times itself from the voice (`voices/dur.json`).
 
 ## Score structure
 

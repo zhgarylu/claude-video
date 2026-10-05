@@ -2,52 +2,44 @@
  {
   "id": "p1",
   "text": "这篇论文说，长文档问答，可以快一半以上。先别急着信，我们一起读。",
-  "voice": "zh-CN-XiaoxiaoNeural",
-  "rate": "+4%"
+  "voice": "zh-CN-XiaoxiaoNeural"
  },
  {
   "id": "p2",
   "text": "它要解决的问题是：模型读长文，每个字都读得一样仔细，所以很慢。",
-  "voice": "zh-CN-XiaoxiaoNeural",
-  "rate": "+4%"
+  "voice": "zh-CN-XiaoxiaoNeural"
  },
  {
   "id": "p3",
   "text": "办法叫先略读再精读：小模型先给每一段打分，大模型只读得分最高的几段。",
-  "voice": "zh-CN-XiaoxiaoNeural",
-  "rate": "+4%"
+  "voice": "zh-CN-XiaoxiaoNeural"
  },
  {
   "id": "p4",
   "text": "再看证据。三个测试集上，延迟降低了百分之五十八，准确率只掉了零点七个点。",
   "voice": "zh-CN-XiaoxiaoNeural",
-  "rate": "+4%",
   "asr": "再看证据三个测试集上延迟降低了58%准确率只掉了0.7个点"
  },
  {
   "id": "p5",
   "text": "注意：这些数字是作者自己报告的，而且只和一种基线比，就是把全文读完。",
   "voice": "zh-CN-XiaoxiaoNeural",
-  "rate": "+4%",
   "asr": "注意这些数字是作者自己报告的而且只和一种极限笔就是把全文读完"
  },
  {
   "id": "p6",
   "text": "接着看局限：答案分散在很多段落里的时候，收益会变小。",
-  "voice": "zh-CN-XiaoxiaoNeural",
-  "rate": "+4%"
+  "voice": "zh-CN-XiaoxiaoNeural"
  },
  {
   "id": "p7",
   "text": "所以一句话：适合答案集中的场景，不一定适合所有长文。",
-  "voice": "zh-CN-XiaoxiaoNeural",
-  "rate": "+4%"
+  "voice": "zh-CN-XiaoxiaoNeural"
  },
  {
   "id": "p8",
   "text": "读论文别只看摘要，要看它拿什么比，在哪里会失效。",
   "voice": "zh-CN-XiaoxiaoNeural",
-  "rate": "+4%",
   "asr": "读论文别只看摘药要看它拿什么笔在哪里会失效"
  }
 ]
