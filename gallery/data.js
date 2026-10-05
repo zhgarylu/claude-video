@@ -221,6 +221,28 @@ window.GALLERY = {
    "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/sand-animation/DEMO.md"
   },
   {
+   "slug": "doodle-science",
+   "num": "98",
+   "en": "Doodle Science Explainer",
+   "cn": "手绘科普体",
+   "cat": "手绘与绘画",
+   "cat_en": "Hand-drawn & Painting",
+   "film": "Why Is the Sky Blue?",
+   "line": "A pen-and-wash cartoon explainer: a bob-haired kid with round glasses asks why the sky is blue, then draws the answer page by page: a sun, a seven-colour beam, smiling air molecules that knock blue light about while red goes straight through, a question bubble, three hand-drawn charts and a sunset, all lettered in a thick-outlined hand with paper-coloured brush wipes between pages.",
+   "line_cn": "一部钢笔淡彩的卡通科普片：戴圆眼镜的齐刘海小孩问天空为什么是蓝的，然后一页页画出答案：太阳、七色光束、会笑的空气分子把蓝光撞得到处跑而红光直穿而过、一个提问气泡、三张手绘图表和一场日落；字是描白边的粗手写体，页与页之间用纸色笔刷横扫翻篇。",
+   "uses": [
+    "Why-questions in science, geography or daily life, explained in one minute",
+    "Explainers for kids and general audiences that need a friendly guide character",
+    "Short-video knowledge channels that draw the answer in front of the viewer instead of showing stock footage"
+   ],
+   "dur": 62.4,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/doodle-science.mp4",
+   "frame": "../docs/frames/doodle-science.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/doodle-science/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/doodle-science/DEMO.md"
+  },
+  {
    "slug": "shadow-puppet",
    "num": "07",
    "en": "Shadow Puppetry",
@@ -2109,8 +2131,8 @@ window.GALLERY = {
   }
  ],
  "counts": {
-  "total": 86,
-  "added": 43,
+  "total": 87,
+  "added": 44,
   "demos": 6
  }
 };

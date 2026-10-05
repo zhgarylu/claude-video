@@ -1,0 +1,5 @@
+Fonts (SIL OFL 1.1, google/fonts; licence texts are fetched into fonts/): ZCOOL QingKe HuangYou, Ma Shan Zheng
+Voice: Microsoft Edge neural voice zh-CN-YunxiNeural via edge-tts (online service: check Microsoft's terms before commercial use)
+Music and sound effects: generated in code (mix.py, numpy); no samples
+Pictures: every drawing is made in code (ink.js, main.js); the cast (Xiao Man, the sun, the air molecules, the light) is original
+Facts: FACTS.md

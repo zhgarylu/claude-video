@@ -2,8 +2,8 @@
 
 # Claude Video
 
-**<!--n-->86<!--/n--> film styles, each with a short film made entirely in code, and a workflow for putting a presenter's video inside one.**<br>
-**<!--n-->86<!--/n--> 种影片风格，每种都配一支完全用代码做出来的短片；再加一套"口播视频 + 风格解说"的工作流。**
+**<!--n-->87<!--/n--> film styles, each with a short film made entirely in code, and a workflow for putting a presenter's video inside one.**<br>
+**<!--n-->87<!--/n--> 种影片风格，每种都配一支完全用代码做出来的短片；再加一套"口播视频 + 风格解说"的工作流。**
 
 Pick a style, bring your own story (or your own presenter video), and let your coding agent direct the film.<br>
 选一个风格，带上你自己的故事（或你自己的口播视频），让你的编程 agent 来当导演。
@@ -129,6 +129,7 @@ Browse them with films in the [**gallery · 图鉴**](https://zhgarylu.github.io
 </tr>
 <tr>
 <td width="33%" valign="top"><a href="styles/sand-animation/STYLE.md"><img src="docs/frames/sand-animation.jpg" alt="Sand Animation"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Sand Animation</b> · 沙画<br><i>Where the Sparrow Went</i><br><sub>A stream of sand builds a heap that rises into a tree, flies off as a bird, breaks as a wave, stands as a lighthouse and falls back into a heap that spells home, with no cut.<br>一道沙流堆成沙丘，沙丘长成大树，大树化作飞鸟，飞鸟翻成海浪，海浪立成灯塔，最后落回沙丘，拼出一个“home”，全程没有一次剪切。</sub></td>
+<td width="33%" valign="top"><a href="styles/doodle-science/STYLE.md"><img src="docs/frames/doodle-science.jpg" alt="Doodle Science Explainer"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Doodle Science Explainer</b> · 手绘科普体<br><i>Why Is the Sky Blue?</i><br><sub>A pen-and-wash cartoon explainer: a bob-haired kid with round glasses asks why the sky is blue, then draws the answer page by page: a sun, a seven-colour beam, smiling air molecules that knock blue light about while red goes straight through, a question bubble, three hand-drawn charts and a sunset, all lettered in a thick-outlined hand with paper-coloured brush wipes between pages.<br>一部钢笔淡彩的卡通科普片：戴圆眼镜的齐刘海小孩问天空为什么是蓝的，然后一页页画出答案：太阳、七色光束、会笑的空气分子把蓝光撞得到处跑而红光直穿而过、一个提问气泡、三张手绘图表和一场日落；字是描白边的粗手写体，页与页之间用纸色笔刷横扫翻篇。</sub></td>
 </tr>
 </table>
 

@@ -19,6 +19,7 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | Embroidery & Knit | 刺绣与针织 | [`embroidery`](embroidery/STYLE.md) | *Every Mend Begins with a Hole* | ★ added here · 本仓库新增 |
 | Charcoal Sketch Animation | 木炭素描动画 | [`charcoal`](charcoal/STYLE.md) | *The Bend* | ★ added here · 本仓库新增 |
 | Sand Animation | 沙画 | [`sand-animation`](sand-animation/STYLE.md) | *Where the Sparrow Went* | ★ added here · 本仓库新增 |
+| Doodle Science Explainer | 手绘科普体 | [`doodle-science`](doodle-science/STYLE.md) | *Why Is the Sky Blue?* | ★ added here · 本仓库新增 |
 
 ## East Asian Traditions · 东方传统
 
