@@ -84,6 +84,8 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | Language Micro-lesson | 语言学习微课 | [`language-lesson`](language-lesson/STYLE.md) | *Three Little Words* | ★ added here · 本仓库新增 |
 | Assembly Manual | 步骤说明书体 | [`assembly-manual`](assembly-manual/STYLE.md) | *Drip 1: Assembly Guide* | ★ added here · 本仓库新增 |
 | Code Walkthrough | 代码讲解体 | [`code-walkthrough`](code-walkthrough/STYLE.md) | *One Character Short* | ★ added here · 本仓库新增 |
+| Live Architecture Diagram | 动态架构图体 | [`live-architecture`](live-architecture/STYLE.md) | *What Happens When You Open a Web Page* | ★ added here · 本仓库新增 |
+| Paper Annotation | 论文解读体 | [`paper-annotation`](paper-annotation/STYLE.md) | *How to Read a Paper* | ★ added here · 本仓库新增 |
 
 ## Cartoon & Anime · 卡通与动画
 

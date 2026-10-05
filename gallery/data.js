@@ -1213,6 +1213,50 @@ window.GALLERY = {
    "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/code-walkthrough/DEMO.md"
   },
   {
+   "slug": "live-architecture",
+   "num": "99",
+   "en": "Live Architecture Diagram",
+   "cn": "动态架构图体",
+   "cat": "信息与发布",
+   "cat_en": "Information & Keynote",
+   "film": "What Happens When You Open a Web Page",
+   "line": "A dark architecture diagram that explains itself in step with the voice: one browser request travels through DNS, an edge node, a load balancer, an application server, a cache and a database, glowing each node it reaches, with cache hits and misses called out and a camera that dives into the machine room and pulls back out.",
+   "line_cn": "一张暗色架构图跟着讲解自己动起来：一次浏览器请求依次经过域名系统、边缘节点、负载均衡、应用服务器、缓存和数据库，走到哪个节点哪个就亮起来，缓存命中与未命中被标出来，镜头钻进机房再拉回全景。",
+   "uses": [
+    "How a system works: a request path, a data pipeline, a payment flow, an AI service",
+    "Tech-channel explainers that need the viewer to follow a thing moving through boxes",
+    "Architecture reviews and onboarding videos: layers, boundaries and what each layer protects"
+   ],
+   "dur": 54.0,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/live-architecture.mp4",
+   "frame": "../docs/frames/live-architecture.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/live-architecture/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/live-architecture/DEMO.md"
+  },
+  {
+   "slug": "paper-annotation",
+   "num": "100",
+   "en": "Paper Annotation",
+   "cn": "论文解读体",
+   "cat": "信息与发布",
+   "cat_en": "Information & Keynote",
+   "film": "How to Read a Paper",
+   "line": "A research paper on a dark desk is read aloud: the camera pushes into a sentence, a yellow marker sweeps it, a red pen rings the numbers, note cards slide in beside the page to say what each part claims, the page turns to a figure and a table where the one comparison is called out, and the film ends on a three-question checklist.",
+   "line_cn": "一篇论文摊在暗色桌面上被读出来：镜头推进到一句话，黄色荧光笔扫过，红笔圈出数字，批注卡片从页边滑入说明这一段在主张什么；翻页到图表，点出它只和一种基线比较；最后落在读论文的三个问题上。",
+   "uses": [
+    "Reading a paper, a report or a white paper for a general audience: what it claims, what it compares against, where it fails",
+    "Fact-check and critical-reading videos that need to show the exact sentence being discussed",
+    "Study and exam-review videos on any text: contract clauses, policy documents, textbook passages"
+   ],
+   "dur": 52.4,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/paper-annotation.mp4",
+   "frame": "../docs/frames/paper-annotation.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/paper-annotation/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/paper-annotation/DEMO.md"
+  },
+  {
    "slug": "rubber-hose",
    "num": "26",
    "en": "1930s Rubber Hose Cartoon",
@@ -2131,8 +2175,8 @@ window.GALLERY = {
   }
  ],
  "counts": {
-  "total": 87,
-  "added": 44,
+  "total": 89,
+  "added": 46,
   "demos": 6
  }
 };

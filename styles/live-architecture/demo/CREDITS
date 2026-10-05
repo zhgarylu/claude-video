@@ -1,0 +1,5 @@
+Fonts (SIL OFL 1.1, google/fonts; licence texts in fonts/): Noto Sans SC, JetBrains Mono
+Voice: Microsoft Edge neural voice zh-CN-YunjianNeural via edge-tts (online service: check Microsoft's terms before commercial use)
+Music and sound effects: generated in code (mix.py, numpy); no samples
+Pictures: everything is drawn in code (arch.js, main.js); no logos, brands or product marks appear (the nodes are generic: browser, DNS, CDN, load balancer, server, cache, database)
+Facts: FACTS.md

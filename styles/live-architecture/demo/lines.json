@@ -1,0 +1,69 @@
+[
+ {
+  "id": "h1",
+  "text": "你点开一个网页，眨眼之间，背后却走了一长串路。",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+4%"
+ },
+ {
+  "id": "l2",
+  "text": "先是浏览器问域名系统：这个名字，对应哪个地址？",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+4%"
+ },
+ {
+  "id": "l3",
+  "text": "拿到地址，就和最近的边缘节点握手，建立加密连接。",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+4%"
+ },
+ {
+  "id": "l4",
+  "text": "图片、样式这些不常变的东西，边缘节点手里就有，直接给你。",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+4%"
+ },
+ {
+  "id": "l5",
+  "text": "要动态的内容，请求才继续往里走，先到负载均衡。",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+4%",
+  "asr": "要动态的内容请求才继续往离走先到附在均衡"
+ },
+ {
+  "id": "l6",
+  "text": "它把请求，分给当前比较空的应用服务器。",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+4%"
+ },
+ {
+  "id": "l7",
+  "text": "服务器先问缓存：这个数据有吗？有，就直接拿走。",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+4%"
+ },
+ {
+  "id": "l8",
+  "text": "没有，才去查数据库，再顺手存进缓存，下次就快了。",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+4%"
+ },
+ {
+  "id": "l9",
+  "text": "结果原路返回，浏览器把它拼成你看到的页面。",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+4%"
+ },
+ {
+  "id": "l10",
+  "text": "每一层都在做同一件事：能在前面解决，就不往里送。",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+4%"
+ },
+ {
+  "id": "l11",
+  "text": "所以，越靠近你的地方命中，页面就越快。",
+  "voice": "zh-CN-YunjianNeural",
+  "rate": "+4%"
+ }
+]

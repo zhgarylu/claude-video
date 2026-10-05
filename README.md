@@ -2,8 +2,8 @@
 
 # Claude Video
 
-**<!--n-->87<!--/n--> film styles, each with a short film made entirely in code, and a workflow for putting a presenter's video inside one.**<br>
-**<!--n-->87<!--/n--> 种影片风格，每种都配一支完全用代码做出来的短片；再加一套"口播视频 + 风格解说"的工作流。**
+**<!--n-->89<!--/n--> film styles, each with a short film made entirely in code, and a workflow for putting a presenter's video inside one.**<br>
+**<!--n-->89<!--/n--> 种影片风格，每种都配一支完全用代码做出来的短片；再加一套"口播视频 + 风格解说"的工作流。**
 
 Pick a style, bring your own story (or your own presenter video), and let your coding agent direct the film.<br>
 选一个风格，带上你自己的故事（或你自己的口播视频），让你的编程 agent 来当导演。
@@ -226,6 +226,10 @@ Browse them with films in the [**gallery · 图鉴**](https://zhgarylu.github.io
 <tr>
 <td width="33%" valign="top"><a href="styles/assembly-manual/STYLE.md"><img src="docs/frames/assembly-manual.jpg" alt="Assembly Manual"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Assembly Manual</b> · 步骤说明书体<br><i>Drip 1: Assembly Guide</i><br><sub>An invented pour-over coffee stand built page by page: an exploded cover, a parts page with codes and quantities, five numbered steps where parts fly along dotted lines and snap in on the beat, zoom circles on the clicks, a person pictogram and a crossed-out mistake, then a held pause and the first drop into the carafe.<br>一座虚构的手冲咖啡架，按说明书一页页装起来：爆炸图封面、带编号和数量的零件页、五个编号步骤——零件沿虚线飞来、踩着拍点咔哒到位，圆形放大镜框框出「咔」的细节，还有小人图示和划掉的错误示范；最后一声静默，第一滴咖啡落进壶里。</sub></td>
 <td width="33%" valign="top"><a href="styles/code-walkthrough/STYLE.md"><img src="docs/frames/code-walkthrough.jpg" alt="Code Walkthrough"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Code Walkthrough</b> · 代码讲解体<br><i>One Character Short</i><br><sub>A binary search says 16 is not in the list when it is; a pointer trace shows the loop quits with one candidate left, and a one-character diff (&lt; becomes &lt;=) fixes it, with every output taken from a real Python run.<br>一段二分查找明明有 16 却回答“没有”：指针逐步追踪发现循环在只剩一个候选时就退出了，改一个字符（&lt; 变 &lt;=）即修好，片中每个输出都来自真实的 Python 运行。</sub></td>
+<td width="33%" valign="top"><a href="styles/live-architecture/STYLE.md"><img src="docs/frames/live-architecture.jpg" alt="Live Architecture Diagram"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Live Architecture Diagram</b> · 动态架构图体<br><i>What Happens When You Open a Web Page</i><br><sub>A dark architecture diagram that explains itself in step with the voice: one browser request travels through DNS, an edge node, a load balancer, an application server, a cache and a database, glowing each node it reaches, with cache hits and misses called out and a camera that dives into the machine room and pulls back out.<br>一张暗色架构图跟着讲解自己动起来：一次浏览器请求依次经过域名系统、边缘节点、负载均衡、应用服务器、缓存和数据库，走到哪个节点哪个就亮起来，缓存命中与未命中被标出来，镜头钻进机房再拉回全景。</sub></td>
+</tr>
+<tr>
+<td width="33%" valign="top"><a href="styles/paper-annotation/STYLE.md"><img src="docs/frames/paper-annotation.jpg" alt="Paper Annotation"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Paper Annotation</b> · 论文解读体<br><i>How to Read a Paper</i><br><sub>A research paper on a dark desk is read aloud: the camera pushes into a sentence, a yellow marker sweeps it, a red pen rings the numbers, note cards slide in beside the page to say what each part claims, the page turns to a figure and a table where the one comparison is called out, and the film ends on a three-question checklist.<br>一篇论文摊在暗色桌面上被读出来：镜头推进到一句话，黄色荧光笔扫过，红笔圈出数字，批注卡片从页边滑入说明这一段在主张什么；翻页到图表，点出它只和一种基线比较；最后落在读论文的三个问题上。</sub></td>
 </tr>
 </table>
 

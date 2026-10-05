@@ -1,0 +1,18 @@
+{
+ "slug": "paper-annotation",
+ "num": "100",
+ "en": "Paper Annotation",
+ "cn": "论文解读体",
+ "category_en": "Information & Keynote",
+ "category_cn": "信息与发布",
+ "film": "How to Read a Paper",
+ "line": "A research paper on a dark desk is read aloud: the camera pushes into a sentence, a yellow marker sweeps it, a red pen rings the numbers, note cards slide in beside the page to say what each part claims, the page turns to a figure and a table where the one comparison is called out, and the film ends on a three-question checklist.",
+ "line_cn": "一篇论文摊在暗色桌面上被读出来：镜头推进到一句话，黄色荧光笔扫过，红笔圈出数字，批注卡片从页边滑入说明这一段在主张什么；翻页到图表，点出它只和一种基线比较；最后落在读论文的三个问题上。",
+ "uses": [
+  "Reading a paper, a report or a white paper for a general audience: what it claims, what it compares against, where it fails",
+  "Fact-check and critical-reading videos that need to show the exact sentence being discussed",
+  "Study and exam-review videos on any text: contract clauses, policy documents, textbook passages"
+ ],
+ "frame_sec": 38.0,
+ "dur": 52.4
+}

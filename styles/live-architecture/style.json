@@ -1,0 +1,18 @@
+{
+ "slug": "live-architecture",
+ "num": "99",
+ "en": "Live Architecture Diagram",
+ "cn": "动态架构图体",
+ "category_en": "Information & Keynote",
+ "category_cn": "信息与发布",
+ "film": "What Happens When You Open a Web Page",
+ "line": "A dark architecture diagram that explains itself in step with the voice: one browser request travels through DNS, an edge node, a load balancer, an application server, a cache and a database, glowing each node it reaches, with cache hits and misses called out and a camera that dives into the machine room and pulls back out.",
+ "line_cn": "一张暗色架构图跟着讲解自己动起来：一次浏览器请求依次经过域名系统、边缘节点、负载均衡、应用服务器、缓存和数据库，走到哪个节点哪个就亮起来，缓存命中与未命中被标出来，镜头钻进机房再拉回全景。",
+ "uses": [
+  "How a system works: a request path, a data pipeline, a payment flow, an AI service",
+  "Tech-channel explainers that need the viewer to follow a thing moving through boxes",
+  "Architecture reviews and onboarding videos: layers, boundaries and what each layer protects"
+ ],
+ "frame_sec": 24.0,
+ "dur": 54.0
+}

@@ -1,0 +1,6 @@
+Fonts (SIL OFL 1.1, google/fonts; licence texts in fonts/): Noto Sans SC (notes, captions), Source Serif 4 (the paper)
+Voice: Microsoft Edge neural voice zh-CN-XiaoxiaoNeural via edge-tts (online service: check Microsoft's terms before commercial use)
+Music and sound effects: generated in code (mix.py, numpy); no samples
+The paper: "Skim-then-Read" is FICTIONAL, written for this demo. Its text, authors, figure and every number are invented; no real paper, institution or result appears. The film says so on screen (a badge) and on the page footer.
+Pictures: everything is drawn in code (paper.js, main.js)
+Facts: FACTS.md
