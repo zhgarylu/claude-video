@@ -1,8 +1,8 @@
 #!/bin/sh
-# One command: sh demos/talking-head/splitflap-intro/build.sh   (put the host video at src/host.mp4; it is not in this repository)
+# One command: sh films/splitflap-intro/build.sh   (host video at src/host.mp4)
 set -e
 HERE=$(cd "$(dirname "$0")" && pwd)
-LIB=${LIB:-$(cd "$HERE/../../.." && pwd)}
+LIB=${LIB:-$(cd "$HERE/../.." && pwd)}
 export LIB
 NAME=$(basename "$HERE")
 [ -f "$LIB/core/render/video.mjs" ] || { echo "set LIB to the library folder"; exit 1; }

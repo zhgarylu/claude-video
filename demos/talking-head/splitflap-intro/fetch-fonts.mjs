@@ -1,6 +1,6 @@
 // Noto Sans SC subset (OFL) from the characters used in main.js and the transcript; Barlow Medium is copied from styles/split-flap/demo/fonts
 import fs from 'fs';
-const src = fs.readFileSync('main.js', 'utf8') + fs.readFileSync('src/words.json', 'utf8');
+const src = fs.readFileSync('main.js', 'utf8') + fs.readFileSync('backdrop.js', 'utf8') + fs.readFileSync('src/words.json', 'utf8');
 const set = new Set(); for (const ch of src) if (ch.codePointAt(0) >= 0x20 && ch !== '\n') set.add(ch);
 for (let i = 0x20; i < 0x7f; i++) set.add(String.fromCharCode(i));
 '·—–×…「」“”‘’，。：；！？、（）/→'.split('').forEach(c => set.add(c));

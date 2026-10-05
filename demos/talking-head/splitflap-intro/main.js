@@ -5,6 +5,7 @@
 import { loadHost, hostFrame } from '/tools/talk/host.js';
 import { cuesFromWords, cueWords } from '/tools/talk/layouts.js';
 import { Cell, write } from './flap.js';
+import { styled, CREATURES, TW, TH } from './backdrop.js';
 
 const W = 1920, H = 1080, cv = document.getElementById('c'), ctx = cv.getContext('2d');
 const host = await loadHost('src');
@@ -291,6 +292,41 @@ function cardWhiteMask(P) {                                                     
   cmg.putImageData(cimg, 0, 0); return cmk;
 }
 
+// ───────── 前景遮罩：博主 + 翻牌板（含侧面和底座），文字和角色画在它们后面 ─────────
+const fgC = document.createElement('canvas'); fgC.width = MW; fgC.height = MH; const fgG = fgC.getContext('2d'), fgImg = fgG.createImageData(MW, MH);
+const qC = document.createElement('canvas'); qC.width = MW; qC.height = MH; const qG = qC.getContext('2d', { willReadFrequently: true });
+const seen = new Uint8Array(MW * MH), cand = new Uint8Array(MW * MH), stk = new Int32Array(MW * MH), dist = new Uint16Array(MW * MH);
+function fgMatte(k) {
+  const d = lastPix, n = MW * MH; let qh = 0, qt = 0; seen.fill(0); dist.fill(0);
+  for (let i = 0, p = 0; i < n; i++, p += 4) {
+    const r = d[p], g = d[p + 1], b = d[p + 2], l = .3 * r + .59 * g + .11 * b, mx = Math.max(r, g, b), mn = Math.min(r, g, b);
+    const navy = b > r + 20 && b > g + 5 && l < 110 && l > 8, skin = r > g && g > b && r - b > 14 && l > 38 && l < 242 && r / (g + 1) < 1.62, dark = l < 85 && mx - mn < 48;
+    cand[i] = navy || skin || dark ? 1 : 0; if (navy) { seen[i] = 1; stk[qt++] = i; }
+  }
+  // 翻牌板的四边形也当种子
+  const Hf = TR.H[Math.min(k, TR.H.length - 1)].map(Number), Ht = mul3(Hf, Hq);
+  qG.setTransform(1, 0, 0, 1, 0, 0); qG.clearRect(0, 0, MW, MH); qG.fillStyle = '#fff'; qG.beginPath();
+  [[0, 0], [BW, 0], [BW, BH], [0, BH]].forEach(([x, y], q) => { const [px, py] = apply(Ht, x, y); q ? qG.lineTo(px * SX / 2, py * SX / 2) : qG.moveTo(px * SX / 2, py * SX / 2); }); qG.closePath(); qG.fill();
+  const qd = qG.getImageData(0, 0, MW, MH).data;
+  for (let i = 0; i < n; i++) if (qd[i * 4 + 3] > 128) { if (!seen[i]) { seen[i] = 1; stk[qt++] = i; } cand[i] = 1; }
+  // 广度优先，最多往外长 170 个像素：脸、脖子、头发、手臂都在衣服附近，远处的铜色立柱和天花板暗线长不到
+  const CAP = 170;
+  while (qh < qt) {
+    const i = stk[qh++], x = i % MW, dd = dist[i]; if (dd >= CAP) continue;
+    if (x > 0 && cand[i - 1] && !seen[i - 1]) { seen[i - 1] = 1; dist[i - 1] = dd + 1; stk[qt++] = i - 1; }
+    if (x < MW - 1 && cand[i + 1] && !seen[i + 1]) { seen[i + 1] = 1; dist[i + 1] = dd + 1; stk[qt++] = i + 1; }
+    if (i >= MW && cand[i - MW] && !seen[i - MW]) { seen[i - MW] = 1; dist[i - MW] = dd + 1; stk[qt++] = i - MW; }
+    if (i < n - MW && cand[i + MW] && !seen[i + MW]) { seen[i + MW] = 1; dist[i + MW] = dd + 1; stk[qt++] = i + MW; }
+  }
+  // 填洞：从画面边缘能走到的“非前景”是背景，其余的洞（卡片、高光）算前景
+  const out = new Uint8Array(n); let sp = 0; const st2 = new Int32Array(n);
+  const pushBg = i => { if (!seen[i] && !out[i]) { out[i] = 1; st2[sp++] = i; } };
+  for (let x = 0; x < MW; x++) { pushBg(x); pushBg((MH - 1) * MW + x); } for (let y = 0; y < MH; y++) { pushBg(y * MW); pushBg(y * MW + MW - 1); }
+  while (sp) { const i = st2[--sp], x = i % MW; if (x > 0) pushBg(i - 1); if (x < MW - 1) pushBg(i + 1); if (i >= MW) pushBg(i - MW); if (i < n - MW) pushBg(i + MW); }
+  const o = fgImg.data; for (let i = 0, p = 0; i < n; i++, p += 4) { o[p] = o[p + 1] = o[p + 2] = 0; o[p + 3] = out[i] ? 0 : 255; }
+  fgG.putImageData(fgImg, 0, 0); return fgC;
+}
+
 // ───────── 字幕 ─────────
 const cues = cuesFromWords(words, { maxChars: 26, softChars: 12, gap: .45, balance: true }), CW2 = cueWords(cues, words);
 function captionsLayer(t) {
@@ -314,17 +350,62 @@ for (let tt = 14.25; tt < T.topic; tt += .12) EV.push({ t: +tt.toFixed(3), type:
 EV.sort((x, y) => x.t - y.t);
 window.EV = EV;
 
+// ───────── 博主背后的风格大字和角色 ─────────
+const SCN = [
+  { t0: 1.6, t1: T.lib - .1, kind: 'outline', text: 'CLAUDE-VIDEO' },
+  { t0: T.ink - .15, t1: T.oil - .1, kind: 'ink', text: '水墨', cr: 'inkCrane' },
+  { t0: T.oil - .15, t1: T.pixel - .1, kind: 'oil', text: '油画' },
+  { t0: T.pixel - .15, t1: T.neon - .1, kind: 'pixel', text: 'PIXEL', cr: 'pixelCat' },
+  { t0: T.neon - .15, t1: T.ori - .1, kind: 'neon', text: 'NEON', cr: 'neonFish' },
+  { t0: T.ori - .15, t1: T.sixty - .3, kind: 'origami', text: '折纸', cr: 'origamiCrane' },
+  { t0: T.sixty - .3, t1: T.pick - .35, kind: 'amber', text: '60+', parade: true },
+  { t0: T.pick - .3, t1: T.topic - .1, kind: 'outline', text: 'PICK A STYLE' },
+  { t0: T.topic - .1, t1: T.make - .1, kind: 'outline', text: '+ YOUR TOPIC' },
+  { t0: T.make - .1, t1: T.talk - .1, kind: 'neon', text: 'A FILM' },
+  { t0: T.talk - .1, t1: T.landscape - .15, kind: 'outline', text: 'TALKING HEAD' },
+  { t0: T.landscape - .15, t1: T.gallery - .3, kind: 'outline', text: '16:9 · 9:16' },
+  { t0: T.gallery - .3, t1: T.prompt - .2, kind: 'origami', text: 'GALLERY', parade: true },
+  { t0: T.prompt - .2, t1: T.ask - .6, kind: 'pixel', text: 'PROMPTS' },
+  { t0: T.ask - .6, t1: DUR + 1, kind: 'neon', text: 'WHICH STYLE?', parade: true },
+];
+const PARADE = ['inkCrane', 'pixelCat', 'neonFish', 'origamiCrane', 'clayChick'];
+const bgC = document.createElement('canvas'); bgC.width = W; bgC.height = H; const bgG = bgC.getContext('2d');
+const camOf = k => { const Ht = mul3(TR.H[Math.min(k, TR.H.length - 1)].map(Number), Hq), [x, y] = apply(Ht, BW / 2, BH / 2), [x1, y1] = apply(Ht, 0, 0), [x2, y2] = apply(Ht, BW, BH); return { x: x * SX, y: y * SX, L: Math.hypot(x2 - x1, y2 - y1) * SX }; };
+const CAM0 = camOf(TR.ref);
+const easeOut = u => 1 - (1 - u) ** 3;
+function drawBackdrop(k, t) {
+  bgG.setTransform(1, 0, 0, 1, 0, 0); bgG.globalCompositeOperation = 'source-over'; bgG.clearRect(0, 0, W, H);
+  const c = camOf(k), dx = (c.x - CAM0.x) * .5, dy = (c.y - CAM0.y) * .3, sc = 1 + .35 * (c.L / CAM0.L - 1);
+  bgG.setTransform(sc, 0, 0, sc, W / 2 * (1 - sc) + dx, H / 2 * (1 - sc) + dy);
+  for (const sn of SCN) {
+    if (t < sn.t0 || t > sn.t1) continue; const p = easeOut(seg(t, sn.t0, sn.t0 + .38)), out = 1 - ss(seg(t, sn.t1 - .3, sn.t1)), a = p * out; if (a <= 0) continue;
+    const st = styled(sn.kind, sn.text), z = lerp(.88, 1, p) * (1 + .035 * seg(t, sn.t0, sn.t1)), fl = sn.kind === 'neon' ? (.88 + .12 * Math.sin(t * 23) * (Math.sin(t * 3.3) > .6 ? 1 : .15)) : 1;
+    const bw = st.bb.x1 - st.bb.x0, bh = st.bb.y1 - st.bb.y0, fitS = Math.min(860 / bw, 380 / bh);                     // 画在“博主左边、翻牌板左边”那块看得见的地方
+    bgG.save(); bgG.globalAlpha = Math.min(1, a * .96) * fl; bgG.translate(W * .245, H * .34); bgG.scale(z * fitS, z * fitS); bgG.drawImage(st.c, -(st.bb.x0 + st.bb.x1) / 2, -(st.bb.y0 + st.bb.y1) / 2); bgG.restore();
+    if (sn.parade) { PARADE.forEach((nm, i) => { const q = easeOut(seg(t, sn.t0 + .25 + i * .14, sn.t0 + .6 + i * .14)); if (q > 0) { bgG.save(); bgG.globalAlpha = a * q; CREATURES[nm](bgG, t + i, W * (.07 + i * .105), H * .76 - (1 - q) * 40, 175); bgG.restore(); } }); }
+    else if (sn.cr) { const q = easeOut(seg(t, sn.t0 + .15, sn.t0 + .6)); bgG.save(); bgG.globalAlpha = a * q; CREATURES[sn.cr](bgG, t, W * .445, H * .70 - (1 - q) * 50, 290); bgG.restore(); }
+  }
+  // 博主和翻牌板在前面：用前景遮罩（先膨胀几个像素）把背景层挖掉
+  bgG.setTransform(1, 0, 0, 1, 0, 0); bgG.globalCompositeOperation = 'destination-out'; const m = fgMatte(k);
+  for (const [ox, oy] of [[0, 0], [6, 0], [-6, 0], [0, 6], [0, -6], [4, 4], [-4, 4], [4, -4], [-4, -4]]) bgG.drawImage(m, ox, oy, W, H);
+  bgG.globalCompositeOperation = 'source-over';
+}
+
+for (const sn of SCN) EV.push({ t: +sn.t0.toFixed(3), type: 'bgpop' }); EV.sort((x, y) => x.t - y.t);
+
 // ───────── 渲染 ─────────
 window.DUR = DUR;
 window.render = (t0) => {
   const t = POSTER ? AT : t0, time = POSTER ? AT : Math.min(t0, host.duration - .05), k = Math.min(host.frames.length - 1, Math.floor(time * host.fps + 1e-4)), im = hostFrame(host, time);
   ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
   ctx.drawImage(im, 0, 0, W, H);
-  drawBoardTexture(t); drawBoard(k);
   hostMatte(im);
+  if (!QS.has('nobg')) { drawBackdrop(k, t); ctx.drawImage(bgC, 0, 0); }
+  drawBoardTexture(t); drawBoard(k);
   if (!NOMATTE) { og.globalCompositeOperation = 'destination-out'; og.imageSmoothingEnabled = true; og.filter = 'blur(1.2px)'; og.drawImage(mk2, 0, 0, W, H); og.filter = 'none'; og.globalCompositeOperation = 'source-over'; }
   ctx.drawImage(ov, 0, 0);
   drawCard(k, t, im);
+  if (QS.has('fg')) { const m = fgMatte(k); lg.setTransform(1, 0, 0, 1, 0, 0); lg.globalCompositeOperation = 'source-over'; lg.clearRect(0, 0, W, H); lg.fillStyle = 'rgba(255,0,200,.55)'; lg.fillRect(0, 0, W, H); lg.globalCompositeOperation = 'destination-out'; lg.drawImage(m, 0, 0, W, H); lg.globalCompositeOperation = 'source-over'; ctx.drawImage(lay, 0, 0); }
   if (!POSTER) captionsLayer(t);
 };
 window.TEXTS = () => [];

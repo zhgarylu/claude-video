@@ -103,6 +103,8 @@ When the generated world holds a board, a screen or a sign that should show **yo
 
 6. **More than text.** The replacement can hold pictures and clips: `splitflap-intro` puts a preview window in the board's plane that is itself a giant flap (clips and stills of the library's styles, sampled to 12 fps into `samples/`), so the board shows samples while the host names them. A prop in the host's hand can be replaced too: `track_card.py` finds a white card by colour (light, smooth, slightly blue; the ceiling is brighter or textured) and the page paints a ticket on it only where the pixel is card-white, so fingers stay in front. In `splitflap-intro` it found the card for about 12 of the 14 seconds it is held; for the other two (the host lowers it towards the board) the card stays white.
 
+7. **A backdrop behind the host.** To fill an empty world, draw a layer of big words and small characters in different styles (`backdrop.js`: ink, oil, pixel, neon, origami type; a crane, a cat, a fish) and cut the foreground out of it. The foreground matte grows from the navy shirt and the board quad through skin, navy and dark pixels (depth-capped flood fill, holes filled), is dilated a few pixels, and is removed from the layer, so the host and the board stay in front. Fit each word to the free area beside the host; in close-ups some words are still partly hidden.
+
 Known limits: the footage is upscaled if it is 720p; the matte is colour-based; the tracker assumes a rigid, textured surface (a plain monitor with no frame needs corner markers).
 
 ## 4. Prepare the footage

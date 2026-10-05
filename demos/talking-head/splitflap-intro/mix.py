@@ -2,7 +2,7 @@
 再加大厅的空气底噪、很轻的和弦垫和脉冲。翻牌的位置（左右声像）来自格子所在的列。"""
 import os, sys, json
 import numpy as np, soundfile as sf
-HERE = os.path.dirname(os.path.abspath(__file__)); LIB = os.environ.get('LIB') or os.path.abspath(os.path.join(HERE, '..', '..', '..'))
+HERE = os.path.dirname(os.path.abspath(__file__)); LIB = os.environ.get('LIB') or os.path.abspath(os.path.join(HERE, '..', '..'))
 sys.path.insert(0, LIB); sys.path.insert(0, os.path.join(LIB, 'tools', 'talk'))
 from mix_helpers import load_voice, voice_env, duck, finish
 from core.audio.sfx import SR, add, lp, hp, bp, noise, t_
@@ -31,10 +31,13 @@ for e in EV:
 def thunk(d=.16):
     t = t_(d); return (np.sin(2 * np.pi * (140 - 60 * np.minimum(1, t / .08)) * t) * np.exp(-t / .05) + lp(noise(d), 900) * np.exp(-t / .02) * .5 + bp(noise(d), 1500, 5000) * np.exp(-t / .01) * .4)
 def tick(d=.02): t = t_(d); return hp(noise(d), 3500) * np.exp(-t / .003)
+def whoosh_soft(d=.45):
+    t = t_(d); return bp(noise(d), 500, 3500) * np.sin(np.linspace(0, np.pi, len(t))) ** 2 * .6
 for e in ALL:
     if e['type'] == 'pflip': add(foley, thunk(), e['t'] + .17, .34, .35)
     elif e['type'] == 'tile': add(foley, clack(.045), e['t'], .22, float(rng.uniform(.2, .6)))
     elif e['type'] == 'tick': add(foley, tick(), e['t'], .16, -.1)
+    elif e['type'] == 'bgpop': add(foley, whoosh_soft(), e['t'] - .05, .20, 0)
 print('flaps', total, 'bins', len(EV))
 # 空气底噪（大厅）+ 很远的列车低频
 w = np.cumsum(noise(DUR)); w -= np.linspace(w[0], w[-1], len(w)); w = hp(w, 30); w = w / np.abs(w).max()
