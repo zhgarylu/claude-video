@@ -11,8 +11,15 @@ export async function loadHost(base = 'src') {
   const env = await fetch(`${base}/env.json`).then(r => r.json());
   const frames = Array.from({ length: meta.frames }, (_, i) => { const im = new Image(); im.src = `${base}/frames/${String(i + 1).padStart(4, '0')}.jpg`; return im; });
   await Promise.all(frames.map(im => im.decode().catch(() => 0)));
-  return { ...meta, frames, env };
+  // optional person mattes (sh tools/matte/run.sh): src/matte/NNNN.png, RGBA with alpha = person; host.matte stays null when they are missing
+  let matte = null;
+  if (!new URLSearchParams(location.search).has('colormatte') && (await fetch(`${base}/matte/0001.png`, { method: 'HEAD' }).catch(() => ({ ok: false }))).ok) {
+    matte = Array.from({ length: meta.frames }, (_, i) => { const im = new Image(); im.src = `${base}/matte/${String(i + 1).padStart(4, '0')}.png`; return im; });
+    await Promise.all(matte.map(im => im.decode().catch(() => 0)));
+  }
+  return { ...meta, frames, env, matte };
 }
+export const hostMatteFrame = (host, t) => host.matte ? host.matte[Math.max(0, Math.min(host.matte.length - 1, Math.floor(t * host.fps + 1e-4)))] : null;
 export const hostFrame = (host, t) => host.frames[Math.max(0, Math.min(host.frames.length - 1, Math.floor(t * host.fps + 1e-4)))];
 export const level = (host, t) => host.env[Math.max(0, Math.min(host.env.length - 1, Math.floor(t * host.fps)))] || 0;   // 0..1 voice level
 // Draw the host into a rounded window. opts: x, y, w, h, r (radius), border (colour), lw, shadow (rgba), fit ('cover'|'contain'),

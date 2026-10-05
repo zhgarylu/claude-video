@@ -11,6 +11,7 @@ cd "$LIB"
 mkdir -p "$HERE/out"
 if [ ! -f "$HERE/src/frames/0001.jpg" ]; then sh "$LIB/tools/talk/prep.sh" "$HERE/src/host.mp4" "$HERE" --lang zh --prompt "claude-video GitHub"; fi
 [ -f "$HERE/words.fixed.json" ] && cp "$HERE/words.fixed.json" "$HERE/src/words.json"
+[ -d "$HERE/src/matte" ] || sh "$LIB/tools/matte/run.sh" "$HERE" || true
 [ -f "$HERE/src/track.json" ] || "$LIB/.venv/bin/python" "$HERE/track_board.py"
 [ -f "$HERE/src/card.json" ] || "$LIB/.venv/bin/python" "$HERE/track_card.py"
 node core/render/events.mjs "$HERE"

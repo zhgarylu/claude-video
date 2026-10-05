@@ -2,7 +2,7 @@
 // 生成视频里的翻牌板被逐帧跟踪（track_board.py → src/track.json），整块盖板重画成真正的机械翻牌：
 // 每个格子是一个 40 片的转轮（flap.js），只能往前翻，所以每次换字都会哗啦啦翻过中间所有的字。
 // 博主的手臂和衣服按颜色抠出来，盖板画在他的后面。
-import { loadHost, hostFrame } from '/tools/talk/host.js';
+import { loadHost, hostFrame, hostMatteFrame } from '/tools/talk/host.js';
 import { cuesFromWords, cueWords } from '/tools/talk/layouts.js';
 import { Cell, write } from './flap.js';
 import { styled, CREATURES, TW, TH } from './backdrop.js';
@@ -388,6 +388,7 @@ function drawBackdrop(k, t) {
   // 博主和翻牌板在前面：用前景遮罩（先膨胀几个像素）把背景层挖掉
   bgG.setTransform(1, 0, 0, 1, 0, 0); bgG.globalCompositeOperation = 'destination-out'; const m = fgMatte(k);
   for (const [ox, oy] of [[0, 0], [6, 0], [-6, 0], [0, 6], [0, -6], [4, 4], [-4, 4], [4, -4], [-4, -4]]) bgG.drawImage(m, ox, oy, W, H);
+  const pmk = host.matte && host.matte[k]; if (pmk) for (const [ox, oy] of [[0, 0], [4, 0], [-4, 0], [0, 4], [0, -4]]) bgG.drawImage(pmk, ox, oy, W, H);
   bgG.globalCompositeOperation = 'source-over';
 }
 
@@ -400,6 +401,7 @@ window.render = (t0) => {
   ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
   ctx.drawImage(im, 0, 0, W, H);
   hostMatte(im);
+  const pm = hostMatteFrame(host, time); if (pm) { mg.clearRect(0, 0, MW, MH); mg.drawImage(pm, 0, 0, MW, MH); }   // Vision 人像遮罩（有就用它，没有就用上面的颜色抠）
   if (!QS.has('nobg')) { drawBackdrop(k, t); ctx.drawImage(bgC, 0, 0); }
   drawBoardTexture(t); drawBoard(k);
   if (!NOMATTE) { og.globalCompositeOperation = 'destination-out'; og.imageSmoothingEnabled = true; og.filter = 'blur(1.2px)'; og.drawImage(mk2, 0, 0, W, H); og.filter = 'none'; og.globalCompositeOperation = 'source-over'; }
