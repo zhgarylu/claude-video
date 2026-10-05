@@ -1,0 +1,18 @@
+{
+ "slug": "chat-log",
+ "num": "85",
+ "en": "Chat Log",
+ "cn": "聊天记录体",
+ "category_en": "Information & Keynote",
+ "category_cn": "信息与发布",
+ "film": "She Knows",
+ "line": "A family group chat plans a surprise party, adds the birthday woman by mistake, recalls everything in a panic, and waits through her typing dots for a voice message that turns the secret around.",
+ "line_cn": "一个家庭群在筹备惊喜生日会，误把寿星拉进了群，大家慌忙撤回，对着她“正在输入…”的圆点干等，直到一条语音把秘密整个翻了过来。",
+ "uses": [
+  "Stories told as a group conversation: a secret, an argument, a misunderstanding",
+  "Timelines and step lists delivered as messages, one per step, with photos and link cards as the evidence",
+  "Product explainers and support flows told as a chat between a user and the product"
+ ],
+ "frame_sec": 38.2,
+ "dur": 59.5
+}

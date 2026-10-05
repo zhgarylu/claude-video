@@ -32,13 +32,13 @@ If the user hasn't picked a style:
 - Link the gallery, where every style has its demo film: https://lemomo-ai.github.io/lemo-opuscar/
 
 <!-- style-list:start -->
-All 73 styles · 全部风格:
+All 75 styles · 全部风格:
 
 - **手绘与绘画 Hand-drawn & Painting** (10): 蜡笔儿童绘本 Crayon Picture Book, 水彩笔刷 Watercolor Brush, 中国水墨 Chinese Ink Wash, 油画厚涂 Impasto Oil Painting, 一笔画 One-line Drawing, 白板讲解 Whiteboard Explainer, 钢笔淡彩 Urban Sketch · Pen & Wash, 刺绣与针织 Embroidery & Knit, 木炭素描动画 Charcoal Sketch Animation, 沙画 Sand Animation
 - **东方传统 East Asian Traditions** (8): 皮影戏 Shadow Puppetry, 浮世绘 Ukiyo-e, 红色窗花剪纸 Red Paper-cut, 纸雕灯影 Paper-cut Lightbox, 青花瓷 Blue-and-White Porcelain, 敦煌壁画 Dunhuang Mural, 漆器描金 Lacquer & Gold, 木版年画 Woodblock New Year Print
 - **印刷与版画 Print & Printmaking** (9): Risograph 丝网印刷 Risograph Print, 复古半调案卷 Halftone Dossier, 木刻版画 Woodcut Print, 铜版画 Copperplate Engraving, 丝印旅行海报 Silkscreen Travel Poster, 博物图鉴 Natural History Plate, 活字报纸头版 Letterpress Newspaper, 塔罗牌 Tarot Cards, 蓝晒 Cyanotype
 - **图形与排版 Graphic & Type** (14): 瑞士动态排版 Swiss Motion Graphics, 60s 间谍片头 60s Spy Title Sequence, 装饰艺术 Art Deco, 蓝图 / 工程制图 Blueprint, 彩色玻璃窗 Stained Glass, 象形运动图形 Pictogram Motion, ASCII / CRT 终端 ASCII / CRT Terminal, 霓虹灯牌 Neon Signage, 新艺术 Art Nouveau, 包豪斯构成主义 Bauhaus & Constructivist Poster, 蒸汽波与 Y2K Vaporwave & Y2K Chrome, 地铁线路图 Transit Map, 翻牌显示屏 Split-flap Board, 矢量示波器 Vector Oscilloscope
-- **信息与发布 Information & Keynote** (6): 数据叙事 Data Storytelling, 等距信息图 Isometric Infographic, 暗色科技发布 Dark Tech Keynote, 活体实机录屏 Living Screencast, 科幻全息界面 Sci-fi Hologram HUD, 乐谱音乐可视化 Sheet-music Motion
+- **信息与发布 Information & Keynote** (8): 数据叙事 Data Storytelling, 等距信息图 Isometric Infographic, 暗色科技发布 Dark Tech Keynote, 活体实机录屏 Living Screencast, 科幻全息界面 Sci-fi Hologram HUD, 乐谱音乐可视化 Sheet-music Motion, 聊天记录体 Chat Log, 弹幕体 Danmaku Comments
 - **卡通与动画 Cartoon & Anime** (7): 1930s 橡皮管卡通 1930s Rubber Hose Cartoon, 80 年代赛璐璐动画 80s Cel Anime, 科幻情景喜剧卡通 Sci-Fi Sitcom Toon, 50s 扁平卡通 Mid-century Cartoon, 美漫分格波普 Comic Panel Pop Art, 国风戏曲动画 Peking Opera Cel Animation, 漫画黑白网点 Manga Panel
 - **游戏 Games** (5): 16-bit 像素 RPG 16-bit Pixel RPG, HD-2D, 微游戏快闪（瓦里奥制造式） Microgame Frenzy, 综艺节奏扁平 Game Show Flat, 8-bit 红白机像素 8-bit Console Pixel
 - **电影与时代 Cinema & Eras** (4): 1920s 默片 1920s Silent Film, 后室 / 新怪谈 Liminal Found Footage, 老胶片家庭录像 Super 8 Home Movie, 前电影光学玩具 Zoetrope & Phenakistoscope

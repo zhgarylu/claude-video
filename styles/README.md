@@ -76,6 +76,8 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | Living Screencast | 活体实机录屏 | [`living-screencast`](living-screencast/STYLE.md) | *Clawd Moves In* | Lemo-Opuscar |
 | Sci-fi Hologram HUD | 科幻全息界面 | [`hologram-hud`](hologram-hud/STYLE.md) | *Volt · Spec Scan* | Lemo-Opuscar |
 | Sheet-music Motion | 乐谱音乐可视化 | [`sheet-music`](sheet-music/STYLE.md) | *Four Notes* | ★ added here · 本仓库新增 |
+| Chat Log | 聊天记录体 | [`chat-log`](chat-log/STYLE.md) | *She Knows* | ★ added here · 本仓库新增 |
+| Danmaku Comments | 弹幕体 | [`danmaku`](danmaku/STYLE.md) | *Day 3: I will not kill this starter* | ★ added here · 本仓库新增 |
 
 ## Cartoon & Anime · 卡通与动画
 

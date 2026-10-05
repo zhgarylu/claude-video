@@ -1,0 +1,9 @@
+She Knows (chat-log demo): third-party assets
+Fonts (SIL Open Font License 1.1, self-hosted in demo/fonts/, not committed; build.sh names the source)
+- Nunito (The Nunito Project Authors, googlefonts/nunito; google/fonts repository, ofl/nunito), variable weight: every message, label and header of the invented messenger. Licence: demo/fonts/OFL-nunito.txt
+Picture
+- Everything is drawn in code on one 2D canvas (demo/chat.js, demo/main.js): the messenger UI, the avatars, the cake picture, the chairs picture, the wallpaper. No images, footage or textures. The messenger, its name-less interface and the family are invented; no real app's logo, colours or layout are copied.
+Voice
+- Kokoro-82M via kokoro-onnx (Apache 2.0), voice bf_isabella, for Nana's voice message; checked with faster-whisper (MIT). Run offline by core/tts/tts.py and core/tts/asr_check.py.
+Sound
+- Every sound is synthesised in numpy/scipy (demo/mix.py, core/audio/sfx.py, MIT): message pops, typing blips, keys, recall, reactions, pin, notification bells, shutter, and the whole score (kalimba, bass, pad). No samples, no recordings.

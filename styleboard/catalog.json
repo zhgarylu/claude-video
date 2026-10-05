@@ -800,6 +800,40 @@
   "dur": 50.0
  },
  {
+  "slug": "chat-log",
+  "num": "85",
+  "en": "Chat Log",
+  "cn": "聊天记录体",
+  "cat": "信息与发布",
+  "cat_en": "Information & Keynote",
+  "film": "She Knows",
+  "line": "A family group chat plans a surprise party, adds the birthday woman by mistake, recalls everything in a panic, and waits through her typing dots for a voice message that turns the secret around.",
+  "line_cn": "一个家庭群在筹备惊喜生日会，误把寿星拉进了群，大家慌忙撤回，对着她“正在输入…”的圆点干等，直到一条语音把秘密整个翻了过来。",
+  "uses": [
+   "Stories told as a group conversation: a secret, an argument, a misunderstanding",
+   "Timelines and step lists delivered as messages, one per step, with photos and link cards as the evidence",
+   "Product explainers and support flows told as a chat between a user and the product"
+  ],
+  "dur": 59.5
+ },
+ {
+  "slug": "danmaku",
+  "num": "86",
+  "en": "Danmaku Comments",
+  "cn": "弹幕体",
+  "cat": "信息与发布",
+  "cat_en": "Information & Keynote",
+  "film": "Day 3: I will not kill this starter",
+  "line": "A first sourdough watched through a video player whose scrolling bullet comments are the narrator, the chorus and the joke-teller: doubt turns to coaching, the crowd falls asleep over the proof, a wall of reactions rises with the loaf, and a pause freezes the whole crowd in mid-air.",
+  "line_cn": "透过一个视频播放器看第一次做酸面包：滚动的弹幕同时是旁白、合唱和段子手。质疑变成指导，醒面时全场睡着，面包胀起时反应刷成一面墙，暂停让整屏弹幕悬在半空。",
+  "uses": [
+   "Explaining a process through a crowd's reactions",
+   "Reviews, recaps and event highlights",
+   "Humour: spoilers, corrections and running jokes"
+  ],
+  "dur": 60
+ },
+ {
   "slug": "rubber-hose",
   "num": "26",
   "en": "1930s Rubber Hose Cartoon",

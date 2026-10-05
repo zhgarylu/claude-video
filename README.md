@@ -2,8 +2,8 @@
 
 # Claude Video
 
-**<!--n-->73<!--/n--> film styles, each with a short film made entirely in code, and a workflow for putting a presenter's video inside one.**<br>
-**<!--n-->73<!--/n--> 种影片风格，每种都配一支完全用代码做出来的短片；再加一套"口播视频 + 风格解说"的工作流。**
+**<!--n-->75<!--/n--> film styles, each with a short film made entirely in code, and a workflow for putting a presenter's video inside one.**<br>
+**<!--n-->75<!--/n--> 种影片风格，每种都配一支完全用代码做出来的短片；再加一套"口播视频 + 风格解说"的工作流。**
 
 Pick a style, bring your own story (or your own presenter video), and let your coding agent direct the film.<br>
 选一个风格，带上你自己的故事（或你自己的口播视频），让你的编程 agent 来当导演。
@@ -213,6 +213,10 @@ Browse them with films in the [**gallery · 图鉴**](https://zhgarylu.github.io
 <td width="33%" valign="top"><a href="styles/hologram-hud/STYLE.md"><img src="docs/frames/hologram-hud.jpg" alt="Sci-fi Hologram HUD"></a><br><b>Sci-fi Hologram HUD</b> · 科幻全息界面<br><i>Volt · Spec Scan</i><br><sub>An e-bike is scanned into a hologram; target boxes lock onto the battery, motor and brakes, and each spec rolls into place.<br>一辆电助力车被扫描成全息线框，目标框依次锁定电池、电机、刹车，参数逐个滚到真值。</sub></td>
 <td width="33%" valign="top"><a href="styles/sheet-music/STYLE.md"><img src="docs/frames/sheet-music.jpg" alt="Sheet-music Motion"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Sheet-music Motion</b> · 乐谱音乐可视化<br><i>Four Notes</i><br><sub>A four-note seed is repeated, mirrored and stretched on an engraved page, then the page unrolls into a landscape where the same score blooms, ripples and draws itself as ribbons.<br>四个音符的动机被重复、倒影、拉长；乐谱随后铺开成风景，同一份乐谱开花、起浪、画出旋律的丝带。</sub></td>
 </tr>
+<tr>
+<td width="33%" valign="top"><a href="styles/chat-log/STYLE.md"><img src="docs/frames/chat-log.jpg" alt="Chat Log"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Chat Log</b> · 聊天记录体<br><i>She Knows</i><br><sub>A family group chat plans a surprise party, adds the birthday woman by mistake, recalls everything in a panic, and waits through her typing dots for a voice message that turns the secret around.<br>一个家庭群在筹备惊喜生日会，误把寿星拉进了群，大家慌忙撤回，对着她“正在输入…”的圆点干等，直到一条语音把秘密整个翻了过来。</sub></td>
+<td width="33%" valign="top"><a href="styles/danmaku/STYLE.md"><img src="docs/frames/danmaku.jpg" alt="Danmaku Comments"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Danmaku Comments</b> · 弹幕体<br><i>Day 3: I will not kill this starter</i><br><sub>A first sourdough watched through a video player whose scrolling bullet comments are the narrator, the chorus and the joke-teller: doubt turns to coaching, the crowd falls asleep over the proof, a wall of reactions rises with the loaf, and a pause freezes the whole crowd in mid-air.<br>透过一个视频播放器看第一次做酸面包：滚动的弹幕同时是旁白、合唱和段子手。质疑变成指导，醒面时全场睡着，面包胀起时反应刷成一面墙，暂停让整屏弹幕悬在半空。</sub></td>
+</tr>
 </table>
 
 ### Cartoon & Anime · 卡通与动画
@@ -280,9 +284,6 @@ Browse them with films in the [**gallery · 图鉴**](https://zhgarylu.github.io
 </tr>
 <tr>
 <td width="33%" valign="top"><a href="styles/cardboard/STYLE.md"><img src="docs/frames/cardboard.jpg" alt="Corrugated Cardboard Craft"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Corrugated Cardboard Craft</b> · 瓦楞纸手工<br><i>The Wave Inside</i><br><sub>A craft knife opens a board to show the wave between its liners; a thin card gives way under a tin, the same tin sits still on the board, and a flat-pack folded into a taped beam carries three.<br>美工刀划开瓦楞纸板，露出两层面纸之间的波浪；薄卡纸在铁罐下垮掉，同样的罐子在瓦楞板上纹丝不动，折成胶带封好的方梁后能扛三个。</sub></td>
-</tr>
-<tr>
-<td width="33%" valign="top"><a href="https://github.com/zhgarylu/claude-video/releases/download/films/splitflap-intro.mp4"><img src="docs/talking-head/splitflap-intro.jpg" alt="Introducing claude-video (split-flap)"></a><br><b>claude-video intro (split-flap)</b> · 0:30<br><i>Split-flap Board · video as the world, tracked board · 视频即世界，逐帧跟踪的翻牌板</i><br><sub>The board in the generated video is tracked through every camera move and redrawn as a real mechanical split-flap display; the host stays in front of it.<br>生成视频里的翻牌板被逐帧跟踪并重画成真正的机械翻牌，博主挡在板前。</sub></td>
 </tr>
 </table>
 <!-- styles:end -->

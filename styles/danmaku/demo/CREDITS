@@ -1,0 +1,9 @@
+Day 3: I will not kill this starter (danmaku demo): third-party assets
+Fonts (SIL Open Font License 1.1, self-hosted in demo/fonts/, not committed; build.sh names the source)
+- Barlow Semi Condensed Medium, Bold, ExtraBold (The Barlow Project Authors, jpt/barlow; google/fonts repository, ofl/barlowsemicondensed): every comment and every label of the player. Licence: demo/fonts/OFL-barlow.txt
+Picture
+- Everything is drawn in code on one 2D canvas (demo/scene.js, demo/ui.js, demo/comments.js): kitchen, jar, bowl, dough, oven, loaf, the invented "chorus" player. No images, footage or textures. The uploader, the crowd and every comment are invented; the player is not any real service.
+Voice
+- None: the comments are the text. No speech engine, no subtitles file.
+Sound
+- Synthesised in demo/mix.py (numpy/scipy, core/audio/sfx.py, MIT): comment blips (derived from the events), foley and score (electric piano, bass, pad, shaker). No samples, no recordings.

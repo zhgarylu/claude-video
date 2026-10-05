@@ -1,0 +1,18 @@
+{
+ "slug": "danmaku",
+ "num": "86",
+ "en": "Danmaku Comments",
+ "cn": "弹幕体",
+ "category_en": "Information & Keynote",
+ "category_cn": "信息与发布",
+ "film": "Day 3: I will not kill this starter",
+ "line": "A first sourdough watched through a video player whose scrolling bullet comments are the narrator, the chorus and the joke-teller: doubt turns to coaching, the crowd falls asleep over the proof, a wall of reactions rises with the loaf, and a pause freezes the whole crowd in mid-air.",
+ "line_cn": "透过一个视频播放器看第一次做酸面包：滚动的弹幕同时是旁白、合唱和段子手。质疑变成指导，醒面时全场睡着，面包胀起时反应刷成一面墙，暂停让整屏弹幕悬在半空。",
+ "uses": [
+  "Explaining a process through a crowd's reactions",
+  "Reviews, recaps and event highlights",
+  "Humour: spoilers, corrections and running jokes"
+ ],
+ "frame_sec": 43.6,
+ "dur": 60
+}
