@@ -7,6 +7,7 @@ This repository is a library of film styles. Each style has a `styles/<slug>/STY
 | A film about the user's topic (the normal case) | **Style and story**, **Workflow** below |
 | "Which styles are there?" / no style chosen | **Finding the style** below |
 | The user brings a presenter's video (talking head) and wants explainer graphics around it | [`TALKING-HEAD.md`](TALKING-HEAD.md), then the normal workflow |
+| The user brings a video they want remade in a library style ("do one like this") | [`TEARDOWN.md`](TEARDOWN.md), then the normal workflow |
 | Directing: story, sound, rhythm, camera, checks, delivery | [`DIRECTOR.md`](DIRECTOR.md) |
 | Building: install, pages, voice, music, mix | [`TECHNIQUE.md`](TECHNIQUE.md) |
 | Tool commands and flags | [`core/README.md`](core/README.md) |

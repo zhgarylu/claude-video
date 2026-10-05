@@ -109,6 +109,8 @@ Known limits: the footage is upscaled if it is 720p; the matte is colour-based; 
 
 ## 4. Prepare the footage
 
+First check the video: `.venv/bin/python tools/talk/hostcheck.py <host.mp4> [--board]` reports size, sound, pauses, camera steadiness and the host's share of the frame, and says what to regenerate before you spend time on a film ([`tools/README.md`](tools/README.md) lists the other helpers: tracking, the macOS matte, a prompt generator, a film check, posters, localisation).
+
 ```sh
 sh tools/talk/prep.sh <host.mp4> films/<name> --lang zh --prompt "terms the host says, separated by spaces" 
 ```
@@ -173,3 +175,7 @@ Deliver: `<name>.mp4`, `<name>.srt`, `poster.jpg` (a wide, clean frame with a ti
 - **Captions need their own band.** In the split layout the panels stop above a band (`bottom`, 132 px) so the caption never covers the host or the content.
 - **Auto captions are a draft.** `cuesFromWords()` breaks at sentences and pauses, but the transcript has mishearings (names, product words): correct them in `film.json` (`captions.cues`).
 - **Only the latest few bullets stay on screen** (`bullets({ max })`); a long transcript otherwise overflows the content area.
+
+## Another language
+
+`tools/talk/localize.py export <src>` lists the host's sentences with their times; translate them, then `localize.py apply <src> --lang en --translations en.json [--dub]` writes `captions.en.srt`, `cues.en.json` and, with `--dub`, a Kokoro voice-over fitted into each sentence's window (`dub.en.wav`). The host's lips still speak the original language, so treat it as a voice-over: turn the original voice down about 18 dB and keep the host small. Translations longer than their window are sped up to 1.35× and reported; shorten them instead.

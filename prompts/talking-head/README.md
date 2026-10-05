@@ -19,6 +19,8 @@ Prompts for AI video tools. The result is a presenter video you can bring to the
 “未试”的意思是：我们没有拿这条提示词去生成过视频。不同视频工具对手势、走位和“不要文字”的遵守程度不一样，生成后先抽帧看一遍再做后期。
 事实类的提示词标了“事实截至”日期，来自二手报道，发布前请自己核对。
 
+想要自己的口播稿对应的提示词：`python3 tools/prompt/gen.py --id … --title … --preset swiss --accent 信号绿 --lines "开场|要点一|要点二|收尾" --seconds 30`（按口播长度排时间；`--camera moving --surface blank-board` 用于要跟踪空白板的连续运镜）。生成的是起稿，拿去生成视频前请自己读一遍。
+
 ## 一条好提示词的共同点
 
 1. **参考图 + “同一个人、同一套衣服、不换装”**：换装会让后期的人物位置和颜色跳变。
