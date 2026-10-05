@@ -237,7 +237,7 @@ footer .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 30px; } foo
     <div class="row">
       <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="q" type="search" autocomplete="off" data-i-ph="s_search" aria-label="Search"></label>
       <div class="seg" id="origin" role="group"><button aria-pressed="true" data-v="all" data-i="o_all"></button><button class="mine" aria-pressed="false" data-v="added" data-i="o_added"></button><button aria-pressed="false" data-v="orig" data-i="o_orig"></button></div>
-      <select id="sort" aria-label="Sort"><option value="num" data-i="sort_num"></option><option value="dur" data-i="sort_dur"></option><option value="name" data-i="sort_name"></option></select>
+      <select id="sort" aria-label="Sort"><option value="new" data-i="sort_new"></option><option value="num" data-i="sort_num"></option><option value="dur" data-i="sort_dur"></option><option value="name" data-i="sort_name"></option></select>
     </div>
     <div class="chips" id="cats"></div>
     <div class="row"><span class="count" id="count"></span><span class="legend"><span class="tag" style="position:static;box-shadow:none" data-i="tag_added"></span><span data-i="legend"></span></span></div>
@@ -281,7 +281,7 @@ const T = {
     steps: [['口播视频', '带上你自己的口播，或让我们写生成视频的提示词（参考图、换装、风格世界）。'], ['预处理', '<code>new-film.sh</code> 一条命令：拆出逐帧图、人声、逐词时间码，列出可用来转场的停顿，并出第一版。'], ['选风格', '按题材选，不按讲者选：软件功能、系统结构、数据、流程各有合适的风格。'], ['搭建', '选一个版式，换上风格的画面、字幕和配乐，一条 <code>build.sh</code> 出片。'], ['检查交付', '可读性检查、响度、联系表、黑帧；如实说明哪些没能确认。']],
     layouts: [['split', '左右分栏', '讲者约占三分之一，右边是风格里的界面。适合软件功能讲解。<code>splitLayout()</code>'], ['pip', '角落小窗', '讲者缩到约 7% 画面，镜头在风格世界里移动。适合系统与结构。<code>pipLayout()</code>'], ['world', '视频即世界', '讲者本身就生成在风格世界里演内容，视频当主画面，两侧用标签卡补充名字、日期和来源。<code>worldLayout()</code>']],
     s_kicker: 'Styles', s_h: '全部风格', s_p: '点任意一张看短片、画面和用途。紫色标记的是本仓库新增的风格，其余来自原项目。', s_search: '搜索风格、片名、用途…',
-    o_all: '全部', o_added: '本仓库新增', o_orig: '原项目', sort_num: '按编号', sort_dur: '按时长', sort_name: '按名称', tag_added: '★ 本仓库新增', legend: '紫色边框 = 本仓库新增的风格', empty: '没有符合条件的风格。', count: (n, t) => `显示 ${n} / ${t}`,
+    o_all: '全部', o_added: '本仓库新增', o_orig: '原项目', sort_new: '最新优先', sort_num: '按编号（旧到新）', sort_dur: '按时长', sort_name: '按名称', tag_added: '★ 本仓库新增', legend: '紫色边框 = 本仓库新增的风格', empty: '没有符合条件的风格。', count: (n, t) => `显示 ${n} / ${t}`,
     all: '全部', watch: '播放短片', download: '下载', style_md: 'STYLE.md', demo_md: 'DEMO.md', film: '片名', uses: '适合', close: '关闭',
     org_added: '★ 本仓库新增的风格，不属于原项目。短片、风格提示词和样片源码都在本仓库。', org_orig: '来自原项目 lemomo-ai/lemo-opuscar（MIT）。短片由原项目托管。',
     style: '风格', layout: '版式', host: '讲者', demo_note: '讲者视频由用户提供（AI 生成的虚构人物）。',
@@ -297,7 +297,7 @@ const T = {
     steps: [['Presenter video', 'Bring your own, or get a prompt to generate one (reference image, wardrobe, a styled world).'], ['Prepare', 'One command, <code>new-film.sh</code>: frames, voice, word timings, the pauses you can use for transitions, and a first cut.'], ['Pick a style', 'By topic, not by host: software features, systems, numbers and processes each have a fitting style.'], ['Build', 'Pick a layout, add the style\'s graphics, subtitles and score; one <code>build.sh</code> renders it.'], ['Check & deliver', 'Readability check, loudness, contact sheets, black frames; plus an honest note of what could not be checked.']],
     layouts: [['split', 'Split panel', 'The host takes about a third; the style\'s UI fills the rest. Good for software tours. <code>splitLayout()</code>'], ['pip', 'Corner window', 'The host shrinks to about 7% of the frame while the camera travels through the style\'s world. Good for systems. <code>pipLayout()</code>'], ['world', 'Video as the world', 'The host is generated inside the style\'s world and acts it out; the video is the main picture and callout cards add names, dates and sources. <code>worldLayout()</code>']],
     s_kicker: 'Styles', s_h: 'All styles', s_p: 'Open any card for the film, frames and uses. The violet mark is a style added in this repository; the rest come from the original project.', s_search: 'Search styles, film titles, uses…',
-    o_all: 'All', o_added: 'Added here', o_orig: 'Original', sort_num: 'By number', sort_dur: 'By length', sort_name: 'By name', tag_added: '★ Added here', legend: 'violet border = a style added in this repository', empty: 'No styles match.', count: (n, t) => `Showing ${n} of ${t}`,
+    o_all: 'All', o_added: 'Added here', o_orig: 'Original', sort_new: 'Newest first', sort_num: 'By number (oldest first)', sort_dur: 'By length', sort_name: 'By name', tag_added: '★ Added here', legend: 'violet border = a style added in this repository', empty: 'No styles match.', count: (n, t) => `Showing ${n} of ${t}`,
     all: 'All', watch: 'Play the film', download: 'Download', style_md: 'STYLE.md', demo_md: 'DEMO.md', film: 'Film', uses: 'Good for', close: 'Close',
     org_added: '★ Added in this repository, not part of the original project. The film, the style prompt and the demo source are all here.', org_orig: 'From the original project lemomo-ai/lemo-opuscar (MIT). Its film is hosted by that project.',
     style: 'Style', layout: 'Layout', host: 'Host', demo_note: 'The host video was supplied by the user (an AI-generated fictional person).',
@@ -312,7 +312,7 @@ const dur = s => `${Math.floor(s / 60)}:${String(Math.round(s % 60)).padStart(2,
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 // ---- state ----
-const st = { q: '', cat: 'all', origin: 'all', sort: 'num' };
+const st = { q: '', cat: 'all', origin: 'all', sort: 'new' };
 const cats = [...new Map(S.map(s => [s.cat_en, s.cat])).entries()];
 
 
@@ -399,7 +399,7 @@ function filtered() {
   const q = st.q.trim().toLowerCase();
   let a = S.filter(s => (st.cat === 'all' || s.cat_en === st.cat) && (st.origin === 'all' || (st.origin === 'added') === s.added)
     && (!q || [s.en, s.cn, s.film, s.line, s.line_cn, s.cat, s.cat_en, (s.uses || []).join(' ')].join(' ').toLowerCase().includes(q)));
-  if (st.sort === 'dur') a.sort((x, y) => y.dur - x.dur); else if (st.sort === 'name') a.sort((x, y) => x.en.localeCompare(y.en)); else a.sort((x, y) => x.num - y.num);
+  if (st.sort === 'dur') a.sort((x, y) => y.dur - x.dur); else if (st.sort === 'name') a.sort((x, y) => x.en.localeCompare(y.en)); else if (st.sort === 'num') a.sort((x, y) => x.num - y.num); else a.sort((x, y) => y.num - x.num);
   return a;
 }
 function renderGrid() {
