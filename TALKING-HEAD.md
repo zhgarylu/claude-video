@@ -101,6 +101,8 @@ When the generated world holds a board, a screen or a sign that should show **yo
 4. **Matte the host.** Where the host's arm or body crosses the surface, cut the overlay by colour (skin and the navy shirt, with a size filter so brass or glints on the surface are not mistaken for skin) so the replacement sits behind the host. It is a colour key, not a segmentation model: expect soft edges and a few stray pixels, and tune the thresholds to your footage.
 5. **Time it to the voice, with the surface's own latency.** A mechanical board lags the voice by its flip time; start each change a little before the word and let it settle after.
 
+6. **More than text.** The replacement can hold pictures and clips: `splitflap-intro` puts a preview window in the board's plane that is itself a giant flap (clips and stills of the library's styles, sampled to 12 fps into `samples/`), so the board shows samples while the host names them. A prop in the host's hand can be replaced too: `track_card.py` finds a white card by colour (light, smooth, slightly blue; the ceiling is brighter or textured) and the page paints a ticket on it only where the pixel is card-white, so fingers stay in front. In `splitflap-intro` it found the card for about 12 of the 14 seconds it is held; for the other two (the host lowers it towards the board) the card stays white.
+
 Known limits: the footage is upscaled if it is 720p; the matte is colour-based; the tracker assumes a rigid, textured surface (a plain monitor with no frame needs corner markers).
 
 ## 4. Prepare the footage

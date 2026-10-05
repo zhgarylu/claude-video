@@ -6,7 +6,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); LIB = os.environ.get('LIB') o
 sys.path.insert(0, LIB); sys.path.insert(0, os.path.join(LIB, 'tools', 'talk'))
 from mix_helpers import load_voice, voice_env, duck, finish
 from core.audio.sfx import SR, add, lp, hp, bp, noise, t_
-E = json.load(open(os.path.join(HERE, 'events.json'))); EV = [e for e in E['ev'] if e['type'] == 'flaps']; DUR = E['dur']; N = int(DUR * SR)
+E = json.load(open(os.path.join(HERE, 'events.json'))); ALL = E['ev']; EV = [e for e in ALL if e['type'] == 'flaps']; DUR = E['dur']; N = int(DUR * SR)
 rng = np.random.default_rng(11); hz = lambda m: 440.0 * 2 ** ((m - 69) / 12)
 
 def clack(d=.035, f=None):                                         # 一片翻牌落下：很短的噪声 + 一点木质的“嗒”
@@ -27,6 +27,14 @@ for e in EV:
     n = int(e['n']); total += n; k = min(n, 24)                         # 同一档里最多铺 24 声，再用音量表示更多
     g = min(1.0, .10 + .06 * np.sqrt(n))
     for i in range(k): add(foley, clack(), e['t'] + rng.uniform(0, .04), g * rng.uniform(.5, 1.0) / np.sqrt(max(1, k / 4)), float(np.clip(e['x'] + rng.uniform(-.1, .1), -1, 1)))
+# 预览窗的大翻牌、马赛克里每一格的翻动、卡片上的快速换图
+def thunk(d=.16):
+    t = t_(d); return (np.sin(2 * np.pi * (140 - 60 * np.minimum(1, t / .08)) * t) * np.exp(-t / .05) + lp(noise(d), 900) * np.exp(-t / .02) * .5 + bp(noise(d), 1500, 5000) * np.exp(-t / .01) * .4)
+def tick(d=.02): t = t_(d); return hp(noise(d), 3500) * np.exp(-t / .003)
+for e in ALL:
+    if e['type'] == 'pflip': add(foley, thunk(), e['t'] + .17, .34, .35)
+    elif e['type'] == 'tile': add(foley, clack(.045), e['t'], .22, float(rng.uniform(.2, .6)))
+    elif e['type'] == 'tick': add(foley, tick(), e['t'], .16, -.1)
 print('flaps', total, 'bins', len(EV))
 # 空气底噪（大厅）+ 很远的列车低频
 w = np.cumsum(noise(DUR)); w -= np.linspace(w[0], w[-1], len(w)); w = hp(w, 30); w = w / np.abs(w).max()

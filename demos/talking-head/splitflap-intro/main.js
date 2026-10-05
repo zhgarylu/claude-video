@@ -10,9 +10,16 @@ const W = 1920, H = 1080, cv = document.getElementById('c'), ctx = cv.getContext
 const host = await loadHost('src');
 const words = await fetch('src/words.json').then(r => r.json());
 const TR = await fetch('src/track.json').then(r => r.json());
+const CARD = await fetch('src/card.json').then(r => r.json()).catch(() => ({ frames: [] }));
 const QS = new URLSearchParams(location.search), POSTER = QS.has('poster'), AT = parseFloat(QS.get('at') || '12'), NOMATTE = QS.has('nomatte');
 const DUR = host.duration, SX = W / host.w;
 await Promise.all([document.fonts.load('500 40px Barlow'), document.fonts.load('500 40px "Noto Sans SC"', '水墨油画像素霓虹折纸风格画廊'), document.fonts.load('700 40px "Noto Sans SC"', '水墨')]);
+
+// ───────── 样片素材（预览窗和卡片里用）─────────
+const STILLS = ['ink-wash', 'impasto', 'watercolor', 'risograph', 'blueprint', 'hologram-hud', 'swiss-motion', 'ukiyoe', 'tarot', 'lacquer-gold', 'newsprint', 'felt', 'cyanotype', 'woodcut', 'art-deco', 'silkscreen-poster', 'crayon-book', 'transit-map', 'zoetrope', 'vector-scope'];
+const SEQS = ['neon', 'pixel', 'origami', 'clay', 'wide', 'tall'], IMG = {};
+const loadImg = src => new Promise(res => { const im = new Image(); im.onload = () => res(im); im.onerror = () => res(null); im.src = src; });
+await Promise.all([...SEQS.map(async n => { IMG[n] = await Promise.all(Array.from({ length: 36 }, (_, q) => loadImg(`samples/${n}/${String(q + 1).padStart(3, '0')}.jpg`))); }), ...STILLS.map(async n => { IMG[n] = await loadImg(`samples/stills/${n}.jpg`); })]);
 
 // ───────── 数学 ─────────
 const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x)), lerp = (a, b, u) => a + (b - a) * u, seg = (t, a, b) => clamp((t - a) / (b - a)), ss = u => u * u * (3 - 2 * u);
@@ -53,14 +60,14 @@ const clearAll = (t, o = {}) => { for (let r = 0; r < ROWS; r++) clearRow(r, t +
 // 开机自检：整块板对角线地转一整圈，然后落成空白
 for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) ops.push({ t: .4 + c * .035 + r * .07, row: r, col: c, ch: ' ', tone: 'n', extra: 1, step: .03 });
 // 开场：开源项目 / 名字
-put(1, 5, 'OPEN SOURCE', T.hello - .15); put(3, 5, 'CLAUDE-VIDEO', T.name - .25, { tone: 'lit' });
-// 风格库
+put(1, 0, 'OPEN SOURCE', T.hello - .15); put(3, 0, 'CLAUDE-VIDEO', T.name - .25, { tone: 'lit' });
+// 风格库（右边是预览窗，左边 13 列放文字）
 clearRow(1, T.lib + .1); clearRow(3, T.lib + .1);
 put(0, 0, 'STYLE LIBRARY', T.lib - .1);
 const STY = [['水墨', 'INK WASH', T.ink], ['油画', 'OIL PAINT', T.oil], ['像素', 'PIXEL RPG', T.pixel], ['霓虹', 'NEON SIGN', T.neon], ['折纸', 'ORIGAMI', T.ori]];
-STY.forEach(([zh, en, t], i) => { const r = 2 + i; put(r, 0, '0' + (i + 1), t - .2, { tone: 'lit' }); put(r, 3, zh, t - .15); put(r, 6, en, t - .1); put(r, 18, 'LIVE', t + .55, { tone: 'lit', stagger: .05 }); });
+STY.forEach(([zh, en, t], i) => { const r = 2 + i; put(r, 0, zh, t - .15); put(r, 3, en, t - .1); });
 put(7, 0, '60+', T.sixty - .2, { tone: 'lit' }); put(7, 4, 'STYLES', T.sixty - .15);
-put(8, 0, 'EACH WITH A FILM', T.sixty + .9);
+put(8, 0, 'EACH A FILM', T.sixty + .9);
 // 功能
 clearAll(T.pick - .25);
 put(0, 0, 'CREATE', T.pick + .45);
@@ -69,12 +76,12 @@ put(6, 0, 'TALKING HEAD', T.talk - .15); put(8, 0, 'CAPTIONS · SCORE', T.caps -
 put(7, 0, '16:9', T.landscape - .2, { tone: 'amber' }); put(7, 6, '9:16', T.portrait - .1, { tone: 'amber' });
 // 画廊与提示词
 clearAll(T.gallery - .4);
-put(1, 0, 'GALLERY', T.gallery - .1); put(1, 16, 'OPEN', T.gallery + .5, { tone: 'amber', stagger: .05 });
-put(4, 0, 'PROMPTS', T.prompt - .2); put(4, 16, 'READY', T.copy - .1, { tone: 'amber', stagger: .05 });
+put(1, 0, 'GALLERY', T.gallery - .1); put(1, 8, 'OPEN', T.gallery + .5, { tone: 'amber', stagger: .05 });
+put(3, 0, 'PROMPTS', T.prompt - .2); put(3, 8, 'READY', T.copy - .1, { tone: 'amber', stagger: .05 });
 put(6, 0, 'COPY · PASTE · GO', T.copy + .25, { tone: 'lit' });
 // 收尾
 clearAll(T.ask - 1.25);
-put(3, 5, 'WHICH STYLE', T.ask - .85); put(4, 5, 'FIRST ?', T.ask - .6, { tone: 'lit' });
+put(3, 0, 'WHICH STYLE', T.ask - .85); put(4, 0, 'FIRST ?', T.ask - .6, { tone: 'lit' });
 ops.sort((a, b) => a.t - b.t).forEach(o => { write(cells[o.row][o.col], o.t, o.ch, { step: o.step, tone: o.tone, extra: o.extra, seed: o.row * 31 + o.col }); });
 
 // ───────── 翻牌的绘制（改自 styles/split-flap/demo/draw.js）─────────
@@ -112,12 +119,118 @@ function drawCell(g, x, y, w, h, st) {
   if (th < Math.PI / 2) { const ht = hh * c; half(g, fa, 0, x, y + hh - ht, w, ht); g.fillStyle = `rgba(0,0,0,${.62 * s})`; g.fillRect(x, y + hh - ht, w, ht); g.fillStyle = `rgba(230,240,255,${.2 * (1 - s * .6)})`; g.fillRect(x, y + hh - ht, w, Math.max(.8, h * .012)); }
   else { const hb = hh * -c; half(g, fb, 1, x, y + hh, w, hb); g.fillStyle = `rgba(0,0,0,${.62 * s})`; g.fillRect(x, y + hh, w, hb); }
 }
+// ───────── 板右边的预览窗：一块会翻的大翻牌，里面放各种风格的样片 ─────────
+const P0 = { x: MX + 13 * PXs, y: MY + 1 * PYs, w: 9 * PXs - 4, h: 5 * PYs - 6 };
+const clampn = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const frameOf = (n, t) => { const arr = IMG[n]; return Array.isArray(arr) ? arr[Math.floor(Math.max(0, t) * 12) % arr.length] : arr; };
+function cover(g, im, x, y, w, h, z = 1) { if (!im) return; const sc = Math.max(w / im.width, h / im.height) * z, iw = im.width * sc, ih = im.height * sc; g.save(); g.beginPath(); g.rect(x, y, w, h); g.clip(); g.drawImage(im, x + (w - iw) / 2, y + (h - ih) / 2, iw, ih); g.restore(); }
+const fontL = (px, w = 500) => `${w} ${px}px Barlow, "Noto Sans SC", sans-serif`;
+function labelBar(g, w, h, text, amber = true, right = '') {
+  g.fillStyle = 'rgba(6,8,10,.84)'; g.fillRect(0, h - 24, w, 24); g.fillStyle = amber ? '#ffb43c' : '#eef3f7'; g.font = fontL(15); g.textBaseline = 'middle'; g.textAlign = 'left'; g.letterSpacing = '1.5px'; g.fillText(text, 10, h - 12); if (right) { g.textAlign = 'right'; g.fillText(right, w - 10, h - 12); } g.letterSpacing = '0px';
+}
+const LISTA = ['ink-wash', 'impasto', 'watercolor', 'risograph', 'ukiyoe', 'blueprint', 'hologram-hud', 'woodcut', 'art-deco'], LISTB = ['tarot', 'lacquer-gold', 'newsprint', 'felt', 'cyanotype', 'transit-map', 'zoetrope', 'vector-scope', 'swiss-motion', 'crayon-book', 'silkscreen-poster', 'art-deco'];
+const SHUF = ['crayon-book', 'blueprint', 'ukiyoe', 'newsprint', 'felt', 'tarot', 'risograph', 'zoetrope', 'woodcut', 'cyanotype', 'transit-map', 'lacquer-gold', 'swiss-motion', 'watercolor'];
+function mosaic(g, w, h, list, cols, rows, t, t0, stagger, dim = 0) {
+  const bh = h - 24, tw = w / cols, th = bh / rows;
+  for (let i = 0; i < cols * rows; i++) {
+    const cx = (i % cols) * tw, cy = Math.floor(i / cols) * th, rt = t0 + i * stagger, p = clampn((t - rt) / .3);
+    g.save(); g.beginPath(); g.rect(cx, cy, tw, th); g.clip(); g.fillStyle = '#0a0c0f'; g.fillRect(cx, cy, tw, th);
+    if (p > 0) { const f = p < .5 ? 1 - p * 2 : (p - .5) * 2; g.translate(cx + tw / 2, cy); g.scale(Math.max(.02, f), 1); g.translate(-tw / 2, 0); if (p >= .5) cover(g, IMG[list[i % list.length]], 1, 1, tw - 2, th - 2); else { g.fillStyle = '#1b2026'; g.fillRect(1, 1, tw - 2, th - 2); } }
+    g.restore(); if (dim) { g.fillStyle = `rgba(0,0,0,${dim})`; g.fillRect(cx, cy, tw, th); }
+  }
+}
+function typed(g, w, h, t, t0, lines) {
+  g.fillStyle = '#0b0e12'; g.fillRect(0, 0, w, h); g.fillStyle = '#ffb43c'; g.font = fontL(16); g.textAlign = 'left'; g.textBaseline = 'alphabetic'; g.letterSpacing = '2px'; g.fillText('YOUR TOPIC', 18, 36); g.letterSpacing = '0px';
+  let n = Math.floor(Math.max(0, t - t0) * 16); g.fillStyle = '#eef3f7'; g.font = fontL(30, 700);
+  lines.forEach((ln, i) => { const part = ln.slice(0, Math.max(0, n)); n -= ln.length; g.fillText(part, 18, 92 + i * 44); });
+  if (Math.floor(t * 2) % 2 === 0) { g.fillStyle = '#ffb43c'; g.fillRect(18 + 4 + g.measureText(lines[Math.min(lines.length - 1, Math.floor(Math.max(0, t - t0) * 16 / 14))] || '').width * 0, 92 + 44 * 2 - 30, 12, 26); }
+}
+function promptCard(g, w, h, t, tcopy) {
+  g.fillStyle = '#0b0e12'; g.fillRect(0, 0, w, h); g.fillStyle = '#ffb43c'; g.font = fontL(16); g.textBaseline = 'alphabetic'; g.letterSpacing = '2px'; g.fillText('PROMPT', 18, 34); g.letterSpacing = '0px';
+  [300, 250, 320, 210, 290, 140].forEach((lw, i) => { g.fillStyle = i % 2 ? 'rgba(238,243,247,.22)' : 'rgba(238,243,247,.34)'; g.fillRect(18, 54 + i * 24, lw * clampn((t - tcopy + 2.6 - i * .12) / .4), 8); });
+  const hit = t >= tcopy, pf = hit ? 1 - clampn((t - tcopy) / .5) : 0; g.fillStyle = hit ? (pf > 0 ? '#ffb43c' : 'rgba(255,180,60,.22)') : 'rgba(238,243,247,.12)'; g.beginPath(); g.roundRect(18, h - 80, 150, 36, 18); g.fill();
+  g.strokeStyle = hit ? '#ffb43c' : 'rgba(238,243,247,.5)'; g.lineWidth = 1.6; g.stroke(); g.fillStyle = hit ? (pf > 0 ? '#1b1307' : '#ffd08a') : '#eef3f7'; g.font = fontL(17, 700); g.textAlign = 'center'; g.fillText(hit ? '✓  COPIED' : 'COPY', 18 + 75, h - 57); g.textAlign = 'left';
+}
+const SHOTS = [
+  { t0: 0, kind: 'standby' }, { t0: 2.5, kind: 'mosaic', list: LISTB, cols: 4, rows: 3, stagger: .09, label: 'NOW SHOWING' },
+  { t0: T.ink - .05, kind: 'still', name: 'ink-wash', label: 'INK WASH' }, { t0: T.oil - .05, kind: 'still', name: 'impasto', label: 'OIL PAINT' },
+  { t0: T.pixel - .05, kind: 'clip', name: 'pixel', label: 'PIXEL RPG' }, { t0: T.neon - .05, kind: 'clip', name: 'neon', label: 'NEON SIGN' }, { t0: T.ori - .05, kind: 'clip', name: 'origami', label: 'ORIGAMI' },
+  { t0: T.sixty + .15, kind: 'mosaic', list: LISTA, cols: 3, rows: 3, stagger: .12, label: '60+ STYLES' },
+  { t0: T.pick, kind: 'shuffle', label: 'PICK A STYLE' }, { t0: T.topic, kind: 'topic', label: 'STYLE + TOPIC' },
+  { t0: T.make, kind: 'clip', name: 'clay', label: 'A FILM', amberFlash: true }, { t0: T.talk, kind: 'clip', name: 'wide', label: 'TALKING HEAD' },
+  { t0: T.landscape - .1, kind: 'split', label: '16:9  ·  9:16' },
+  { t0: T.gallery, kind: 'mosaic', list: LISTB, cols: 4, rows: 3, stagger: .1, label: 'GALLERY' }, { t0: T.prompt, kind: 'prompt', label: 'PROMPTS' },
+  { t0: T.ask - .6, kind: 'mosaic', list: LISTA, cols: 3, rows: 3, stagger: .05, dim: .35, label: 'WHICH STYLE FIRST ?' },
+];
+function drawShot(g, sh, t, w, h) {
+  const lt = t - sh.t0; g.save(); g.beginPath(); g.rect(0, 0, w, h); g.clip();
+  if (sh.kind === 'standby') { g.fillStyle = '#06080a'; g.fillRect(0, 0, w, h); g.fillStyle = 'rgba(255,180,60,.9)'; g.font = fontL(16); g.textBaseline = 'middle'; g.letterSpacing = '3px'; g.fillText('●  STANDBY', 18, h / 2); g.letterSpacing = '0px'; }
+  else if (sh.kind === 'still') { cover(g, IMG[sh.name], 0, 0, w, h - 24, 1.02 + .05 * clampn(lt / 3)); labelBar(g, w, h, sh.label, true, '▶'); }
+  else if (sh.kind === 'clip') { cover(g, frameOf(sh.name, lt), 0, 0, w, h - 24); labelBar(g, w, h, sh.label, true, '▶'); if (sh.amberFlash && lt < .7) { g.fillStyle = `rgba(255,180,60,${.28 * (1 - lt / .7)})`; g.fillRect(0, 0, w, h - 24); } }
+  else if (sh.kind === 'mosaic') { g.fillStyle = '#0a0c0f'; g.fillRect(0, 0, w, h); mosaic(g, w, h, sh.list, sh.cols, sh.rows, t, sh.t0, sh.stagger, sh.dim || 0); labelBar(g, w, h, sh.label, true); }
+  else if (sh.kind === 'shuffle') { cover(g, IMG[SHUF[Math.floor(lt / .14) % SHUF.length]], 0, 0, w, h - 24); labelBar(g, w, h, sh.label, true, '▶▶'); }
+  else if (sh.kind === 'topic') { typed(g, w, h - 24, t, sh.t0 + .1, ['A FILM ABOUT', 'YOUR STORY']); labelBar(g, w, h, sh.label, true); }
+  else if (sh.kind === 'split') { g.fillStyle = '#0a0c0f'; g.fillRect(0, 0, w, h); cover(g, frameOf('wide', lt), 10, 62, 232, 130); cover(g, frameOf('tall', lt), 262, 34, 118, 210); g.strokeStyle = 'rgba(255,180,60,.7)'; g.lineWidth = 1.5; g.strokeRect(10, 62, 232, 130); g.strokeRect(262, 34, 118, 210); g.fillStyle = '#ffb43c'; g.font = fontL(15); g.textAlign = 'center'; g.fillText('16:9', 126, 212); g.fillText('9:16', 321, 262); g.textAlign = 'left'; labelBar(g, w, h, sh.label, false); }
+  else if (sh.kind === 'prompt') { promptCard(g, w, h - 24, t, T.copy); labelBar(g, w, h, sh.label, true); }
+  g.restore();
+}
+const pcA = mk(P0.w * TEXSC, P0.h * TEXSC), pcB = mk(P0.w * TEXSC, P0.h * TEXSC), pgA = pcA.getContext('2d'), pgB = pcB.getContext('2d');
+function renderShot(g2, sh, t) { g2.setTransform(TEXSC, 0, 0, TEXSC, 0, 0); g2.clearRect(0, 0, P0.w, P0.h); drawShot(g2, sh, t, P0.w, P0.h); }
+function drawPanel(g, t) {
+  let i = SHOTS.length - 1; while (i > 0 && SHOTS[i].t0 > t) i--; const sh = SHOTS[i], p = i > 0 ? clampn((t - sh.t0) / .34) : 1;
+  g.save(); g.translate(P0.x, P0.y); rr(g, -6, -6, P0.w + 12, P0.h + 12, 8); g.fillStyle = '#07090b'; g.fill(); g.strokeStyle = 'rgba(255,180,60,.45)'; g.lineWidth = 1.4; g.stroke();
+  g.save(); g.beginPath(); g.rect(0, 0, P0.w, P0.h); g.clip();
+  if (p >= 1) drawShot(g, sh, t, P0.w, P0.h);
+  else {
+    renderShot(pgA, SHOTS[i - 1], t); renderShot(pgB, sh, t); const h2 = P0.h / 2, cw = pcA.width, ch = pcA.height, th = Math.PI * p;
+    g.drawImage(pcB, 0, 0, cw, ch / 2, 0, 0, P0.w, h2); g.drawImage(pcA, 0, ch / 2, cw, ch / 2, 0, h2, P0.w, h2);
+    if (th < Math.PI / 2) { const hh = h2 * Math.cos(th); g.drawImage(pcA, 0, 0, cw, ch / 2, 0, h2 - hh, P0.w, hh); g.fillStyle = `rgba(0,0,0,${.55 * Math.sin(th)})`; g.fillRect(0, h2 - hh, P0.w, hh); }
+    else { const hb = h2 * -Math.cos(th); g.drawImage(pcB, 0, ch / 2, cw, ch / 2, 0, h2, P0.w, hb); g.fillStyle = `rgba(0,0,0,${.55 * Math.sin(th)})`; g.fillRect(0, h2, P0.w, hb); }
+    g.fillStyle = '#040506'; g.fillRect(0, h2 - 1.2, P0.w, 2.4);
+  }
+  // 玻璃：斜向反光 + 细扫描线
+  let gr = g.createLinearGradient(0, 0, P0.w, P0.h); gr.addColorStop(0, 'rgba(255,255,255,.10)'); gr.addColorStop(.4, 'rgba(255,255,255,0)'); g.fillStyle = gr; g.fillRect(0, 0, P0.w, P0.h);
+  g.fillStyle = 'rgba(0,0,0,.10)'; for (let y = 0; y < P0.h; y += 3) g.fillRect(0, y, P0.w, 1);
+  g.restore(); g.restore();
+}
+// ───────── 博主手里的卡片：上面也有内容 ─────────
+const CWc = 320, CHc = 200, cardC = document.createElement('canvas'); cardC.width = CWc; cardC.height = CHc; const cg = cardC.getContext('2d');
+const lay = document.createElement('canvas'); lay.width = W; lay.height = H; const lg = lay.getContext('2d');
+const CYCLE = ['impasto', 'ukiyoe', 'blueprint', 'tarot', 'newsprint', 'risograph', 'felt', 'lacquer-gold', 'cyanotype', 'woodcut'];
+function drawCardContent(t) {
+  const g = cg; g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, CWc, CHc); g.save(); g.beginPath(); g.roundRect(0, 0, CWc, CHc, 10); g.clip();
+  g.fillStyle = '#0b0e12'; g.fillRect(0, 0, CWc, CHc); const top = 34, bodyH = CHc - top;
+  let strip = 'STYLE', pic = null, mode = 'img';
+  if (t < T.topic) { pic = IMG[SHUF[Math.floor(Math.max(0, t - 14.2) / .12) % SHUF.length]]; }
+  else if (t < T.make) { mode = 'topic'; strip = 'TOPIC'; }
+  else if (t < T.talk + 1.0) { pic = frameOf('clay', t - T.make); strip = 'FILM'; }
+  else if (t < 22.2) { pic = IMG[CYCLE[Math.floor((t - T.talk) / .75) % CYCLE.length]]; }
+  else if (t < 26.4) { mode = 'prompt'; strip = 'PROMPT'; }
+  else { mode = 'ready'; strip = 'TICKET'; }
+  if (mode === 'img') cover(g, pic, 0, top, CWc, bodyH);
+  else if (mode === 'topic') { g.save(); g.translate(0, top); typed(g, CWc, bodyH, t, T.topic + .1, ['A FILM ABOUT', 'YOUR STORY']); g.restore(); }
+  else if (mode === 'prompt') { g.save(); g.translate(0, top); promptCard(g, CWc, bodyH, t, T.copy); g.restore(); }
+  else { g.fillStyle = '#ffb43c'; g.fillRect(0, top, CWc, bodyH); g.fillStyle = '#1b1307'; g.font = fontL(104, 700); g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('✓', CWc / 2, top + bodyH / 2 - 4); g.font = fontL(22, 700); g.letterSpacing = '3px'; g.fillText('STYLE × TOPIC → FILM', CWc / 2, CHc - 18); g.letterSpacing = '0px'; g.textAlign = 'left'; }
+  g.fillStyle = '#ffb43c'; g.fillRect(0, 0, CWc, top); g.fillStyle = '#1b1307'; g.font = fontL(22, 700); g.textBaseline = 'middle'; g.letterSpacing = '3px'; g.fillText(strip, 14, top / 2 + 1); g.letterSpacing = '0px';
+  g.textAlign = 'right'; g.fillText('ADMIT ONE', CWc - 12, top / 2 + 1); g.textAlign = 'left'; g.restore();
+}
+function drawCard(k, t, im) {
+  const q = (CARD.frames || [])[k]?.q; if (!q) return; drawCardContent(t);
+  const P = q.map(p => [p[0] * SX, p[1] * SX]); lg.setTransform(1, 0, 0, 1, 0, 0); lg.globalCompositeOperation = 'source-over'; lg.clearRect(0, 0, W, H);
+  const a = (P[1][0] - P[0][0]) / CWc, b = (P[1][1] - P[0][1]) / CWc, c = (P[3][0] - P[0][0]) / CHc, d = (P[3][1] - P[0][1]) / CHc;
+  lg.imageSmoothingEnabled = true; lg.setTransform(a, b, c, d, P[0][0], P[0][1]); lg.drawImage(cardC, 0, 0); lg.setTransform(1, 0, 0, 1, 0, 0);
+  // 只保留“卡片白”的像素：手指和别的东西留在前面
+  const m = cardWhiteMask(P); lg.globalCompositeOperation = 'destination-in'; lg.drawImage(m, 0, 0, W, H); lg.globalCompositeOperation = 'source-over';
+  lg.globalCompositeOperation = 'source-atop'; lg.fillStyle = 'rgba(8,14,26,.10)'; lg.fillRect(0, 0, W, H); lg.globalCompositeOperation = 'source-over';   // match the scene's exposure on the card
+  ctx.drawImage(lay, 0, 0);
+}
 const tex = mk(BW * TEXSC, BH * TEXSC), tg2 = tex.getContext('2d');
 function drawBoardTexture(t) {
   tg2.setTransform(1, 0, 0, 1, 0, 0); tg2.clearRect(0, 0, tex.width, tex.height); tg2.setTransform(TEXSC, 0, 0, TEXSC, 0, 0);
   let g = tg2.createLinearGradient(0, 0, 0, BH); g.addColorStop(0, '#16191c'); g.addColorStop(1, '#0d0f11'); tg2.fillStyle = g; tg2.fillRect(0, 0, BW, BH);          // 盖板底
   for (let r = 0; r < ROWS; r++) { const y = MY + r * PYs; rr(tg2, MX - 4, y - 3, COLS * PXs - 4 + 8, CH + 6, 4); tg2.fillStyle = '#07080a'; tg2.fill(); }                            // 每行的凹槽
   for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) drawCell(tg2, MX + c * PXs, MY + r * PYs, CW, CH, cells[r][c].at(t));
+  drawPanel(tg2, t);
   g = tg2.createLinearGradient(0, 0, BW, BH); g.addColorStop(0, 'rgba(255,255,255,.07)'); g.addColorStop(.35, 'rgba(255,255,255,0)'); g.addColorStop(1, 'rgba(0,0,0,.18)'); tg2.fillStyle = g; tg2.fillRect(0, 0, BW, BH);   // 一层斜向的光泽
 }
 
@@ -145,9 +258,10 @@ function drawBoard(k) {
 
 // ───────── 博主抠像：按颜色把皮肤和深蓝衣服认出来，盖板画在他后面 ─────────
 const MW = 960, MH = 540, small = document.createElement('canvas'); small.width = MW; small.height = MH; const sg = small.getContext('2d', { willReadFrequently: true });
+let lastPix = null;
 const mk2 = document.createElement('canvas'); mk2.width = MW; mk2.height = MH; const mg = mk2.getContext('2d'); const mimg = mg.createImageData(MW, MH);
 function hostMatte(im) {
-  sg.drawImage(im, 0, 0, MW, MH); const d = sg.getImageData(0, 0, MW, MH).data, o = mimg.data, raw = new Uint8Array(MW * MH);
+  sg.drawImage(im, 0, 0, MW, MH); const d = sg.getImageData(0, 0, MW, MH).data, o = mimg.data, raw = new Uint8Array(MW * MH); lastPix = d;
   for (let i = 0, p = 0; i < raw.length; i++, p += 4) {
     const r = d[p], g = d[p + 1], b = d[p + 2], l = .3 * r + .59 * g + .11 * b;
     const skin = r > 110 && r > g + 8 && g > b - 4 && r - b > 26 && (r - b) < .5 * r && l > 95 && l < 235, navy = b > r + 20 && b > g + 5 && l < 110 && l > 8;
@@ -159,6 +273,22 @@ function hostMatte(im) {
   for (let y = 2; y < MH - 2; y++) for (let x = 2; x < MW - 2; x++) { const i = y * MW + x; grow[i] = (dil[i] || dil[i - 1] || dil[i + 1] || dil[i - MW] || dil[i + MW] || dil[i - 2] || dil[i + 2]) ? 255 : 0; }
   for (let i = 0, p = 0; i < grow.length; i++, p += 4) { o[p] = 0; o[p + 1] = 0; o[p + 2] = 0; o[p + 3] = grow[i]; }
   mg.putImageData(mimg, 0, 0);
+}
+
+const cmk = document.createElement('canvas'); cmk.width = MW; cmk.height = MH; const cmg = cmk.getContext('2d'), cimg = cmg.createImageData(MW, MH);
+function cardWhiteMask(P) {                                                       // P: 卡片四角（1920×1080 像素）；返回 960×540 的 alpha 画布，只在“卡片白”的像素上不透明
+  const d = lastPix, o = cimg.data; o.fill(0); const Q = P.map(p => [p[0] / 2, p[1] / 2]), cx = Q.reduce((a, q) => a + q[0], 0) / 4, cy = Q.reduce((a, q) => a + q[1], 0) / 4;
+  const E = Q.map(q => { const dx = q[0] - cx, dy = q[1] - cy, l = Math.hypot(dx, dy) || 1; return [q[0] + dx / l * 3, q[1] + dy / l * 3]; });
+  const x0 = Math.max(0, Math.floor(Math.min(...E.map(q => q[0])))), x1 = Math.min(MW - 1, Math.ceil(Math.max(...E.map(q => q[0])))), y0 = Math.max(0, Math.floor(Math.min(...E.map(q => q[1])))), y1 = Math.min(MH - 1, Math.ceil(Math.max(...E.map(q => q[1]))));
+  const cr = (a, b, x, y) => (b[0] - a[0]) * (y - a[1]) - (b[1] - a[1]) * (x - a[0]);
+  for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) {
+    const s0 = cr(E[0], E[1], x, y), s1 = cr(E[1], E[2], x, y), s2 = cr(E[2], E[3], x, y), s3 = cr(E[3], E[0], x, y);
+    if (!((s0 >= 0 && s1 >= 0 && s2 >= 0 && s3 >= 0) || (s0 <= 0 && s1 <= 0 && s2 <= 0 && s3 <= 0))) continue;
+    const p = (y * MW + x) * 4, r = d[p], g = d[p + 1], b = d[p + 2], l = .3 * r + .59 * g + .11 * b, mx = Math.max(r, g, b), mn = Math.min(r, g, b);
+    const skin = r > 110 && r > g + 8 && g > b - 4 && r - b > 26 && (r - b) < .5 * r && l > 95 && l < 235, navy = b > r + 20 && b > g + 5 && l < 110;
+    if (l > 150 && mx - mn < 48 && !skin && !navy) { const q = (y * MW + x) * 4; o[q + 3] = 255; }
+  }
+  cmg.putImageData(cimg, 0, 0); return cmk;
 }
 
 // ───────── 字幕 ─────────
@@ -178,6 +308,10 @@ function captionsLayer(t) {
 const bins = new Map();
 for (const e of EV) { const k = Math.round(e.t / .04); const b = bins.get(k) || { t: k * .04, n: 0, x: 0 }; b.n++; b.x += e.x; bins.set(k, b); }
 EV.length = 0; [...bins.values()].sort((a, b) => a.t - b.t).forEach(b => EV.push({ t: +b.t.toFixed(3), type: 'flaps', n: b.n, x: +(b.x / b.n).toFixed(2) }));
+SHOTS.slice(1).forEach(sh => EV.push({ t: +sh.t0.toFixed(3), type: 'pflip' }));
+for (const sh of SHOTS) if (sh.kind === 'mosaic') for (let q = 0; q < sh.cols * sh.rows; q++) EV.push({ t: +(sh.t0 + q * sh.stagger + .15).toFixed(3), type: 'tile' });
+for (let tt = 14.25; tt < T.topic; tt += .12) EV.push({ t: +tt.toFixed(3), type: 'tick' });
+EV.sort((x, y) => x.t - y.t);
 window.EV = EV;
 
 // ───────── 渲染 ─────────
@@ -187,8 +321,10 @@ window.render = (t0) => {
   ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
   ctx.drawImage(im, 0, 0, W, H);
   drawBoardTexture(t); drawBoard(k);
-  if (!NOMATTE) { hostMatte(im); og.globalCompositeOperation = 'destination-out'; og.imageSmoothingEnabled = true; og.filter = 'blur(1.2px)'; og.drawImage(mk2, 0, 0, W, H); og.filter = 'none'; og.globalCompositeOperation = 'source-over'; }
+  hostMatte(im);
+  if (!NOMATTE) { og.globalCompositeOperation = 'destination-out'; og.imageSmoothingEnabled = true; og.filter = 'blur(1.2px)'; og.drawImage(mk2, 0, 0, W, H); og.filter = 'none'; og.globalCompositeOperation = 'source-over'; }
   ctx.drawImage(ov, 0, 0);
+  drawCard(k, t, im);
   if (!POSTER) captionsLayer(t);
 };
 window.TEXTS = () => [];
