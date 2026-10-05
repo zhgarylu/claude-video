@@ -1,0 +1,58 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Film preview</title><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{--bg:#111214;--panel:#1a1c1f;--line:#2c2f34;--fg:#e8e6df;--dim:#8d9097;--acc:#f4b428;--ok:#5fd0a0;--bad:#ef6b5b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:13px/1.4 -apple-system,system-ui,"PingFang SC",sans-serif;display:grid;grid-template-columns:1fr 340px;grid-template-rows:1fr auto;height:100vh}
+#stageWrap{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#000}
+#stage{position:relative;transform-origin:center center;flex:none}
+iframe{border:0;display:block;background:#000}
+#boxes{position:absolute;left:0;top:0;pointer-events:none}
+.box{position:absolute;border:2px solid var(--acc);background:rgba(244,180,40,.10);font:11px monospace;color:var(--acc);overflow:hidden;white-space:nowrap}
+.box.off{border-color:var(--bad);background:rgba(239,107,91,.12);color:var(--bad)}
+#side{background:var(--panel);border-left:1px solid var(--line);overflow:auto;padding:12px}
+h3{margin:14px 0 6px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}h3:first-child{margin-top:0}
+.row{padding:5px 0;border-bottom:1px solid var(--line)}.row b{color:var(--acc);font-weight:600}.row small{color:var(--dim)}
+#bar{grid-column:1/3;background:var(--panel);border-top:1px solid var(--line);padding:8px 12px;display:flex;flex-direction:column;gap:6px}
+#tl{position:relative;height:30px}#ticks{position:absolute;inset:0;width:100%;height:30px}
+input[type=range]{width:100%;margin:0;position:absolute;top:0;left:0;height:30px;background:none;-webkit-appearance:none}
+input[type=range]::-webkit-slider-runnable-track{height:4px;background:var(--line);margin-top:13px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:26px;margin-top:-11px;border-radius:3px;background:var(--acc)}
+#ctl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+button{background:#25282c;color:var(--fg);border:1px solid var(--line);border-radius:5px;padding:4px 9px;font:inherit;cursor:pointer}button:hover{border-color:var(--acc)}button.on{background:var(--acc);color:#000}
+#time{font:600 15px ui-monospace,Menlo,monospace;min-width:150px}label{color:var(--dim);display:flex;gap:4px;align-items:center}input[type=text]{background:#0e0f10;color:var(--fg);border:1px solid var(--line);border-radius:5px;padding:4px 7px;width:210px;font:inherit}
+#err{color:var(--bad);white-space:pre-wrap}
+@media(max-width:900px){body{grid-template-columns:1fr}#side{display:none}#bar{grid-column:1}}
+</style></head><body>
+<div id="stageWrap"><div id="stage"><iframe id="f"></iframe><div id="boxes"></div></div></div>
+<aside id="side"><h3>Film</h3><div id="info"></div><h3>Texts on screen now (TEXTS)</h3><div id="texts"></div><h3>Events near now (EV, ±1 s)</h3><div id="evs"></div><div id="err"></div>
+<h3>Keys</h3><div class="row"><small>space play · ←/→ one frame · shift+←/→ one second · [ ] previous/next event · B boxes · R reload · S save frame</small></div></aside>
+<div id="bar"><div id="tl"><canvas id="ticks" height="30"></canvas><input id="r" type="range" min="0" max="1" step="0.001" value="0"></div>
+<div id="ctl"><button id="play">▶ play</button><span id="time">0.000 s · f0</span><button id="prev">◀ event</button><button id="next">event ▶</button>
+<label><input id="boxesCb" type="checkbox" checked> text boxes</label><label><input id="snd" type="checkbox"> sound</label><label><input id="auto" type="checkbox" checked> reload on change</label>
+<label>query <input id="q" type="text" placeholder="k=v&k=v"></label><button id="save">save frame</button></div></div>
+<script>
+const C=__CONFIG__, FPS=24; const f=document.getElementById('f'), $=id=>document.getElementById(id);
+let t=0,dur=10,playing=false,t0=0,w0=0,ready=false,aud=null;
+const [W,H]=C.size; f.width=W; f.height=H; $('stage').style.width=W+'px'; $('stage').style.height=H+'px'; $('boxes').style.width=W+'px'; $('boxes').style.height=H+'px';
+function fit(){const wrap=$('stageWrap'),s=Math.min(wrap.clientWidth/W,wrap.clientHeight/H);$('stage').style.transform=`scale(${s})`}addEventListener('resize',fit);fit();
+function load(){ready=false;$('err').textContent='';const q=$('q').value.trim();f.src=C.page+(q?'?'+q:'');const poll=setInterval(()=>{try{const w=f.contentWindow;if(w&&w.READY&&w.render){clearInterval(poll);ready=true;dur=w.DUR||dur;$('r').max=dur;ticks();info();show()}}catch(e){}},120)}
+f.addEventListener('load',()=>{try{f.contentWindow.addEventListener('error',e=>{$('err').textContent='page error: '+e.message})}catch(e){}});
+function info(){const w=f.contentWindow;$('info').innerHTML=`<div class="row"><b>${C.name}</b><br><small>${W}×${H} · ${dur.toFixed(2)} s · ${Math.round(dur*FPS)} frames @${FPS} · ${(w.EV||[]).length} events · TEXTS ${typeof w.TEXTS==='function'?'yes':'no'}</small></div>`}
+function ticks(){const c=$('ticks');c.width=c.clientWidth*devicePixelRatio;const g=c.getContext('2d');g.scale(devicePixelRatio,devicePixelRatio);g.clearRect(0,0,c.clientWidth,30);const ev=(f.contentWindow.EV)||[];const col={};g.globalAlpha=.8;for(const e of ev){const x=e.t/dur*c.clientWidth;g.fillStyle=({in:'#5fd0a0',send:'#5fd0a0',zoom:'#6aa6ff',key:'#444'})[e.type]||'#f4b428';g.fillRect(x,e.type==='key'?24:2,1.5,e.type==='key'?4:8)}}
+function show(){if(!ready)return;const w=f.contentWindow;try{w.render(t)}catch(e){$('err').textContent='render('+t.toFixed(2)+'): '+e.message}
+ $('r').value=t;$('time').textContent=`${t.toFixed(3)} s · f${Math.round(t*FPS)}`;
+ let tx=[];try{tx=typeof w.TEXTS==='function'?(w.TEXTS(t)||[]):[]}catch(e){}
+ $('texts').innerHTML=tx.length?tx.map(x=>`<div class="row"><b>${x.id}</b> <small>${x.x0|0},${x.y0|0} → ${x.x1|0},${x.y1|0}</small><br>${String(x.text).replace(/</g,'&lt;')}</div>`).join(''):'<div class="row"><small>none reported</small></div>';
+ const bx=$('boxes');bx.innerHTML='';if($('boxesCb').checked)for(const x of tx){const d=document.createElement('div');const off=x.x0<0||x.y0<0||x.x1>W||x.y1>H;d.className='box'+(off?' off':'');d.style.cssText=`left:${x.x0}px;top:${x.y0}px;width:${x.x1-x.x0}px;height:${x.y1-x.y0}px`;d.textContent=x.id;bx.appendChild(d)}
+ const ev=(w.EV||[]).filter(e=>Math.abs(e.t-t)<=1);$('evs').innerHTML=ev.length?ev.slice(0,40).map(e=>`<div class="row"><b>${e.t.toFixed(2)}</b> <small>${Object.entries(e).filter(([k])=>k!=='t').map(([k,v])=>k+'='+v).join(' ')}</small></div>`).join(''):'<div class="row"><small>none</small></div>'}
+function seek(x){t=Math.max(0,Math.min(dur,x));if(aud&&$('snd').checked)aud.currentTime=t;show()}
+function tick(now){if(playing){t=w0+(now-t0)/1000;if(t>=dur){t=dur;playing=false;$('play').textContent='▶ play';$('play').classList.remove('on');if(aud)aud.pause()}show()}requestAnimationFrame(tick)}requestAnimationFrame(tick);
+function play(){if(playing){playing=false;$('play').textContent='▶ play';$('play').classList.remove('on');if(aud)aud.pause();return}if(t>=dur-.01)t=0;playing=true;w0=t;t0=performance.now();$('play').textContent='❚❚ pause';$('play').classList.add('on');if(aud&&$('snd').checked){aud.currentTime=t;aud.play().catch(()=>{})}}
+$('play').onclick=play;$('r').oninput=e=>seek(+e.target.value);$('boxesCb').onchange=show;$('q').onchange=load;
+$('snd').onchange=()=>{if($('snd').checked&&!aud){aud=new Audio('/__preview/audio');aud.onerror=()=>{$('snd').checked=false;$('err').textContent='no out/mix.wav yet (build the film first)'}}if(!$('snd').checked&&aud)aud.pause()};
+const evs=()=>((f.contentWindow&&f.contentWindow.EV)||[]).map(e=>e.t).filter(x=>true);
+$('next').onclick=()=>{const n=evs().filter(x=>x>t+.02).sort((a,b)=>a-b)[0];if(n!=null)seek(n)};$('prev').onclick=()=>{const p=evs().filter(x=>x<t-.02).sort((a,b)=>b-a)[0];if(p!=null)seek(p)};
+$('save').onclick=save;function save(){try{const c=f.contentDocument.querySelector('canvas');c.toBlob(b=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=`${C.name}_${t.toFixed(2)}.png`;a.click()})}catch(e){$('err').textContent='cannot save: '+e.message}}
+addEventListener('keydown',e=>{if(e.target.tagName==='INPUT'&&e.target.type==='text')return;const k=e.key;if(k===' '){e.preventDefault();play()}else if(k==='ArrowRight'){seek(t+(e.shiftKey?1:1/FPS))}else if(k==='ArrowLeft'){seek(t-(e.shiftKey?1:1/FPS))}else if(k==='['){$('prev').click()}else if(k===']'){$('next').click()}else if(k==='b'||k==='B'){$('boxesCb').click()}else if(k==='r'||k==='R'){load()}else if(k==='s'||k==='S'){save()}});
+let last=0;setInterval(async()=>{if(!$('auto').checked)return;try{const m=(await (await fetch('/__preview/mtime')).json()).m;if(last&&m>last){const keep=t;load();const w=setInterval(()=>{if(ready){clearInterval(w);seek(keep)}},100)}last=m}catch(e){}},1500);
+load();
+</script></body></html>

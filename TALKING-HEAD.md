@@ -109,7 +109,7 @@ Known limits: the footage is upscaled if it is 720p; the matte is colour-based; 
 
 ## 4. Prepare the footage
 
-First check the video: `.venv/bin/python tools/talk/hostcheck.py <host.mp4> [--board]` reports size, sound, pauses, camera steadiness and the host's share of the frame, and says what to regenerate before you spend time on a film ([`tools/README.md`](tools/README.md) lists the other helpers: tracking, the macOS matte, a prompt generator, a film check, posters, localisation).
+In one command: `.venv/bin/python tools/talk/film.py <host.mp4> films/<name> [--corners …]` runs the steps below and the final checks (`tools/README.md`). Step by step: first check the video: `.venv/bin/python tools/talk/hostcheck.py <host.mp4> [--board]` reports size, sound, pauses, camera steadiness and the host's share of the frame, and says what to regenerate before you spend time on a film ([`tools/README.md`](tools/README.md) lists the other helpers: tracking, the macOS matte, a prompt generator, a film check, posters, localisation).
 
 ```sh
 sh tools/talk/prep.sh <host.mp4> films/<name> --lang zh --prompt "terms the host says, separated by spaces" 
