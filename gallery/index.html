@@ -36,12 +36,17 @@ a { color: inherit; }
 
 /* tools */
 .tgroup { margin: 34px 0 14px; font-size: 22px; letter-spacing: -.01em; }
-.tools { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: start; }
-.tcard { min-width: 0; border: 2px solid var(--ink); border-radius: var(--r); background: var(--card); padding: 16px 16px 14px; box-shadow: 6px 6px 0 var(--ink); display: grid; gap: 10px; }
+.tools { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: stretch; }
+.tcard { min-width: 0; border: 2px solid var(--ink); border-radius: var(--r); background: var(--card); padding: 14px; box-shadow: 6px 6px 0 var(--ink); display: flex; flex-direction: column; gap: 10px; }
 .tcard h3 { margin: 0; font-size: 19px; line-height: 1.25; } .tcard p { margin: 0; font-size: 14.5px; color: var(--muted); }
-.tcard img { width: 100%; border-radius: 10px; border: 1px solid var(--line); background: var(--bg2); }
+.tcard .vis { aspect-ratio: 16 / 9; width: 100%; border-radius: 10px; border: 1px solid var(--line); background: #16141b; overflow: hidden; }
+.tcard .vis img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.tcard .vis.term { padding: 12px 14px; color: #d9d4e6; font: clamp(11px, 1.15vw, 14.5px)/1.62 ui-monospace, Menlo, Consolas, monospace; white-space: pre; position: relative; }
+.tcard .vis.term::after { content: ""; position: absolute; inset: auto 0 0 0; height: 36px; background: linear-gradient(transparent, #16141b); }
+.tcard .vis.term i { color: #f0b23b; font-style: normal; } .tcard .vis.term b { color: #5fd0a0; font-weight: 400; }
+.tcard .head { display: flex; align-items: center; gap: 10px; justify-content: space-between; } .tcard .head h3 { flex: 1; }
 .tcard .badges { display: flex; flex-wrap: wrap; gap: 6px; }
-.tcard pre { margin: 0; padding: 10px 12px; border-radius: 10px; background: var(--bg2); border: 1px solid var(--line); white-space: pre-wrap; word-break: break-all; font: 12.5px/1.5 ui-monospace, Menlo, Consolas, monospace; }
+.tcard pre.cmd { margin: auto 0 0; padding: 10px 12px; border-radius: 10px; background: var(--bg2); border: 1px solid var(--line); white-space: pre-wrap; word-break: break-all; font: 12.5px/1.5 ui-monospace, Menlo, Consolas, monospace; }
 .tcard .row { display: flex; flex-wrap: wrap; gap: 8px; } .tcard .row .btn { padding: 7px 13px; font-size: 14px; }
 .badge.mac { background: var(--coral); border-color: var(--coral); color: #fff; } .badge.any { background: var(--teal); border-color: var(--teal); color: #fff; }
 /* header */
@@ -267,7 +272,7 @@ const store = { get: k => { try { return localStorage.getItem(k); } catch (e) { 
 
 const T = {
   zh: {
-    nav_tools: '工具', tl_kicker: 'Tools', tl_h: '做片子用的工具与模块', tl_p: '从拿到博主视频，到生成提示词、跟踪画面里的牌子、抠像、预览、检查声音和出海报，每一步都有一个小工具。橙红标记的只能在 macOS 上用，青色标记的任何系统都能用。', tl_demo: '预览台在线演示', tl_gz: '做之前', tl_gm: '做的时候', tl_ga: '做完之后', tl_any: '任何系统', tl_mac: '仅 macOS', tl_part: '部分功能仅 macOS', tl_src: '源码', tl_try: '试试看',
+    nav_tools: '工具', tl_kicker: 'Tools', tl_h: '做片子用的工具与模块', tl_p: '从拿到博主视频，到生成提示词、跟踪画面里的牌子、抠像、预览、检查声音和出海报，每一步都有一个小工具。橙红标记的只能在 macOS 上用，青色标记的任何系统都能用。', tl_demo: '预览台在线演示', tl_gz: '做之前', tl_gm: '做的时候', tl_ga: '交付：检查、海报、多语言', tl_any: '任何系统', tl_mac: '仅 macOS', tl_part: '部分功能仅 macOS', tl_src: '源码', tl_try: '试试看',
     nav_talk: '口播解说', nav_styles: '风格', nav_about: '来源', eyebrow: '基于 Lemo-Opuscar · MIT',
     h1: '<em>{N}</em> 种影片风格，<br>外加口播解说工作流', lead: '每种风格都是一份可复用的提示词，配一支完全用代码做出来的短片。本仓库在原项目的 43 种之上新增了 {A} 种，还有一套把真人（或 AI 生成）口播视频放进风格里的做法。',
     cta1: '看口播解说 demo', cta2: '浏览全部风格', st_total: '种风格', st_added: '种本仓库新增', st_demos: '个口播 demo',
@@ -283,7 +288,7 @@ const T = {
     f_h1: '来源与授权', f_p1: '本仓库是 LemoLab 的 <b>lemomo-ai/lemo-opuscar</b> 的衍生版本（MIT）。原有的指南、工具、引擎和 43 种风格照原样使用，原协议和版权声明保留在 <code>LICENSE</code>。', f_p2: '新增的 {A} 种风格、口播加解说工作流和这个图鉴由 zhgarylu 与 Claude 做成，同样以 MIT 协议提供。', f_h2: '原项目', f_p3: '原项目的图鉴和短片见下面的链接。原 43 种风格的短片由原项目托管，点开时直接从它那里播放。', f_up_gallery: '原项目图鉴'
   },
   en: {
-    nav_tools: 'Tools', tl_kicker: 'Tools', tl_h: 'Tools and modules for making the film', tl_p: 'From getting the presenter video to writing prompts, tracking a board in the picture, matting, previewing, checking the sound and making posters: one small tool for each step. Coral means macOS only, teal means any system.', tl_demo: 'Preview page, recorded demo', tl_gz: 'Before', tl_gm: 'While making', tl_ga: 'After', tl_any: 'Any system', tl_mac: 'macOS only', tl_part: 'Partly macOS only', tl_src: 'Source', tl_try: 'Try it',
+    nav_tools: 'Tools', tl_kicker: 'Tools', tl_h: 'Tools and modules for making the film', tl_p: 'From getting the presenter video to writing prompts, tracking a board in the picture, matting, previewing, checking the sound and making posters: one small tool for each step. Coral means macOS only, teal means any system.', tl_demo: 'Preview page, recorded demo', tl_gz: 'Before', tl_gm: 'While making', tl_ga: 'Delivering: checks, posters, languages', tl_any: 'Any system', tl_mac: 'macOS only', tl_part: 'Partly macOS only', tl_src: 'Source', tl_try: 'Try it',
     nav_talk: 'Talking-head', nav_styles: 'Styles', nav_about: 'Credits', eyebrow: 'Based on Lemo-Opuscar · MIT',
     h1: '<em>{N}</em> film styles,<br>plus a talking-head workflow', lead: 'Every style is a reusable prompt with a short film made entirely in code. This repository adds {A} styles to the original 43, and a way to put a presenter\'s video (real or AI-generated) inside one.',
     cta1: 'Watch the talking-head demos', cta2: 'Browse all styles', st_total: 'styles', st_added: 'added here', st_demos: 'talking-head demos',
@@ -313,22 +318,20 @@ const cats = [...new Map(S.map(s => [s.cat_en, s.cat])).entries()];
 
 // ---- tools ----
 const TOOLS = [
-  { g: 'z', id: 'hostcheck', os: 'part', dir: 'tools/talk/hostcheck.py', cmd: 'python tools/talk/hostcheck.py host.mp4 --board',
+  { g: 'z', id: 'hostcheck', term: '翻牌风格1.mp4\n  1280x720  24.00 fps  30.0 s  audio: yes\n  loudness -15.2 LUFS, peak -2.4 dBFS\n  pauses ≥0.8 s: 5.0–6.0\n  camera/subject motion: median 16 px/s\n  host fills 15% of the frame (9%–24%)\n\n  <i>note</i>     under 1080p: upscaled in a 1080p film\n  <b>usable</b>; the notes above are things to watch.', os: 'part', dir: 'tools/talk/hostcheck.py', cmd: 'python tools/talk/hostcheck.py host.mp4 --board',
     t: ['口播素材体检', 'Host-video check'], p: ['拿到博主视频先体检：尺寸、声音、停顿、镜头稳不稳、博主占画面多大。用大白话列出要重拍的地方，省得做到一半才发现。', 'Check the presenter video before you build: size, sound, pauses, how steady the camera is, how much of the frame the host fills. Problems come in plain words, before you spend time on a film.'] },
-  { g: 'z', id: 'prompt', os: 'any', dir: 'tools/prompt/gen.py', cmd: 'python3 tools/prompt/gen.py --id my-topic --title "…" --preset swiss --lines "开场|要点一|收尾" --seconds 30',
+  { g: 'z', id: 'prompt', term: '【动作与口播】（普通话，语速自然偏快）\n0–7 秒：博主面对镜头，抬手打招呼。\n口播：“想用 AI 做视频，又不想千篇一律？”\n7–8.7 秒：不说话。博主看向下一个位置。\n8.7–12.2 秒：博主伸出一根手指。\n口播：“风格库有六十多种。”\n\n<b>→ prompts/talking-head/my-topic.md</b>\n(27.1 s of speech and pauses of 30 s)', os: 'any', dir: 'tools/prompt/gen.py', cmd: 'python3 tools/prompt/gen.py --id my-topic --title "…" --preset swiss --lines "开场|要点一|收尾" --seconds 30',
     t: ['视频提示词生成器', 'Prompt generator'], p: ['给世界预设和你的口播稿，按口播长度排好每段的时间，写出给 AI 视频工具用的提示词。台词太长装不进时长时会拒绝，并告诉你要删多少字。', 'Give it a world preset and your spoken lines; it times each beat to the length of the speech and writes the prompt for an AI video tool. Lines that do not fit are refused, with how much to cut.'] },
-  { g: 'z', id: 'seedance', os: 'any', dir: 'tools/gen/seedance.py', cmd: 'export ARK_API_KEY=…\npython3 tools/gen/seedance.py prompt.md --image ref.jpg --yes',
+  { g: 'z', id: 'seedance', term: 'POST …/api/v3/contents/generations/tasks\n{\n "model": "doubao-seedance-2-5-260628",\n "ratio": "16:9",\n "duration": 30,\n "resolution": "1080p",\n "generate_audio": true\n}\n\n<i>dry run: nothing was sent.</i>\nAdd --yes to submit (this costs money).', os: 'any', dir: 'tools/gen/seedance.py', cmd: 'export ARK_API_KEY=…\npython3 tools/gen/seedance.py prompt.md --image ref.jpg --yes',
     t: ['Seedance 一键生成', 'Seedance, end to end'], p: ['把提示词和参考图交给火山方舟的 Seedance，等任务完成、下载 mp4，再自动体检。不加 --yes 只打印请求，不会扣费。照官方文档写成，用模拟服务器测过，没有用真实接口测过。', 'Send a prompt and a reference image to Seedance on Volcengine Ark, wait, download the mp4, then run the check. Without --yes it only prints the request and costs nothing. Written from the docs and tested against a mock server, not the live API.'] },
   { g: 'z', id: 'teardown', os: 'part', img: 'teardown-storyboard.jpg', dir: 'tools/teardown', cmd: 'python tools/teardown/teardown.py video.mp4', extra: ['TEARDOWN.md', 'https://github.com/zhgarylu/claude-video/blob/main/TEARDOWN.md'],
     t: ['视频拆解', 'Video teardown'], p: ['把一个视频拆开：镜头与节奏、运镜、色板、说了什么、屏幕上写了什么、声音。得到故事板和一份简报，用来在某个风格里重做它的结构，不是复制它的画面。', 'Take a video apart: shots and rhythm, camera, colours, what is said, what is written on screen, the sound. You get a storyboard and a brief to remake its structure in a style, not to copy its footage.'] },
-  { g: 'm', id: 'film', os: 'part', dir: 'tools/talk/film.py', cmd: 'python tools/talk/film.py host.mp4 films/my-film --corners "669,165,1021,37,1021,576,669,500"',
+  { g: 'm', id: 'film', term: '<b>== hostcheck ==</b>   usable\n<b>== new-film ==</b>   frames, voice, word timings\n<b>== matte ==</b>      721/721 frames  (macOS)\n<b>== track ==</b>      tracked 721 frames\n<b>== build ==</b>      render, mix, subtitles, master\n<b>== check ==</b>      check.md, audio.md\n\ndone: my-film  (stops at the first failing step,\nresume with --from <i>step</i>)', os: 'part', dir: 'tools/talk/film.py', cmd: 'python tools/talk/film.py host.mp4 films/my-film --corners "669,165,1021,37,1021,576,669,500"',
     t: ['口播一键流水线', 'One-command pipeline'], p: ['体检、整理素材、抠像、跟踪、渲染、成片检查和音频报告，一条命令跑完。哪一步失败就停在哪一步，并告诉你怎么续跑。它省的是敲命令的时间，画面怎么设计还是你的事。', 'Check, prepare, matte, track, render, check the film and the sound: one command. It stops at the first step that fails and says how to resume. It saves typing, not directing.'] },
   { g: 'm', id: 'track', os: 'any', img: 'track-check.jpg', dir: 'tools/track', cmd: 'python tools/track/board.py films/my-film --corners "x,y,…"\npython tools/track/check.py films/my-film',
     t: ['画面里的牌子跟踪', 'Surface tracking'], p: ['逐帧跟踪视频里的牌子或屏幕，之后就能把你的内容按每一帧的透视贴上去。配一张检查图：绿框必须在每一格里都套在牌子上。', 'Track a board or screen through the footage, then warp your own content onto it with each frame\'s perspective. A check sheet draws the tracked quad: the green frame must sit on the surface in every cell.'] },
   { g: 'm', id: 'matte', os: 'mac', img: 'matte.jpg', dir: 'tools/matte', cmd: 'sh tools/matte/run.sh films/my-film',
     t: ['真人抠像', 'Person matte'], p: ['用 macOS 自带的 Vision 给每一帧抠出人，不下载任何模型。让博主能站在你画的牌子和背景字的前面。其他系统会自动回退到按颜色抠。', 'A person matte per frame with Apple Vision, no model download, so the host can stand in front of the board and the big words behind. Other systems fall back to a colour key.'] },
-  { g: 'm', id: 'localize', os: 'any', dir: 'tools/talk/localize.py', cmd: 'python tools/talk/localize.py export films/my-film/src\npython tools/talk/localize.py apply films/my-film/src --lang en --translations en.json --dub',
-    t: ['多语言字幕与配音', 'Another language'], p: ['导出博主每句话和它的时间，你翻译后生成对应时间的字幕，还可以用 Kokoro 配一条外语画外音，压进每句的时间窗。博主的嘴型还是原语言，所以只适合当画外音。', 'Export the host\'s sentences with their times, translate, and get captions at the same times, plus an optional Kokoro voice-over fitted into each window. The lips stay in the original language, so it works as a voice-over.'] },
   { g: 'm', id: 'preview', os: 'any', img: 'preview.jpg', dir: 'tools/preview', cmd: 'node tools/preview/serve.mjs films/my-film', demo: true,
     t: ['预览台', 'Preview page'], p: ['拖时间条看任意一秒，同步放声音，右边列出这一秒屏幕上每段文字和它的位置框（超出画面的标红）、前后 1 秒的事件，可以逐帧、跳事件、存帧。你一改文件就自动刷新。', 'Scrub to any second, play with the sound, and see every on-screen text with its box (red when it leaves the frame) and the events around it; step by frame, jump between events, save a frame. It reloads when you change a file.'] },
   { g: 'a', id: 'check', os: 'any', img: 'film-check.jpg', dir: 'tools/check.py', cmd: 'python tools/check.py films/my-film/my-film.mp4 --srt my-film.srt --page films/my-film',
@@ -337,13 +340,16 @@ const TOOLS = [
     t: ['声音报告', 'Audio report'], p: ['给听不到声音的人，也给想要第二意见的人：每段的响度、音色平衡、立体声、削波和突变，一张频谱图，以及人声比其他声音高多少。它标出“这里值得听”，不判断好不好听。', 'For whoever cannot hear, and as a second opinion: loudness and tonal balance per section, stereo, clipping and jumps, a spectrogram, and how far the voice sits above everything else. It flags where to listen; it does not judge taste.'] },
   { g: 'a', id: 'poster', os: 'any', img: 'posters.jpg', dir: 'tools/poster.py', cmd: 'python tools/poster.py --image still.jpg --title "CLAUDE VIDEO" --sub "…" --chips "a,b,c" --crop x,y,w,h',
     t: ['海报（横屏加竖屏）', 'Posters, 16:9 and 9:16'], p: ['一张没有字幕的画面，出横屏和竖屏两张海报。画面要从页面里渲染（--q poster=1），不要从成片里截。', 'One subtitle-free still becomes a landscape and a portrait poster. Render the still from the page, do not cut it from the mp4.'] },
+  { g: 'a', id: 'localize', term: 's01   0.00– 4.96  想用AI做视频…我做了一个开源项目\ns02   5.78– 9.88  风格库里有水墨、油画、像素游戏…\n…\n→ lines.json  (translate, then run apply)\n\nwrote captions.en.srt and cues.en.json (8 cues)\nwrote dub.en.wav (31.8 s, voice af_bella)\n  <i>overruns its window by 0.55 s: s02</i>', os: 'any', dir: 'tools/talk/localize.py', cmd: 'python tools/talk/localize.py export films/my-film/src\npython tools/talk/localize.py apply films/my-film/src --lang en --translations en.json --dub',
+    t: ['多语言字幕与配音', 'Another language'], p: ['导出博主每句话和它的时间，你翻译后生成对应时间的字幕，还可以用 Kokoro 配一条外语画外音，压进每句的时间窗。博主的嘴型还是原语言，所以只适合当画外音。', 'Export the host\'s sentences with their times, translate, and get captions at the same times, plus an optional Kokoro voice-over fitted into each window. The lips stay in the original language, so it works as a voice-over.'] },
 ];
 const BASE = 'https://github.com/zhgarylu/claude-video/tree/main/';
 function renderTools() {
   const l = L(), grp = { z: l.tl_gz, m: l.tl_gm, a: l.tl_ga };
   $('#tools-list').innerHTML = ['z', 'm', 'a'].map(g => `<h3 class="tgroup">${grp[g]}</h3><div class="tools">` + TOOLS.filter(x => x.g === g).map(x => {
     const i = lang === 'zh' ? 0 : 1, os = l['tl_' + (x.os === 'any' ? 'any' : x.os === 'mac' ? 'mac' : 'part')];
-    return `<article class="tcard"><div class="badges"><span class="badge ${x.os === 'any' ? 'any' : 'mac'}">${esc(os)}</span></div><h3>${esc(x.t[i])}</h3>${x.img ? `<img src="../docs/tools/${x.img}" alt="${esc(x.t[i])}" loading="lazy">` : ''}<p>${esc(x.p[i])}</p><pre>${esc(x.cmd.replace(/\\n/g, '\n'))}</pre><div class="row">${x.demo ? `<a class="btn violet" href="preview-demo.html">${l.tl_demo}</a>` : ''}<a class="btn" href="${BASE}${x.dir}" target="_blank" rel="noopener">${l.tl_src}</a>${x.extra ? `<a class="btn" href="${x.extra[1]}" target="_blank" rel="noopener">${x.extra[0]}</a>` : ''}</div></article>`;
+    const vis = x.img ? `<div class="vis"><img src="../docs/tools/${x.img}" alt="${esc(x.t[i])}" loading="lazy"></div>` : `<div class="vis term" aria-hidden="true">${x.term}</div>`;
+    return `<article class="tcard">${vis}<div class="head"><h3>${esc(x.t[i])}</h3><span class="badge ${x.os === 'any' ? 'any' : 'mac'}">${esc(os)}</span></div><p>${esc(x.p[i])}</p><pre class="cmd">${esc(x.cmd.replace(/\\n/g, '\n'))}</pre><div class="row">${x.demo ? `<a class="btn violet" href="preview-demo.html">${l.tl_demo}</a>` : ''}<a class="btn" href="${BASE}${x.dir}" target="_blank" rel="noopener">${l.tl_src}</a>${x.extra ? `<a class="btn" href="${x.extra[1]}" target="_blank" rel="noopener">${x.extra[0]}</a>` : ''}</div></article>`;
   }).join('') + '</div>').join('');
 }
 
