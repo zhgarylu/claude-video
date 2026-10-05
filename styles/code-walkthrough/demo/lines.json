@@ -1,0 +1,10 @@
+[
+ {"id":"l1","text":"Here is binary search, in Python.","voice":"am_michael","speed":1.0},
+ {"id":"l2","text":"We look up sixteen, thirty-eight and seven. Sixteen and thirty-eight are in the list, yet both come back minus one.","voice":"am_michael","speed":1.0},
+ {"id":"l3","text":"Let's follow sixteen. Two pointers, low and high, mark what is still in play. Each turn, we look at the middle.","voice":"am_michael","speed":1.0},
+ {"id":"l4","text":"Twelve is too small, so low jumps past it. Twenty-three is too big, so high comes down to four.","voice":"am_michael","speed":1.0},
+ {"id":"l5","text":"Now low and high are both four. One candidate left, and it is sixteen. But the loop asks: is low less than high? Four is not less than four. It quits without looking.","voice":"am_michael","speed":1.0},
+ {"id":"l6","text":"The fix is a single character. Less than becomes less than or equal.","voice":"am_michael","speed":1.0},
+ {"id":"l7","text":"Run it again. Sixteen sits at index four. Thirty-eight at six. And seven is still correctly missing.","voice":"am_michael","speed":1.0},
+ {"id":"l8","text":"The rule: while one candidate remains, keep looking. Even when it is the last.","voice":"am_michael","speed":1.0}
+]

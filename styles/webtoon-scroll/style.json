@@ -1,0 +1,18 @@
+{
+ "slug": "webtoon-scroll",
+ "num": "97",
+ "en": "Webtoon Scroll",
+ "cn": "条漫竖滚体",
+ "category_en": "Cartoon & Anime",
+ "category_cn": "卡通与动画",
+ "film": "The Umbrella Says No",
+ "line": "One episode of an invented webcomic on a single vertical strip: a commuter loses an argument with her stubborn umbrella through a slow walk, a whip-scroll chase down a staircase, a hard stop in a puddle and a tall silent gutter, until the rain stops and the umbrella turns out to have been a parasol all along.",
+ "line_cn": "一集原创条漫，整部作品是一条竖滚长卷：通勤的姑娘在和固执的雨伞争执中输了，慢速漫步、飞速下滚的楼梯追逐、泥坑里的急停、一段留白的长间隙之后雨停了，原来那把伞从头到尾是遮阳伞。",
+ "uses": [
+  "Short stories and daily-life comics told as an episode, with gutters as timing and a cliffhanger end bar",
+  "Explainers and product stories told as a character walking down one long strip: one panel per idea, a whip scroll for the big reveal",
+  "Tutorials and how-tos as numbered panels with balloons, narration boxes and a next-episode or next-lesson bar"
+ ],
+ "frame_sec": 48.5,
+ "dur": 62.5
+}

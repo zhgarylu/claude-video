@@ -1,0 +1,18 @@
+{
+ "slug": "code-walkthrough",
+ "num": "95",
+ "en": "Code Walkthrough",
+ "cn": "代码讲解体",
+ "category_en": "Information & Keynote",
+ "category_cn": "信息与发布",
+ "film": "One Character Short",
+ "line": "A binary search says 16 is not in the list when it is; a pointer trace shows the loop quits with one candidate left, and a one-character diff (< becomes <=) fixes it, with every output taken from a real Python run.",
+ "line_cn": "一段二分查找明明有 16 却回答“没有”：指针逐步追踪发现循环在只剩一个候选时就退出了，改一个字符（< 变 <=）即修好，片中每个输出都来自真实的 Python 运行。",
+ "uses": [
+  "Explaining a function or an algorithm step by step: pointers, variables and the line that runs, in lockstep",
+  "A bug post-mortem or a code review: the wrong output, the line at fault, a red and green diff, the rerun",
+  "An API tutorial or an architecture tour: request in the editor, response in the terminal, boxes and arrows that grow with the narration"
+ ],
+ "frame_sec": 31.5,
+ "dur": 67
+}

@@ -1,0 +1,8 @@
+The Umbrella Says No (webtoon-scroll demo): third-party assets
+Fonts (SIL Open Font License 1.1, self-hosted in demo/fonts/, not committed; build.sh downloads them from google/fonts)
+- Comic Neue Regular, Bold, Bold Italic (The Comic Neue Project Authors, github.com/crozynski/comicneue; google/fonts ofl/comicneue): balloons, narration boxes, UI. Licence: demo/fonts/OFL-comicneue.txt
+- Bangers (The Bangers Project Authors, github.com/googlefonts/bangers; google/fonts ofl/bangers): title, sound words, subscribe button. Licence: demo/fonts/OFL-bangers.txt
+Picture
+- Everything is drawn in code on one 2D canvas (demo/art.js, panels.js, main.js): the characters Mina and Dewey, the "Little Weather" series tag, all lettering, the reader UI. No images, footage or textures. Characters, setting and story are original; no existing webcomic's characters, logo or layouts are used.
+Sound
+- Every sound is synthesised in numpy/scipy (demo/mix.py, core/audio/sfx.py, MIT): the score (kalimba, nylon pluck, bass, shaker, woodblock, pad), page flicks, clicks, the umbrella's voice, footsteps, splash, FWOOMP, UI sounds, rain. No samples, no recordings, no voice engine.

@@ -2,8 +2,8 @@
 
 # Claude Video
 
-**<!--n-->82<!--/n--> film styles, each with a short film made entirely in code, and a workflow for putting a presenter's video inside one.**<br>
-**<!--n-->82<!--/n--> 种影片风格，每种都配一支完全用代码做出来的短片；再加一套"口播视频 + 风格解说"的工作流。**
+**<!--n-->86<!--/n--> film styles, each with a short film made entirely in code, and a workflow for putting a presenter's video inside one.**<br>
+**<!--n-->86<!--/n--> 种影片风格，每种都配一支完全用代码做出来的短片；再加一套"口播视频 + 风格解说"的工作流。**
 
 Pick a style, bring your own story (or your own presenter video), and let your coding agent direct the film.<br>
 选一个风格，带上你自己的故事（或你自己的口播视频），让你的编程 agent 来当导演。
@@ -222,6 +222,10 @@ Browse them with films in the [**gallery · 图鉴**](https://zhgarylu.github.io
 <td width="33%" valign="top"><a href="styles/danmaku/STYLE.md"><img src="docs/frames/danmaku.jpg" alt="Danmaku Comments"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Danmaku Comments</b> · 弹幕体<br><i>Day 3: I will not kill this starter</i><br><sub>A first sourdough watched through a video player whose scrolling bullet comments are the narrator, the chorus and the joke-teller: doubt turns to coaching, the crowd falls asleep over the proof, a wall of reactions rises with the loaf, and a pause freezes the whole crowd in mid-air.<br>透过一个视频播放器看第一次做酸面包：滚动的弹幕同时是旁白、合唱和段子手。质疑变成指导，醒面时全场睡着，面包胀起时反应刷成一面墙，暂停让整屏弹幕悬在半空。</sub></td>
 <td width="33%" valign="top"><a href="styles/language-lesson/STYLE.md"><img src="docs/frames/language-lesson.jpg" alt="Language Micro-lesson"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Language Micro-lesson</b> · 语言学习微课<br><i>Three Little Words</i><br><sub>An owl teacher turns in, on and at into a quiz game: a card slides up, a stopwatch ticks through the think pause, a one-line rule and a blue clue lead to the answer written in red, then the same cards turn up in German, Japanese and Spanish before the next question starts ticking.<br>一只猫头鹰老师把 in、on、at 变成小测验：卡片从底部滑上来，秒表在思考时间里滴答，一句口诀和蓝色线索引出红笔写下的答案，随后同样的卡片又在德语、日语、西班牙语里出现，最后下一题的秒表开始走动。</sub></td>
 </tr>
+<tr>
+<td width="33%" valign="top"><a href="styles/assembly-manual/STYLE.md"><img src="docs/frames/assembly-manual.jpg" alt="Assembly Manual"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Assembly Manual</b> · 步骤说明书体<br><i>Drip 1: Assembly Guide</i><br><sub>An invented pour-over coffee stand built page by page: an exploded cover, a parts page with codes and quantities, five numbered steps where parts fly along dotted lines and snap in on the beat, zoom circles on the clicks, a person pictogram and a crossed-out mistake, then a held pause and the first drop into the carafe.<br>一座虚构的手冲咖啡架，按说明书一页页装起来：爆炸图封面、带编号和数量的零件页、五个编号步骤——零件沿虚线飞来、踩着拍点咔哒到位，圆形放大镜框框出「咔」的细节，还有小人图示和划掉的错误示范；最后一声静默，第一滴咖啡落进壶里。</sub></td>
+<td width="33%" valign="top"><a href="styles/code-walkthrough/STYLE.md"><img src="docs/frames/code-walkthrough.jpg" alt="Code Walkthrough"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Code Walkthrough</b> · 代码讲解体<br><i>One Character Short</i><br><sub>A binary search says 16 is not in the list when it is; a pointer trace shows the loop quits with one candidate left, and a one-character diff (&lt; becomes &lt;=) fixes it, with every output taken from a real Python run.<br>一段二分查找明明有 16 却回答“没有”：指针逐步追踪发现循环在只剩一个候选时就退出了，改一个字符（&lt; 变 &lt;=）即修好，片中每个输出都来自真实的 Python 运行。</sub></td>
+</tr>
 </table>
 
 ### Cartoon & Anime · 卡通与动画
@@ -242,6 +246,9 @@ Browse them with films in the [**gallery · 图鉴**](https://zhgarylu.github.io
 <td width="33%" valign="top"><a href="styles/shonen-battle/STYLE.md"><img src="docs/frames/shonen-battle.jpg" alt="Shonen Battle"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Shonen Battle</b> · 热血少年漫<br><i>Round One: The Jar</i><br><sub>A twelve-year-old cook fights the one enemy nobody in the kitchen has beaten, a sealed pickle jar, with every device of 1990s battle anime: face-off, charge, aura, floor cracks, a three-frame strike and an impact frame, and a result that is much smaller than the build-up.<br>十二岁的小厨师对上厨房里从没人打赢的对手，一罐封了三年的泡菜：对峙、蓄力、气场、地裂、三格出手加一帧冲击画面，而结果比铺垫小得多，只是一声“啵”。</sub></td>
 <td width="33%" valign="top"><a href="styles/sea-adventure/STYLE.md"><img src="docs/frames/sea-adventure.jpg" alt="Sea Adventure Manga"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Sea Adventure Manga</b> · 航海冒险漫<br><i>Five Hats and One Sock</i><br><sub>A tiny captain who lost one sock draws a sea chart, pins up five wanted posters for his crew, sails through a storm to meet a giant hungry duck, digs up a treasure chest holding the wrong sock, and finally pulls back to find the whole ocean is a bathtub.<br>丢了一只袜子的小船长画好海图，给五位船员贴上悬赏通缉令，穿过风暴遇见一只饥饿的巨鸭，挖出的宝箱里却是另一只错的袜子，镜头拉远才发现整片大海原来是一只浴缸。</sub></td>
 </tr>
+<tr>
+<td width="33%" valign="top"><a href="styles/webtoon-scroll/STYLE.md"><img src="docs/frames/webtoon-scroll.jpg" alt="Webtoon Scroll"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Webtoon Scroll</b> · 条漫竖滚体<br><i>The Umbrella Says No</i><br><sub>One episode of an invented webcomic on a single vertical strip: a commuter loses an argument with her stubborn umbrella through a slow walk, a whip-scroll chase down a staircase, a hard stop in a puddle and a tall silent gutter, until the rain stops and the umbrella turns out to have been a parasol all along.<br>一集原创条漫，整部作品是一条竖滚长卷：通勤的姑娘在和固执的雨伞争执中输了，慢速漫步、飞速下滚的楼梯追逐、泥坑里的急停、一段留白的长间隙之后雨停了，原来那把伞从头到尾是遮阳伞。</sub></td>
+</tr>
 </table>
 
 ### Games · 游戏
@@ -255,6 +262,7 @@ Browse them with films in the [**gallery · 图鉴**](https://zhgarylu.github.io
 <tr>
 <td width="33%" valign="top"><a href="styles/game-show/STYLE.md"><img src="docs/frames/game-show.jpg" alt="Game Show Flat"></a><br><b>Game Show Flat</b> · 综艺节奏扁平<br><i>Rhythm of AI, 1997 → 2026</i><br><sub>The history of AI as a rhythm game: models take the stage on the beat, and a report card closes the show.<br>把 AI 发展史做成一局节奏游戏，模型踩着拍登场，最后发成绩单。</sub></td>
 <td width="33%" valign="top"><a href="styles/pixel-8bit/STYLE.md"><img src="docs/frames/pixel-8bit.jpg" alt="8-bit Console Pixel"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>8-bit Console Pixel</b> · 8-bit 红白机像素<br><i>Dusklight</i><br><sub>Wick the lamplighter races the dusk through two scrolling stages, climbs a beacon tower, lights it through a moth swarm that overloads the sprite hardware, and sets a new high score.<br>提灯人 Wick 在两段横版关卡里和黄昏赛跑，爬上灯塔，穿过让精灵硬件超载闪烁的飞蛾群点亮它，刷新最高分。</sub></td>
+<td width="33%" valign="top"><a href="styles/versus-screen/STYLE.md"><img src="docs/frames/versus-screen.jpg" alt="Versus Screen"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Versus Screen</b> · 对战对比体<br><i>Kettle Clash</i><br><sub>Two invented kettles fight a four-round versus screen on price, boil time, keep-warm and capacity: a hard diagonal slash, a VS that slams in with shake and a colour split, life bars that lose a quarter per round, a frame-skip hit-stop on every impact, and a 3 to 1 tally that crowns a winner and still says who to pick if you sip slowly.<br>两把虚构电水壶打一场四回合的对战画面，比价格、烧水速度、保温和容量：一道硬斜线，带震屏和色散砸进来的 VS，每输一回合掉四分之一血条，每次命中都停几帧，最后 3 比 1 的战绩宣布赢家，也告诉慢慢喝茶的人该选谁。</sub></td>
 </tr>
 </table>
 

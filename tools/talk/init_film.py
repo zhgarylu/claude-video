@@ -5,6 +5,7 @@ For split / pip the first words of each spoken segment become bullet items; for 
 import argparse, json, os
 ap = argparse.ArgumentParser(); ap.add_argument('project'); ap.add_argument('--layout', default='pip', choices=['split', 'pip', 'world'])
 ap.add_argument('--title', default='Talking-head film'); ap.add_argument('--subtitle', default=''); ap.add_argument('--lang', default='zh'); ap.add_argument('--aspect', default='16x9', choices=['16x9', '9x16'])
+ap.add_argument('--fx', default='', help='restyle the host himself: halftone, pixel, ascii, engrave, comic, duotone, ink, neon (tools/talk/hostfx.js)'); ap.add_argument('--fx-cutout', action='store_true')
 a = ap.parse_args()
 if a.aspect == '9x16': a.layout = 'world'     # portrait films use the portrait world layout
 words = json.load(open(os.path.join(a.project, 'src', 'words.json')))
@@ -22,5 +23,6 @@ if a_layout := (a.layout != 'world'):
 film = {'aspect': a.aspect, 'layout': a.layout, 'title': a.title, 'subtitle': a.subtitle, 'lang': a.lang, 'tail': 0,
         'captions': ({'cues': 'auto'} if a.aspect == '9x16' else {'style': 'pill' if a.layout == 'split' else 'card', 'cues': 'auto'}), 'theme': {}, 'cards': cards,
         'split': {'side': 'left'}, 'pip': {'corner': 'tr', 'width': 330}, 'world': {}}
+if a.fx: film['hostFx'] = {'kind': a.fx, 'cutout': a.fx_cutout}
 json.dump(film, open(os.path.join(a.project, 'film.json'), 'w'), ensure_ascii=False, indent=1)
 print(f'film.json: layout={a.layout}, {len(cards)} cards, captions from the transcript')

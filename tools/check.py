@@ -23,7 +23,7 @@ n, d = (v['r_frame_rate'].split('/') + ['1'])[:2]; fps = float(n) / float(d or 1
 say('# Check: %s' % os.path.basename(A.film)); say()
 say('- picture: %dx%d, %.2f fps, %s, %.1f s, %.1f MB' % (v['width'], v['height'], fps, v.get('codec_name'), dur, size))
 if not a: problems.append('no audio track'); say('- audio: NONE')
-if v['width'] < 1280: notes.append('picture is under 1280 wide')
+if max(v['width'], v['height']) < 1280: notes.append('picture is under 1280 on its long side')
 if v.get('pix_fmt') not in ('yuv420p', 'yuvj420p'): notes.append('pixel format %s may not play everywhere (use yuv420p)' % v.get('pix_fmt'))
 if size > 100: notes.append('file is %.0f MB: GitHub Releases take it, but a web cut (tools/web_cuts.sh) is easier to share' % size)
 
@@ -62,7 +62,7 @@ if A.srt:
     if fast: notes.append('%d subtitle cues are on screen for less than their reading time (of speech they follow, that can be fine)' % fast)
 
 if A.page:
-    r = run('node', os.path.join(LIB, 'core/render/readcheck.mjs'), A.page); tail = (r.stdout + r.stderr).strip().split('\n')[-3:]
+    r = run('node', os.path.join(LIB, 'core/render/readcheck.mjs'), A.page, '--size', '%dx%d' % (v['width'], v['height'])); tail = (r.stdout + r.stderr).strip().split('\n')[-3:]
     say('- readcheck: ' + ('passed' if r.returncode == 0 else 'FAILED' if r.returncode == 1 else 'could not run (exit %d)' % r.returncode)); say('  ' + ' | '.join(tail)[:300])
     if r.returncode == 1: problems.append('readcheck: some on-screen text is too short or never fully visible')
 

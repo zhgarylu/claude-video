@@ -1,0 +1,79 @@
+1
+00:00:00,600 --> 00:00:03,000
+Here is binary search, in Python.
+
+2
+00:00:10,900 --> 00:00:14,100
+We look up 16, 38 and 7.
+
+3
+00:00:14,200 --> 00:00:16,100
+16 and 38 are in the list,
+
+4
+00:00:16,200 --> 00:00:18,600
+yet both come back minus one.
+
+5
+00:00:19,200 --> 00:00:21,000
+Let's follow 16.
+
+6
+00:00:21,000 --> 00:00:24,500
+Two pointers, lo and hi, mark what is still in play.
+
+7
+00:00:24,600 --> 00:00:26,300
+Each turn, we look at the middle.
+
+8
+00:00:26,700 --> 00:00:30,200
+12 is too small, so lo jumps past it.
+
+9
+00:00:30,300 --> 00:00:33,400
+23 is too big, so hi comes down to 4.
+
+10
+00:00:33,800 --> 00:00:36,400
+Now lo and hi are both 4.
+
+11
+00:00:36,500 --> 00:00:39,200
+One candidate left, and it is 16.
+
+12
+00:00:39,300 --> 00:00:42,200
+But the loop asks: is lo < hi?
+
+13
+00:00:42,300 --> 00:00:44,100
+4 is not less than 4.
+
+14
+00:00:44,100 --> 00:00:45,900
+It quits without looking.
+
+15
+00:00:46,000 --> 00:00:47,900
+The fix is a single character.
+
+16
+00:00:48,100 --> 00:00:50,300
+Less than becomes less than or equal.
+
+17
+00:00:50,900 --> 00:00:53,600
+Run it again. 16 sits at index 4.
+
+18
+00:00:53,900 --> 00:00:57,600
+38 at 6, and 7 is still correctly missing.
+
+19
+00:00:58,300 --> 00:01:01,700
+The rule: while one candidate remains, keep looking.
+
+20
+00:01:01,800 --> 00:01:03,800
+Even when it is the last.

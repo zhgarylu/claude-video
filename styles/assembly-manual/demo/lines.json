@@ -1,0 +1,58 @@
+[
+ {
+  "id": "v1",
+  "text": "Drip one. A coffee stand, in five steps.",
+  "voice": "af_nicole",
+  "speed": 1.0,
+  "cap": "Drip 1. A coffee stand, in 5 steps."
+ },
+ {
+  "id": "v2",
+  "text": "Check your parts. Six pieces, four screws, one key.",
+  "voice": "af_nicole",
+  "speed": 1.0,
+  "cap": "Check your parts. 6 pieces, 4 screws, 1 key."
+ },
+ {
+  "id": "v3",
+  "text": "Step one. Set the pole in the base. Turn both screws until they click.",
+  "voice": "af_nicole",
+  "speed": 1.05,
+  "cap": "Step 1. Set the pole in the base. Turn both screws until they click."
+ },
+ {
+  "id": "v4",
+  "text": "Step two. Slide the arm down the pole. Hold the base steady, and tighten the knob.",
+  "voice": "af_nicole",
+  "speed": 1.0,
+  "cap": "Step 2. Slide the arm down the pole. Hold the base steady, and tighten the knob."
+ },
+ {
+  "id": "v5",
+  "text": "Step three. Ring on the arm, notch facing down. Two screws.",
+  "voice": "af_nicole",
+  "speed": 1.0,
+  "cap": "Step 3. Ring on the arm, notch facing down. 2 screws."
+ },
+ {
+  "id": "v6",
+  "text": "Step four. Lower the cone into the ring.",
+  "voice": "af_nicole",
+  "speed": 1.0,
+  "cap": "Step 4. Lower the cone into the ring."
+ },
+ {
+  "id": "v7",
+  "text": "Step five. Slide the carafe underneath.",
+  "voice": "af_nicole",
+  "speed": 1.0,
+  "cap": "Step 5. Slide the carafe underneath."
+ },
+ {
+  "id": "v8",
+  "text": "Done. Time for coffee.",
+  "voice": "af_nicole",
+  "speed": 1.0,
+  "cap": "Done. Time for coffee."
+ }
+]

@@ -1,0 +1,12 @@
+One Character Short (code-walkthrough demo): third-party assets
+Fonts (SIL Open Font License 1.1, self-hosted in demo/fonts/, not committed; build.sh names the source)
+- JetBrains Mono (The JetBrains Mono Project Authors, JetBrains/JetBrainsMono; google/fonts repository, ofl/jetbrainsmono), variable weight: all code, terminal text and numbers. Licence: demo/fonts/OFL-jetbrainsmono.txt
+- Inter (The Inter Project Authors, rsms/inter; google/fonts repository, ofl/inter), variable weight: pane titles, chips, notes, captions. Licence: demo/fonts/OFL-inter.txt
+Picture
+- Everything is drawn in code on one 2D canvas (demo/main.js): the panes, the syntax colouring (demo/tok.js, a small tokenizer written for this film), the diagram, the diff. No images, footage, icons or textures.
+Code on screen
+- demo/code/search_buggy.py and demo/code/search.py are written for this film (a textbook binary search; no third-party source). demo/verify.py runs both with the real Python interpreter and writes demo/verified.js, which main.js reads: every output line and trace value on screen comes from that run.
+Voice
+- Kokoro-82M via kokoro-onnx (Apache 2.0), voice am_michael, offline; checked with faster-whisper (MIT) by core/tts/asr_check.py.
+Sound
+- Every sound is synthesised in numpy/scipy (demo/mix.py, core/audio/sfx.py, MIT): keys, ticks, bells, thud, whooshes, and the whole score (electric piano, pad, sub bass, hats). No samples, no recordings.

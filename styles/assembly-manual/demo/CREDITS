@@ -1,0 +1,10 @@
+Drip 1 (assembly-manual demo): third-party assets
+Fonts (SIL Open Font License 1.1, self-hosted in demo/fonts/, not committed; build.sh names the source)
+- Hanken Grotesk, variable weight (The Hanken Grotesk Project Authors, google/fonts repository, ofl/hankengrotesk): all running text, captions, codes. Licence: demo/fonts/OFL-hanken.txt
+- Nunito, variable weight (The Nunito Project Authors, google/fonts repository, ofl/nunito): step numerals, quantities, page numbers. Licence: demo/fonts/OFL-nunito.txt
+Picture
+- Everything is drawn in code on one 2D canvas (demo/draw.js parts and pictograms, demo/main.js pages). No images, footage or textures. "Drip 1", the model number PO-1, every part code and the stand itself are invented; no real brand, product or manual layout.
+Voice
+- Kokoro TTS (Apache-2.0 code and weights; voice af_nicole), run offline by core/tts/tts.py; checked with faster-whisper (MIT) by core/tts/asr_check.py.
+Sound
+- Synthesised in demo/mix.py (numpy/scipy, core/audio/sfx.py, MIT): the original marimba loop, bass, shaker and every effect. No samples, no recordings, no existing music.

@@ -16,9 +16,17 @@ download at once; the account needs the model activated (and a balance above a m
 authorised: use a generated character or an image you are allowed to use. The prompt's content rules are Ark's: it can refuse a prompt it considers unsafe.
 I could not test this against the live API (no key in the build environment); it is written from the documentation. If a field is rejected, the error
 text is printed unchanged: compare it with https://ark.volcengine.com/region:cn-beijing/docs/ark/create-video-generation-task-api"""
-import argparse, base64, json, mimetypes, os, re, subprocess, sys, time, urllib.request, urllib.error
+import ssl, argparse, base64, json, mimetypes, os, re, subprocess, sys, time, urllib.request, urllib.error
 
 BASE = os.environ.get('ARK_BASE_URL', 'https://ark.cn-beijing.volces.com/api/v3')
+
+def _ctx():                                         # python.org builds on macOS ship without CA certificates: fall back to the system bundle (verification stays on)
+    c = ssl.create_default_context()
+    if not c.cert_store_stats().get('x509_ca') and not c.cert_store_stats().get('x509'):
+        for f in ('/etc/ssl/cert.pem', '/etc/ssl/certs/ca-certificates.crt', '/etc/pki/tls/certs/ca-bundle.crt'):
+            if os.path.exists(f): return ssl.create_default_context(cafile=f)
+    return c
+CTX = _ctx()
 ap = argparse.ArgumentParser(); ap.add_argument('cmd_or_prompt'); ap.add_argument('task', nargs='?')
 ap.add_argument('--image', action='append', default=[], help='reference image (URL or file); repeat for more'); ap.add_argument('--model', default='doubao-seedance-2-5-260628')
 ap.add_argument('--aspect', default='16x9', help='16x9, 9x16, 3x4, 4x3, 1x1, 21x9 or adaptive'); ap.add_argument('--seconds', type=int, default=30); ap.add_argument('--resolution', default='1080p', choices=['480p', '720p', '1080p'])
@@ -32,7 +40,7 @@ def call(method, path, body=None):
     if not key: sys.exit('set ARK_API_KEY (Ark console, API Key management). It is read from the environment only.')
     req = urllib.request.Request(BASE + path, method=method, data=json.dumps(body).encode() if body is not None else None, headers={'Content-Type': 'application/json', 'Authorization': 'Bearer ' + key})
     try:
-        with urllib.request.urlopen(req, timeout=120) as r: return json.loads(r.read() or b'{}')
+        with urllib.request.urlopen(req, timeout=120, context=CTX) as r: return json.loads(r.read() or b'{}')
     except urllib.error.HTTPError as e:
         sys.exit('Ark answered %d: %s' % (e.code, e.read().decode('utf8', 'replace')[:1500]))
     except urllib.error.URLError as e: sys.exit('cannot reach Ark: %s' % e.reason)
@@ -53,7 +61,7 @@ def show(t):
     return t
 def download(url, out):
     os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
-    with urllib.request.urlopen(url, timeout=600) as r, open(out, 'wb') as f:
+    with urllib.request.urlopen(url, timeout=600, context=CTX) as r, open(out, 'wb') as f:
         while True:
             b = r.read(1 << 20)
             if not b: break

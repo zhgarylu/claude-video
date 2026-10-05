@@ -1147,6 +1147,50 @@ window.GALLERY = {
    "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/language-lesson/DEMO.md"
   },
   {
+   "slug": "assembly-manual",
+   "num": "94",
+   "en": "Assembly Manual",
+   "cn": "步骤说明书体",
+   "cat": "信息与发布",
+   "cat_en": "Information & Keynote",
+   "film": "Drip 1: Assembly Guide",
+   "line": "An invented pour-over coffee stand built page by page: an exploded cover, a parts page with codes and quantities, five numbered steps where parts fly along dotted lines and snap in on the beat, zoom circles on the clicks, a person pictogram and a crossed-out mistake, then a held pause and the first drop into the carafe.",
+   "line_cn": "一座虚构的手冲咖啡架，按说明书一页页装起来：爆炸图封面、带编号和数量的零件页、五个编号步骤——零件沿虚线飞来、踩着拍点咔哒到位，圆形放大镜框框出「咔」的细节，还有小人图示和划掉的错误示范；最后一声静默，第一滴咖啡落进壶里。",
+   "uses": [
+    "Furniture, device and kit set-up guides",
+    "Recipes, workouts and craft how-tos told one action per page",
+    "Onboarding, safety and maintenance steps for products and tools"
+   ],
+   "dur": 58,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/assembly-manual.mp4",
+   "frame": "../docs/frames/assembly-manual.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/assembly-manual/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/assembly-manual/DEMO.md"
+  },
+  {
+   "slug": "code-walkthrough",
+   "num": "95",
+   "en": "Code Walkthrough",
+   "cn": "代码讲解体",
+   "cat": "信息与发布",
+   "cat_en": "Information & Keynote",
+   "film": "One Character Short",
+   "line": "A binary search says 16 is not in the list when it is; a pointer trace shows the loop quits with one candidate left, and a one-character diff (< becomes <=) fixes it, with every output taken from a real Python run.",
+   "line_cn": "一段二分查找明明有 16 却回答“没有”：指针逐步追踪发现循环在只剩一个候选时就退出了，改一个字符（< 变 <=）即修好，片中每个输出都来自真实的 Python 运行。",
+   "uses": [
+    "Explaining a function or an algorithm step by step: pointers, variables and the line that runs, in lockstep",
+    "A bug post-mortem or a code review: the wrong output, the line at fault, a red and green diff, the rerun",
+    "An API tutorial or an architecture tour: request in the editor, response in the terminal, boxes and arrows that grow with the narration"
+   ],
+   "dur": 67,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/code-walkthrough.mp4",
+   "frame": "../docs/frames/code-walkthrough.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/code-walkthrough/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/code-walkthrough/DEMO.md"
+  },
+  {
    "slug": "rubber-hose",
    "num": "26",
    "en": "1930s Rubber Hose Cartoon",
@@ -1348,6 +1392,28 @@ window.GALLERY = {
    "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/sea-adventure/DEMO.md"
   },
   {
+   "slug": "webtoon-scroll",
+   "num": "97",
+   "en": "Webtoon Scroll",
+   "cn": "条漫竖滚体",
+   "cat": "卡通与动画",
+   "cat_en": "Cartoon & Anime",
+   "film": "The Umbrella Says No",
+   "line": "One episode of an invented webcomic on a single vertical strip: a commuter loses an argument with her stubborn umbrella through a slow walk, a whip-scroll chase down a staircase, a hard stop in a puddle and a tall silent gutter, until the rain stops and the umbrella turns out to have been a parasol all along.",
+   "line_cn": "一集原创条漫，整部作品是一条竖滚长卷：通勤的姑娘在和固执的雨伞争执中输了，慢速漫步、飞速下滚的楼梯追逐、泥坑里的急停、一段留白的长间隙之后雨停了，原来那把伞从头到尾是遮阳伞。",
+   "uses": [
+    "Short stories and daily-life comics told as an episode, with gutters as timing and a cliffhanger end bar",
+    "Explainers and product stories told as a character walking down one long strip: one panel per idea, a whip scroll for the big reveal",
+    "Tutorials and how-tos as numbered panels with balloons, narration boxes and a next-episode or next-lesson bar"
+   ],
+   "dur": 62.5,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/webtoon-scroll.mp4",
+   "frame": "../docs/frames/webtoon-scroll.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/webtoon-scroll/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/webtoon-scroll/DEMO.md"
+  },
+  {
    "slug": "pixel-rpg",
    "num": "29",
    "en": "16-bit Pixel RPG",
@@ -1456,6 +1522,28 @@ window.GALLERY = {
    "frame": "../docs/frames/pixel-8bit.jpg",
    "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/pixel-8bit/STYLE.md",
    "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/pixel-8bit/DEMO.md"
+  },
+  {
+   "slug": "versus-screen",
+   "num": "96",
+   "en": "Versus Screen",
+   "cn": "对战对比体",
+   "cat": "游戏",
+   "cat_en": "Games",
+   "film": "Kettle Clash",
+   "line": "Two invented kettles fight a four-round versus screen on price, boil time, keep-warm and capacity: a hard diagonal slash, a VS that slams in with shake and a colour split, life bars that lose a quarter per round, a frame-skip hit-stop on every impact, and a 3 to 1 tally that crowns a winner and still says who to pick if you sip slowly.",
+   "line_cn": "两把虚构电水壶打一场四回合的对战画面，比价格、烧水速度、保温和容量：一道硬斜线，带震屏和色散砸进来的 VS，每输一回合掉四分之一血条，每次命中都停几帧，最后 3 比 1 的战绩宣布赢家，也告诉慢慢喝茶的人该选谁。",
+   "uses": [
+    "Two-way product comparisons (phones, plans, appliances, tools)",
+    "Framework, service or tool face-offs for a technical audience",
+    "Diet, city, route or option comparisons with a clear verdict"
+   ],
+   "dur": 56,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/versus-screen.mp4",
+   "frame": "../docs/frames/versus-screen.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/versus-screen/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/versus-screen/DEMO.md"
   },
   {
    "slug": "silent-film",
@@ -2021,8 +2109,8 @@ window.GALLERY = {
   }
  ],
  "counts": {
-  "total": 82,
-  "added": 39,
+  "total": 86,
+  "added": 43,
   "demos": 6
  }
 };

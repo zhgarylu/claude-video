@@ -81,6 +81,8 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | Chat Log | 聊天记录体 | [`chat-log`](chat-log/STYLE.md) | *She Knows* | ★ added here · 本仓库新增 |
 | Danmaku Comments | 弹幕体 | [`danmaku`](danmaku/STYLE.md) | *Day 3: I will not kill this starter* | ★ added here · 本仓库新增 |
 | Language Micro-lesson | 语言学习微课 | [`language-lesson`](language-lesson/STYLE.md) | *Three Little Words* | ★ added here · 本仓库新增 |
+| Assembly Manual | 步骤说明书体 | [`assembly-manual`](assembly-manual/STYLE.md) | *Drip 1: Assembly Guide* | ★ added here · 本仓库新增 |
+| Code Walkthrough | 代码讲解体 | [`code-walkthrough`](code-walkthrough/STYLE.md) | *One Character Short* | ★ added here · 本仓库新增 |
 
 ## Cartoon & Anime · 卡通与动画
 
@@ -95,6 +97,7 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | Manga Panel | 漫画黑白网点 | [`manga-panel`](manga-panel/STYLE.md) | *The Last Pineapple Bun* | ★ added here · 本仓库新增 |
 | Shonen Battle | 热血少年漫 | [`shonen-battle`](shonen-battle/STYLE.md) | *Round One: The Jar* | ★ added here · 本仓库新增 |
 | Sea Adventure Manga | 航海冒险漫 | [`sea-adventure`](sea-adventure/STYLE.md) | *Five Hats and One Sock* | ★ added here · 本仓库新增 |
+| Webtoon Scroll | 条漫竖滚体 | [`webtoon-scroll`](webtoon-scroll/STYLE.md) | *The Umbrella Says No* | ★ added here · 本仓库新增 |
 
 ## Games · 游戏
 
@@ -105,6 +108,7 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | Microgame Frenzy | 微游戏快闪（瓦里奥制造式） | [`microgame`](microgame/STYLE.md) | *Five-Second Astronaut* | Lemo-Opuscar |
 | Game Show Flat | 综艺节奏扁平 | [`game-show`](game-show/STYLE.md) | *Rhythm of AI, 1997 → 2026* | Lemo-Opuscar |
 | 8-bit Console Pixel | 8-bit 红白机像素 | [`pixel-8bit`](pixel-8bit/STYLE.md) | *Dusklight* | ★ added here · 本仓库新增 |
+| Versus Screen | 对战对比体 | [`versus-screen`](versus-screen/STYLE.md) | *Kettle Clash* | ★ added here · 本仓库新增 |
 
 ## Cinema & Eras · 电影与时代
 

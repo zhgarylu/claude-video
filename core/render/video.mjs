@@ -1,4 +1,5 @@
-// 渲视频：node core/render/video.mjs <demo> [--fps 24] [--workers 3] [--q 'k=v'] [--out <demo>/out/video.mp4] [--size 1920x1080]
+// 渲视频：node core/render/video.mjs <demo> [--fps 24] [--workers 3] [--q 'k=v'] [--out <demo>/out/video.mp4] [--size 1920x1080] [--resume [--keep-parts]]
+// --resume：按 96 帧一块渲，每块单独存成 <out>.parts/part_NNNNN.mp4；渲到一半崩了、被中断，再跑同一条命令只补没渲完的块（页面文件、fps、尺寸、--q 变了就作废重来）。不加 --resume 行为不变。
 // 多个片子并行制作时 workers 用 3（默认），单独渲染可开到 6
 // 每个 worker 独立浏览器，JPEG 截图经管道交给 ffmpeg；最后无损拼接
 // 设了环境变量 RENDER_SLOTS（整数）时，整机最多同时这么多个整片渲染（slot.mjs）；不设就不限。分段文件放在 --out 旁边各自独有的隐藏目录，渲完（或失败、被中断）就删。
@@ -8,7 +9,7 @@ import fs from 'fs'; import path from 'path'; import { spawn, execFileSync } fro
 import { openDemo, closeServer, requireDemo, takeSize } from './page.mjs';
 const args = process.argv.slice(2), { w: W, h: H } = takeSize(args), opt = (k, d) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : d; };
 const dir = args[0]; requireDemo(dir);
-const FPS = +opt('--fps', 24), WK = +opt('--workers', 3), Q = opt('--q', '');
+const FPS = +opt('--fps', 24), WK = +opt('--workers', 3), Q = opt('--q', ''), RESUME = args.includes('--resume'), KEEP = args.includes('--keep-parts');
 if (!(FPS > 0) || !Number.isInteger(WK) || WK < 1) { console.error('bad --fps / --workers: fps must be > 0, workers an integer ≥ 1'); process.exit(2); }
 const out = path.resolve(opt('--out', path.join(dir, 'out', 'video.mp4')));
 const outDir = path.dirname(out), base = path.basename(out, path.extname(out));
@@ -41,6 +42,37 @@ segDir = fs.mkdtempSync(path.join(outDir, `.${base}_segs-`)); fs.writeFileSync(p
 const probe = await openDemo(dir, { w: W, h: H, q: Q }); const DUR = await probe.page.evaluate(() => window.DUR); await probe.browser.close();
 if (!(DUR > 0)) fail(`window.DUR must be a positive number of seconds (got ${DUR})`);
 const TOTAL = Math.round(DUR * FPS), per = Math.ceil(TOTAL / WK), t0 = Date.now();
+
+// —— --resume：固定大小的块，渲完一块存一块 ——
+if (RESUME) {
+  const crypto = await import('crypto'), CH = 96, parts = out + '.parts', nChunks = Math.ceil(TOTAL / CH);
+  const walk = (d, depth) => { const r = []; for (const f of fs.readdirSync(d, { withFileTypes: true })) { if (['out', 'stills', 'node_modules', 'check', 'poster'].includes(f.name) || f.name.startsWith('.')) continue; const p = path.join(d, f.name); if (f.isDirectory()) { if (depth < 3) r.push(...walk(p, depth + 1)); } else if (/\.(js|mjs|html|css|json|jpg|png|glb|splat|spz|ttf|woff2?)$/i.test(f.name)) { const st = fs.statSync(p); r.push(`${path.relative(dir, p)}:${st.size}:${Math.round(st.mtimeMs)}`); } } return r; };
+  let fileList = []; try { fileList = walk(dir, 0).sort(); } catch {}
+  const key = crypto.createHash('sha1').update(JSON.stringify({ FPS, W, H, Q, TOTAL, fileList })).digest('hex');
+  fs.mkdirSync(parts, { recursive: true });
+  const kf = path.join(parts, 'key.txt'); if (!fs.existsSync(kf) || fs.readFileSync(kf, 'utf8') !== key) { for (const n of fs.readdirSync(parts)) fs.rmSync(path.join(parts, n), { recursive: true, force: true }); fs.writeFileSync(kf, key); }
+  const nameOf = i => path.join(parts, `part_${String(i).padStart(5, '0')}.mp4`), frames = i => Math.min(TOTAL, (i + 1) * CH) - i * CH;
+  const have = i => { try { if (!fs.existsSync(nameOf(i))) return false; const n = parseInt(execFileSync('ffprobe', ['-v', 'error', '-count_frames', '-select_streams', 'v:0', '-show_entries', 'stream=nb_read_frames', '-of', 'csv=p=0', nameOf(i)]).toString().trim(), 10); return n === frames(i); } catch { return false; } };
+  const todo = []; for (let i = 0; i < nChunks; i++) if (!have(i)) todo.push(i);
+  console.log(`resume: ${nChunks - todo.length} of ${nChunks} blocks already rendered, ${todo.length} to go`);
+  let next = 0;
+  try { await Promise.all([...Array(Math.min(WK, todo.length || 1))].map(async (_, w) => {
+    if (!todo.length) return; const { browser, page } = await openDemo(dir, { w: W, h: H, q: Q });
+    while (next < todo.length) {
+      const ci = todo[next++], a = ci * CH, b = Math.min(TOTAL, a + CH), tmp = nameOf(ci).replace(/\.mp4$/, '.tmp.mp4');
+      const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(FPS), '-c:v', 'mjpeg', '-i', '-', '-c:v', 'libx264', '-preset', 'medium', '-crf', '14', '-pix_fmt', 'yuv420p', '-g', String(FPS * 2), path.basename(tmp)], { cwd: parts, stdio: ['pipe', 'inherit', 'inherit'] });
+      procs.add(ff); let done; const closed = new Promise(r => { done = r; }); ff.on('close', code => { procs.delete(ff); done(code); }); ff.on('error', () => done(-1)); ff.stdin.on('error', () => {});
+      for (let f = a; f < b; f++) { await page.evaluate(t => window.render(t), f / FPS); const buf = await page.screenshot({ type: 'jpeg', quality: 95 }); if (!ff.stdin.write(buf)) await Promise.race([new Promise(r => ff.stdin.once('drain', r)), closed]); }
+      ff.stdin.end(); const code = await closed; if (code !== 0) throw new Error(`ffmpeg failed on block ${ci} (exit ${code})`);
+      fs.renameSync(tmp, nameOf(ci)); console.log(`w${w} block ${ci + 1}/${nChunks} done  ${((Date.now() - t0) / 1000).toFixed(0)}s`);
+    }
+    await browser.close();
+  })); } catch (e) { fail(`render stopped: ${String(e.message || e).split('\n')[0]}\nThe finished blocks are kept in ${parts}: run the same command again to carry on.`); }
+  const lst = path.join(parts, 'list.txt'); fs.writeFileSync(lst, [...Array(nChunks)].map((_, i) => `file '${path.basename(nameOf(i))}'`).join('\n'));
+  try { execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', 'list.txt', '-c', 'copy', 'merged.mp4'], { cwd: parts, stdio: ['ignore', 'inherit', 'inherit'] }); } catch { fail('ffmpeg could not join the blocks (its message is above)'); }
+  fs.renameSync(path.join(parts, 'merged.mp4'), out); if (!KEEP) fs.rmSync(parts, { recursive: true, force: true });
+  cleanup(); release(); console.log('done', out, TOTAL, 'frames', ((Date.now() - t0) / 1000).toFixed(0) + 's'); closeServer(); process.exit(0);
+}
 try { await Promise.all([...Array(WK)].map(async (_, w) => {
   const a = w * per, b = Math.min(TOTAL, a + per); if (a >= b) return;
   const { browser, page } = await openDemo(dir, { w: W, h: H, q: Q });

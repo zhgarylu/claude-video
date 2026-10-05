@@ -1,0 +1,9 @@
+<!doctype html><meta charset="utf-8"><title>hostfx contact sheet</title><style>html,body{margin:0;background:#222}canvas{display:block}</style><canvas id="c" width="1920" height="1080"></canvas>
+<script type="module">
+import { loadHost } from '/tools/talk/host.js'; import { fxFrames, FX } from '/tools/talk/hostfx.js';
+const Q = new URLSearchParams(location.search), base = Q.get('src') || '/films/splitflap-intro/src', k = +(Q.get('k') || 220), cut = Q.get('cut') === '1';
+const host = await loadHost(base); const g = document.getElementById('c').getContext('2d'); g.fillStyle = '#2a2a2e'; g.fillRect(0, 0, 1920, 1080);
+const kinds = ['original', ...FX]; const cols = 3, cw = 640, ch = 360;
+kinds.forEach((kind, i) => { const x = (i % cols) * cw, y = Math.floor(i / cols) * ch + 0; const fr = kind === 'original' ? host.frames : fxFrames(host, kind, { cutout: cut }); g.save(); g.beginPath(); g.rect(x, y, cw, ch); g.clip(); g.drawImage(fr[k], x, y, cw, ch); g.restore(); g.fillStyle = '#fff'; g.font = '700 22px sans-serif'; g.fillText(kind, x + 10, y + 28); });
+window.DUR = 1; window.render = () => 'ok'; window.READY = true;
+</script>

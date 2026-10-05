@@ -1,0 +1,10 @@
+Kettle Clash (versus-screen demo): third-party assets
+Fonts (SIL Open Font License 1.1, self-hosted in demo/fonts/, not committed; build.sh fetches them from the google/fonts repository)
+- Big Shoulders Display, variable (The Big Shoulders Project Authors, Chicago Design Studio; ofl/bigshouldersdisplay): headlines, names, numbers, banners. Licence: demo/fonts/OFL-bigshoulders.txt
+- Chakra Petch Medium, Bold (Cadson Demak; ofl/chakrapetch): rule chips, captions, class tags. Licence: demo/fonts/OFL-chakra.txt
+Picture
+- Everything is drawn in code on one 2D canvas (demo/main.js, demo/kettle.js): the arena, slash, kettles, bars, HUD, crowd silhouettes, confetti. No images, footage or textures. "Brisk B5", "Pebble P2", "Onyx O3", "Fern F1", "Dune D4", "Cobalt C7" and every figure shown (prices, times, temperatures, litres) are invented; no real brand, product or test.
+Voice
+- None. No speech engine, no subtitles file.
+Sound
+- Synthesised in demo/mix.py (numpy/scipy, core/audio/sfx.py, MIT): the original 120 BPM loop (kick, clap, hats, bass, saw stabs, square plucks, riser, gong) and every effect. No samples, no recordings, no existing music.

@@ -1,0 +1,31 @@
+1
+00:00:00,600 --> 00:00:05,165
+Drip 1. A coffee stand, in 5 steps.
+
+2
+00:00:05,500 --> 00:00:10,833
+Check your parts. 6 pieces, 4 screws, 1 key.
+
+3
+00:00:12,700 --> 00:00:19,450
+Step 1. Set the pole in the base. Turn both screws until they click.
+
+4
+00:00:19,500 --> 00:00:27,704
+Step 2. Slide the arm down the pole. Hold the base steady, and tighten the knob.
+
+5
+00:00:29,400 --> 00:00:35,862
+Step 3. Ring on the arm, notch facing down. 2 screws.
+
+6
+00:00:36,600 --> 00:00:40,919
+Step 4. Lower the cone into the ring.
+
+7
+00:00:41,000 --> 00:00:45,477
+Step 5. Slide the carafe underneath.
+
+8
+00:00:49,300 --> 00:00:51,521
+Done. Time for coffee.

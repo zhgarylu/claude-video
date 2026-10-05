@@ -1,12 +1,14 @@
 // Template page for a talking-head film. Reads film.json, draws the host in the chosen layout, adds the content and the captions.
 // Replace drawContent() with the style's own graphics: this default is a plain placeholder (title + the items from film.json).
 import { loadHost } from '/tools/talk/host.js';
+import { fxFrames } from '/tools/talk/hostfx.js';
 import { splitLayout, pipLayout, worldLayout, worldLayoutV, captions, bullets, cuesFromWords, cueWords, THEME } from '/tools/talk/layouts.js';
 
 const F = await fetch('film.json').then(r => r.json());
 const [AW, AH] = (F.aspect || '16x9').split('x').map(Number), V = AH > AW;      // aspect '9x16' = a portrait short-video film (always the `world` layout)
 const W = V ? 1080 : 1920, H = V ? 1920 : 1080, cv = document.getElementById('c'); cv.width = W; cv.height = H; const ctx = cv.getContext('2d');
 const host = await loadHost('src');
+if (F.hostFx) host.frames = fxFrames(host, F.hostFx.kind, F.hostFx);          // film.json: "hostFx": {"kind": "halftone", "cutout": true}: the host itself in the style (tools/talk/hostfx.js)
 const words = await fetch('src/words.json').then(r => r.json());
 const theme = { ...THEME, ...(F.theme || {}), hues: { ...THEME.hues, ...((F.theme || {}).hues || {}) } };
 const cues = Array.isArray(F.captions?.cues) ? F.captions.cues : cuesFromWords(words, V ? { maxChars: 14, gap: .45, balance: true } : {});

@@ -1,7 +1,7 @@
 """A talking-head film in one command: check the host video, prepare it, matte, track, build, check.
 
   .venv/bin/python tools/talk/film.py <host.mp4> films/<name> [--layout split|pip|world] [--aspect 16x9|9x16] [--title "…"] [--lang zh|en]
-        [--prompt "terms the host says"] [--corners "x,y,x,y,x,y,x,y" [--ref 12]] [--no-build] [--force] [--from step]
+        [--prompt "terms the host says"] [--corners "x,y,x,y,x,y,x,y" [--ref 12]] [--fx halftone|pixel|ascii|engrave|comic|duotone|ink|neon [--fx-cutout]] [--no-build] [--force] [--from step]
 
 Steps, each printed with its command and time: hostcheck → new-film (frames, voice, word timings, template) → matte (macOS only, skipped elsewhere) →
 track (only with --corners: a surface to follow, then a contact sheet to look at) → build (render, mix, subtitles, master) → check (tools/check.py and
@@ -12,7 +12,7 @@ import argparse, json, os, subprocess, sys, time
 
 ap = argparse.ArgumentParser(); ap.add_argument('host'); ap.add_argument('film')
 ap.add_argument('--layout', default='world'); ap.add_argument('--aspect', default='16x9'); ap.add_argument('--title', default='Talking-head film'); ap.add_argument('--lang', default='zh'); ap.add_argument('--prompt', default='')
-ap.add_argument('--corners'); ap.add_argument('--ref', type=int, default=12); ap.add_argument('--no-build', action='store_true'); ap.add_argument('--force', action='store_true')
+ap.add_argument('--fx', default=''); ap.add_argument('--fx-cutout', action='store_true'); ap.add_argument('--corners'); ap.add_argument('--ref', type=int, default=12); ap.add_argument('--no-build', action='store_true'); ap.add_argument('--force', action='store_true')
 ap.add_argument('--from', dest='frm', default='hostcheck', choices=['hostcheck', 'new-film', 'matte', 'track', 'build', 'check'])
 A = ap.parse_args()
 LIB = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))); PY = os.path.join(LIB, '.venv/bin/python'); PY = PY if os.path.exists(PY) else sys.executable
@@ -30,7 +30,7 @@ def step(nm, cmd, ok=(0,), stop=True, cwd=LIB):
 
 step('hostcheck', [PY, 'tools/talk/hostcheck.py', os.path.abspath(A.host)] + (['--board'] if A.corners else []), ok=(0, 1) if A.force else (0,))
 if os.path.exists(os.path.join(film, 'film.json')) and A.frm == 'hostcheck': A.frm = 'matte'; print('\n%s already exists: skipping new-film (use --from new-film on a new folder to start over)' % name)
-step('new-film', ['sh', 'tools/talk/new-film.sh', os.path.abspath(A.host), film, '--layout', A.layout, '--aspect', A.aspect, '--title', A.title, '--lang', A.lang, '--prompt', A.prompt, '--no-build'])
+step('new-film', ['sh', 'tools/talk/new-film.sh', os.path.abspath(A.host), film, '--layout', A.layout, '--aspect', A.aspect, '--title', A.title, '--lang', A.lang, '--prompt', A.prompt, '--no-build'] + (['--fx', A.fx] if A.fx else []) + (['--fx-cutout'] if A.fx_cutout else []))
 if sys.platform == 'darwin': step('matte', ['sh', 'tools/matte/run.sh', film], ok=(0, 3), stop=False)
 else: print('\n== matte == skipped (macOS only)')
 if A.corners:

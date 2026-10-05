@@ -1,0 +1,18 @@
+{
+ "slug": "assembly-manual",
+ "num": "94",
+ "en": "Assembly Manual",
+ "cn": "步骤说明书体",
+ "category_en": "Information & Keynote",
+ "category_cn": "信息与发布",
+ "film": "Drip 1: Assembly Guide",
+ "line": "An invented pour-over coffee stand built page by page: an exploded cover, a parts page with codes and quantities, five numbered steps where parts fly along dotted lines and snap in on the beat, zoom circles on the clicks, a person pictogram and a crossed-out mistake, then a held pause and the first drop into the carafe.",
+ "line_cn": "一座虚构的手冲咖啡架，按说明书一页页装起来：爆炸图封面、带编号和数量的零件页、五个编号步骤——零件沿虚线飞来、踩着拍点咔哒到位，圆形放大镜框框出「咔」的细节，还有小人图示和划掉的错误示范；最后一声静默，第一滴咖啡落进壶里。",
+ "uses": [
+  "Furniture, device and kit set-up guides",
+  "Recipes, workouts and craft how-tos told one action per page",
+  "Onboarding, safety and maintenance steps for products and tools"
+ ],
+ "frame_sec": 53.0,
+ "dur": 58
+}
