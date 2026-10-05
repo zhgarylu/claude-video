@@ -1,0 +1,43 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>Preview demo · 预览台演示</title><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{--bg:#111214;--panel:#1a1c1f;--line:#2c2f34;--fg:#e8e6df;--dim:#8d9097;--acc:#f4b428;--bad:#ef6b5b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.5 -apple-system,system-ui,"PingFang SC",sans-serif}
+header{padding:12px 16px;border-bottom:1px solid var(--line);display:flex;gap:14px;align-items:center;flex-wrap:wrap}header a{color:var(--acc)}header p{margin:0;color:var(--dim);flex:1;min-width:260px}
+main{display:grid;grid-template-columns:1fr 330px;min-height:calc(100vh - 54px)}
+#left{display:flex;flex-direction:column}#stageWrap{position:relative;background:#000;aspect-ratio:16/9;width:100%}#stageWrap video{position:absolute;inset:0;width:100%;height:100%}
+#boxes{position:absolute;inset:0;pointer-events:none}.box{position:absolute;border:2px solid var(--acc);background:rgba(244,180,40,.10);font:10px monospace;color:var(--acc);overflow:hidden;white-space:nowrap}
+#bar{background:var(--panel);border-top:1px solid var(--line);padding:8px 12px;display:flex;flex-direction:column;gap:6px}
+#tl{position:relative;height:30px}#ticks{position:absolute;inset:0;width:100%;height:30px}
+input[type=range]{width:100%;margin:0;position:absolute;top:0;left:0;height:30px;background:none;-webkit-appearance:none}
+input[type=range]::-webkit-slider-runnable-track{height:4px;background:var(--line);margin-top:13px}input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:26px;margin-top:-11px;border-radius:3px;background:var(--acc)}
+#ctl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}button{background:#25282c;color:var(--fg);border:1px solid var(--line);border-radius:5px;padding:4px 9px;font:inherit;cursor:pointer}button:hover{border-color:var(--acc)}
+#time{font:600 15px ui-monospace,Menlo,monospace;min-width:150px}label{color:var(--dim);display:flex;gap:4px;align-items:center}
+aside{background:var(--panel);border-left:1px solid var(--line);padding:12px;overflow:auto;max-height:calc(100vh - 54px)}h3{margin:14px 0 6px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}h3:first-child{margin-top:0}
+.row{padding:5px 0;border-bottom:1px solid var(--line)}.row b{color:var(--acc);font-weight:600}.row small{color:var(--dim)}
+@media(max-width:900px){main{grid-template-columns:1fr}aside{max-height:none;border-left:0;border-top:1px solid var(--line)}}
+</style></head><body>
+<header><a href="./#tools">← <span class="zh">工具与模块</span><span class="en" hidden>Tools</span></a>
+<p><span class="zh">这是预览台的<b>录像版</b>：用一部做好的片子（聊天记录体样片）和事先导出的文字、事件数据，在浏览器里演示。真正的预览台是本地运行的，能直接渲染你正在改的页面。</span><span class="en" hidden>A <b>recorded</b> demo of the preview page: a finished film (the Chat Log sample) with its texts and events exported beforehand. The real preview runs locally and renders the page you are editing.</span></p></header>
+<main><div id="left"><div id="stageWrap"><video id="v" playsinline preload="metadata" controlslist="nodownload"></video><div id="boxes"></div></div>
+<div id="bar"><div id="tl"><canvas id="ticks" height="30"></canvas><input id="r" type="range" min="0" max="60" step="0.01" value="0"></div>
+<div id="ctl"><button id="play">▶</button><span id="time">0.00 s · f0</span><button id="prev">◀ event</button><button id="next">event ▶</button><label><input id="bx" type="checkbox" checked> <span class="zh">文字框</span><span class="en" hidden>text boxes</span></label></div></div></div>
+<aside><h3 class="zh">当前屏幕上的文字（TEXTS）</h3><h3 class="en" hidden>Texts on screen now (TEXTS)</h3><div id="texts"></div><h3 class="zh">前后 1 秒的事件（EV）</h3><h3 class="en" hidden>Events within ±1 s (EV)</h3><div id="evs"></div>
+<h3 class="zh">快捷键</h3><h3 class="en" hidden>Keys</h3><div class="row"><small>space · ←/→ · shift+←/→ · [ ]</small></div></aside></main>
+<script>
+const $=id=>document.getElementById(id),FPS=24,v=$('v');let D=null,t=0;
+let lang='zh';try{lang=localStorage.getItem('lang')||((navigator.language||'').toLowerCase().startsWith('zh')?'zh':'en')}catch(e){}
+document.querySelectorAll('.zh').forEach(e=>e.hidden=lang!=='zh');document.querySelectorAll('.en').forEach(e=>e.hidden=lang==='zh');document.documentElement.lang=lang==='zh'?'zh-CN':'en';
+fetch('preview-data.json').then(r=>r.json()).then(d=>{D=d;v.src='https://github.com/zhgarylu/claude-video/releases/download/films/chat-log.mp4';$('r').max=d.dur;ticks();show()});
+function ticks(){const c=$('ticks');c.width=c.clientWidth*devicePixelRatio;const g=c.getContext('2d');g.scale(devicePixelRatio,devicePixelRatio);for(const e of D.ev){const x=e.t/D.dur*c.clientWidth;g.fillStyle=({in:'#5fd0a0',send:'#5fd0a0',zoom:'#6aa6ff'})[e.type]||'#f4b428';g.fillRect(x,4,1.5,10)}}
+function textsAt(x){let cur=[];for(const [tt,tx] of D.texts){if(tt<=x+1e-6)cur=tx;else break}return cur}
+function show(){if(!D)return;t=v.currentTime||t;$('r').value=t;$('time').textContent=`${t.toFixed(2)} s · f${Math.round(t*FPS)}`;const tx=textsAt(t);
+ $('texts').innerHTML=tx.length?tx.slice(0,30).map(x=>`<div class="row"><b>${x.id}</b> <small>${x.x0},${x.y0} → ${x.x1},${x.y1}</small><br>${x.text.replace(/</g,'&lt;')}</div>`).join(''):'<div class="row"><small>—</small></div>';
+ const b=$('boxes');b.innerHTML='';if($('bx').checked)for(const x of tx){if(x.y1<0||x.y0>1080)continue;const d=document.createElement('div');d.className='box';d.style.cssText=`left:${x.x0/19.2}%;top:${x.y0/10.8}%;width:${(x.x1-x.x0)/19.2}%;height:${(x.y1-x.y0)/10.8}%`;d.textContent=x.id;b.appendChild(d)}
+ const ev=D.ev.filter(e=>Math.abs(e.t-t)<=1);$('evs').innerHTML=ev.length?ev.slice(0,30).map(e=>`<div class="row"><b>${e.t.toFixed(2)}</b> <small>${Object.entries(e).filter(([k])=>k!=='t').map(([k,v])=>k+'='+v).join(' ')}</small></div>`).join(''):'<div class="row"><small>—</small></div>'}
+v.addEventListener('timeupdate',show);v.addEventListener('seeked',show);(function loop(){if(!v.paused)show();requestAnimationFrame(loop)})();
+$('play').onclick=()=>{if(v.paused){v.play();$('play').textContent='❚❚'}else{v.pause();$('play').textContent='▶'}};v.addEventListener('pause',()=>$('play').textContent='▶');v.addEventListener('play',()=>$('play').textContent='❚❚');
+$('r').oninput=e=>{v.currentTime=+e.target.value;t=v.currentTime;show()};$('bx').onchange=show;
+const ts=()=>D.ev.map(e=>e.t).sort((a,b)=>a-b);$('next').onclick=()=>{const n=ts().find(x=>x>t+.02);if(n!=null){v.currentTime=n}};$('prev').onclick=()=>{const p=ts().filter(x=>x<t-.02).pop();if(p!=null){v.currentTime=p}};
+addEventListener('keydown',e=>{const k=e.key;if(k===' '){e.preventDefault();$('play').click()}else if(k==='ArrowRight'){v.currentTime=t+(e.shiftKey?1:1/FPS)}else if(k==='ArrowLeft'){v.currentTime=t-(e.shiftKey?1:1/FPS)}else if(k===']'){$('next').click()}else if(k==='['){$('prev').click()}});
+addEventListener('resize',()=>D&&ticks());
+</script></body></html>

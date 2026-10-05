@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Claude Video 风格图鉴</title>
-<meta name="description" content="73 种代码做的影片风格，30 种由本仓库新增，外加一套口播加风格解说的工作流。基于 lemomo-ai/lemo-opuscar（MIT）。">
+<meta name="description" content="75 种代码做的影片风格，32 种由本仓库新增，外加一套口播加风格解说的工作流。基于 lemomo-ai/lemo-opuscar（MIT）。">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3l11 6.5v13L16 29 5 22.5v-13z' fill='%237B5CF5'/%3E%3Cpath d='M16 3l11 6.5L16 16 5 9.5z' fill='%23A590FF'/%3E%3Cpath d='M16 16l11-6.5v13L16 29z' fill='%235B3FD6'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -33,6 +33,17 @@ a { color: inherit; }
 .btn.solid { background: var(--ink); color: var(--bg); }
 .btn.violet { background: var(--violet); border-color: var(--violet); color: #fff; }
 .btn:focus-visible, .chip:focus-visible, .card:focus-visible, .seg button:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid var(--violet); outline-offset: 2px; }
+
+/* tools */
+.tgroup { margin: 34px 0 14px; font-size: 22px; letter-spacing: -.01em; }
+.tools { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: start; }
+.tcard { min-width: 0; border: 2px solid var(--ink); border-radius: var(--r); background: var(--card); padding: 16px 16px 14px; box-shadow: 6px 6px 0 var(--ink); display: grid; gap: 10px; }
+.tcard h3 { margin: 0; font-size: 19px; line-height: 1.25; } .tcard p { margin: 0; font-size: 14.5px; color: var(--muted); }
+.tcard img { width: 100%; border-radius: 10px; border: 1px solid var(--line); background: var(--bg2); }
+.tcard .badges { display: flex; flex-wrap: wrap; gap: 6px; }
+.tcard pre { margin: 0; padding: 10px 12px; border-radius: 10px; background: var(--bg2); border: 1px solid var(--line); white-space: pre-wrap; word-break: break-all; font: 12.5px/1.5 ui-monospace, Menlo, Consolas, monospace; }
+.tcard .row { display: flex; flex-wrap: wrap; gap: 8px; } .tcard .row .btn { padding: 7px 13px; font-size: 14px; }
+.badge.mac { background: var(--coral); border-color: var(--coral); color: #fff; } .badge.any { background: var(--teal); border-color: var(--teal); color: #fff; }
 /* header */
 .top { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(14px); background: color-mix(in srgb, var(--bg) 82%, transparent); border-bottom: 1px solid var(--line); }
 .top .wrap { display: flex; align-items: center; gap: 22px; height: 64px; }
@@ -156,6 +167,7 @@ footer { padding: 46px 0 60px; border-top: 1px solid var(--line); background: va
 footer .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 30px; } footer h4 { margin: 0 0 8px; font-size: 16px; } footer p { margin: 0 0 8px; color: var(--muted); font-size: 14.5px; }
 @media (max-width: 960px) {
   .hero .wrap { grid-template-columns: 1fr; } .collage { max-width: 520px; transform: none; }
+  .tools { grid-template-columns: 1fr; }
   .steps, .layouts, .demos, .prompts { grid-template-columns: 1fr 1fr; } .v-wrap { grid-template-columns: 1fr; } footer .wrap { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
@@ -167,7 +179,7 @@ footer .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 30px; } foo
 <body>
 <header class="top"><div class="wrap">
   <a class="logo" href="#top" aria-label="Claude Video"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l11 6.5L16 16 5 9.5z" fill="#A590FF"/><path d="M5 9.5L16 16v13L5 22.5z" fill="#7B5CF5"/><path d="M16 16l11-6.5v13L16 29z" fill="#5B3FD6"/></svg>Claude Video</a>
-  <nav><a href="#talking" data-i="nav_talk"></a><a href="#prompts" data-i="nav_prompts"></a><a href="#styles" data-i="nav_styles"></a><a href="#about" data-i="nav_about"></a></nav>
+  <nav><a href="#talking" data-i="nav_talk"></a><a href="#prompts" data-i="nav_prompts"></a><a href="#tools" data-i="nav_tools"></a><a href="#styles" data-i="nav_styles"></a><a href="#about" data-i="nav_about"></a></nav>
   <span class="sp"></span>
   <button class="icon-btn" id="lang" aria-label="Language">EN</button>
   <button class="icon-btn" id="theme" aria-label="Theme">◐</button>
@@ -182,8 +194,8 @@ footer .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 30px; } foo
     <p class="lead" data-i="lead"></p>
     <div class="cta"><a class="btn violet" href="#talking" data-i="cta1"></a><a class="btn" href="#styles" data-i="cta2"></a></div>
     <div class="stats">
-      <div class="stat"><b id="n-total">73</b><span data-i="st_total"></span></div>
-      <div class="stat mine"><b id="n-added">30</b><span data-i="st_added"></span></div>
+      <div class="stat"><b id="n-total">75</b><span data-i="st_total"></span></div>
+      <div class="stat mine"><b id="n-added">32</b><span data-i="st_added"></span></div>
       <div class="stat"><b id="n-demos">3</b><span data-i="st_demos"></span></div>
     </div>
   </div>
@@ -205,6 +217,13 @@ footer .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 30px; } foo
   <div class="prompts" id="prompts-list"></div>
   <div class="cmdbox"><span class="cmd">sh tools/talk/new-film.sh host.mp4 films/my-film --layout world --lang zh</span>
     <span class="row"><a class="btn" href="https://github.com/zhgarylu/claude-video/tree/main/prompts/talking-head" target="_blank" rel="noopener" data-i="p_all"></a></span></div>
+</div></section>
+
+<section id="tools" class="band"><div class="wrap">
+  <div class="sec-head"><span class="kicker" data-i="tl_kicker"></span><h2 data-i="tl_h"></h2><p data-i="tl_p"></p></div>
+  <div id="tools-list"></div>
+  <div class="cmdbox"><span class="cmd">python tools/talk/film.py host.mp4 films/my-film --lang zh</span>
+    <span class="row"><a class="btn" href="https://github.com/zhgarylu/claude-video/blob/main/tools/README.md" target="_blank" rel="noopener">tools/README.md</a><a class="btn violet" href="preview-demo.html" data-i="tl_demo"></a></span></div>
 </div></section>
 
 <section id="styles"><div class="wrap">
@@ -248,8 +267,9 @@ const store = { get: k => { try { return localStorage.getItem(k); } catch (e) { 
 
 const T = {
   zh: {
+    nav_tools: '工具', tl_kicker: 'Tools', tl_h: '做片子用的工具与模块', tl_p: '从拿到博主视频，到生成提示词、跟踪画面里的牌子、抠像、预览、检查声音和出海报，每一步都有一个小工具。橙红标记的只能在 macOS 上用，青色标记的任何系统都能用。', tl_demo: '预览台在线演示', tl_gz: '做之前', tl_gm: '做的时候', tl_ga: '做完之后', tl_any: '任何系统', tl_mac: '仅 macOS', tl_part: '部分功能仅 macOS', tl_src: '源码', tl_try: '试试看',
     nav_talk: '口播解说', nav_styles: '风格', nav_about: '来源', eyebrow: '基于 Lemo-Opuscar · MIT',
-    h1: '<em>73</em> 种影片风格，<br>外加口播解说工作流', lead: '每种风格都是一份可复用的提示词，配一支完全用代码做出来的短片。本仓库在原项目的 43 种之上新增了 30 种，还有一套把真人（或 AI 生成）口播视频放进风格里的做法。',
+    h1: '<em>{N}</em> 种影片风格，<br>外加口播解说工作流', lead: '每种风格都是一份可复用的提示词，配一支完全用代码做出来的短片。本仓库在原项目的 43 种之上新增了 {A} 种，还有一套把真人（或 AI 生成）口播视频放进风格里的做法。',
     cta1: '看口播解说 demo', cta2: '浏览全部风格', st_total: '种风格', st_added: '种本仓库新增', st_demos: '个口播 demo',
     t_kicker: 'Talking-head', t_h: '口播视频 + 风格解说', t_p: '你带来一条讲者的视频，影片用某个风格把解释画在周围：名字、日期、数据、引线、字幕和配乐。讲者的话就是脚本，画面跟着声音走。',
     t_layouts: '三种版式，都有现成代码', nav_prompts: '视频提示词', p_kicker: 'Prompts', p_h: '口播视频提示词', p_p: '给 AI 视频工具用：让讲者站在风格世界里演内容。生成后拿去做“视频即世界”的口播解说。世界里的东西都是空白的，字由后期画。', p_copy: '复制提示词', p_copied: '已复制', p_view: '看源文件', p_show: '展开提示词', p_all: '全部提示词与写法', p_used: '已做成片', p_untested: '未试', p_template: '填空模板', p_facts: '事实截至',  demo_play: '播放', demos_src: 'demo 源码', source: '源码',
@@ -260,11 +280,12 @@ const T = {
     all: '全部', watch: '播放短片', download: '下载', style_md: 'STYLE.md', demo_md: 'DEMO.md', film: '片名', uses: '适合', close: '关闭',
     org_added: '★ 本仓库新增的风格，不属于原项目。短片、风格提示词和样片源码都在本仓库。', org_orig: '来自原项目 lemomo-ai/lemo-opuscar（MIT）。短片由原项目托管。',
     style: '风格', layout: '版式', host: '讲者', demo_note: '讲者视频由用户提供（AI 生成的虚构人物）。',
-    f_h1: '来源与授权', f_p1: '本仓库是 LemoLab 的 <b>lemomo-ai/lemo-opuscar</b> 的衍生版本（MIT）。原有的指南、工具、引擎和 43 种风格照原样使用，原协议和版权声明保留在 <code>LICENSE</code>。', f_p2: '新增的 30 种风格、口播加解说工作流和这个图鉴由 zhgarylu 与 Claude 做成，同样以 MIT 协议提供。', f_h2: '原项目', f_p3: '原项目的图鉴和短片见下面的链接。原 43 种风格的短片由原项目托管，点开时直接从它那里播放。', f_up_gallery: '原项目图鉴'
+    f_h1: '来源与授权', f_p1: '本仓库是 LemoLab 的 <b>lemomo-ai/lemo-opuscar</b> 的衍生版本（MIT）。原有的指南、工具、引擎和 43 种风格照原样使用，原协议和版权声明保留在 <code>LICENSE</code>。', f_p2: '新增的 {A} 种风格、口播加解说工作流和这个图鉴由 zhgarylu 与 Claude 做成，同样以 MIT 协议提供。', f_h2: '原项目', f_p3: '原项目的图鉴和短片见下面的链接。原 43 种风格的短片由原项目托管，点开时直接从它那里播放。', f_up_gallery: '原项目图鉴'
   },
   en: {
+    nav_tools: 'Tools', tl_kicker: 'Tools', tl_h: 'Tools and modules for making the film', tl_p: 'From getting the presenter video to writing prompts, tracking a board in the picture, matting, previewing, checking the sound and making posters: one small tool for each step. Coral means macOS only, teal means any system.', tl_demo: 'Preview page, recorded demo', tl_gz: 'Before', tl_gm: 'While making', tl_ga: 'After', tl_any: 'Any system', tl_mac: 'macOS only', tl_part: 'Partly macOS only', tl_src: 'Source', tl_try: 'Try it',
     nav_talk: 'Talking-head', nav_styles: 'Styles', nav_about: 'Credits', eyebrow: 'Based on Lemo-Opuscar · MIT',
-    h1: '<em>73</em> film styles,<br>plus a talking-head workflow', lead: 'Every style is a reusable prompt with a short film made entirely in code. This repository adds 30 styles to the original 43, and a way to put a presenter\'s video (real or AI-generated) inside one.',
+    h1: '<em>{N}</em> film styles,<br>plus a talking-head workflow', lead: 'Every style is a reusable prompt with a short film made entirely in code. This repository adds {A} styles to the original 43, and a way to put a presenter\'s video (real or AI-generated) inside one.',
     cta1: 'Watch the talking-head demos', cta2: 'Browse all styles', st_total: 'styles', st_added: 'added here', st_demos: 'talking-head demos',
     t_kicker: 'Talking-head', t_h: 'A presenter\'s video + a style\'s explainer graphics', t_p: 'Bring a video of someone talking, and the film draws the explanation around them in a style: names, dates, numbers, leaders, subtitles and score. The host\'s words are the script; the picture follows the voice.',
     t_layouts: 'Three layouts, ready-made in code', nav_prompts: 'Prompts', p_kicker: 'Prompts', p_h: 'Host-video prompts', p_p: 'For AI video tools: the host acts the story out inside a style\'s world, then the film adds the explanation around the video. Everything in the world is blank; the film draws the text. The prompts are in Chinese, the language the hosts speak.', p_copy: 'Copy prompt', p_copied: 'Copied', p_view: 'View source', p_show: 'Show the prompt', p_all: 'All prompts and tips', p_used: 'Used in a film', p_untested: 'Not tried yet', p_template: 'Template', p_facts: 'Facts as of',  demo_play: 'Play', demos_src: 'Demo sources', source: 'Source',
@@ -275,9 +296,10 @@ const T = {
     all: 'All', watch: 'Play the film', download: 'Download', style_md: 'STYLE.md', demo_md: 'DEMO.md', film: 'Film', uses: 'Good for', close: 'Close',
     org_added: '★ Added in this repository, not part of the original project. The film, the style prompt and the demo source are all here.', org_orig: 'From the original project lemomo-ai/lemo-opuscar (MIT). Its film is hosted by that project.',
     style: 'Style', layout: 'Layout', host: 'Host', demo_note: 'The host video was supplied by the user (an AI-generated fictional person).',
-    f_h1: 'Credits & licence', f_p1: 'This repository is a derivative of <b>lemomo-ai/lemo-opuscar</b> by LemoLab (MIT). The original guides, tools, engine and 43 styles are used as they were; the original licence and copyright notice stay in <code>LICENSE</code>.', f_p2: 'The 30 added styles, the talking-head workflow and this gallery were made by zhgarylu with Claude, also under MIT.', f_h2: 'The original project', f_p3: 'The original gallery and films are linked below. Films of the original 43 styles are hosted by that project and play straight from it.', f_up_gallery: 'Original gallery'
+    f_h1: 'Credits & licence', f_p1: 'This repository is a derivative of <b>lemomo-ai/lemo-opuscar</b> by LemoLab (MIT). The original guides, tools, engine and 43 styles are used as they were; the original licence and copyright notice stay in <code>LICENSE</code>.', f_p2: 'The {A} added styles, the talking-head workflow and this gallery were made by zhgarylu with Claude, also under MIT.', f_h2: 'The original project', f_p3: 'The original gallery and films are linked below. Films of the original 43 styles are hosted by that project and play straight from it.', f_up_gallery: 'Original gallery'
   }
 };
+for (const lg of Object.values(T)) for (const k in lg) if (typeof lg[k] === 'string') lg[k] = lg[k].replace(/\{N\}/g, G.counts.total).replace(/\{A\}/g, G.counts.added);
 let lang = store.get('lang') || ((navigator.language || 'en').toLowerCase().startsWith('zh') ? 'zh' : 'en');
 const L = () => T[lang];
 const pick = (o, k) => (lang === 'zh' ? o[k + '_cn'] ?? o[k] : o[k]);
@@ -288,6 +310,43 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;',
 const st = { q: '', cat: 'all', origin: 'all', sort: 'num' };
 const cats = [...new Map(S.map(s => [s.cat_en, s.cat])).entries()];
 
+
+// ---- tools ----
+const TOOLS = [
+  { g: 'z', id: 'hostcheck', os: 'part', dir: 'tools/talk/hostcheck.py', cmd: 'python tools/talk/hostcheck.py host.mp4 --board',
+    t: ['口播素材体检', 'Host-video check'], p: ['拿到博主视频先体检：尺寸、声音、停顿、镜头稳不稳、博主占画面多大。用大白话列出要重拍的地方，省得做到一半才发现。', 'Check the presenter video before you build: size, sound, pauses, how steady the camera is, how much of the frame the host fills. Problems come in plain words, before you spend time on a film.'] },
+  { g: 'z', id: 'prompt', os: 'any', dir: 'tools/prompt/gen.py', cmd: 'python3 tools/prompt/gen.py --id my-topic --title "…" --preset swiss --lines "开场|要点一|收尾" --seconds 30',
+    t: ['视频提示词生成器', 'Prompt generator'], p: ['给世界预设和你的口播稿，按口播长度排好每段的时间，写出给 AI 视频工具用的提示词。台词太长装不进时长时会拒绝，并告诉你要删多少字。', 'Give it a world preset and your spoken lines; it times each beat to the length of the speech and writes the prompt for an AI video tool. Lines that do not fit are refused, with how much to cut.'] },
+  { g: 'z', id: 'seedance', os: 'any', dir: 'tools/gen/seedance.py', cmd: 'export ARK_API_KEY=…\npython3 tools/gen/seedance.py prompt.md --image ref.jpg --yes',
+    t: ['Seedance 一键生成', 'Seedance, end to end'], p: ['把提示词和参考图交给火山方舟的 Seedance，等任务完成、下载 mp4，再自动体检。不加 --yes 只打印请求，不会扣费。照官方文档写成，用模拟服务器测过，没有用真实接口测过。', 'Send a prompt and a reference image to Seedance on Volcengine Ark, wait, download the mp4, then run the check. Without --yes it only prints the request and costs nothing. Written from the docs and tested against a mock server, not the live API.'] },
+  { g: 'z', id: 'teardown', os: 'part', img: 'teardown-storyboard.jpg', dir: 'tools/teardown', cmd: 'python tools/teardown/teardown.py video.mp4', extra: ['TEARDOWN.md', 'https://github.com/zhgarylu/claude-video/blob/main/TEARDOWN.md'],
+    t: ['视频拆解', 'Video teardown'], p: ['把一个视频拆开：镜头与节奏、运镜、色板、说了什么、屏幕上写了什么、声音。得到故事板和一份简报，用来在某个风格里重做它的结构，不是复制它的画面。', 'Take a video apart: shots and rhythm, camera, colours, what is said, what is written on screen, the sound. You get a storyboard and a brief to remake its structure in a style, not to copy its footage.'] },
+  { g: 'm', id: 'film', os: 'part', dir: 'tools/talk/film.py', cmd: 'python tools/talk/film.py host.mp4 films/my-film --corners "669,165,1021,37,1021,576,669,500"',
+    t: ['口播一键流水线', 'One-command pipeline'], p: ['体检、整理素材、抠像、跟踪、渲染、成片检查和音频报告，一条命令跑完。哪一步失败就停在哪一步，并告诉你怎么续跑。它省的是敲命令的时间，画面怎么设计还是你的事。', 'Check, prepare, matte, track, render, check the film and the sound: one command. It stops at the first step that fails and says how to resume. It saves typing, not directing.'] },
+  { g: 'm', id: 'track', os: 'any', img: 'track-check.jpg', dir: 'tools/track', cmd: 'python tools/track/board.py films/my-film --corners "x,y,…"\npython tools/track/check.py films/my-film',
+    t: ['画面里的牌子跟踪', 'Surface tracking'], p: ['逐帧跟踪视频里的牌子或屏幕，之后就能把你的内容按每一帧的透视贴上去。配一张检查图：绿框必须在每一格里都套在牌子上。', 'Track a board or screen through the footage, then warp your own content onto it with each frame\'s perspective. A check sheet draws the tracked quad: the green frame must sit on the surface in every cell.'] },
+  { g: 'm', id: 'matte', os: 'mac', img: 'matte.jpg', dir: 'tools/matte', cmd: 'sh tools/matte/run.sh films/my-film',
+    t: ['真人抠像', 'Person matte'], p: ['用 macOS 自带的 Vision 给每一帧抠出人，不下载任何模型。让博主能站在你画的牌子和背景字的前面。其他系统会自动回退到按颜色抠。', 'A person matte per frame with Apple Vision, no model download, so the host can stand in front of the board and the big words behind. Other systems fall back to a colour key.'] },
+  { g: 'm', id: 'localize', os: 'any', dir: 'tools/talk/localize.py', cmd: 'python tools/talk/localize.py export films/my-film/src\npython tools/talk/localize.py apply films/my-film/src --lang en --translations en.json --dub',
+    t: ['多语言字幕与配音', 'Another language'], p: ['导出博主每句话和它的时间，你翻译后生成对应时间的字幕，还可以用 Kokoro 配一条外语画外音，压进每句的时间窗。博主的嘴型还是原语言，所以只适合当画外音。', 'Export the host\'s sentences with their times, translate, and get captions at the same times, plus an optional Kokoro voice-over fitted into each window. The lips stay in the original language, so it works as a voice-over.'] },
+  { g: 'm', id: 'preview', os: 'any', img: 'preview.jpg', dir: 'tools/preview', cmd: 'node tools/preview/serve.mjs films/my-film', demo: true,
+    t: ['预览台', 'Preview page'], p: ['拖时间条看任意一秒，同步放声音，右边列出这一秒屏幕上每段文字和它的位置框（超出画面的标红）、前后 1 秒的事件，可以逐帧、跳事件、存帧。你一改文件就自动刷新。', 'Scrub to any second, play with the sound, and see every on-screen text with its box (red when it leaves the frame) and the events around it; step by frame, jump between events, save a frame. It reloads when you change a file.'] },
+  { g: 'a', id: 'check', os: 'any', img: 'film-check.jpg', dir: 'tools/check.py', cmd: 'python tools/check.py films/my-film/my-film.mp4 --srt my-film.srt --page films/my-film',
+    t: ['成片自检', 'Film check'], p: ['响度和峰值、黑场、卡住的画面、字幕重叠与阅读速度、屏幕文字够不够读，再拼一张 12 帧的联系图。它不能听，也不能判断好不好看：联系图要自己看一遍，声音要自己听一遍。', 'Loudness and peak, black frames, frozen stretches, subtitle overlaps and reading speed, whether on-screen text is readable, and a 12-frame contact sheet. It cannot hear or judge: look at the sheet and listen once.'] },
+  { g: 'a', id: 'audio', os: 'any', img: 'audio-spectrogram.jpg', dir: 'tools/audio', cmd: 'python tools/audio/report.py film.mp4 --sections 14,30,45 --voice voice.wav',
+    t: ['声音报告', 'Audio report'], p: ['给听不到声音的人，也给想要第二意见的人：每段的响度、音色平衡、立体声、削波和突变，一张频谱图，以及人声比其他声音高多少。它标出“这里值得听”，不判断好不好听。', 'For whoever cannot hear, and as a second opinion: loudness and tonal balance per section, stereo, clipping and jumps, a spectrogram, and how far the voice sits above everything else. It flags where to listen; it does not judge taste.'] },
+  { g: 'a', id: 'poster', os: 'any', img: 'posters.jpg', dir: 'tools/poster.py', cmd: 'python tools/poster.py --image still.jpg --title "CLAUDE VIDEO" --sub "…" --chips "a,b,c" --crop x,y,w,h',
+    t: ['海报（横屏加竖屏）', 'Posters, 16:9 and 9:16'], p: ['一张没有字幕的画面，出横屏和竖屏两张海报。画面要从页面里渲染（--q poster=1），不要从成片里截。', 'One subtitle-free still becomes a landscape and a portrait poster. Render the still from the page, do not cut it from the mp4.'] },
+];
+const BASE = 'https://github.com/zhgarylu/claude-video/tree/main/';
+function renderTools() {
+  const l = L(), grp = { z: l.tl_gz, m: l.tl_gm, a: l.tl_ga };
+  $('#tools-list').innerHTML = ['z', 'm', 'a'].map(g => `<h3 class="tgroup">${grp[g]}</h3><div class="tools">` + TOOLS.filter(x => x.g === g).map(x => {
+    const i = lang === 'zh' ? 0 : 1, os = l['tl_' + (x.os === 'any' ? 'any' : x.os === 'mac' ? 'mac' : 'part')];
+    return `<article class="tcard"><div class="badges"><span class="badge ${x.os === 'any' ? 'any' : 'mac'}">${esc(os)}</span></div><h3>${esc(x.t[i])}</h3>${x.img ? `<img src="../docs/tools/${x.img}" alt="${esc(x.t[i])}" loading="lazy">` : ''}<p>${esc(x.p[i])}</p><pre>${esc(x.cmd.replace(/\\n/g, '\n'))}</pre><div class="row">${x.demo ? `<a class="btn violet" href="preview-demo.html">${l.tl_demo}</a>` : ''}<a class="btn" href="${BASE}${x.dir}" target="_blank" rel="noopener">${l.tl_src}</a>${x.extra ? `<a class="btn" href="${x.extra[1]}" target="_blank" rel="noopener">${x.extra[0]}</a>` : ''}</div></article>`;
+  }).join('') + '</div>').join('');
+}
+
 function applyI18n() {
   document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
   $$('[data-i]').forEach(e => { const v = L()[e.dataset.i]; if (typeof v === 'string') e.textContent = v; });
@@ -295,7 +354,7 @@ function applyI18n() {
   $$('[data-i-ph]').forEach(e => { e.placeholder = L()[e.dataset.iPh]; });
   $('#lang').textContent = lang === 'zh' ? 'EN' : '中';
   document.title = lang === 'zh' ? 'Claude Video 风格图鉴' : 'Claude Video · style gallery';
-  renderSteps(); renderLayouts(); renderDemos(); renderPrompts(); renderCats(); renderGrid();
+  renderSteps(); renderLayouts(); renderDemos(); renderPrompts(); renderTools(); renderCats(); renderGrid();
 }
 
 // ---- hero & talking-head ----
