@@ -107,6 +107,10 @@ When the generated world holds a board, a screen or a sign that should show **yo
 
 Known limits: the footage is upscaled if it is 720p; the matte is colour-based; the tracker assumes a rigid, textured surface (a plain monitor with no frame needs corner markers).
 
+### 3e. The host inside a splat world
+
+Instead of asking a video model for the world and its camera moves, put the host in a Gaussian-splat world and move the camera yourself: `.venv/bin/python tools/talk/splat_film.py host.mp4 films/<name> --world demo-room` (or your own `.splat` / `.spz` / `.ply`). The host is cut out with the person matte (`tools/matte`, macOS only), blended with soft edges, colour-matched to the world behind him and given a light wrap; the camera orbit and push-in are deterministic. Limits: the host is a flat billboard (keep the orbit within about ±15–20°), a splat object cannot stand in front of him, the bottom of a waist-up video needs a prop to hide the cut, and it was tested only in a synthetic room. Details: [`tools/talk/splat-template/README.md`](tools/talk/splat-template/README.md).
+
 ## 4. Prepare the footage
 
 In one command: `.venv/bin/python tools/talk/film.py <host.mp4> films/<name> [--corners …]` runs the steps below and the final checks (`tools/README.md`). Step by step: first check the video: `.venv/bin/python tools/talk/hostcheck.py <host.mp4> [--board]` reports size, sound, pauses, camera steadiness and the host's share of the frame, and says what to regenerate before you spend time on a film ([`tools/README.md`](tools/README.md) lists the other helpers: tracking, the macOS matte, a prompt generator, a film check, posters, localisation).
