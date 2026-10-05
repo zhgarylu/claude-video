@@ -1,0 +1,148 @@
+{
+ "dur": 56,
+ "bpm": 96,
+ "beat": 0.625,
+ "g0": 13.5,
+ "vo": {
+  "l01": {
+   "t": 1.2,
+   "dur": 4.524,
+   "text": "A New Year print begins as a drawing, carved backwards into a plank of pear wood."
+  },
+  "l02": {
+   "t": 6.5,
+   "dur": 1.811,
+   "text": "One block holds every line."
+  },
+  "l03": {
+   "t": 11,
+   "dur": 2.173,
+   "text": "Then comes colour, one block at a time."
+  },
+  "l04": {
+   "t": 13.5,
+   "dur": 2.331,
+   "text": "Peach for the skin. Yellow for the gold."
+  },
+  "l05": {
+   "t": 17.3,
+   "dur": 2.869,
+   "text": "Then green for the lotus. Indigo for the water."
+  },
+  "l06": {
+   "t": 21.2,
+   "dur": 3.094,
+   "text": "No block fits quite perfectly. That is the charm."
+  },
+  "l07": {
+   "t": 25.2,
+   "dur": 4.303,
+   "text": "Red goes last. A carp for surplus. A lotus for year after year."
+  },
+  "l08": {
+   "t": 31.5,
+   "dur": 1.98,
+   "text": "But a wish needs a guard."
+  },
+  "l09": {
+   "t": 34,
+   "dur": 3.938,
+   "text": "So one block is printed twice, and the pair face each other."
+  },
+  "l10": {
+   "t": 40.9,
+   "dur": 1.706,
+   "text": "Then someone opens the door."
+  },
+  "l11": {
+   "t": 45,
+   "dur": 1.359,
+   "text": "And the old year tears."
+  },
+  "l12": {
+   "t": 47.8,
+   "dur": 3.673,
+   "text": "The paper was only borrowed. The block stays on the bench."
+  },
+  "l13": {
+   "t": 52.25,
+   "dur": 1.601,
+   "text": "Next year, it prints again."
+  }
+ },
+ "subs": [
+  {
+   "t0": 1.15,
+   "t1": 6.424,
+   "text": "A New Year print begins as a drawing, carved backwards into a plank of pear wood."
+  },
+  {
+   "t0": 6.45,
+   "t1": 9.011,
+   "text": "One block holds every line."
+  },
+  {
+   "t0": 10.95,
+   "t1": 13.873,
+   "text": "Then comes colour, one block at a time."
+  },
+  {
+   "t0": 13.45,
+   "t1": 16.531,
+   "text": "Peach for the skin. Yellow for the gold."
+  },
+  {
+   "t0": 17.25,
+   "t1": 20.869,
+   "text": "Then green for the lotus. Indigo for the water."
+  },
+  {
+   "t0": 21.15,
+   "t1": 24.994,
+   "text": "No block fits quite perfectly. That is the charm."
+  },
+  {
+   "t0": 25.15,
+   "t1": 30.203,
+   "text": "Red goes last. A carp for surplus. A lotus for year after year."
+  },
+  {
+   "t0": 31.45,
+   "t1": 34.18,
+   "text": "But a wish needs a guard."
+  },
+  {
+   "t0": 33.95,
+   "t1": 38.638,
+   "text": "So one block is printed twice, and the pair face each other."
+  },
+  {
+   "t0": 40.85,
+   "t1": 43.306,
+   "text": "Then someone opens the door."
+  },
+  {
+   "t0": 44.95,
+   "t1": 47.059,
+   "text": "And the old year tears."
+  },
+  {
+   "t0": 47.75,
+   "t1": 52.173,
+   "text": "The paper was only borrowed. The block stays on the bench."
+  },
+  {
+   "t0": 52.2,
+   "t1": 54.551,
+   "text": "Next year, it prints again."
+  }
+ ],
+ "sec": {
+  "A": 1,
+  "B": 10.375,
+  "C": 30.375,
+  "D": 44.125,
+  "E": 47,
+  "F": 50.375
+ }
+}

@@ -1,0 +1,13 @@
+[
+ {"id": "v1", "text": "Nothing here moves. Just twelve drawings of a bird, and twelve slits.", "voice": "bf_emma", "speed": 0.9},
+ {"id": "v2", "text": "Spin the disc, and look through the slits at a mirror.", "voice": "bf_emma", "speed": 0.9},
+ {"id": "v3", "text": "Each slit shows one drawing for an instant. The eye keeps it, until the next arrives.", "voice": "bf_emma", "speed": 0.9},
+ {"id": "v4", "text": "Too slow, and it flickers.", "voice": "bf_emma", "speed": 0.9},
+ {"id": "v5", "text": "At the right speed, the bird flies.", "voice": "bf_emma", "speed": 0.9},
+ {"id": "v6", "text": "Spin it backwards, and the bird flies backwards.", "voice": "bf_emma", "speed": 0.9},
+ {"id": "v7", "text": "Now the camera looks as well, twenty-four times a second. The wheel creeps backwards, and the birds fly on.", "voice": "bf_emma", "speed": 0.9},
+ {"id": "v8", "text": "Unroll the ring, bend it into a drum, and a gentleman walks forever.", "voice": "bf_emma", "speed": 0.9},
+ {"id": "v9", "text": "Every moving picture works this way. Still drawings, shown fast.", "voice": "bf_emma", "speed": 0.9},
+ {"id": "v10", "text": "Now stop the wheel, and it is only a drawing again.", "voice": "bf_emma", "speed": 0.9},
+ {"id": "v11", "text": "Nothing moves. We only look quickly.", "voice": "bf_emma", "speed": 0.9}
+]

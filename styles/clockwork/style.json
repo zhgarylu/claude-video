@@ -1,0 +1,18 @@
+{
+ "slug": "clockwork",
+ "num": "77",
+ "en": "Clockwork & Chain Reaction",
+ "cn": "发条机关",
+ "category_en": "Materials & 3D",
+ "category_cn": "材质与 3D",
+ "film": "The Slowest Link",
+ "line": "A chain of brass links starts with a clock's tick; one 16:1 gear train makes everything after it wait, and swapping a single pair of gears gives the same chain back six seconds.",
+ "line_cn": "一串黄铜机关从钟摆的一声滴答开始；其中一组 16:1 的齿轮让后面的一切等着，只换一对齿轮，同一条链就快了六秒。",
+ "uses": [
+  "Cause-and-effect and how-it-works explainers",
+  "Bottlenecks, supply and dependency chains",
+  "Product mechanisms and process post-mortems"
+ ],
+ "frame_sec": 8.2,
+ "dur": 57.8
+}

@@ -1,0 +1,18 @@
+{
+ "slug": "vector-scope",
+ "num": "81",
+ "en": "Vector Oscilloscope",
+ "cn": "矢量示波器",
+ "category_en": "Graphic & Type",
+ "category_cn": "图形与排版",
+ "film": "Hold the Fifth",
+ "line": "Two tones drift toward a simple ratio until the picture they draw stands still; then the score itself writes a word on the glass.",
+ "line_cn": "两个音渐渐靠近一个简单的比例，它们画出的图形终于静止；最后由配乐本身在荧光屏上写出一个词。",
+ "uses": [
+  "Audio and signal explainers",
+  "Maths, physics and music visualisation",
+  "Retro sci-fi titles and instrument interfaces"
+ ],
+ "frame_sec": 21.9,
+ "dur": 56
+}

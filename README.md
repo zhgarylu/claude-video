@@ -2,8 +2,8 @@
 
 # Claude Video
 
-**<!--n-->61<!--/n--> film styles, each with a short film made entirely in code, and a workflow for putting a presenter's video inside one.**<br>
-**<!--n-->61<!--/n--> 种影片风格，每种都配一支完全用代码做出来的短片；再加一套"口播视频 + 风格解说"的工作流。**
+**<!--n-->73<!--/n--> film styles, each with a short film made entirely in code, and a workflow for putting a presenter's video inside one.**<br>
+**<!--n-->73<!--/n--> 种影片风格，每种都配一支完全用代码做出来的短片；再加一套"口播视频 + 风格解说"的工作流。**
 
 Pick a style, bring your own story (or your own presenter video), and let your coding agent direct the film.<br>
 选一个风格，带上你自己的故事（或你自己的口播视频），让你的编程 agent 来当导演。
@@ -20,12 +20,12 @@ Pick a style, bring your own story (or your own presenter video), and let your c
 
 ## What this repository adds · 本仓库新增的
 
-- **18 new styles (43 → 61) · 新增 18 种风格**: Embroidery & Knit 刺绣与针织 · Charcoal Sketch Animation 木炭素描动画 · Sand Animation 沙画 · Blue-and-White Porcelain 青花瓷 · Dunhuang Mural 敦煌壁画 · Natural History Plate 博物图鉴 · Neon Signage 霓虹灯牌 · Art Nouveau 新艺术 · Bauhaus & Constructivist Poster 包豪斯构成主义 · Vaporwave & Y2K Chrome 蒸汽波与 Y2K · Sheet-music Motion 乐谱音乐可视化 · Comic Panel Pop Art 美漫分格波普 · Peking Opera Cel Animation 国风戏曲动画 · Manga Panel 漫画黑白网点 · 8-bit Console Pixel 8-bit 红白机像素 · Super 8 Home Movie 老胶片家庭录像 · Claymation / Stop-motion 粘土定格动画 · Origami Fold 折纸. Each has a `STYLE.md`, a `DEMO.md` and the demo's source. · 每种都有 `STYLE.md`、`DEMO.md` 和样片源码。
+- **30 new styles (43 → 73) · 新增 30 种风格**: Embroidery & Knit 刺绣与针织 · Charcoal Sketch Animation 木炭素描动画 · Sand Animation 沙画 · Blue-and-White Porcelain 青花瓷 · Dunhuang Mural 敦煌壁画 · Natural History Plate 博物图鉴 · Neon Signage 霓虹灯牌 · Art Nouveau 新艺术 · Bauhaus & Constructivist Poster 包豪斯构成主义 · Vaporwave & Y2K Chrome 蒸汽波与 Y2K · Sheet-music Motion 乐谱音乐可视化 · Comic Panel Pop Art 美漫分格波普 · Peking Opera Cel Animation 国风戏曲动画 · Manga Panel 漫画黑白网点 · 8-bit Console Pixel 8-bit 红白机像素 · Super 8 Home Movie 老胶片家庭录像 · Claymation / Stop-motion 粘土定格动画 · Origami Fold 折纸 · and, added 2026-10-05, Letterpress Newspaper 活字报纸头版 · Tarot Cards 塔罗牌 · Lacquer & Gold 漆器描金 · Transit Map 地铁线路图 · Clockwork & Chain Reaction 发条机关 · Split-flap Board 翻牌显示屏 · Cyanotype 蓝晒 · Woodblock New Year Print 木版年画 · Vector Oscilloscope 矢量示波器 · Zoetrope & Phenakistoscope 前电影光学玩具 · Needle Felting 羊毛毡 · Corrugated Cardboard Craft 瓦楞纸手工. Each has a `STYLE.md`, a `DEMO.md` and the demo's source. · 每种都有 `STYLE.md`、`DEMO.md` 和样片源码。
 - **Talking-head workflow · 口播加解说工作流**: bring a video of a presenter talking, and the film draws the explanation around them in one of the styles. See [`TALKING-HEAD.md`](TALKING-HEAD.md) and the tools in [`tools/talk/`](tools/talk/): footage preparation, word timings and pauses, drawing the host into a page, mixing under the voice. · 你给一条真人（或 AI 生成）的口播视频，影片用某个风格把解释画在周围。见 [`TALKING-HEAD.md`](TALKING-HEAD.md) 和 [`tools/talk/`](tools/talk/) 里的工具：素材预处理、逐词时间码与停顿、把讲者画进页面、人声下的混音。
-- **A new gallery and index · 新的图鉴和索引**: [`gallery/`](https://zhgarylu.github.io/claude-video/gallery/) is a new style gallery (filter by category, search, "Added here" filter, film viewer, bilingual, light/dark) with the talking-head demos; the [style index](styles/README.md) and the style frames in `docs/frames/` cover all 61 styles, and the 18 added styles are marked ★. The original-project gallery in `styleboard/` is kept. · [`gallery/`](https://zhgarylu.github.io/claude-video/gallery/) 是新的风格图鉴（按分类筛选、搜索、"本仓库新增"筛选、短片查看器、中英双语、浅色/深色），带口播 demo；[风格索引](styles/README.md)和 `docs/frames/` 里的风格画面覆盖全部 61 种，18 种新增风格标有 ★。原项目风格的图鉴 `styleboard/` 保留。
+- **A new gallery and index · 新的图鉴和索引**: [`gallery/`](https://zhgarylu.github.io/claude-video/gallery/) is a new style gallery (filter by category, search, "Added here" filter, film viewer, bilingual, light/dark) with the talking-head demos; the [style index](styles/README.md) and the style frames in `docs/frames/` cover all 61 styles, and the 30 added styles are marked ★. The original-project gallery in `styleboard/` is kept. · [`gallery/`](https://zhgarylu.github.io/claude-video/gallery/) 是新的风格图鉴（按分类筛选、搜索、"本仓库新增"筛选、短片查看器、中英双语、浅色/深色），带口播 demo；[风格索引](styles/README.md)和 `docs/frames/` 里的风格画面覆盖全部 61 种，30 种新增风格标有 ★。原项目风格的图鉴 `styleboard/` 保留。
 
-Finished films are not stored in git: the films of the 18 added styles and the five demos are release assets of this repository (`films`), and the original project hosts the films of its 43 styles (`styles/*/*.mp4` is ignored). The styles are tuned for Claude Opus 5.5, as the original project says; other models may not reproduce them.<br>
-成片不放进 git：18 种新增风格和五个 demo 的成片是本仓库 release（`films`）里的文件，原 43 种风格的成片由原项目托管（`styles/*/*.mp4` 被忽略）。和原项目说的一样，风格是按 Claude Opus 5.5 调出来的，换成其他模型不保证能做出同样的效果。
+Finished films are not stored in git: the films of the 30 added styles and the six demos are release assets of this repository (`films`), and the original project hosts the films of its 43 styles (`styles/*/*.mp4` is ignored). The styles are tuned for Claude Opus 5.5, as the original project says; other models may not reproduce them.<br>
+成片不放进 git：30 种新增风格和六个 demo 的成片是本仓库 release（`films`）里的文件，原 43 种风格的成片由原项目托管（`styles/*/*.mp4` 被忽略）。和原项目说的一样，风格是按 Claude Opus 5.5 调出来的，换成其他模型不保证能做出同样的效果。
 
 Every film was directed, drawn, scored and mixed by an AI agent writing code: canvas and WebGL pages rendered frame by frame, original music from free sample libraries, text-to-speech narration. No video generation, no stock footage.
 
@@ -33,7 +33,7 @@ Every film was directed, drawn, scored and mixed by an AI agent writing code: ca
 
 ## Talking-head films · 口播加解说
 
-Bring a video of a presenter talking, and the film draws the explanation around them in one of the styles. The host's words are the script; the picture follows the voice. Five demos, three layouts (one of them also in portrait): · 带上一条讲者的口播视频，影片用某个风格把解释画在周围。讲者的话就是脚本，画面跟着声音走。五个 demo，三种版式（其中一种也有竖屏版）：
+Bring a video of a presenter talking, and the film draws the explanation around them in one of the styles. The host's words are the script; the picture follows the voice. Six demos, three layouts (one of them also in portrait): · 带上一条讲者的口播视频，影片用某个风格把解释画在周围。讲者的话就是脚本，画面跟着声音走。六个 demo，三种版式（其中一种也有竖屏版）：
 
 <table>
 <tr>
@@ -145,6 +145,10 @@ Browse them with films in the [**gallery · 图鉴**](https://zhgarylu.github.io
 <td width="33%" valign="top"><a href="styles/blue-white/STYLE.md"><img src="docs/frames/blue-white.jpg" alt="Blue-and-White Porcelain"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Blue-and-White Porcelain</b> · 青花瓷<br><i>The Blue Only Arrives in the Fire</i><br><sub>A brush paints a river round a turning vase, the camera falls through its rim into the painted landscape, and the kiln turns grey strokes to blue.<br>一支笔在转动的瓷瓶上画出一条河，镜头从瓶口落进画里的山水，入窑一烧，灰色笔痕变成青蓝。</sub></td>
 <td width="33%" valign="top"><a href="styles/dunhuang/STYLE.md"><img src="docs/frames/dunhuang.jpg" alt="Dunhuang Mural"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Dunhuang Mural</b> · 敦煌壁画<br><i>Borrowed Lamplight</i><br><sub>A borrowed oil lamp walks along a cave wall; every register it passes wakes from weathered plaster to its first colour, and when the flame sinks the wall remembers.<br>借来的一盏油灯沿着洞窟墙壁走过，灯光所到之处，褪色的壁画一层层醒回最初的颜色；火苗落下时，墙还记得。</sub></td>
 </tr>
+<tr>
+<td width="33%" valign="top"><a href="styles/lacquer-gold/STYLE.md"><img src="docs/frames/lacquer-gold.jpg" alt="Lacquer &amp; Gold"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Lacquer &amp; Gold</b> · 漆器描金<br><i>Thirty Coats</i><br><sub>A lid takes thirty coats of lacquer, each cured in damp air and polished, before the first gold line is drawn; then it turns in the light, opens, and shows the red that was under everything.<br>一只漆盒盖上了三十道漆，每一道都要在潮气里阴干、打磨；直到最后才落下第一笔描金，盒盖在光里转动、掀开，里面是一直垫在底下的朱红。</sub></td>
+<td width="33%" valign="top"><a href="styles/nianhua/STYLE.md"><img src="docs/frames/nianhua.jpg" alt="Woodblock New Year Print"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Woodblock New Year Print</b> · 木版年画<br><i>Five Blocks to a Door</i><br><sub>A carved plank prints a child with a carp and a lotus, one colour block at a time; pasted on a door with a mirrored guardian pair, the old year tears when the door opens, and the plank stays on the bench.<br>一块雕好的木板印出抱鲤鱼、举莲花的娃娃，一版一色叠印而成；贴上大门配成对称的门神，门一开旧年的纸被撕开，留下的是工作台上的那块板。</sub></td>
+</tr>
 </table>
 
 ### Print & Printmaking · 印刷与版画
@@ -159,6 +163,11 @@ Browse them with films in the [**gallery · 图鉴**](https://zhgarylu.github.io
 <td width="33%" valign="top"><a href="styles/engraving/STYLE.md"><img src="docs/frames/engraving.jpg" alt="Copperplate Engraving"></a><br><b>Copperplate Engraving</b> · 铜版画<br><i>The Honeybee, Plate VII</i><br><sub>A natural-history plate engraves itself: the burin cuts the copper, the bee builds up line by line, and a watercolour wash brings it to life.<br>一张博物志图版自己刻出来：雕刀推开铜版，蜜蜂一线线成形，最后手工水彩上色。</sub></td>
 <td width="33%" valign="top"><a href="styles/silkscreen-poster/STYLE.md"><img src="docs/frames/silkscreen-poster.jpg" alt="Silkscreen Travel Poster"></a><br><b>Silkscreen Travel Poster</b> · 丝印旅行海报<br><i>Three Trails</i><br><sub>Three trail posters are screen-printed one ink at a time, then climbed in one long take from noon to dusk.<br>三条步道各一张丝印海报，一色一刮印出来，再沿山脊一镜到底从正午爬到黄昏。</sub></td>
 <td width="33%" valign="top"><a href="styles/natural-history/STYLE.md"><img src="docs/frames/natural-history.jpg" alt="Natural History Plate"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Natural History Plate</b> · 博物图鉴<br><i>Plate IV: The Spiral, in Four Makers</i><br><sub>A blank sheet fills with a hand-coloured plate: a chambered shell is drawn, halved and magnified, then a snail, a sunflower head and a fern crozier join it, each pinned, until the page curls away.<br>一张空白图版被一笔笔画满：鹦鹉螺先被画出、剖开、放大，随后蜗牛、向日葵花盘和蕨类拳卷幼叶依次画好并钉住，最后整页被翻走。</sub></td>
+</tr>
+<tr>
+<td width="33%" valign="top"><a href="styles/newsprint/STYLE.md"><img src="docs/frames/newsprint.jpg" alt="Letterpress Newspaper"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Letterpress Newspaper</b> · 活字报纸头版<br><i>Print It True</i><br><sub>A small-town paper prints a fire that never happened; a stop-press stamp pulls the headline out letter by letter, the halftone photograph re-develops, and the correction is set as large as the mistake.<br>小镇报纸头版登出一场并不存在的火灾；“停机”印章一盖，标题活字被逐个抽出，网点照片重新显影，更正启事排得和错误标题一样大。</sub></td>
+<td width="33%" valign="top"><a href="styles/tarot/STYLE.md"><img src="docs/frames/tarot.jpg" alt="Tarot Cards"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Tarot Cards</b> · 塔罗牌<br><i>Three Cards for a Yes</i><br><sub>A favour is asked and yes is already forming; a shuffled deck deals three cards, a Lantern for what is asked, a Key for what it costs, a Tide for whether it matters in a year, and the last one lands upside down: not yet.<br>有人请你帮个忙，“好”字已到嘴边；洗牌、切牌、发三张：灯笼问到底要你做什么，钥匙问代价是什么，潮汐问一年后还重要吗，最后一张倒位落下：先不急着答应。</sub></td>
+<td width="33%" valign="top"><a href="styles/cyanotype/STYLE.md"><img src="docs/frames/cyanotype.jpg" alt="Cyanotype"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Cyanotype</b> · 蓝晒<br><i>Reading the Sun</i><br><sub>A strip of sun-sensitive paper is uncovered one band at a time, the wash shows which exposure keeps its whites, and a fern and a feather are printed with exactly that much sun.<br>一条涂了感光液的纸条被一段一段揭开，水洗后只有一段留住了白；蕨叶和羽毛就按那一段的曝光时间印出来。</sub></td>
 </tr>
 </table>
 
@@ -183,6 +192,11 @@ Browse them with films in the [**gallery · 图鉴**](https://zhgarylu.github.io
 <tr>
 <td width="33%" valign="top"><a href="styles/constructivist/STYLE.md"><img src="docs/frames/constructivist.jpg" alt="Bauhaus &amp; Constructivist Poster"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Bauhaus &amp; Constructivist Poster</b> · 包豪斯构成主义<br><i>Thirty Metres</i><br><sub>A relay poster builds itself block by block on a steep diagonal, and the whole film narrows to the one place a race is won: the thirty-metre box where the baton changes hands.<br>一张接力赛海报沿陡峭的对角线一块一块搭起来，整部片子收窄到决定胜负的那 30 米交接区：接力棒在这里换手。</sub></td>
 <td width="33%" valign="top"><a href="styles/y2k-vaporwave/STYLE.md"><img src="docs/frames/y2k-vaporwave.jpg" alt="Vaporwave &amp; Y2K Chrome"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Vaporwave &amp; Y2K Chrome</b> · 蒸汽波与 Y2K<br><i>Installing Summer</i><br><sub>A setup wizard installs one summer: the bar crawls under a sinking banded sun, hangs at 99 % in silence, then completes in spinning chrome type before the last dialog is dismissed.<br>一个安装向导在安装一个夏天：进度条在沉落的条纹夕阳下爬行，静默中卡在 99%，然后以旋转的铬金属字完成，最后点掉最后一个对话框。</sub></td>
+<td width="33%" valign="top"><a href="styles/transit-map/STYLE.md"><img src="docs/frames/transit-map.jpg" alt="Transit Map"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Transit Map</b> · 地铁线路图<br><i>Three Angles to Anywhere</i><br><sub>A traveller lost in the curved tangle of an invented city watches its map straighten onto three angles, learns the rules from the legend, and rides two changes to a lantern festival.<br>一位旅客迷失在虚构城市弯曲的线路里；地图在眼前被拉直到三种角度，图例讲完规则，他换乘两次，抵达灯笼节。</sub></td>
+</tr>
+<tr>
+<td width="33%" valign="top"><a href="styles/split-flap/STYLE.md"><img src="docs/frames/split-flap.jpg" alt="Split-flap Board"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Split-flap Board</b> · 翻牌显示屏<br><i>The Long Way Round</i><br><sub>A night-station departure board can only turn forward: going back from B to A costs thirty-nine flaps, so a delay rewrites a whole line, a countdown ticks on a ten-flap wheel, and a last sentence is spelled cell by cell.<br>夜间车站的翻牌显示屏只能向前翻：从 B 退回 A 要翻三十九张牌，所以一次晚点会让整行重写，倒计时在十张牌的数字轮上跳动，最后一句话一格一格拼出来。</sub></td>
+<td width="33%" valign="top"><a href="styles/vector-scope/STYLE.md"><img src="docs/frames/vector-scope.jpg" alt="Vector Oscilloscope"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Vector Oscilloscope</b> · 矢量示波器<br><i>Hold the Fifth</i><br><sub>Two tones drift toward a simple ratio until the picture they draw stands still; then the score itself writes a word on the glass.<br>两个音渐渐靠近一个简单的比例，它们画出的图形终于静止；最后由配乐本身在荧光屏上写出一个词。</sub></td>
 </tr>
 </table>
 
@@ -241,6 +255,9 @@ Browse them with films in the [**gallery · 图鉴**](https://zhgarylu.github.io
 <td width="33%" valign="top"><a href="styles/backrooms/STYLE.md"><img src="docs/frames/backrooms.jpg" alt="Liminal Found Footage"></a><br><b>Liminal Found Footage</b> · 后室 / 新怪谈<br><i>Night Shift Orientation</i><br><sub>A new night-shift hire films their first night in an endless yellow office, following the rules on the wall.<br>新夜班员工拍下入职第一晚：无尽的黄色办公空间，和墙上的员工守则。</sub></td>
 <td width="33%" valign="top"><a href="styles/super8/STYLE.md"><img src="docs/frames/super8.jpg" alt="Super 8 Home Movie"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Super 8 Home Movie</b> · 老胶片家庭录像<br><i>Dad Was Here Too</i><br><sub>A father films his family&#x27;s 1976 seaside day without once appearing in it, until his daughter takes the camera and the reel burns out on him.<br>爸爸把 1976 年一家人的海边一天拍成一卷胶片，自己从没入镜；直到女儿接过摄影机，胶片在他身上烧尽。</sub></td>
 </tr>
+<tr>
+<td width="33%" valign="top"><a href="styles/zoetrope/STYLE.md"><img src="docs/frames/zoetrope.jpg" alt="Zoetrope &amp; Phenakistoscope"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Zoetrope &amp; Phenakistoscope</b> · 前电影光学玩具<br><i>Nothing Moves</i><br><sub>A paper disc of twelve still bird drawings flies when it is spun past a slit and a mirror, flickers when too slow, flies backwards the other way, and crawls the wrong way under the film&#x27;s own 24 fps shutter; the ring unrolls into a strip and bends into a drum where a gentleman walks.<br>一张画着十二只静止小鸟的纸盘，转起来透过狭缝在镜中飞翔；太慢就闪烁，反转就倒飞，在影片自己的 24 帧快门下盘面还会倒爬；画环展开成纸带，卷成转筒，里面走起一位绅士。</sub></td>
+</tr>
 </table>
 
 ### Materials & 3D · 材质与 3D
@@ -258,9 +275,14 @@ Browse them with films in the [**gallery · 图鉴**](https://zhgarylu.github.io
 </tr>
 <tr>
 <td width="33%" valign="top"><a href="styles/origami/STYLE.md"><img src="docs/frames/origami.jpg" alt="Origami Fold"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Origami Fold</b> · 折纸<br><i>The Seventh Fold</i><br><sub>A strip of paper is folded in half six times and the seventh will not close; the same strip is pleated, gathers into a wing, and opens with one pull.<br>一条纸带对折六次，第七次再也折不动；换成风琴褶，同一条纸带收成一排折页，一拉就展开。</sub></td>
+<td width="33%" valign="top"><a href="styles/clockwork/STYLE.md"><img src="docs/frames/clockwork.jpg" alt="Clockwork &amp; Chain Reaction"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Clockwork &amp; Chain Reaction</b> · 发条机关<br><i>The Slowest Link</i><br><sub>A chain of brass links starts with a clock&#x27;s tick; one 16:1 gear train makes everything after it wait, and swapping a single pair of gears gives the same chain back six seconds.<br>一串黄铜机关从钟摆的一声滴答开始；其中一组 16:1 的齿轮让后面的一切等着，只换一对齿轮，同一条链就快了六秒。</sub></td>
+<td width="33%" valign="top"><a href="styles/felt/STYLE.md"><img src="docs/frames/felt.jpg" alt="Needle Felting"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Needle Felting</b> · 羊毛毡<br><i>Mostly Air</i><br><sub>A cloud of wool is poked four thousand times by a barbed needle into a firm ball, a head, a beak and two wings, blended into a rust breast, and given two bead eyes; the bird blinks and peeps in a real silence, and the lamp goes out.<br>一团蓬松的羊毛被毡针戳了四千下：缩成紧实的球，接上头、嘴和翅膀，铁锈色的胸口在针下融进羊毛，缝上两粒黑豆眼；静默之后，它眨了一下眼，轻轻叫了一声，台灯熄灭。</sub></td>
 </tr>
 <tr>
-<td width="33%" valign="top"><a href="https://github.com/zhgarylu/claude-video/releases/download/films/dots-v.mp4"><img src="docs/talking-head/dots-v.jpg" alt="Dots (portrait)" width="200"></a><br><b>Dots (portrait 9:16)</b> · 0:30<br><i>Swiss Motion Graphics · video as the world, portrait · 竖屏视频即世界</i><br><sub>The same talk as a short video: cards on the edges, karaoke captions, safe zones for the platform UI. Start it with <code>new-film.sh … --aspect 9x16</code>.<br>同一个口播做成短视频：卡片贴边、逐字高亮字幕、避开平台界面区。用 <code>new-film.sh … --aspect 9x16</code> 开始。</sub></td>
+<td width="33%" valign="top"><a href="styles/cardboard/STYLE.md"><img src="docs/frames/cardboard.jpg" alt="Corrugated Cardboard Craft"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Corrugated Cardboard Craft</b> · 瓦楞纸手工<br><i>The Wave Inside</i><br><sub>A craft knife opens a board to show the wave between its liners; a thin card gives way under a tin, the same tin sits still on the board, and a flat-pack folded into a taped beam carries three.<br>美工刀划开瓦楞纸板，露出两层面纸之间的波浪；薄卡纸在铁罐下垮掉，同样的罐子在瓦楞板上纹丝不动，折成胶带封好的方梁后能扛三个。</sub></td>
+</tr>
+<tr>
+<td width="33%" valign="top"><a href="https://github.com/zhgarylu/claude-video/releases/download/films/splitflap-intro.mp4"><img src="docs/talking-head/splitflap-intro.jpg" alt="Introducing claude-video (split-flap)"></a><br><b>claude-video intro (split-flap)</b> · 0:30<br><i>Split-flap Board · video as the world, tracked board · 视频即世界，逐帧跟踪的翻牌板</i><br><sub>The board in the generated video is tracked through every camera move and redrawn as a real mechanical split-flap display; the host stays in front of it.<br>生成视频里的翻牌板被逐帧跟踪并重画成真正的机械翻牌，博主挡在板前。</sub></td>
 </tr>
 </table>
 <!-- styles:end -->
@@ -268,5 +290,5 @@ Browse them with films in the [**gallery · 图鉴**](https://zhgarylu.github.io
 ## Licence & credits · 授权与来源
 
 - **Original project · 原项目**: [Lemo-Opuscar](https://github.com/lemomo-ai/lemo-opuscar) by LemoLab × Claude Opus 5.5, MIT licensed. Its copyright notice is in [`LICENSE`](LICENSE) and applies to everything that comes from it. · 原项目 Lemo-Opuscar 由 LemoLab × Claude Opus 5.5 出品，MIT 协议；版权声明见 [`LICENSE`](LICENSE)，适用于所有来自它的内容。
-- **Additions in this repository · 本仓库的新增**: the 18 styles, the talking-head workflow and the gallery updates were made by zhgarylu with Claude, and are offered under the same MIT licence. · 18 种新风格、口播加解说工作流和图鉴更新由 zhgarylu 与 Claude 一起做成，同样以 MIT 协议提供。
+- **Additions in this repository · 本仓库的新增**: the 30 styles, the talking-head workflow and the gallery updates were made by zhgarylu with Claude, and are offered under the same MIT licence. · 30 种新风格、口播加解说工作流和图鉴更新由 zhgarylu 与 Claude 一起做成，同样以 MIT 协议提供。
 - **Third-party assets · 第三方素材**: assets in the demos keep their own licences (see each demo's `CREDITS`); you are responsible for the materials you use in your films. · 样片中的第三方素材沿用各自的授权（见各样片的 `CREDITS`）；你在自己片子里使用的素材由你负责。

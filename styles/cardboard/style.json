@@ -1,0 +1,18 @@
+{
+ "slug": "cardboard",
+ "num": "84",
+ "en": "Corrugated Cardboard Craft",
+ "cn": "瓦楞纸手工",
+ "category_en": "Materials & 3D",
+ "category_cn": "材质与 3D",
+ "film": "The Wave Inside",
+ "line": "A craft knife opens a board to show the wave between its liners; a thin card gives way under a tin, the same tin sits still on the board, and a flat-pack folded into a taped beam carries three.",
+ "line_cn": "美工刀划开瓦楞纸板，露出两层面纸之间的波浪；薄卡纸在铁罐下垮掉，同样的罐子在瓦楞板上纹丝不动，折成胶带封好的方梁后能扛三个。",
+ "uses": [
+  "DIY, prototyping and maker explainers",
+  "Packaging, unboxing and flat-pack assembly guides",
+  "Children's projects and craft tutorials"
+ ],
+ "frame_sec": 5.4,
+ "dur": 54
+}

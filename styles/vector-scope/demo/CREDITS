@@ -1,0 +1,18 @@
+Hold the Fifth: Vector Oscilloscope · Lemo-Opuscar
+
+Picture
+- Every pixel is drawn in code (demo/main.js, demo/engine/*.js): the instrument panel, graticule, meters, lamps, knobs, the phosphor trace and its persistence, the captions. The trace is drawn from the film's own stereo samples (out/scope.bin, written by demo/scope.py and demo/mix.py).
+- The instrument ("VS-81"), its labels and every number are invented. No real product, brand or person appears.
+
+Type
+- The single-stroke vector font (demo/tools/gen_font.py -> vfont.json) is drawn for this film (A-Z, 0-9 and a few signs as polylines). It is ours and released with the library; no font file is used anywhere.
+
+Voice
+- Kokoro TTS v1.0 (hexgrad/Kokoro-82M, Apache-2.0), voice bm_george, via kokoro-onnx
+- Speech check only (not in the film): faster-whisper / OpenAI Whisper (MIT)
+
+Music
+- Original composition, synthesised in numpy (demo/scope.py, demo/mix.py): sine tone pairs with a little harmonic colour (these are the samples that steer the beam), a sine bass, a synthetic kick and hat, plucky sine blips with an echo. No samples, no downloads.
+
+Sound design
+- Relay clacks, key ticks, detents, a bell, mains hum, high-voltage fizz, power-down collapse: all synthesised in numpy (demo/mix.py, core/audio/sfx.py). No recordings.

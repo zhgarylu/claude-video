@@ -1,0 +1,43 @@
+1
+00:00:01,800 --> 00:00:06,243
+This is Halden. Rivers bend, rails curve, and nothing lines up.
+
+2
+00:00:08,000 --> 00:00:13,440
+So the map tells a useful lie. It throws away distance, and keeps the connections.
+
+3
+00:00:15,150 --> 00:00:20,000
+Rule 1. Horizontal, vertical, or 45 degrees. Nothing else.
+
+4
+00:00:20,050 --> 00:00:23,250
+Rule 2. One line, one colour, one weight.
+
+5
+00:00:23,300 --> 00:00:26,850
+Rule 3. A tick is a stop. A ring is a change.
+
+6
+00:00:26,900 --> 00:00:29,426
+Zones tell you what it costs.
+
+7
+00:00:30,400 --> 00:00:34,950
+You are here, at Quill Lane. The lantern festival is at Rook Point.
+
+8
+00:00:35,000 --> 00:00:37,590
+Fern line, change at Linden.
+
+9
+00:00:38,500 --> 00:00:41,366
+Round the Ring, change at Ember Wharf.
+
+10
+00:00:42,700 --> 00:00:44,790
+Saffron to the end.
+
+11
+00:00:46,700 --> 00:00:50,100
+A map doesn't show the city. It shows you the way.

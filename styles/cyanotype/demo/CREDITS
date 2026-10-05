@@ -1,0 +1,18 @@
+Reading the Sun: third-party assets
+
+Picture
+- Every sheet, brush stroke, deckled edge, paper fibre, fern, feather, ginkgo leaf, umbel, grass spray, house plan, brush, glass pane, card, peg, line and tray is drawn in code (demo/main.js, demo/engine/*.js). The prints are computed per pixel from a coating map, a light map and an exposure and wash model (demo/engine/plate.js). No photograph, scan, stock image or existing artwork is used. All plants, labels and numbers are invented; no real person, brand or collection appears.
+
+Fonts (SIL Open Font License 1.1; the files are copied into demo/fonts/ and are not committed)
+- Caveat Bold (Caveat), The Caveat Project Authors, https://github.com/google/fonts/tree/main/ofl/caveat (the white gel pen and ink labels, the title)
+- Courier Prime Bold, Quote-Unquote Apps, https://fonts.google.com/specimen/Courier+Prime (subtitle slips)
+
+Voice
+- Kokoro TTS v1.0 (hexgrad/Kokoro-82M, Apache-2.0), voice bf_emma, via kokoro-onnx
+- Speech check only (not in the film): faster-whisper / OpenAI Whisper (MIT)
+
+Music
+- Original composition in F-sharp minor pentatonic, synthesised in numpy (demo/mix.py): thumb-piano tines, bowed-glass pad, bell, soft bass, shaker, a struck bowl. No samples.
+
+Sound design
+- Running water, drips, brush on paper, leaf and feather drops, glass slide and clink, card scrape, pen scratch, sun hum, pegs: all synthesised in numpy (demo/mix.py, core/audio/sfx.py). No recordings.

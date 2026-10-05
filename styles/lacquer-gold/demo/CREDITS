@@ -1,0 +1,19 @@
+Thirty Coats (lacquer-gold demo): third-party assets
+
+Fonts
+- Cormorant Garamond (roman and italic, variable), by Christian Thalmann (Catharsis Fonts), SIL Open Font License 1.1.
+  Source: https://github.com/google/fonts/tree/main/ofl/cormorantgaramond . Used for the captions, the counter and the title.
+  The two .ttf files in demo/fonts/ are copies of the files already in styles/art-nouveau/demo/fonts/ (not committed; fetch them as in TECHNIQUE section 11).
+
+Voice
+- Kokoro-82M via kokoro-onnx (voice bf_emma, speed 0.9), Apache-2.0, https://github.com/thewh1teagle/kokoro-onnx .
+  Checked with faster-whisper (MIT). Generated offline by core/tts/tts.py.
+
+Music and sound
+- Score, foley, rain and room tone are synthesised in code (demo/mix.py, with core/audio/sfx.py): modal-synthesis plucked strings,
+  a breathy flute, pads, bells and a drum in the D yo scale (D E G A B). No samples, no recordings, no downloads.
+
+Picture
+- Everything is generated in code: the lacquer surfaces, gold lines and powder (lacq.js), the motifs (motifs.js: a crane, ruyi clouds,
+  a sun disc, seigaiha waves and a key-fret border, all original compositions), the wood and hemp textures, the brushes, the graver,
+  the seal (a vermilion square with the character 金 drawn from strokes). No images, models, footage or traditional-artwork scans.

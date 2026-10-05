@@ -1,0 +1,35 @@
+1
+00:00:00,400 --> 00:00:04,281
+Every process is a chain of small pushes.
+
+2
+00:00:05,400 --> 00:00:09,370
+Four to one, twice. 16 times slower.
+
+3
+00:00:09,500 --> 00:00:12,200
+So everything after it waits.
+
+4
+00:00:14,250 --> 00:00:16,470
+Then, all at once.
+
+5
+00:00:17,888 --> 00:00:21,810
+A chain runs at the pace of its slowest link.
+
+6
+00:00:22,088 --> 00:00:26,138
+Trace it back: more than half the time went to one link.
+
+7
+00:00:29,688 --> 00:00:34,535
+So change only that link. Swap one pair for equal gears.
+
+8
+00:00:37,988 --> 00:00:42,188
+Same chain. Same pushes. Six seconds sooner.
+
+9
+00:00:53,688 --> 00:00:57,707
+Don't hurry the fast links. Find the one that waits.

@@ -1,7 +1,7 @@
 # Talking-head demos · 口播加解说 demo
 
-The source of the five demo films shown in the [gallery](https://zhgarylu.github.io/claude-video/gallery/). They are complete, hand-made projects: the page (`main.js`), the timeline (`timeline.js`: captions, camera, events), the mix (`mix.py`), the build script, the treatment (`TREATMENT.md`) and the credits. Use them to see how a finished film is put together; to start your own, use [`tools/talk/new-film.sh`](../../tools/talk/new-film.sh) and the layouts in [`tools/talk/layouts.js`](../../tools/talk/layouts.js).
-五条 demo 的完整源码：页面、时间线（字幕、镜头、事件）、混音、构建脚本、创作说明和来源。看它们是怎么做出来的；要做自己的，用 `tools/talk/new-film.sh` 和 `tools/talk/layouts.js`。
+The source of the six demo films shown in the [gallery](https://zhgarylu.github.io/claude-video/gallery/). They are complete, hand-made projects: the page (`main.js`), the timeline (`timeline.js`: captions, camera, events), the mix (`mix.py`), the build script, the treatment (`TREATMENT.md`) and the credits. Use them to see how a finished film is put together; to start your own, use [`tools/talk/new-film.sh`](../../tools/talk/new-film.sh) and the layouts in [`tools/talk/layouts.js`](../../tools/talk/layouts.js).
+六条 demo 的完整源码：页面、时间线（字幕、镜头、事件）、混音、构建脚本、创作说明和来源。看它们是怎么做出来的；要做自己的，用 `tools/talk/new-film.sh` 和 `tools/talk/layouts.js`。
 
 | Demo | Style · layout | What it shows |
 |---|---|---|
@@ -9,9 +9,10 @@ The source of the five demo films shown in the [gallery](https://zhgarylu.github
 | [`muse/`](muse/) | Isometric Infographic · corner window · 角落小窗 | the host in a corner while the camera travels along a diorama of four stations · 讲者在角落，镜头沿沙盘横移 |
 | [`swiss-dots/`](swiss-dots/) | Swiss Motion Graphics · video as the world · 视频即世界 | the host acts in a Swiss-poster studio; the page colour is taken from the video, tempo and landings come from one `score.json` shared by picture and music, one green dot leaves the grid · 讲者在瑞士海报棚里演内容，页底色取自视频，画面与配乐共读一份 `score.json`，一颗绿点离开网格 |
 | [`dots-v/`](dots-v/) | Swiss Motion Graphics · portrait 9:16, video as the world · 竖屏视频即世界 | the same talk as a short video: `worldLayoutV`, karaoke captions, cards on the edges, a light music bed (`music.py`) · 同一个口播做成短视频：竖屏世界版式、逐字字幕、卡片贴边、一段轻配乐 |
+| [`splitflap-intro/`](splitflap-intro/) | Split-flap Board · video as the world, tracked · 视频即世界，逐帧跟踪 | the generated board is tracked through the camera moves (`track_board.py`), redrawn as a real split-flap display with the style's wheel mechanism and the host matted in front of it · 把生成视频里的板逐帧跟踪，重画成真正的翻牌，博主挡在板前 |
 | [`muse2/`](muse2/) | Isometric Infographic · video as the world · 视频即世界 | the host video is itself a styled world and the main picture; callout cards add names, dates, sources · 视频本身是风格世界，两侧用标签卡补名字、日期、来源 |
 
-The films: [release `films`](https://github.com/zhgarylu/claude-video/releases/tag/films) (`claude-mods.mp4`, `muse.mp4`, `muse2.mp4`, `swiss-dots.mp4`, `dots-v.mp4`).
+The films: [release `films`](https://github.com/zhgarylu/claude-video/releases/tag/films) (`claude-mods.mp4`, `muse.mp4`, `muse2.mp4`, `swiss-dots.mp4`, `dots-v.mp4`, `splitflap-intro.mp4`).
 
 ## What is not here · 这里没有的
 
@@ -31,3 +32,5 @@ sh demos/talking-head/muse2/build.sh        # prepares the footage (tools/talk/p
 `swiss-dots/` needs its host video at `swiss-dots/src/host.mp4`; its transcript was corrected by hand (`words.fixed.json`, copied over the speech-to-text result by `build.sh`). · `swiss-dots/` 需要把讲者视频放在 `swiss-dots/src/host.mp4`；它的逐字稿是手工校对过的（`words.fixed.json`，`build.sh` 会覆盖转写结果）。
 
 `dots-v/` is a portrait film (`--size 1080x1920`); put its host video at `dots-v/src/host.mp4`. Like `swiss-dots/` it replaces the transcript with `words.fixed.json`. · `dots-v/` 是竖屏片（1080×1920），讲者视频放 `dots-v/src/host.mp4`；和 `swiss-dots/` 一样用手工校对的 `words.fixed.json` 覆盖转写。
+
+`splitflap-intro/` needs its host video at `splitflap-intro/src/host.mp4`; `build.sh` prepares the footage, replaces the transcript with `words.fixed.json`, tracks the board (`track_board.py`, about a minute) and renders. · `splitflap-intro/` 需要把讲者视频放在 `splitflap-intro/src/host.mp4`；`build.sh` 会预处理素材、换上手工校对的逐字稿、跟踪板（约一分钟）再渲染。

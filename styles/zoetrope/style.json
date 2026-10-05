@@ -1,0 +1,18 @@
+{
+ "slug": "zoetrope",
+ "num": "82",
+ "en": "Zoetrope & Phenakistoscope",
+ "cn": "前电影光学玩具",
+ "category_en": "Cinema & Eras",
+ "category_cn": "电影与时代",
+ "film": "Nothing Moves",
+ "line": "A paper disc of twelve still bird drawings flies when it is spun past a slit and a mirror, flickers when too slow, flies backwards the other way, and crawls the wrong way under the film's own 24 fps shutter; the ring unrolls into a strip and bends into a drum where a gentleman walks.",
+ "line_cn": "一张画着十二只静止小鸟的纸盘，转起来透过狭缝在镜中飞翔；太慢就闪烁，反转就倒飞，在影片自己的 24 帧快门下盘面还会倒爬；画环展开成纸带，卷成转筒，里面走起一位绅士。",
+ "uses": [
+  "How persistence of vision and animation work",
+  "The history of motion pictures",
+  "Loops, cycles and children's science lessons"
+ ],
+ "frame_sec": 43.0,
+ "dur": 54.4
+}

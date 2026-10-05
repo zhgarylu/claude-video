@@ -1,0 +1,105 @@
+{
+ "dur": 54,
+ "bpm": 112,
+ "beat": 0.5357142857142857,
+ "voice": [
+  {
+   "id": "v1",
+   "t": 0.9,
+   "dur": 3.124,
+   "text": "Cardboard looks flat. Cut it open, and it isn't."
+  },
+  {
+   "id": "v2",
+   "t": 7.2,
+   "dur": 2.238,
+   "text": "Two thin sheets, with a wave between them."
+  },
+  {
+   "id": "v3",
+   "t": 11.45,
+   "dur": 2.821,
+   "text": "The wave holds them apart. That gap is strength."
+  },
+  {
+   "id": "v4",
+   "t": 16.4,
+   "dur": 2.601,
+   "text": "Alone, a thin sheet gives up under one tin."
+  },
+  {
+   "id": "v5",
+   "t": 22,
+   "dur": 2.595,
+   "text": "With the wave inside, the same tin sits still."
+  },
+  {
+   "id": "v6",
+   "t": 27,
+   "dur": 3.828,
+   "text": "Now fold the board into a beam, lock the tabs, and tape the seam."
+  },
+  {
+   "id": "v7",
+   "t": 45.6,
+   "dur": 2.011,
+   "text": "Three tins, and it hardly bends."
+  },
+  {
+   "id": "v8",
+   "t": 49.4,
+   "dur": 2.302,
+   "text": "Strong is not thick. Strong is shaped."
+  }
+ ],
+ "captions": [
+  {
+   "id": "v1",
+   "text": "Cardboard looks flat. Cut it open, and it isn't.",
+   "t0": 0.82,
+   "t1": 5.107
+  },
+  {
+   "id": "v2",
+   "text": "Two thin sheets, with a wave between them.",
+   "t0": 7.12,
+   "t1": 11.073
+  },
+  {
+   "id": "v3",
+   "text": "The wave holds them apart. That gap is strength.",
+   "t0": 11.37,
+   "t1": 15.657
+  },
+  {
+   "id": "v4",
+   "text": "Alone, a thin sheet gives up under one tin.",
+   "t0": 16.32,
+   "t1": 20.273
+  },
+  {
+   "id": "v5",
+   "text": "With the wave inside, the same tin sits still.",
+   "t0": 21.92,
+   "t1": 26.073
+  },
+  {
+   "id": "v6",
+   "text": "Now fold the board into a beam, lock the tabs, and tape the seam.",
+   "t0": 26.92,
+   "t1": 32.007
+  },
+  {
+   "id": "v7",
+   "text": "Three tins, and it hardly bends.",
+   "t0": 45.52,
+   "t1": 48.94
+  },
+  {
+   "id": "v8",
+   "text": "Strong is not thick. Strong is shaped.",
+   "t0": 49.32,
+   "t1": 53.073
+  }
+ ]
+}

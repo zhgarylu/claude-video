@@ -91,6 +91,18 @@ Ready-to-paste prompts for such host videos (a Swiss white studio in two signal 
 - **Cards.** `{ id, side:'L'|'R', hue, title, sub?, tag?, t0, t1, anchor:[[t, vx, vy]…] }`, `anchor` in the host video's own pixels. A card needs about `speech + 2 s`: it takes 0.4 s to arrive and 0.35 s to leave, and `readcheck` counts the time it sits fully still.
 - **Cheap tricks that work.** Cards on the edges cover the generated world's side props, so ask for blank, symmetric props when you generate the video. Prompts for a 9:16 host video: [`prompts/talking-head/`](prompts/talking-head/) (`swiss-dots-vertical`).
 
+## 3d. A screen or board in the world, with a moving camera
+
+When the generated world holds a board, a screen or a sign that should show **your** content, and the camera moves, do not ask the video tool to render text on it (it garbles). Ask for a **blank** surface and replace it in post, as in [`demos/talking-head/splitflap-intro/`](demos/talking-head/splitflap-intro/):
+
+1. **Prompt.** Say the surface stays blank and still, that the host stays beside it (never in front of the part you will replace), and that the camera moves slowly and at constant speed with the whole surface in frame. [`prompts/talking-head/splitflap-project-landscape.md`](prompts/talking-head/splitflap-project-landscape.md) is a worked example. Expect the tool to scatter some marks on the "blank" surface anyway: cover the whole surface with an opaque plate rather than trying to paint over single cells.
+2. **Track it.** `track_board.py` (in the demo) estimates a homography per frame from a reference frame where the whole surface is visible: frame-to-frame Lucas-Kanade on a band-passed image, robust (Tukey) against the host's arms, numpy and scipy only. Give it the four inner corners of the surface in the reference frame (`CORNERS`); it writes `src/track.json`. Check it by drawing the tracked quad on a contact sheet of frames before building anything on it.
+3. **Redraw and warp.** Draw the replacement into a texture in the surface's own plane, then map it onto the frame with a triangle mesh (about 44 × 18 quads) using each frame's homography. `main.js` shows it for a split-flap board whose cells are wheels (`flap.js`).
+4. **Matte the host.** Where the host's arm or body crosses the surface, cut the overlay by colour (skin and the navy shirt, with a size filter so brass or glints on the surface are not mistaken for skin) so the replacement sits behind the host. It is a colour key, not a segmentation model: expect soft edges and a few stray pixels, and tune the thresholds to your footage.
+5. **Time it to the voice, with the surface's own latency.** A mechanical board lags the voice by its flip time; start each change a little before the word and let it settle after.
+
+Known limits: the footage is upscaled if it is 720p; the matte is colour-based; the tracker assumes a rigid, textured surface (a plain monitor with no frame needs corner markers).
+
 ## 4. Prepare the footage
 
 ```sh

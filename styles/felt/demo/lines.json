@@ -1,0 +1,47 @@
+[
+ {
+  "id": "v1",
+  "text": "A handful of wool is mostly air.",
+  "voice": "bf_emma",
+  "speed": 0.9
+ },
+ {
+  "id": "v2",
+  "text": "A felting needle changes that. Its tiny barbs catch a few fibres on every poke, and drag them in, where they tangle and stay.",
+  "voice": "bf_emma",
+  "speed": 0.9,
+  "asr": "A felting needle changes that. Its tiny barbs catch a few fibers on every poke, and drag them in, where they tangle and stay."
+ },
+ {
+  "id": "v3",
+  "text": "Forty pokes, and the cloud is a ball. Four hundred, and it holds its shape.",
+  "voice": "bf_emma",
+  "speed": 0.9
+ },
+ {
+  "id": "v4",
+  "text": "A second ball becomes a head. A cone becomes a beak. The wings are flat layers, pressed on.",
+  "voice": "bf_emma",
+  "speed": 0.9
+ },
+ {
+  "id": "v5",
+  "text": "Colour goes in the same way. Where two shades meet, the needle blends them, and there is no edge.",
+  "voice": "bf_emma",
+  "speed": 0.9,
+  "asr": "Color goes in the same way. Where two shades meet, the needle blends them, and there is no edge."
+ },
+ {
+  "id": "v6",
+  "text": "Last, two small eyes.",
+  "voice": "bf_emma",
+  "speed": 0.9
+ },
+ {
+  "id": "v7",
+  "text": "Four thousand pokes. And what was air is looking back.",
+  "voice": "bf_emma",
+  "speed": 0.9,
+  "asr": "4,000 pokes. And what was air is looking back."
+ }
+]

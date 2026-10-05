@@ -1,0 +1,9 @@
+The Long Way Round (split-flap demo): third-party assets
+Fonts (SIL Open Font License 1.1, self-hosted in demo/fonts/, not committed; build.sh names the source)
+- Barlow Medium (The Barlow Project Authors, jpt/barlow; google/fonts repository, ofl/barlow): every flap and the labels of the section drawing, thickened with a stroke in code. Licence: demo/fonts/OFL-barlow.txt
+Picture
+- Everything is drawn in code on one 2D canvas (demo/draw.js, demo/film.js): housing, cards, hinges, the section drawing. No images, footage or textures. The station, its trains and its destinations are invented.
+Voice
+- Kokoro-82M via kokoro-onnx (Apache 2.0), voice bf_emma; checked with faster-whisper (MIT). Run offline by core/tts/tts.py and core/tts/asr_check.py.
+Sound
+- The clatter is synthesised from the flap events (demo/mix.py, numpy/scipy, core/audio/sfx.py, MIT): flap clicks, case ticks, pawl, relay, chime, horn, and the whole score (mallet, bass, pad). No samples, no recordings.

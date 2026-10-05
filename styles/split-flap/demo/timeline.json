@@ -1,0 +1,109 @@
+{
+ "BPM": 100,
+ "BEAT": 0.6,
+ "BAR": 2.4,
+ "DUR": 60,
+ "T": {
+  "power": 0.3,
+  "fill": 4.8,
+  "dive0": 9.6,
+  "dive1": 11.7,
+  "open0": 11.7,
+  "open1": 12.4,
+  "slow1": 13.2,
+  "slow2": 17.7,
+  "arrow": 19.5,
+  "pawl": 20.7,
+  "spin0": 21.1,
+  "land": 24,
+  "close0": 24.9,
+  "close1": 25.5,
+  "wide": 26.4,
+  "chime": 28.8,
+  "stamp": 29.4,
+  "roll": 30,
+  "resort": 34.2,
+  "clock": 38.4,
+  "count0": 39.6,
+  "zero": 45.6,
+  "clear": 49.2,
+  "quote0": 52,
+  "quoteDt": 0.15,
+  "end": 60
+ },
+ "VO": [
+  {
+   "id": "v1",
+   "t": 5,
+   "dur": 2.254,
+   "text": "Every change on this board is a journey.",
+   "rows": [
+    "EVERY CHANGE ON THIS BOARD",
+    "IS A JOURNEY."
+   ]
+  },
+  {
+   "id": "v2",
+   "t": 12.6,
+   "dur": 4.143,
+   "text": "Each letter sits on a wheel of forty flaps. It turns one way only.",
+   "rows": [
+    "EACH LETTER SITS ON A WHEEL OF",
+    "FORTY FLAPS. IT TURNS ONE WAY ONLY."
+   ]
+  },
+  {
+   "id": "v3",
+   "t": 19.2,
+   "dur": 3.355,
+   "text": "From B back to A is one step. Here, it is thirty-nine.",
+   "rows": [
+    "FROM B BACK TO A IS ONE STEP.",
+    "HERE, IT IS 39."
+   ]
+  },
+  {
+   "id": "v4",
+   "t": 27,
+   "dur": 3.23,
+   "text": "So when a train is late, the board writes the whole line again.",
+   "rows": [
+    "SO WHEN A TRAIN IS LATE, THE BOARD",
+    "WRITES THE WHOLE LINE AGAIN."
+   ]
+  },
+  {
+   "id": "v5",
+   "t": 37.2,
+   "dur": 2.245,
+   "text": "The last train leaves in ten seconds.",
+   "rows": [
+    "THE LAST TRAIN LEAVES IN",
+    "10 SECONDS."
+   ]
+  },
+  {
+   "id": "v6",
+   "t": 51.6,
+   "dur": 3.305,
+   "text": "Even going back means going forward, all the way round.",
+   "rows": [
+    "EVEN GOING BACK MEANS GOING FORWARD,",
+    "ALL THE WAY ROUND."
+   ]
+  }
+ ],
+ "MUSIC": {
+  "start": 2.4,
+  "rows": 4.8,
+  "thin": 9.6,
+  "silent": 11.7,
+  "back": 26.4,
+  "delay": 28.8,
+  "count": 38.4,
+  "zero": 45.6,
+  "hush": 47,
+  "quote": 51.6,
+  "end": 60
+ }
+}

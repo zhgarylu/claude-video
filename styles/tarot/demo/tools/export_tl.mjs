@@ -1,0 +1,10 @@
+// timeline.js -> timeline.json (for mix.py) and lines.json (Kokoro input).
+// usage: node styles/tarot/demo/tools/export_tl.mjs <workdir>
+import fs from 'fs'; import path from 'path'; import { fileURLToPath } from 'url';
+const D = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const W = path.resolve(process.argv[2] || D);
+const TL = await import(path.join(D, 'timeline.js'));
+fs.writeFileSync(path.join(W, 'timeline.json'), JSON.stringify({ BPM: TL.BPM, BEAT: TL.BEAT, BAR: TL.BAR, DUR: TL.DUR, T: TL.T, EV: TL.EV, MUSIC: TL.MUSIC, SECS: TL.SECS, VO: TL.VO }, null, 1));
+const VOICE = 'bf_emma', SPEED = 0.92;
+fs.writeFileSync(path.join(W, 'lines.json'), JSON.stringify(TL.VO.map(v => ({ id: v.id, text: v.text, voice: VOICE, speed: SPEED, ...(v.asr ? { asr: v.asr } : {}) })), null, 1));
+console.log('timeline.json + lines.json ->', W, TL.VO.length, 'lines,', TL.EV.length, 'events');

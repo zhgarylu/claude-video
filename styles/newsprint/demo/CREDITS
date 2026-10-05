@@ -1,0 +1,21 @@
+Print It True: Letterpress Newspaper · Lemo-Opuscar
+
+Picture
+- Every page, rule, masthead, drop cap, halftone photograph, stamp, wire tape, slug and shadow is drawn in code (demo/main.js, demo/engine/*.js). The three "photographs" (smoke over a mill, a bakery chimney at dawn, a queue at a shop) are painted procedurally as grey-scale and printed as 45-degree dot screens; no photo, scan or stock image is used.
+- The newspaper (The Tallow Bay Lantern), the town, the mill, the bakery, every headline, name, price and advertisement are invented. No real publication, person, firm, place, event or logo appears.
+
+Fonts (SIL Open Font License 1.1; the files are copied into demo/fonts/ and are not committed)
+- EB Garamond (roman and italic, variable), Georg Duffner and Octavio Pardo, https://github.com/google/fonts/tree/main/ofl/ebgaramond (headlines, deck, small heads; licence: demo/fonts/OFL-EBGaramond.txt)
+- Cormorant Garamond (variable), Christian Thalmann (Catharsis Fonts), https://github.com/google/fonts/tree/main/ofl/cormorantgaramond (masthead)
+- IM FELL English (roman and italic), Igino Marini, from core/fonts/ (body copy and captions; licence: demo/fonts/OFL-core-fonts.md)
+- Courier Prime Bold, Quote-Unquote Apps, https://fonts.google.com/specimen/Courier+Prime (datelines, stamps, wire tape)
+
+Voice
+- Kokoro TTS v1.0 (hexgrad/Kokoro-82M, Apache-2.0), voice bm_fable, via kokoro-onnx
+- Speech check only (not in the film): faster-whisper / OpenAI Whisper (MIT)
+
+Music
+- Original composition, synthesised in numpy (demo/mix.py): tine piano (additive plus FM bite), upright bass, brushes, a struck-bar bell. No samples.
+
+Sound design
+- Rotary press thrum, slug clack, line casting ticks, rules, paper slaps, stamps, telephone bell, telegraph key, halftone development ticks: all synthesised in numpy (demo/mix.py, core/audio/sfx.py). No recordings.

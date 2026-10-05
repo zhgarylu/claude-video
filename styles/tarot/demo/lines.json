@@ -1,0 +1,51 @@
+[
+ {
+  "id": "v1",
+  "text": "Someone asks a favour, and your mouth says yes before you do.",
+  "voice": "bf_emma",
+  "speed": 0.92,
+  "asr": "Someone asks a favor and your mouth says yes before you do"
+ },
+ {
+  "id": "v2",
+  "text": "So shuffle. Cut. The deck knows nothing. It only makes you ask three things, in order.",
+  "voice": "bf_emma",
+  "speed": 0.92
+ },
+ {
+  "id": "v3",
+  "text": "First, the Lantern. What, exactly, is being asked? Say it in a single sentence.",
+  "voice": "bf_emma",
+  "speed": 0.92
+ },
+ {
+  "id": "v4",
+  "text": "Second, the Key. What does it cost? Count the hours, not the feelings.",
+  "voice": "bf_emma",
+  "speed": 0.92
+ },
+ {
+  "id": "v5",
+  "text": "Third, the Tide. Will it still matter in a year?",
+  "voice": "bf_emma",
+  "speed": 0.92
+ },
+ {
+  "id": "v6",
+  "text": "It lands upside down. Reversed means: not yet.",
+  "voice": "bf_emma",
+  "speed": 0.92
+ },
+ {
+  "id": "v7",
+  "text": "Any murky card, and the answer waits.",
+  "voice": "bf_emma",
+  "speed": 0.92
+ },
+ {
+  "id": "v8",
+  "text": "Three questions. One honest answer.",
+  "voice": "bf_emma",
+  "speed": 0.92
+ }
+]

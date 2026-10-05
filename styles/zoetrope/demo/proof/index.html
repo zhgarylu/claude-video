@@ -1,0 +1,12 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;background:#e8d9ae}canvas{display:block}</style></head><body><canvas id="c" width="1920" height="1080"></canvas>
+<script type="module">
+import { makeTiles } from '../engine/art.js';
+const c = document.getElementById('c'), g = c.getContext('2d');
+const q = new URLSearchParams(location.search), name = q.get('s') || 'bird';
+window.render = t => {
+  g.fillStyle = '#e8d9ae'; g.fillRect(0, 0, 1920, 1080);
+  const tiles = window.T || (window.T = makeTiles(name, 400));
+  tiles.forEach((tc, k) => g.drawImage(tc, (k % 6) * 320, Math.floor(k / 6) * 330 + 20, 320, 320));
+};
+window.READY = true;
+</script></body></html>

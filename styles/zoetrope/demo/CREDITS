@@ -1,0 +1,14 @@
+Nothing Moves: third-party assets
+
+Picture
+- Everything is drawn in code (demo/main.js, demo/engine/*.js): the paper, the engraved birds and the walking gentleman (invented), the walnut table, the brass, the disc and the drum. No photograph, scan, stock image or existing artwork is used. No real person, brand or museum object appears.
+
+Fonts (SIL Open Font License 1.1; copied into demo/fonts/, not committed)
+- IM FELL English, roman and italic, Igino Marini, from core/fonts/ (all type in the film; licence: demo/fonts/OFL-core-fonts.md)
+
+Voice
+- Kokoro TTS v1.0 (hexgrad/Kokoro-82M, Apache-2.0), voice bf_emma, via kokoro-onnx
+- Speech check only (not in the film): faster-whisper / OpenAI Whisper (MIT)
+
+Music and sound
+- Original composition for music box, reed organ and soft bass, synthesised in numpy (demo/mix.py). The whir and slit clicks are generated from the same rotation table that turns the picture. All foley (pin, brass, paper, card flips, clockwork ticks, candle) is synthesised in numpy with core/audio/sfx.py (MIT). No samples, no recordings.

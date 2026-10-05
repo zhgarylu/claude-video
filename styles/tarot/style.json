@@ -1,0 +1,18 @@
+{
+ "slug": "tarot",
+ "num": "74",
+ "en": "Tarot Cards",
+ "cn": "塔罗牌",
+ "category_en": "Print & Printmaking",
+ "category_cn": "印刷与版画",
+ "film": "Three Cards for a Yes",
+ "line": "A favour is asked and yes is already forming; a shuffled deck deals three cards, a Lantern for what is asked, a Key for what it costs, a Tide for whether it matters in a year, and the last one lands upside down: not yet.",
+ "line_cn": "有人请你帮个忙，“好”字已到嘴边；洗牌、切牌、发三张：灯笼问到底要你做什么，钥匙问代价是什么，潮汐问一年后还重要吗，最后一张倒位落下：先不急着答应。",
+ "uses": [
+  "Three-part judgments and decision aids",
+  "Role and personality profiles",
+  "Fortune-style explainers (playful, never medical)"
+ ],
+ "frame_sec": 50.2,
+ "dur": 58
+}

@@ -80,6 +80,37 @@ styles/*/demo/stills/*
 !styles/*/demo/stills/frame_*.jpg
 !styles/*/demo/stills/alt_*.jpg
 !styles/*/demo/stills/engine*.jpg
+# Review frames that the DEMO.md of the 12 styles added on 2026-10-05 link to:
+!styles/felt/demo/stills/ball.jpg
+!styles/felt/demo/stills/blend.jpg
+!styles/felt/demo/stills/build.jpg
+!styles/felt/demo/stills/end.jpg
+!styles/felt/demo/stills/hook.jpg
+!styles/felt/demo/stills/poke.jpg
+!styles/felt/demo/stills/reveal.jpg
+!styles/lacquer-gold/demo/stills/cut.jpg
+!styles/lacquer-gold/demo/stills/drop.jpg
+!styles/lacquer-gold/demo/stills/gold-line.jpg
+!styles/lacquer-gold/demo/stills/open.jpg
+!styles/lacquer-gold/demo/stills/powder.jpg
+!styles/lacquer-gold/demo/stills/title.jpg
+!styles/newsprint/demo/stills/s_1.5.jpg
+!styles/newsprint/demo/stills/s_33.jpg
+!styles/newsprint/demo/stills/s_45.8.jpg
+!styles/newsprint/demo/stills/s_8.5.jpg
+!styles/tarot/demo/stills/s_12.0.jpg
+!styles/tarot/demo/stills/s_2.6.jpg
+!styles/tarot/demo/stills/s_24.5.jpg
+!styles/tarot/demo/stills/s_39.3.jpg
+!styles/tarot/demo/stills/s_9.4.jpg
+!styles/transit-map/demo/stills/doc_0.6.jpg
+!styles/transit-map/demo/stills/doc_10.5.jpg
+!styles/transit-map/demo/stills/doc_27.8.jpg
+!styles/transit-map/demo/stills/doc_36.8.jpg
+!styles/vector-scope/demo/stills/reveal.jpg
+!styles/vector-scope/demo/stills/tangle.jpg
+!styles/vector-scope/demo/stills/touches.jpg
+!styles/vector-scope/demo/stills/word.jpg
 
 # 用户自己的片子（agent 输出）
 /films/

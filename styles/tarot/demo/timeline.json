@@ -1,0 +1,585 @@
+{
+ "BPM": 90,
+ "BEAT": 0.6666666666666666,
+ "BAR": 2.6666666666666665,
+ "DUR": 58,
+ "T": {
+  "riff0": 5.9,
+  "riffStep": 0.055,
+  "riffN": 24,
+  "cut0": 7.45,
+  "cutSlide": 7.8,
+  "cutOnto": 8.15,
+  "cutBack": 8.35,
+  "fan0": 8.4,
+  "fanFlip0": 8.9,
+  "fanFlipStep": 0.07,
+  "collapse0": 9.95,
+  "collapseEnd": 10.5,
+  "deal": [
+   10.83,
+   11.5,
+   12.17
+  ],
+  "dealDur": 0.5,
+  "flip": [
+   13.3333,
+   24,
+   37.3333
+  ],
+  "flipDur": 1.1,
+  "silence0": 34.6667,
+  "silence1": 37.3133,
+  "roll0": 38.6,
+  "roll1": 40.1,
+  "rollBack0": 40.6,
+  "rollBack1": 42.2,
+  "label": [
+   42.6667,
+   43.3333,
+   44
+  ],
+  "rule0": 44.2,
+  "rule1": 45.6,
+  "drop1": 46.4,
+  "seal": 49.3333,
+  "silence2a": 50.3,
+  "silence2b": 51.3333,
+  "pile": [
+   51,
+   51.35,
+   51.7
+  ],
+  "pileDur": 0.48,
+  "topFlip": 52.667,
+  "topFlipDur": 0.9,
+  "title": 53.333
+ },
+ "EV": [
+  {
+   "t": 0.15,
+   "type": "riffle",
+   "n": 3
+  },
+  {
+   "t": 5.8,
+   "type": "riffle",
+   "n": 12
+  },
+  {
+   "t": 6,
+   "type": "card",
+   "pan": -0.35,
+   "v": 0.55
+  },
+  {
+   "t": 6.063,
+   "type": "card",
+   "pan": 0.35,
+   "v": 0.63
+  },
+  {
+   "t": 6.126,
+   "type": "card",
+   "pan": -0.35,
+   "v": 0.7100000000000001
+  },
+  {
+   "t": 6.169,
+   "type": "card",
+   "pan": 0.35,
+   "v": 0.55
+  },
+  {
+   "t": 6.232,
+   "type": "card",
+   "pan": -0.35,
+   "v": 0.63
+  },
+  {
+   "t": 6.275,
+   "type": "card",
+   "pan": 0.35,
+   "v": 0.7100000000000001
+  },
+  {
+   "t": 6.338,
+   "type": "card",
+   "pan": -0.35,
+   "v": 0.55
+  },
+  {
+   "t": 6.401,
+   "type": "card",
+   "pan": 0.35,
+   "v": 0.63
+  },
+  {
+   "t": 6.444,
+   "type": "card",
+   "pan": -0.35,
+   "v": 0.7100000000000001
+  },
+  {
+   "t": 6.507,
+   "type": "card",
+   "pan": 0.35,
+   "v": 0.55
+  },
+  {
+   "t": 6.55,
+   "type": "card",
+   "pan": -0.35,
+   "v": 0.63
+  },
+  {
+   "t": 6.613,
+   "type": "card",
+   "pan": 0.35,
+   "v": 0.7100000000000001
+  },
+  {
+   "t": 6.676,
+   "type": "card",
+   "pan": -0.35,
+   "v": 0.55
+  },
+  {
+   "t": 6.719,
+   "type": "card",
+   "pan": 0.35,
+   "v": 0.63
+  },
+  {
+   "t": 6.782,
+   "type": "card",
+   "pan": -0.35,
+   "v": 0.7100000000000001
+  },
+  {
+   "t": 6.825,
+   "type": "card",
+   "pan": 0.35,
+   "v": 0.55
+  },
+  {
+   "t": 6.888,
+   "type": "card",
+   "pan": -0.35,
+   "v": 0.63
+  },
+  {
+   "t": 6.951,
+   "type": "card",
+   "pan": 0.35,
+   "v": 0.7100000000000001
+  },
+  {
+   "t": 6.994,
+   "type": "card",
+   "pan": -0.35,
+   "v": 0.55
+  },
+  {
+   "t": 7.057,
+   "type": "card",
+   "pan": 0.35,
+   "v": 0.63
+  },
+  {
+   "t": 7.1,
+   "type": "card",
+   "pan": -0.35,
+   "v": 0.7100000000000001
+  },
+  {
+   "t": 7.163,
+   "type": "card",
+   "pan": 0.35,
+   "v": 0.55
+  },
+  {
+   "t": 7.226,
+   "type": "card",
+   "pan": -0.35,
+   "v": 0.63
+  },
+  {
+   "t": 7.269,
+   "type": "card",
+   "pan": 0.35,
+   "v": 0.7100000000000001
+  },
+  {
+   "t": 7.45,
+   "type": "slide"
+  },
+  {
+   "t": 7.8,
+   "type": "slap",
+   "v": 0.6
+  },
+  {
+   "t": 8.15,
+   "type": "slide"
+  },
+  {
+   "t": 8.32,
+   "type": "slap",
+   "v": 0.8
+  },
+  {
+   "t": 8.4,
+   "type": "fan"
+  },
+  {
+   "t": 9.1,
+   "type": "tick",
+   "v": 0.5,
+   "pan": -0.7
+  },
+  {
+   "t": 9.17,
+   "type": "tick",
+   "v": 0.5,
+   "pan": -0.5
+  },
+  {
+   "t": 9.24,
+   "type": "tick",
+   "v": 0.5,
+   "pan": -0.3
+  },
+  {
+   "t": 9.31,
+   "type": "tick",
+   "v": 0.5,
+   "pan": -0.1
+  },
+  {
+   "t": 9.38,
+   "type": "tick",
+   "v": 0.5,
+   "pan": 0.1
+  },
+  {
+   "t": 9.45,
+   "type": "tick",
+   "v": 0.5,
+   "pan": 0.3
+  },
+  {
+   "t": 9.52,
+   "type": "tick",
+   "v": 0.5,
+   "pan": 0.5
+  },
+  {
+   "t": 9.59,
+   "type": "tick",
+   "v": 0.5,
+   "pan": 0.7
+  },
+  {
+   "t": 9.95,
+   "type": "fan",
+   "rev": 1
+  },
+  {
+   "t": 10.83,
+   "type": "slide",
+   "pan": -0.4
+  },
+  {
+   "t": 11.33,
+   "type": "land",
+   "v": 0.9,
+   "pan": -0.35
+  },
+  {
+   "t": 11.5,
+   "type": "slide",
+   "pan": -0.30000000000000004
+  },
+  {
+   "t": 12,
+   "type": "land",
+   "v": 0.9,
+   "pan": 0
+  },
+  {
+   "t": 12.17,
+   "type": "slide",
+   "pan": -0.2
+  },
+  {
+   "t": 12.67,
+   "type": "land",
+   "v": 0.9,
+   "pan": 0.35
+  },
+  {
+   "t": 13.333,
+   "type": "flip"
+  },
+  {
+   "t": 14.313,
+   "type": "snap",
+   "v": 1
+  },
+  {
+   "t": 24,
+   "type": "flip"
+  },
+  {
+   "t": 24.98,
+   "type": "snap",
+   "v": 1
+  },
+  {
+   "t": 37.333,
+   "type": "flip"
+  },
+  {
+   "t": 38.313,
+   "type": "snap",
+   "v": 1
+  },
+  {
+   "t": 38.313,
+   "type": "bell",
+   "low": 1
+  },
+  {
+   "t": 38.6,
+   "type": "roll"
+  },
+  {
+   "t": 40.6,
+   "type": "roll",
+   "rev": 1
+  },
+  {
+   "t": 42.667,
+   "type": "chalk",
+   "pan": -0.4
+  },
+  {
+   "t": 43.333,
+   "type": "chalk",
+   "pan": 0
+  },
+  {
+   "t": 44,
+   "type": "chalk",
+   "pan": 0.4
+  },
+  {
+   "t": 44.2,
+   "type": "scratch",
+   "d": 1.3999999999999986
+  },
+  {
+   "t": 45.6,
+   "type": "scratch",
+   "d": 0.7999999999999972
+  },
+  {
+   "t": 49.333,
+   "type": "stamp"
+  },
+  {
+   "t": 51,
+   "type": "slide",
+   "pan": -0.3
+  },
+  {
+   "t": 51.35,
+   "type": "slide",
+   "pan": 0
+  },
+  {
+   "t": 51.48,
+   "type": "land",
+   "v": 1,
+   "pan": 0
+  },
+  {
+   "t": 51.7,
+   "type": "slide",
+   "pan": 0
+  },
+  {
+   "t": 51.83,
+   "type": "land",
+   "v": 1,
+   "pan": 0
+  },
+  {
+   "t": 52.18,
+   "type": "land",
+   "v": 1,
+   "pan": 0
+  },
+  {
+   "t": 52.667,
+   "type": "flip"
+  },
+  {
+   "t": 53.333,
+   "type": "bell",
+   "title": 1
+  },
+  {
+   "t": 53.467,
+   "type": "snap",
+   "v": 0.9
+  }
+ ],
+ "MUSIC": {
+  "key": "D minor",
+  "bpm": 90,
+  "layers": {
+   "drone": [
+    0,
+    22
+   ],
+   "bell": [
+    0,
+    22
+   ],
+   "arp": [
+    2,
+    13
+   ],
+   "drum": [
+    4,
+    13
+   ],
+   "box": [
+    5,
+    13
+   ],
+   "bass": [
+    9,
+    13
+   ],
+   "arp2": [
+    14,
+    19
+   ],
+   "drum2": [
+    14,
+    19
+   ],
+   "box2": [
+    14,
+    22
+   ],
+   "glass": [
+    14,
+    22
+   ]
+  },
+  "silence": [
+   [
+    34.6667,
+    37.3133
+   ],
+   [
+    50.3,
+    51.3333
+   ]
+  ]
+ },
+ "SECS": [
+  {
+   "id": "hook",
+   "t": 0,
+   "bars": 2
+  },
+  {
+   "id": "shuffle",
+   "t": 5.3333,
+   "bars": 3
+  },
+  {
+   "id": "lantern",
+   "t": 13.3333,
+   "bars": 4
+  },
+  {
+   "id": "key",
+   "t": 24,
+   "bars": 4
+  },
+  {
+   "id": "quiet",
+   "t": 34.6667,
+   "bars": 1
+  },
+  {
+   "id": "tide",
+   "t": 37.3333,
+   "bars": 4
+  },
+  {
+   "id": "verdict",
+   "t": 48,
+   "bars": 1
+  },
+  {
+   "id": "pile",
+   "t": 50.6667,
+   "bars": 3
+  },
+  {
+   "id": "end",
+   "t": 58.6667,
+   "bars": 0
+  }
+ ],
+ "VO": [
+  {
+   "id": "v1",
+   "t": 0.9,
+   "text": "Someone asks a favour, and your mouth says yes before you do.",
+   "asr": "Someone asks a favor and your mouth says yes before you do"
+  },
+  {
+   "id": "v2",
+   "t": 6.7,
+   "text": "So shuffle. Cut. The deck knows nothing. It only makes you ask three things, in order."
+  },
+  {
+   "id": "v3",
+   "t": 14.2,
+   "text": "First, the Lantern. What, exactly, is being asked? Say it in a single sentence."
+  },
+  {
+   "id": "v4",
+   "t": 24.9,
+   "text": "Second, the Key. What does it cost? Count the hours, not the feelings."
+  },
+  {
+   "id": "v5",
+   "t": 38.2,
+   "text": "Third, the Tide. Will it still matter in a year?"
+  },
+  {
+   "id": "v6",
+   "t": 43.1,
+   "text": "It lands upside down. Reversed means: not yet."
+  },
+  {
+   "id": "v7",
+   "t": 47.85,
+   "text": "Any murky card, and the answer waits."
+  },
+  {
+   "id": "v8",
+   "t": 52.2,
+   "text": "Three questions. One honest answer."
+  }
+ ]
+}

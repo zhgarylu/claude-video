@@ -1,0 +1,19 @@
+Three Angles to Anywhere — Transit Map · Lemo-Opuscar
+
+Picture
+- Every line, tick, ring, label, plate, pin, lantern, train car, street, park and river is drawn in code (demo/network.js, demo/main.js). No generated or stock images.
+- Halden, its five lines (Copper, Violet, Fern, Ring, Saffron) and all 36 station names are invented. Any resemblance to a real transit system, station or logo is accidental; none was used as a source for names, colours or layout.
+
+Fonts (SIL Open Font License 1.1, licence file in demo/fonts/OFL.txt; the .ttf is not committed, build.sh downloads it)
+- Barlow Medium — The Barlow Project Authors (jpt/barlow), via google/fonts
+- Line numbers in roundels, arrows, ticks and check marks are drawn in code, not set in a font.
+
+Voice
+- Kokoro TTS v1.0 (hexgrad/Kokoro-82M, Apache-2.0), voice bf_emma, via kokoro-onnx
+- Speech check only (not in the film): faster-whisper / OpenAI Whisper (MIT)
+
+Music
+- Original composition, synthesised in numpy (demo/mix.py): marimba and vibraphone (additive/FM), sine bass, detuned-saw pad, bells (FM), rail ticks and a muted kick. No samples.
+
+Sound design
+- Ruling-pen hiss, water, ticks, snaps, paper slides, felt thuds, door beeps, pneumatic hiss, wheel clacks and rumble are synthesised in numpy (demo/mix.py, core/audio/sfx.py). No recordings.

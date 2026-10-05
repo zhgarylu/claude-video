@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Claude Video 风格图鉴</title>
-<meta name="description" content="61 种代码做的影片风格，18 种由本仓库新增，外加一套口播加风格解说的工作流。基于 lemomo-ai/lemo-opuscar（MIT）。">
+<meta name="description" content="73 种代码做的影片风格，30 种由本仓库新增，外加一套口播加风格解说的工作流。基于 lemomo-ai/lemo-opuscar（MIT）。">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3l11 6.5v13L16 29 5 22.5v-13z' fill='%237B5CF5'/%3E%3Cpath d='M16 3l11 6.5L16 16 5 9.5z' fill='%23A590FF'/%3E%3Cpath d='M16 16l11-6.5v13L16 29z' fill='%235B3FD6'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -182,8 +182,8 @@ footer .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 30px; } foo
     <p class="lead" data-i="lead"></p>
     <div class="cta"><a class="btn violet" href="#talking" data-i="cta1"></a><a class="btn" href="#styles" data-i="cta2"></a></div>
     <div class="stats">
-      <div class="stat"><b id="n-total">61</b><span data-i="st_total"></span></div>
-      <div class="stat mine"><b id="n-added">18</b><span data-i="st_added"></span></div>
+      <div class="stat"><b id="n-total">73</b><span data-i="st_total"></span></div>
+      <div class="stat mine"><b id="n-added">30</b><span data-i="st_added"></span></div>
       <div class="stat"><b id="n-demos">3</b><span data-i="st_demos"></span></div>
     </div>
   </div>
@@ -249,7 +249,7 @@ const store = { get: k => { try { return localStorage.getItem(k); } catch (e) { 
 const T = {
   zh: {
     nav_talk: '口播解说', nav_styles: '风格', nav_about: '来源', eyebrow: '基于 Lemo-Opuscar · MIT',
-    h1: '<em>61</em> 种影片风格，<br>外加口播解说工作流', lead: '每种风格都是一份可复用的提示词，配一支完全用代码做出来的短片。本仓库在原项目的 43 种之上新增了 18 种，还有一套把真人（或 AI 生成）口播视频放进风格里的做法。',
+    h1: '<em>73</em> 种影片风格，<br>外加口播解说工作流', lead: '每种风格都是一份可复用的提示词，配一支完全用代码做出来的短片。本仓库在原项目的 43 种之上新增了 30 种，还有一套把真人（或 AI 生成）口播视频放进风格里的做法。',
     cta1: '看口播解说 demo', cta2: '浏览全部风格', st_total: '种风格', st_added: '种本仓库新增', st_demos: '个口播 demo',
     t_kicker: 'Talking-head', t_h: '口播视频 + 风格解说', t_p: '你带来一条讲者的视频，影片用某个风格把解释画在周围：名字、日期、数据、引线、字幕和配乐。讲者的话就是脚本，画面跟着声音走。',
     t_layouts: '三种版式，都有现成代码', nav_prompts: '视频提示词', p_kicker: 'Prompts', p_h: '口播视频提示词', p_p: '给 AI 视频工具用：让讲者站在风格世界里演内容。生成后拿去做“视频即世界”的口播解说。世界里的东西都是空白的，字由后期画。', p_copy: '复制提示词', p_copied: '已复制', p_view: '看源文件', p_show: '展开提示词', p_all: '全部提示词与写法', p_used: '已做成片', p_untested: '未试', p_template: '填空模板', p_facts: '事实截至',  demo_play: '播放', demos_src: 'demo 源码', source: '源码',
@@ -260,11 +260,11 @@ const T = {
     all: '全部', watch: '播放短片', download: '下载', style_md: 'STYLE.md', demo_md: 'DEMO.md', film: '片名', uses: '适合', close: '关闭',
     org_added: '★ 本仓库新增的风格，不属于原项目。短片、风格提示词和样片源码都在本仓库。', org_orig: '来自原项目 lemomo-ai/lemo-opuscar（MIT）。短片由原项目托管。',
     style: '风格', layout: '版式', host: '讲者', demo_note: '讲者视频由用户提供（AI 生成的虚构人物）。',
-    f_h1: '来源与授权', f_p1: '本仓库是 LemoLab 的 <b>lemomo-ai/lemo-opuscar</b> 的衍生版本（MIT）。原有的指南、工具、引擎和 43 种风格照原样使用，原协议和版权声明保留在 <code>LICENSE</code>。', f_p2: '新增的 18 种风格、口播加解说工作流和这个图鉴由 zhgarylu 与 Claude 做成，同样以 MIT 协议提供。', f_h2: '原项目', f_p3: '原项目的图鉴和短片见下面的链接。原 43 种风格的短片由原项目托管，点开时直接从它那里播放。', f_up_gallery: '原项目图鉴'
+    f_h1: '来源与授权', f_p1: '本仓库是 LemoLab 的 <b>lemomo-ai/lemo-opuscar</b> 的衍生版本（MIT）。原有的指南、工具、引擎和 43 种风格照原样使用，原协议和版权声明保留在 <code>LICENSE</code>。', f_p2: '新增的 30 种风格、口播加解说工作流和这个图鉴由 zhgarylu 与 Claude 做成，同样以 MIT 协议提供。', f_h2: '原项目', f_p3: '原项目的图鉴和短片见下面的链接。原 43 种风格的短片由原项目托管，点开时直接从它那里播放。', f_up_gallery: '原项目图鉴'
   },
   en: {
     nav_talk: 'Talking-head', nav_styles: 'Styles', nav_about: 'Credits', eyebrow: 'Based on Lemo-Opuscar · MIT',
-    h1: '<em>61</em> film styles,<br>plus a talking-head workflow', lead: 'Every style is a reusable prompt with a short film made entirely in code. This repository adds 18 styles to the original 43, and a way to put a presenter\'s video (real or AI-generated) inside one.',
+    h1: '<em>73</em> film styles,<br>plus a talking-head workflow', lead: 'Every style is a reusable prompt with a short film made entirely in code. This repository adds 30 styles to the original 43, and a way to put a presenter\'s video (real or AI-generated) inside one.',
     cta1: 'Watch the talking-head demos', cta2: 'Browse all styles', st_total: 'styles', st_added: 'added here', st_demos: 'talking-head demos',
     t_kicker: 'Talking-head', t_h: 'A presenter\'s video + a style\'s explainer graphics', t_p: 'Bring a video of someone talking, and the film draws the explanation around them in a style: names, dates, numbers, leaders, subtitles and score. The host\'s words are the script; the picture follows the voice.',
     t_layouts: 'Three layouts, ready-made in code', nav_prompts: 'Prompts', p_kicker: 'Prompts', p_h: 'Host-video prompts', p_p: 'For AI video tools: the host acts the story out inside a style\'s world, then the film adds the explanation around the video. Everything in the world is blank; the film draws the text. The prompts are in Chinese, the language the hosts speak.', p_copy: 'Copy prompt', p_copied: 'Copied', p_view: 'View source', p_show: 'Show the prompt', p_all: 'All prompts and tips', p_used: 'Used in a film', p_untested: 'Not tried yet', p_template: 'Template', p_facts: 'Facts as of',  demo_play: 'Play', demos_src: 'Demo sources', source: 'Source',
@@ -275,7 +275,7 @@ const T = {
     all: 'All', watch: 'Play the film', download: 'Download', style_md: 'STYLE.md', demo_md: 'DEMO.md', film: 'Film', uses: 'Good for', close: 'Close',
     org_added: '★ Added in this repository, not part of the original project. The film, the style prompt and the demo source are all here.', org_orig: 'From the original project lemomo-ai/lemo-opuscar (MIT). Its film is hosted by that project.',
     style: 'Style', layout: 'Layout', host: 'Host', demo_note: 'The host video was supplied by the user (an AI-generated fictional person).',
-    f_h1: 'Credits & licence', f_p1: 'This repository is a derivative of <b>lemomo-ai/lemo-opuscar</b> by LemoLab (MIT). The original guides, tools, engine and 43 styles are used as they were; the original licence and copyright notice stay in <code>LICENSE</code>.', f_p2: 'The 18 added styles, the talking-head workflow and this gallery were made by zhgarylu with Claude, also under MIT.', f_h2: 'The original project', f_p3: 'The original gallery and films are linked below. Films of the original 43 styles are hosted by that project and play straight from it.', f_up_gallery: 'Original gallery'
+    f_h1: 'Credits & licence', f_p1: 'This repository is a derivative of <b>lemomo-ai/lemo-opuscar</b> by LemoLab (MIT). The original guides, tools, engine and 43 styles are used as they were; the original licence and copyright notice stay in <code>LICENSE</code>.', f_p2: 'The 30 added styles, the talking-head workflow and this gallery were made by zhgarylu with Claude, also under MIT.', f_h2: 'The original project', f_p3: 'The original gallery and films are linked below. Films of the original 43 styles are hosted by that project and play straight from it.', f_up_gallery: 'Original gallery'
   }
 };
 let lang = store.get('lang') || ((navigator.language || 'en').toLowerCase().startsWith('zh') ? 'zh' : 'en');

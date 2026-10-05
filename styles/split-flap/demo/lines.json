@@ -1,0 +1,39 @@
+[
+ {
+  "id": "v1",
+  "text": "Every change on this board is a journey.",
+  "voice": "bf_emma",
+  "speed": 0.92
+ },
+ {
+  "id": "v2",
+  "text": "Each letter sits on a wheel of forty flaps. It turns one way only.",
+  "voice": "bf_emma",
+  "speed": 0.92
+ },
+ {
+  "id": "v3",
+  "text": "From B back to A is one step. Here, it is thirty-nine.",
+  "voice": "bf_emma",
+  "speed": 0.92,
+  "asr": "From be back to a is one step. Here, it is thirty-nine."
+ },
+ {
+  "id": "v4",
+  "text": "So when a train is late, the board writes the whole line again.",
+  "voice": "bf_emma",
+  "speed": 0.92
+ },
+ {
+  "id": "v5",
+  "text": "The last train leaves in ten seconds.",
+  "voice": "bf_emma",
+  "speed": 0.92
+ },
+ {
+  "id": "v6",
+  "text": "Even going back means going forward, all the way round.",
+  "voice": "bf_emma",
+  "speed": 0.92
+ }
+]

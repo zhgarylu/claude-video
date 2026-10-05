@@ -1,0 +1,18 @@
+{
+ "slug": "cyanotype",
+ "num": "79",
+ "en": "Cyanotype",
+ "cn": "蓝晒",
+ "category_en": "Print & Printmaking",
+ "category_cn": "印刷与版画",
+ "film": "Reading the Sun",
+ "line": "A strip of sun-sensitive paper is uncovered one band at a time, the wash shows which exposure keeps its whites, and a fern and a feather are printed with exactly that much sun.",
+ "line_cn": "一条涂了感光液的纸条被一段一段揭开，水洗后只有一段留住了白；蕨叶和羽毛就按那一段的曝光时间印出来。",
+ "uses": [
+  "Botanical and science notes",
+  "Memory and archive stories",
+  "Process tutorials and maps"
+ ],
+ "frame_sec": 49.2,
+ "dur": 60
+}

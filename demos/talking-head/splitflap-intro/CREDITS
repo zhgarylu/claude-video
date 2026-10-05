@@ -1,0 +1,13 @@
+claude-video 介绍 · 翻牌显示屏 × 科技感高铁站（16:9 满屏视频即世界）· 第三方素材与许可
+
+画面
+- 讲者视频 src/host.mp4（翻牌风格1.mp4）：由用户提供（AI 生成的虚构人物与高铁站场景），版权与使用责任归用户。视频里的翻牌板被整块重画（见下），其余画面内容未改动。
+- 翻牌板：track_board.py 逐帧跟踪原板的透视（numpy/scipy，自写）；main.js 用 styles/split-flap 的转轮机制（flap.js）和翻牌绘制（改自 draw.js）把整块板重画成真正的机械翻牌，再按每帧透视贴回画面；博主的皮肤和深蓝衣服按颜色抠出，盖板画在他的后面。
+- 事实来自本项目 README：超过六十种风格、每种有样片、口播解说（横屏竖屏）、画廊与现成提示词。
+
+字体
+- Barlow Medium（SIL OFL 1.1，随 styles/split-flap/demo/fonts 一起，见 fonts/OFL-barlow.txt）
+- Noto Sans SC（SIL OFL 1.1，经 Google Fonts 取子集，位于 fonts/）
+
+声音
+- 翻牌声：本片原创，numpy 合成，由页面算出的 26 000 多次翻牌（每 40 ms 一档）驱动；大厅空气底噪、和弦垫、脉冲同为原创合成，无采样、无第三方音源。人声：视频自带音轨。

@@ -1,0 +1,81 @@
+[
+{
+"id": "l01",
+"text": "A New Year print begins as a drawing, carved backwards into a plank of pear wood.",
+"voice": "bm_fable",
+"speed": 0.95
+},
+{
+"id": "l02",
+"text": "One block holds every line.",
+"voice": "bm_fable",
+"speed": 0.95
+},
+{
+"id": "l03",
+"text": "Then comes colour, one block at a time.",
+"voice": "bm_fable",
+"speed": 0.95,
+"asr": "Then comes color, one block at a time."
+},
+{
+"id": "l04",
+"text": "Peach for the skin. Yellow for the gold.",
+"voice": "bm_fable",
+"speed": 0.95
+},
+{
+"id": "l05",
+"text": "Then green for the lotus. Indigo for the water.",
+"voice": "bm_fable",
+"speed": 0.95
+},
+{
+"id": "l06",
+"text": "No block fits quite perfectly. That is the charm.",
+"voice": "bm_fable",
+"speed": 0.95
+},
+{
+"id": "l07",
+"text": "Red goes last. A carp for surplus. A lotus for year after year.",
+"voice": "bm_fable",
+"speed": 0.95
+},
+{
+"id": "l08",
+"text": "But a wish needs a guard.",
+"voice": "bm_fable",
+"speed": 0.95
+},
+{
+"id": "l09",
+"text": "So one block is printed twice, and the pair face each other.",
+"voice": "bm_fable",
+"speed": 0.95
+},
+{
+"id": "l10",
+"text": "Then someone opens the door.",
+"voice": "bm_fable",
+"speed": 0.95
+},
+{
+"id": "l11",
+"text": "And the old year tears.",
+"voice": "bm_fable",
+"speed": 0.95
+},
+{
+"id": "l12",
+"text": "The paper was only borrowed. The block stays on the bench.",
+"voice": "bm_fable",
+"speed": 0.95
+},
+{
+"id": "l13",
+"text": "Next year, it prints again.",
+"voice": "bm_fable",
+"speed": 0.95
+}
+]

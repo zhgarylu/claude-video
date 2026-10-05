@@ -1,0 +1,50 @@
+[
+ {
+  "id": "v1",
+  "text": "Cardboard looks flat. Cut it open, and it isn't.",
+  "voice": "bf_emma",
+  "speed": 0.93
+ },
+ {
+  "id": "v2",
+  "text": "Two thin sheets, with a wave between them.",
+  "voice": "bf_emma",
+  "speed": 0.93
+ },
+ {
+  "id": "v3",
+  "text": "The wave holds them apart. That gap is strength.",
+  "voice": "bf_emma",
+  "speed": 0.93
+ },
+ {
+  "id": "v4",
+  "text": "Alone, a thin sheet gives up under one tin.",
+  "voice": "bf_emma",
+  "speed": 0.93
+ },
+ {
+  "id": "v5",
+  "text": "With the wave inside, the same tin sits still.",
+  "voice": "bf_emma",
+  "speed": 0.93
+ },
+ {
+  "id": "v6",
+  "text": "Now fold the board into a beam, lock the tabs, and tape the seam.",
+  "voice": "bf_emma",
+  "speed": 0.93
+ },
+ {
+  "id": "v7",
+  "text": "Three tins, and it hardly bends.",
+  "voice": "bf_emma",
+  "speed": 0.93
+ },
+ {
+  "id": "v8",
+  "text": "Strong is not thick. Strong is shaped.",
+  "voice": "bf_emma",
+  "speed": 0.93
+ }
+]

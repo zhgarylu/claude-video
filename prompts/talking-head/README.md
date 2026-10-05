@@ -8,6 +8,8 @@ Prompts for AI video tools. The result is a presenter video you can bring to the
 |---|---|---|
 | [`swiss-dots`](swiss-dots.md) | 瑞士白棚 · 信号绿 · 地上绿点 | **已用它做成片**（Dots，30 s） |
 | [`swiss-dots-vertical`](swiss-dots-vertical.md) | 同上，竖屏 9:16 构图 | 未试 |
+| [`splitflap-project-landscape`](splitflap-project-landscape.md) | 科技感高铁站 · 翻牌显示屏，16:9 满屏，连续运镜 | **已用它做成片**（[`splitflap-intro`](../../demos/talking-head/splitflap-intro/)） |
+| [`origami-hud-project-vertical`](origami-hud-project-vertical.md) | 折纸 + 科幻全息 | **已用它生成视频做成片**（本地，未作为 demo 发布） |
 | [`swiss-gemini4`](swiss-gemini4.md) | 瑞士白棚 · 信号红 · 地面红线 | 未试 |
 | [`swiss-devday-four`](swiss-devday-four.md) | 瑞士白棚 · 信号绿 · 四块色板 | 未试 |
 | [`swiss-three-news`](swiss-three-news.md) | 瑞士白棚 · 信号红 | 未试 |

@@ -1,0 +1,18 @@
+{
+ "slug": "split-flap",
+ "num": "78",
+ "en": "Split-flap Board",
+ "cn": "翻牌显示屏",
+ "category_en": "Graphic & Type",
+ "category_cn": "图形与排版",
+ "film": "The Long Way Round",
+ "line": "A night-station departure board can only turn forward: going back from B to A costs thirty-nine flaps, so a delay rewrites a whole line, a countdown ticks on a ten-flap wheel, and a last sentence is spelled cell by cell.",
+ "line_cn": "夜间车站的翻牌显示屏只能向前翻：从 B 退回 A 要翻三十九张牌，所以一次晚点会让整行重写，倒计时在十张牌的数字轮上跳动，最后一句话一格一格拼出来。",
+ "uses": [
+  "Schedules, timetables and countdowns",
+  "Rankings and leaderboards that reorder",
+  "Announcements and one-line quotes"
+ ],
+ "frame_sec": 35.2,
+ "dur": 60
+}

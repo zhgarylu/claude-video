@@ -1,0 +1,10 @@
+[
+ {"id":"v1","text":"This is what a sound looks like.","voice":"bm_george","speed":0.95},
+ {"id":"v2","text":"One tone goes left, another goes right. A beam draws where they meet.","voice":"bm_george","speed":0.95},
+ {"id":"v3","text":"Tune the second a little sharp, and the shape turns. That turning is the beating the ear picks up.","voice":"bm_george","speed":0.95},
+ {"id":"v4","text":"Slow it down. Closer. Three to two, and it stops.","voice":"bm_george","speed":0.95},
+ {"id":"v5","text":"A perfect fifth, held still. Three touches across the top, two down the side.","voice":"bm_george","speed":0.95},
+ {"id":"v6","text":"Every simple ratio has its own shape. An octave. A fourth. A major third.","voice":"bm_george","speed":0.95},
+ {"id":"v7","text":"Pull it out of ratio and the shape tangles. The ear calls that rough. So does the eye.","voice":"bm_george","speed":0.95},
+ {"id":"v8","text":"Every shape you saw was drawn by the score. None was animated. It was played.","voice":"bm_george","speed":0.95}
+]

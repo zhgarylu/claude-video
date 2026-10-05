@@ -1,0 +1,19 @@
+Three Cards for a Yes: Tarot Cards style, Lemo-Opuscar
+
+Picture
+- The whole deck is original and drawn in code (demo/cards.js): eight cards (Lantern, Key, Tide, Compass, Moth, Bell, Ladder, Hourglass), the card back, the cloth, the seal, the ornaments. The figures, symbols and compositions are not taken from any existing deck. No images, photos or stock footage are used.
+- Card names, numerals and the topic are invented for this film.
+
+Fonts (SIL Open Font License 1.1; shipped with the library in core/fonts/, licence text in core/fonts/OFL.md)
+- IM Fell English (Regular and Italic), (c) 2007 Igino Marini (www.iginomarini.com). Used for numerals, banners, labels, captions and the title.
+- Nothing is downloaded: build.sh uses the subset already in core/fonts/.
+
+Voice
+- Kokoro TTS v1.0 (hexgrad/Kokoro-82M, Apache-2.0), voice bf_emma, via kokoro-onnx, offline.
+- Speech check only (not in the film): faster-whisper / OpenAI Whisper (MIT)
+
+Music
+- Original composition, synthesised in numpy (demo/mix.py, in D minor at 90 BPM): Karplus-Strong harp, music-box tines, struck bells, bowed-glass pad, drone, frame drum, plucked sine bass, woodblock ticks. No samples.
+
+Sound design
+- Card flicks, riffle, slides, slaps, landings, flips, chalk, ink-line scratches, the seal stamp, tide wash, room tone and candle ticks are synthesised in numpy (demo/mix.py, core/audio/sfx.py). No recordings.

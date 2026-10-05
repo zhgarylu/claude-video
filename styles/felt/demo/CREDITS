@@ -1,0 +1,19 @@
+Mostly Air (Needle Felting demo): third-party assets
+
+Code
+- three.js r170 (MIT), loaded from node_modules; its addons EffectComposer, UnrealBloomPass, OutputPass, RoomEnvironment, RoundedBoxGeometry, GLTFLoader, BufferGeometryUtils.mergeVertices. https://threejs.org
+- Library tools under core/ (core/three/post.js, core/render/*, core/audio/sfx.py, core/tts/*).
+
+Font
+- Fredoka (Google Fonts, SIL Open Font License 1.1): subtitles and the counter tag. Subset shipped in core/fonts (see core/fonts/OFL.md). https://github.com/google/fonts/tree/main/ofl/fredoka
+
+Picture
+- Poly Haven "American Walnut Veneer" (CC0), the table top: core/assets/polyhaven/walnut_diff.jpg, walnut_nor.jpg, walnut_rough.jpg. https://polyhaven.com/a/american_walnut_veneer
+- Poly Haven "Desk Lamp Arm 01" (CC0), the lamp in the last shot: core/assets/polyhaven/desk_lamp_arm_01. https://polyhaven.com/a/desk_lamp_arm_01
+- Everything else is generated in code: the fibre textures, the wool, the foam pad, the linen strip, the bird, the roving, the needle and its holder, the shadows, the subtitle patches and the counter tag. The environment lighting is three.js's built-in RoomEnvironment.
+
+Voice
+- Kokoro TTS (kokoro-onnx, Apache-2.0; model kokoro-v1.0.onnx, Apache-2.0), voice "bf_emma", run offline through core/tts/tts.py. Lines checked with faster-whisper (MIT). https://github.com/thewh1teagle/kokoro-onnx
+
+Sound
+- The score (felt piano, music box, pad, hum) and all foley (needle pokes, rustle, thuds, the peep, the lamp switch) are synthesised in styles/felt/demo/mix.py with numpy, scipy and soundfile (BSD licences). No samples, no sample library, no downloads.

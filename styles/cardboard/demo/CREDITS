@@ -1,0 +1,9 @@
+The Wave Inside: third-party assets
+- three.js r170 (MIT), including RoomEnvironment (studio environment lighting), RoundedBoxGeometry and the post-processing passes: https://threejs.org
+- Caveat Bold (SIL Open Font License 1.1): subtitle lettering. https://github.com/googlefonts/caveat (copy from styles/charcoal/demo/fonts)
+- Barlow Medium (SIL Open Font License 1.1): numerals on the cutting mat and the steel rule. https://github.com/jpt/barlow (copy from styles/constructivist/demo/fonts)
+- Kokoro TTS v1.0 model, voice bf_emma (Apache License 2.0), run offline through core/tts/tts.py: https://github.com/hexgrad/kokoro
+- Whisper base.en through faster-whisper (MIT), used only to check the voice lines (core/tts/asr_check.py).
+- Everything else is generated in code: the kraft board faces, the flute profile on every cut edge, tapes, cutting mat, desk, tin, tools, the marker lettering (a hand-built single-stroke alphabet in engine/stroke.js).
+- Sound: all music (kalimba, marimba, pizzicato bass, box taps) and all foley are synthesised in demo/mix.py with numpy/scipy and core/audio/sfx.py (MIT); no samples, no downloads.
+- No real brands, logos or products appear; the tin and its label are invented.

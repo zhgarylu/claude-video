@@ -1,0 +1,58 @@
+[
+ {
+  "id": "v1",
+  "t0": 0.9,
+  "t1": 6.567,
+  "text": "Someone asks a favour, and your mouth says yes before you do.",
+  "speech": 3.447
+ },
+ {
+  "id": "v2",
+  "t0": 6.7,
+  "t1": 14.033,
+  "text": "So shuffle. Cut. The deck knows nothing. It only makes you ask three things, in order.",
+  "speech": 4.934
+ },
+ {
+  "id": "v3",
+  "t0": 14.2,
+  "t1": 21.067,
+  "text": "First, the Lantern. What, exactly, is being asked? Say it in a single sentence.",
+  "speech": 4.848
+ },
+ {
+  "id": "v4",
+  "t0": 24.9,
+  "t1": 31.167,
+  "text": "Second, the Key. What does it cost? Count the hours, not the feelings.",
+  "speech": 3.739
+ },
+ {
+  "id": "v5",
+  "t0": 38.2,
+  "t1": 43,
+  "text": "Third, the Tide. Will it still matter in a year?",
+  "speech": 2.558
+ },
+ {
+  "id": "v6",
+  "t0": 43.1,
+  "t1": 47.767,
+  "text": "It lands upside down. Reversed means: not yet.",
+  "speech": 3.263
+ },
+ {
+  "id": "v7",
+  "t0": 47.85,
+  "t1": 51.917,
+  "text": "Any murky card, and the answer waits.",
+  "speech": 2.258
+ },
+ {
+  "id": "v8",
+  "t0": 52.2,
+  "t1": 56.133,
+  "text": "Three questions. One honest answer.",
+  "speech": 2.277
+ }
+]

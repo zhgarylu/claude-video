@@ -56,6 +56,17 @@
       "line": "竖屏 9:16 的“视频即世界”：视频铺满画面，底色取自视频，标注卡贴在两侧并用引线指进视频，逐字高亮的大字幕避开平台界面区。",
       "line_en": "Portrait 9:16 \"video as the world\": the video fills the frame, the ground colour comes from the video, callout cards sit on the edges with leaders into it, and karaoke captions stay clear of the platform UI.",
       "source": "demos/talking-head/dots-v"
+    },
+    {
+      "id": "splitflap-intro",
+      "style": "split-flap",
+      "dur": "0:30",
+      "title": "claude-video 介绍（翻牌显示屏）",
+      "title_en": "Introducing claude-video (split-flap)",
+      "layout": "world",
+      "line": "科技感高铁站里一块被整块重画的机械翻牌板：逐帧跟踪镜头的透视，讲者挡在板前，字随口播一行行翻出来，哗啦声由 26 000 多次翻牌合成。",
+      "line_en": "The board in a high-tech rail station is redrawn as a real mechanical split-flap display: tracked frame by frame through the camera moves, the host stands in front of it, and the text flips in line by line with the voice; the clatter is synthesised from 26,000+ flaps.",
+      "source": "demos/talking-head/splitflap-intro"
     }
   ]
 }

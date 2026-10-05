@@ -1,0 +1,70 @@
+[
+ {
+  "id": "v1",
+  "text": "This is Halden. Rivers bend, rails curve, and nothing lines up.",
+  "voice": "bf_emma",
+  "speed": 0.95
+ },
+ {
+  "id": "v2",
+  "text": "So the map tells a useful lie. It throws away distance, and keeps the connections.",
+  "voice": "bf_emma",
+  "speed": 0.95
+ },
+ {
+  "id": "v3",
+  "text": "Rule one. Horizontal, vertical, or forty-five degrees. Nothing else.",
+  "voice": "bf_emma",
+  "speed": 0.95
+ },
+ {
+  "id": "v4",
+  "text": "Rule two. One line, one colour, one weight.",
+  "voice": "bf_emma",
+  "speed": 0.95,
+  "asr": "Rule 2, 1 line, 1 color, 1 weight"
+ },
+ {
+  "id": "v5",
+  "text": "Rule three. A tick is a stop. A ring is a change.",
+  "voice": "bf_emma",
+  "speed": 0.95
+ },
+ {
+  "id": "v6",
+  "text": "Zones tell you what it costs.",
+  "voice": "bf_emma",
+  "speed": 0.95
+ },
+ {
+  "id": "v7",
+  "text": "You are here, at Quill Lane. The lantern festival is at Rook Point.",
+  "voice": "bf_emma",
+  "speed": 0.95
+ },
+ {
+  "id": "v8a",
+  "text": "Fern line, change at Linden.",
+  "voice": "bf_emma",
+  "speed": 0.95,
+  "asr": "Fern line, change at London."
+ },
+ {
+  "id": "v8b",
+  "text": "Round the Ring, change at Ember Wharf.",
+  "voice": "bf_emma",
+  "speed": 0.95
+ },
+ {
+  "id": "v8c",
+  "text": "Saffron to the end.",
+  "voice": "bf_emma",
+  "speed": 0.95
+ },
+ {
+  "id": "v9",
+  "text": "A map doesn't show the city. It shows you the way.",
+  "voice": "bf_emma",
+  "speed": 0.95
+ }
+]

@@ -1,0 +1,10 @@
+Five Blocks to a Door: third-party assets
+
+- Lilita One (SIL Open Font License 1.1), the only typeface, subset in core/fonts: https://github.com/google/fonts/tree/main/ofl/lilitaone
+- Voice: Kokoro-82M text-to-speech, voice bm_fable, run offline through kokoro-onnx (model Apache-2.0, kokoro-onnx MIT): https://github.com/thewh1teagle/kokoro-onnx
+- Voice check only (not in the film): faster-whisper / Whisper base.en (MIT).
+- Everything else is generated in code:
+  - the pictures: every print (child, carp, lotus, peony, bat, coin, cloud, door guardians, lintel banner, couplet strips, seal strip) is drawn in demo/engine/art_*.js and motifs.js; the single Chinese character on the lintel is six block-cut strokes drawn in art_door.js (no font);
+  - the paper, wood, grain, ink-blotch and brick textures are made at load from fixed seeds in engine/core.js and scene_door.js;
+  - the music (plucked zither, flute, wooden fish, clapper, gongs, drum, drone) and all foley and ambience are synthesised in demo/mix.py with numpy/scipy and core/audio/sfx.py (MIT); no samples, no recordings, no downloads.
+- The compositions are original. No existing print, couplet verse, deity name or workshop mark is traced or quoted.

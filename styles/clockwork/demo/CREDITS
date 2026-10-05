@@ -1,0 +1,10 @@
+The Slowest Link: third-party assets
+- three.js r170 (MIT), including its post-processing add-ons and RoundedBoxGeometry: https://threejs.org
+- Poly Haven "american_walnut_veneer" diffuse / normal maps (CC0), kept in core/assets/polyhaven: https://polyhaven.com/a/american_walnut_veneer
+- Cormorant Garamond, roman and italic (SIL Open Font License 1.1), by Christian Thalmann: https://github.com/google/fonts/tree/main/ofl/cormorantgaramond
+- Courier Prime Bold (SIL Open Font License 1.1), by Quote-Unquote Apps: https://github.com/google/fonts/tree/main/ofl/courierprime
+- Barlow Medium (SIL Open Font License 1.1), by Jeremy Tribby: https://github.com/google/fonts/tree/main/ofl/barlow
+  (the three font files sit in demo/fonts/, copied from other styles' demos; they are not committed)
+- Voice: Kokoro 82M, voice bm_george, via kokoro-onnx (Apache-2.0; model weights Apache-2.0), run offline: https://github.com/thewh1teagle/kokoro-onnx
+- Speech check: faster-whisper (MIT).
+- Everything else is generated in code: the gears (involute profiles, engine/gears.js), tracks, cam, dominoes, brass and steel materials, the workshop lighting, the cause-map layer; every sound (the escapement's ticks, ratchet, rolling marbles, bone dominoes, the bell) and the music-box score are synthesised in demo/mix.py with numpy/scipy and core/audio/sfx.py; no samples, no downloads.

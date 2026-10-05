@@ -30,6 +30,8 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | Paper-cut Lightbox | 纸雕灯影 | [`paper-lantern`](paper-lantern/STYLE.md) | *A Mooncake's Longing* | Lemo-Opuscar |
 | Blue-and-White Porcelain | 青花瓷 | [`blue-white`](blue-white/STYLE.md) | *The Blue Only Arrives in the Fire* | ★ added here · 本仓库新增 |
 | Dunhuang Mural | 敦煌壁画 | [`dunhuang`](dunhuang/STYLE.md) | *Borrowed Lamplight* | ★ added here · 本仓库新增 |
+| Lacquer & Gold | 漆器描金 | [`lacquer-gold`](lacquer-gold/STYLE.md) | *Thirty Coats* | ★ added here · 本仓库新增 |
+| Woodblock New Year Print | 木版年画 | [`nianhua`](nianhua/STYLE.md) | *Five Blocks to a Door* | ★ added here · 本仓库新增 |
 
 ## Print & Printmaking · 印刷与版画
 
@@ -41,6 +43,9 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | Copperplate Engraving | 铜版画 | [`engraving`](engraving/STYLE.md) | *The Honeybee, Plate VII* | Lemo-Opuscar |
 | Silkscreen Travel Poster | 丝印旅行海报 | [`silkscreen-poster`](silkscreen-poster/STYLE.md) | *Three Trails* | Lemo-Opuscar |
 | Natural History Plate | 博物图鉴 | [`natural-history`](natural-history/STYLE.md) | *Plate IV: The Spiral, in Four Makers* | ★ added here · 本仓库新增 |
+| Letterpress Newspaper | 活字报纸头版 | [`newsprint`](newsprint/STYLE.md) | *Print It True* | ★ added here · 本仓库新增 |
+| Tarot Cards | 塔罗牌 | [`tarot`](tarot/STYLE.md) | *Three Cards for a Yes* | ★ added here · 本仓库新增 |
+| Cyanotype | 蓝晒 | [`cyanotype`](cyanotype/STYLE.md) | *Reading the Sun* | ★ added here · 本仓库新增 |
 
 ## Graphic & Type · 图形与排版
 
@@ -57,6 +62,9 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | Art Nouveau | 新艺术 | [`art-nouveau`](art-nouveau/STYLE.md) | *The Iris Hour* | ★ added here · 本仓库新增 |
 | Bauhaus & Constructivist Poster | 包豪斯构成主义 | [`constructivist`](constructivist/STYLE.md) | *Thirty Metres* | ★ added here · 本仓库新增 |
 | Vaporwave & Y2K Chrome | 蒸汽波与 Y2K | [`y2k-vaporwave`](y2k-vaporwave/STYLE.md) | *Installing Summer* | ★ added here · 本仓库新增 |
+| Transit Map | 地铁线路图 | [`transit-map`](transit-map/STYLE.md) | *Three Angles to Anywhere* | ★ added here · 本仓库新增 |
+| Split-flap Board | 翻牌显示屏 | [`split-flap`](split-flap/STYLE.md) | *The Long Way Round* | ★ added here · 本仓库新增 |
+| Vector Oscilloscope | 矢量示波器 | [`vector-scope`](vector-scope/STYLE.md) | *Hold the Fifth* | ★ added here · 本仓库新增 |
 
 ## Information & Keynote · 信息与发布
 
@@ -98,6 +106,7 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | 1920s Silent Film | 1920s 默片 | [`silent-film`](silent-film/STYLE.md) | *The Runaway Loaf* | Lemo-Opuscar |
 | Liminal Found Footage | 后室 / 新怪谈 | [`backrooms`](backrooms/STYLE.md) | *Night Shift Orientation* | Lemo-Opuscar |
 | Super 8 Home Movie | 老胶片家庭录像 | [`super8`](super8/STYLE.md) | *Dad Was Here Too* | ★ added here · 本仓库新增 |
+| Zoetrope & Phenakistoscope | 前电影光学玩具 | [`zoetrope`](zoetrope/STYLE.md) | *Nothing Moves* | ★ added here · 本仓库新增 |
 
 ## Materials & 3D · 材质与 3D
 
@@ -110,3 +119,6 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | Glass Product Render | 玻璃质感产品 | [`glass-product`](glass-product/STYLE.md) | *Aura — Hear the Light* | Lemo-Opuscar |
 | Claymation / Stop-motion | 粘土定格动画 | [`claymation`](claymation/STYLE.md) | *Proof* | ★ added here · 本仓库新增 |
 | Origami Fold | 折纸 | [`origami`](origami/STYLE.md) | *The Seventh Fold* | ★ added here · 本仓库新增 |
+| Clockwork & Chain Reaction | 发条机关 | [`clockwork`](clockwork/STYLE.md) | *The Slowest Link* | ★ added here · 本仓库新增 |
+| Needle Felting | 羊毛毡 | [`felt`](felt/STYLE.md) | *Mostly Air* | ★ added here · 本仓库新增 |
+| Corrugated Cardboard Craft | 瓦楞纸手工 | [`cardboard`](cardboard/STYLE.md) | *The Wave Inside* | ★ added here · 本仓库新增 |

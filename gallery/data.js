@@ -353,6 +353,50 @@ window.GALLERY = {
    "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/dunhuang/DEMO.md"
   },
   {
+   "slug": "lacquer-gold",
+   "num": "75",
+   "en": "Lacquer & Gold",
+   "cn": "漆器描金",
+   "cat": "东方传统",
+   "cat_en": "East Asian Traditions",
+   "film": "Thirty Coats",
+   "line": "A lid takes thirty coats of lacquer, each cured in damp air and polished, before the first gold line is drawn; then it turns in the light, opens, and shows the red that was under everything.",
+   "line_cn": "一只漆盒盖上了三十道漆，每一道都要在潮气里阴干、打磨；直到最后才落下第一笔描金，盒盖在光里转动、掀开，里面是一直垫在底下的朱红。",
+   "uses": [
+    "Heritage and craft stories",
+    "Festival and luxury product films",
+    "Ceremonial invitations and elegant timelines"
+   ],
+   "dur": 56,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/lacquer-gold.mp4",
+   "frame": "../docs/frames/lacquer-gold.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/lacquer-gold/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/lacquer-gold/DEMO.md"
+  },
+  {
+   "slug": "nianhua",
+   "num": "80",
+   "en": "Woodblock New Year Print",
+   "cn": "木版年画",
+   "cat": "东方传统",
+   "cat_en": "East Asian Traditions",
+   "film": "Five Blocks to a Door",
+   "line": "A carved plank prints a child with a carp and a lotus, one colour block at a time; pasted on a door with a mirrored guardian pair, the old year tears when the door opens, and the plank stays on the bench.",
+   "line_cn": "一块雕好的木板印出抱鲤鱼、举莲花的娃娃，一版一色叠印而成；贴上大门配成对称的门神，门一开旧年的纸被撕开，留下的是工作台上的那块板。",
+   "uses": [
+    "Festivals, greetings and blessings",
+    "Folk tales, proverbs and auspicious-themed products",
+    "How-a-print-is-made explainers"
+   ],
+   "dur": 56,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/nianhua.mp4",
+   "frame": "../docs/frames/nianhua.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/nianhua/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/nianhua/DEMO.md"
+  },
+  {
    "slug": "risograph",
    "num": "12",
    "en": "Risograph Print",
@@ -483,6 +527,72 @@ window.GALLERY = {
    "frame": "../docs/frames/natural-history.jpg",
    "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/natural-history/STYLE.md",
    "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/natural-history/DEMO.md"
+  },
+  {
+   "slug": "newsprint",
+   "num": "73",
+   "en": "Letterpress Newspaper",
+   "cn": "活字报纸头版",
+   "cat": "印刷与版画",
+   "cat_en": "Print & Printmaking",
+   "film": "Print It True",
+   "line": "A small-town paper prints a fire that never happened; a stop-press stamp pulls the headline out letter by letter, the halftone photograph re-develops, and the correction is set as large as the mistake.",
+   "line_cn": "小镇报纸头版登出一场并不存在的火灾；“停机”印章一盖，标题活字被逐个抽出，网点照片重新显影，更正启事排得和错误标题一样大。",
+   "uses": [
+    "News recaps and timelines of what happened",
+    "History explainers told through successive editions",
+    "Editorial essays and announcements with a headline, a pull quote and a correction"
+   ],
+   "dur": 52.6,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/newsprint.mp4",
+   "frame": "../docs/frames/newsprint.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/newsprint/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/newsprint/DEMO.md"
+  },
+  {
+   "slug": "tarot",
+   "num": "74",
+   "en": "Tarot Cards",
+   "cn": "塔罗牌",
+   "cat": "印刷与版画",
+   "cat_en": "Print & Printmaking",
+   "film": "Three Cards for a Yes",
+   "line": "A favour is asked and yes is already forming; a shuffled deck deals three cards, a Lantern for what is asked, a Key for what it costs, a Tide for whether it matters in a year, and the last one lands upside down: not yet.",
+   "line_cn": "有人请你帮个忙，“好”字已到嘴边；洗牌、切牌、发三张：灯笼问到底要你做什么，钥匙问代价是什么，潮汐问一年后还重要吗，最后一张倒位落下：先不急着答应。",
+   "uses": [
+    "Three-part judgments and decision aids",
+    "Role and personality profiles",
+    "Fortune-style explainers (playful, never medical)"
+   ],
+   "dur": 58,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/tarot.mp4",
+   "frame": "../docs/frames/tarot.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/tarot/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/tarot/DEMO.md"
+  },
+  {
+   "slug": "cyanotype",
+   "num": "79",
+   "en": "Cyanotype",
+   "cn": "蓝晒",
+   "cat": "印刷与版画",
+   "cat_en": "Print & Printmaking",
+   "film": "Reading the Sun",
+   "line": "A strip of sun-sensitive paper is uncovered one band at a time, the wash shows which exposure keeps its whites, and a fern and a feather are printed with exactly that much sun.",
+   "line_cn": "一条涂了感光液的纸条被一段一段揭开，水洗后只有一段留住了白；蕨叶和羽毛就按那一段的曝光时间印出来。",
+   "uses": [
+    "Botanical and science notes",
+    "Memory and archive stories",
+    "Process tutorials and maps"
+   ],
+   "dur": 60,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/cyanotype.mp4",
+   "frame": "../docs/frames/cyanotype.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/cyanotype/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/cyanotype/DEMO.md"
   },
   {
    "slug": "swiss-motion",
@@ -725,6 +835,72 @@ window.GALLERY = {
    "frame": "../docs/frames/y2k-vaporwave.jpg",
    "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/y2k-vaporwave/STYLE.md",
    "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/y2k-vaporwave/DEMO.md"
+  },
+  {
+   "slug": "transit-map",
+   "num": "76",
+   "en": "Transit Map",
+   "cn": "地铁线路图",
+   "cat": "图形与排版",
+   "cat_en": "Graphic & Type",
+   "film": "Three Angles to Anywhere",
+   "line": "A traveller lost in the curved tangle of an invented city watches its map straighten onto three angles, learns the rules from the legend, and rides two changes to a lantern festival.",
+   "line_cn": "一位旅客迷失在虚构城市弯曲的线路里；地图在眼前被拉直到三种角度，图例讲完规则，他换乘两次，抵达灯笼节。",
+   "uses": [
+    "Processes, pipelines and learning paths",
+    "Itineraries and travel stories",
+    "How-X-connects-to-Y explainers and org flows"
+   ],
+   "dur": 54,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/transit-map.mp4",
+   "frame": "../docs/frames/transit-map.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/transit-map/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/transit-map/DEMO.md"
+  },
+  {
+   "slug": "split-flap",
+   "num": "78",
+   "en": "Split-flap Board",
+   "cn": "翻牌显示屏",
+   "cat": "图形与排版",
+   "cat_en": "Graphic & Type",
+   "film": "The Long Way Round",
+   "line": "A night-station departure board can only turn forward: going back from B to A costs thirty-nine flaps, so a delay rewrites a whole line, a countdown ticks on a ten-flap wheel, and a last sentence is spelled cell by cell.",
+   "line_cn": "夜间车站的翻牌显示屏只能向前翻：从 B 退回 A 要翻三十九张牌，所以一次晚点会让整行重写，倒计时在十张牌的数字轮上跳动，最后一句话一格一格拼出来。",
+   "uses": [
+    "Schedules, timetables and countdowns",
+    "Rankings and leaderboards that reorder",
+    "Announcements and one-line quotes"
+   ],
+   "dur": 60,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/split-flap.mp4",
+   "frame": "../docs/frames/split-flap.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/split-flap/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/split-flap/DEMO.md"
+  },
+  {
+   "slug": "vector-scope",
+   "num": "81",
+   "en": "Vector Oscilloscope",
+   "cn": "矢量示波器",
+   "cat": "图形与排版",
+   "cat_en": "Graphic & Type",
+   "film": "Hold the Fifth",
+   "line": "Two tones drift toward a simple ratio until the picture they draw stands still; then the score itself writes a word on the glass.",
+   "line_cn": "两个音渐渐靠近一个简单的比例，它们画出的图形终于静止；最后由配乐本身在荧光屏上写出一个词。",
+   "uses": [
+    "Audio and signal explainers",
+    "Maths, physics and music visualisation",
+    "Retro sci-fi titles and instrument interfaces"
+   ],
+   "dur": 56,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/vector-scope.mp4",
+   "frame": "../docs/frames/vector-scope.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/vector-scope/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/vector-scope/DEMO.md"
   },
   {
    "slug": "dataviz",
@@ -1190,6 +1366,28 @@ window.GALLERY = {
    "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/super8/DEMO.md"
   },
   {
+   "slug": "zoetrope",
+   "num": "82",
+   "en": "Zoetrope & Phenakistoscope",
+   "cn": "前电影光学玩具",
+   "cat": "电影与时代",
+   "cat_en": "Cinema & Eras",
+   "film": "Nothing Moves",
+   "line": "A paper disc of twelve still bird drawings flies when it is spun past a slit and a mirror, flickers when too slow, flies backwards the other way, and crawls the wrong way under the film's own 24 fps shutter; the ring unrolls into a strip and bends into a drum where a gentleman walks.",
+   "line_cn": "一张画着十二只静止小鸟的纸盘，转起来透过狭缝在镜中飞翔；太慢就闪烁，反转就倒飞，在影片自己的 24 帧快门下盘面还会倒爬；画环展开成纸带，卷成转筒，里面走起一位绅士。",
+   "uses": [
+    "How persistence of vision and animation work",
+    "The history of motion pictures",
+    "Loops, cycles and children's science lessons"
+   ],
+   "dur": 54.4,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/zoetrope.mp4",
+   "frame": "../docs/frames/zoetrope.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/zoetrope/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/zoetrope/DEMO.md"
+  },
+  {
    "slug": "brick-toy",
    "num": "37",
    "en": "Brick Toy",
@@ -1342,6 +1540,72 @@ window.GALLERY = {
    "frame": "../docs/frames/origami.jpg",
    "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/origami/STYLE.md",
    "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/origami/DEMO.md"
+  },
+  {
+   "slug": "clockwork",
+   "num": "77",
+   "en": "Clockwork & Chain Reaction",
+   "cn": "发条机关",
+   "cat": "材质与 3D",
+   "cat_en": "Materials & 3D",
+   "film": "The Slowest Link",
+   "line": "A chain of brass links starts with a clock's tick; one 16:1 gear train makes everything after it wait, and swapping a single pair of gears gives the same chain back six seconds.",
+   "line_cn": "一串黄铜机关从钟摆的一声滴答开始；其中一组 16:1 的齿轮让后面的一切等着，只换一对齿轮，同一条链就快了六秒。",
+   "uses": [
+    "Cause-and-effect and how-it-works explainers",
+    "Bottlenecks, supply and dependency chains",
+    "Product mechanisms and process post-mortems"
+   ],
+   "dur": 57.8,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/clockwork.mp4",
+   "frame": "../docs/frames/clockwork.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/clockwork/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/clockwork/DEMO.md"
+  },
+  {
+   "slug": "felt",
+   "num": "83",
+   "en": "Needle Felting",
+   "cn": "羊毛毡",
+   "cat": "材质与 3D",
+   "cat_en": "Materials & 3D",
+   "film": "Mostly Air",
+   "line": "A cloud of wool is poked four thousand times by a barbed needle into a firm ball, a head, a beak and two wings, blended into a rust breast, and given two bead eyes; the bird blinks and peeps in a real silence, and the lamp goes out.",
+   "line_cn": "一团蓬松的羊毛被毡针戳了四千下：缩成紧实的球，接上头、嘴和翅膀，铁锈色的胸口在针下融进羊毛，缝上两粒黑豆眼；静默之后，它眨了一下眼，轻轻叫了一声，台灯熄灭。",
+   "uses": [
+    "Cosy children's and craft content",
+    "Soft characters and tutorials",
+    "Warm product and maker stories"
+   ],
+   "dur": 52,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/felt.mp4",
+   "frame": "../docs/frames/felt.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/felt/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/felt/DEMO.md"
+  },
+  {
+   "slug": "cardboard",
+   "num": "84",
+   "en": "Corrugated Cardboard Craft",
+   "cn": "瓦楞纸手工",
+   "cat": "材质与 3D",
+   "cat_en": "Materials & 3D",
+   "film": "The Wave Inside",
+   "line": "A craft knife opens a board to show the wave between its liners; a thin card gives way under a tin, the same tin sits still on the board, and a flat-pack folded into a taped beam carries three.",
+   "line_cn": "美工刀划开瓦楞纸板，露出两层面纸之间的波浪；薄卡纸在铁罐下垮掉，同样的罐子在瓦楞板上纹丝不动，折成胶带封好的方梁后能扛三个。",
+   "uses": [
+    "DIY, prototyping and maker explainers",
+    "Packaging, unboxing and flat-pack assembly guides",
+    "Children's projects and craft tutorials"
+   ],
+   "dur": 54,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/cardboard.mp4",
+   "frame": "../docs/frames/cardboard.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/cardboard/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/cardboard/DEMO.md"
   }
  ],
  "demos": [
@@ -1425,9 +1689,49 @@ window.GALLERY = {
    "source_url": "https://github.com/zhgarylu/claude-video/tree/main/demos/talking-head/dots-v",
    "style_en": "Swiss Motion Graphics",
    "style_cn": "瑞士动态排版"
+  },
+  {
+   "id": "splitflap-intro",
+   "style": "split-flap",
+   "dur": "0:30",
+   "title": "claude-video 介绍（翻牌显示屏）",
+   "title_en": "Introducing claude-video (split-flap)",
+   "layout": "world",
+   "line": "科技感高铁站里一块被整块重画的机械翻牌板：逐帧跟踪镜头的透视，讲者挡在板前，字随口播一行行翻出来，哗啦声由 26 000 多次翻牌合成。",
+   "line_en": "The board in a high-tech rail station is redrawn as a real mechanical split-flap display: tracked frame by frame through the camera moves, the host stands in front of it, and the text flips in line by line with the voice; the clatter is synthesised from 26,000+ flaps.",
+   "source": "demos/talking-head/splitflap-intro",
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/splitflap-intro.mp4",
+   "poster": "../docs/talking-head/splitflap-intro.jpg",
+   "source_url": "https://github.com/zhgarylu/claude-video/tree/main/demos/talking-head/splitflap-intro",
+   "style_en": "Split-flap Board",
+   "style_cn": "翻牌显示屏"
   }
  ],
  "prompts": [
+  {
+   "id": "origami-hud-project-vertical",
+   "title": "介绍 claude-video 项目（折纸 + 科幻全息，竖屏）",
+   "title_en": "Introducing the claude-video project (origami + sci-fi hologram, portrait)",
+   "world": "近黑舞台上的全息折纸 · 竖屏 9:16 · 冰青线框 + 一点橙色",
+   "world_en": "Holographic origami on a near-black stage · portrait 9:16 · ice-cyan wireframes + one orange accent",
+   "style": "hologram-hud",
+   "status": "used",
+   "facts": "2026-10-05",
+   "text": "参考图中的男博主，是同一个人、同一张脸、同一套日常休闲上衣（全程不换装），身上有一点冷色的轮廓光。\n竖幅 9:16（1080×1920），时长 30 秒，24 帧，固定机位，竖屏中景：博主占画面高度约三分之二，站在画面中间。\n\n【场景】\n一个近乎纯黑的科幻舞台，博主脚下有一个圆形的投影台：几圈细细的同心圆发光线，一圈亮、一圈虚线，带刻度，慢慢转动。背景是很淡的发光点阵，有轻微的纵深。\n整个世界只用一种冷色（冰青色）的发光细线，加唯一的暖色强调：橙色，只在某个东西“确定”的那一刻亮一下。不要实体渲染，所有东西都是发光的线框，线条近亮远暗。\n三样东西都是折纸造型，用发光线框画出折痕，都放在画面中间 80% 以内，不要贴到画面边缘：左后方一只发光线框的折纸纸鹤，会慢慢展开成一张平铺的折痕图，再重新折回去；右后方一台发光线框的折纸摄影机，旁边有一个空白的片夹；中间后方一块立着的发光折纸屏幕，屏幕上有虚线的折痕，没有任何内容。\n画面最上面约 12% 和最下面约 15% 是干净的黑色，不放任何东西。\n不要出现任何文字、标志、数字和屏幕上的字，所有屏幕、片夹和折痕图都是空白的。\n\n【动作与口播】（普通话，语速自然偏快，口型清楚，口播不要被打断）\n0–4 秒：博主面对镜头，抬手打招呼，随后把双手在胸前比成一个小方框。\n口播：“想用 AI 做视频，又不想千篇一律？我做了一个开源项目，叫 claude-video。”\n\n4–6.5 秒：不说话。博主转头看左边的折纸纸鹤，点点头。\n\n6.5–13 秒：博主一只手向纸鹤一指，纸鹤沿着折痕展开成一张平铺的折痕图，图上的格子一格接一格亮起，每亮一格线条的颜色微微变一下。\n口播：“风格库里有水墨、油画、像素游戏、霓虹灯牌、折纸，超过六十种，每一种都有一条用代码做的样片。”\n\n13–14.5 秒：不说话。博主走向右边的折纸摄影机，手放在摇柄上。\n\n14.5–20.5 秒：博主转动摄影机的摇柄；中间的折纸屏幕亮起，屏幕周围展开一圈小小的折纸卡片，像一圈标注框。\n口播：“选一个风格，告诉它你的题材，它就导演并做成片；还能做口播解说，在你的讲者视频周围画上标注卡、字幕和配乐，横屏竖屏都行。”\n\n20.5–22 秒：不说话。博主回到画面中间，看着折纸屏幕。\n\n22–26.5 秒：博主做出“翻页”的动作，折纸屏幕像一张纸一样向侧面翻开，露出下一层，再双手递出一小张发光折纸，递向镜头前的人；这时橙色亮了一下。\n口播：“还有画廊网站，可以直接看每种风格的样片，现成的视频提示词复制就能用。”\n\n26.5–30 秒：博主面向镜头，表情认真，双手自然下垂。\n口播：“项目在我的 GitHub 上。你最想先试哪种风格？”\n\n【画面要求】\n博主全程在同一个黑色舞台上，保持在画面中间，走位不超过画面宽度的三分之一，不要离开投影台。\n动作从容、清楚，手势要明显，方便后期在两侧加说明。\n不要换装，不要戴眼镜，不要出现第二个人，不要出现水印和字幕。\n口型和口播对齐，说话声清晰，没有背景音乐。",
+   "url": "https://github.com/zhgarylu/claude-video/blob/main/prompts/talking-head/origami-hud-project-vertical.md"
+  },
+  {
+   "id": "splitflap-project-landscape",
+   "title": "介绍 claude-video 项目（翻牌显示屏 × 科技感高铁站，16:9 满屏）",
+   "title_en": "Introducing the claude-video project (split-flap board, 16:9 full-frame, continuous camera moves)",
+   "world": "科技感高铁站大厅 · 一块全空白的大翻牌板 · 冷白与钢蓝的灯光 · 连续运镜，和动作口播同步",
+   "world_en": "A high-tech high-speed-rail station hall · one large blank split-flap board · cool white and steel-blue light · one continuous camera move, in step with the action and the voice",
+   "style": "split-flap",
+   "status": "used",
+   "facts": "2026-10-05",
+   "text": "参考图中的男博主，是同一个人、同一张脸、同一套日常休闲上衣（全程不换装）。\n横幅 16:9（1920×1080），时长 30 秒，24 帧，全程连续运镜，一镜到底，没有剪辑切换。\n\n【场景】\n一座科技感的现代高铁站候车大厅：挑高的大厅，白色和银灰色的钢结构弧形顶，大面积玻璃幕墙，冷白色的 LED 灯带沿着顶部和地面的边缘发光，地面是带倒影的浅灰色亮面地砖。透过玻璃能看到远处站台上停着一列流线型的白色动车组，车身干净，没有任何文字、编号或标志，站台上没有人。画面的色调是冷白、银灰和钢蓝，唯一的亮点颜色是琥珀黄。\n大厅里挂着一块巨大的机械翻牌显示板：深黑色的哑光金属外壳，极简的细边框，边缘有一圈很细的冷白色灯光；一共五到六行，每行二十多个小格，每个格子都是深黑色的翻页片，全部保持空白、静止，不翻动，没有任何字符、数字或标志。板子的下沿高于博主的头顶。\n博主旁边的地上有一个简洁的银灰色行李箱，没有任何字或标志。\n不要出现任何文字、标志、数字和屏幕上的字，大厅里的钟没有指针和刻度。\n\n【运镜总要求】\n镜头一直在缓慢、匀速、平稳地运动，速度要慢，没有手持晃动，没有突然的加速和停顿。运镜的方向和博主的动作配合：他的手臂伸向哪里，镜头就朝哪里缓缓靠近；他把东西递向镜头时，镜头轻轻推向他。\n整个过程中，翻牌板的四个边角始终完整地留在画面内，博主始终站在板的左侧，头顶不进入板的范围，也不要走到板的下面或前面。\n\n【动作、口播与运镜】（普通话，语速自然偏快，口型清楚，口播不要被打断）\n0–4 秒：博主面对镜头，抬手打招呼，随后把双手在胸前比成一个小方框。\n运镜：正面中景起，镜头缓慢向前推近，推到博主占画面高度约三分之二，翻牌板在画面右侧约一半。\n口播：“想用 AI 做视频，又不想千篇一律？我做了一个开源项目，叫 claude-video。”\n\n4–6.5 秒：不说话。博主转头看右边的翻牌板，点点头。\n运镜：镜头开始缓慢向右环绕，视线跟着博主的目光转向翻牌板。\n\n6.5–13 秒：博主一只手向翻牌板的方向伸出，掌心向上，像在介绍一排列表；视线随着手臂从板的上排慢慢移到下排。\n运镜：镜头继续匀速向右环绕，总共环绕约 30 度，变成从斜前方看翻牌板的角度，同时轻轻推近；运动方向和他手臂伸出的方向一致。\n口播：“风格库里有水墨、油画、像素游戏、霓虹灯牌、折纸，超过六十种，每一种都有一条用代码做的样片。”\n\n13–14.5 秒：不说话。博主低头看一眼手里的东西：从口袋里拿出一张空白的白色卡片车票。\n运镜：镜头平稳向前推近，同时略微下沉，来到更近的中近景。\n\n14.5–20.5 秒：博主举起车票给镜头看，再用车票轻轻点向翻牌板；另一只手在身侧比出一块横着的小屏幕，再比出一块竖着的。\n运镜：镜头缓慢绕向博主的左侧前方，同时缓缓推近，板子留在画面右后方，仍然完整入画。\n口播：“选一个风格，告诉它你的题材，它就导演并做成片；还能做口播解说，在你的讲者视频周围画上标注卡、字幕和配乐，横屏竖屏都行。”\n\n20.5–22 秒：不说话。博主放下车票，看着翻牌板，微微抬头。\n运镜：镜头开始平稳向后拉远，并缓缓升高，像用摇臂抬起来。\n\n22–26.5 秒：博主做出“翻页”的动作，像翻开一本册子，再用双手把空白车票递向镜头前的人。\n运镜：摇臂继续缓缓升高，到略俯的高机位（从博主左上方向下看）；他递出车票的那一刻，镜头轻轻向他推近一点。\n口播：“还有画廊网站，可以直接看每种风格的样片，现成的视频提示词复制就能用。”\n\n26.5–30 秒：博主面向镜头，表情认真，双手自然下垂。\n运镜：镜头缓缓降回视线高度，同时向后拉远，在 29 秒前后回到和开头相同的正面中景，然后停稳。\n口播：“项目在我的 GitHub 上。你最想先试哪种风格？”\n\n【画面要求】\n翻牌板全程保持空白、静止，不翻动，每一帧四个边角都完整入画。\n整个过程大厅的布景保持一致，不要出现新的物体。\n动作从容、清楚，手势要明显，方便后期在右侧的板上叠加内容。\n不要换装，不要戴眼镜，不要出现第二个人，不要出现水印和字幕。\n口型和口播对齐，说话声清晰，没有背景音乐，只有大厅的轻微回声，远处偶尔有一点列车进站的低频声。",
+   "url": "https://github.com/zhgarylu/claude-video/blob/main/prompts/talking-head/splitflap-project-landscape.md"
+  },
   {
    "id": "swiss-dots",
    "title": "Dots：OpenAI 的常驻智能体",
@@ -1514,8 +1818,8 @@ window.GALLERY = {
   }
  ],
  "counts": {
-  "total": 61,
-  "added": 18,
-  "demos": 5
+  "total": 73,
+  "added": 30,
+  "demos": 6
  }
 };

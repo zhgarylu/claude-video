@@ -1,0 +1,669 @@
+{
+ "BPM": 120,
+ "BEAT": 0.5,
+ "BAR": 2,
+ "DUR": 54,
+ "T": {
+  "ping0": 0.25,
+  "river0": 1.4,
+  "river1": 3.4,
+  "pen": {
+   "fern": 3,
+   "copper": 3.5,
+   "violet": 4,
+   "ring": 4.5,
+   "saffron": 5
+  },
+  "penDur": 1.8,
+  "morph0": 8.5,
+  "lock": 14,
+  "cartouche": 13.5,
+  "silence0": 14.1,
+  "silence1": 15,
+  "legend": 15,
+  "angGhost": 16,
+  "angSnap": 17.5,
+  "rosette": [
+   15.75,
+   16.5,
+   17.25
+  ],
+  "swatch": [
+   20.5,
+   21,
+   21.5,
+   22,
+   22.5
+  ],
+  "caliper": 22,
+  "rowStop": 23.5,
+  "calloutStop": 24,
+  "calloutChange": 25,
+  "zoneRow": 27,
+  "zone2": 27.5,
+  "zone1": 28,
+  "zoneTags": 28.5,
+  "marker": 30.5,
+  "flag": 33,
+  "dim0": 33.5,
+  "dim1": 34.5,
+  "journeyCard": 34,
+  "dep1": 35,
+  "arr1": 37.5,
+  "dep2": 38.5,
+  "arr2": 41.5,
+  "dep3": 42.5,
+  "arr3": 45.5,
+  "craneOut": 45.5,
+  "legendOut": 49.5,
+  "finalPulse": 50,
+  "title": 50
+ },
+ "EV": [
+  {
+   "t": 0.25,
+   "type": "ping",
+   "v": 1,
+   "f": 392
+  },
+  {
+   "t": 1.4,
+   "type": "river",
+   "d": 2
+  },
+  {
+   "t": 3,
+   "type": "pen",
+   "d": 1.8,
+   "line": "fern"
+  },
+  {
+   "t": 3.5,
+   "type": "pen",
+   "d": 1.8,
+   "line": "copper"
+  },
+  {
+   "t": 4,
+   "type": "pen",
+   "d": 1.8,
+   "line": "violet"
+  },
+  {
+   "t": 4.5,
+   "type": "pen",
+   "d": 1.8,
+   "line": "ring"
+  },
+  {
+   "t": 5,
+   "type": "pen",
+   "d": 1.8,
+   "line": "saffron"
+  },
+  {
+   "t": 9.5,
+   "type": "ringset",
+   "x": -0.125,
+   "i": 0
+  },
+  {
+   "t": 10,
+   "type": "snap",
+   "x": 0,
+   "k": 12
+  },
+  {
+   "t": 10,
+   "type": "ringset",
+   "x": -0.25,
+   "i": 1
+  },
+  {
+   "t": 10,
+   "type": "tickset",
+   "x": -0.125,
+   "i": 2
+  },
+  {
+   "t": 10,
+   "type": "ringset",
+   "x": -0.125,
+   "i": 3
+  },
+  {
+   "t": 10.25,
+   "type": "snap",
+   "x": -0.3125,
+   "k": 15
+  },
+  {
+   "t": 10.25,
+   "type": "snap",
+   "x": 0.0625,
+   "k": 16
+  },
+  {
+   "t": 10.25,
+   "type": "snap",
+   "x": 0.25,
+   "k": 17
+  },
+  {
+   "t": 10.25,
+   "type": "snap",
+   "x": 0.25,
+   "k": 18
+  },
+  {
+   "t": 10.25,
+   "type": "snap",
+   "x": 0.0625,
+   "k": 19
+  },
+  {
+   "t": 10.25,
+   "type": "snap",
+   "x": -0.3125,
+   "k": 20
+  },
+  {
+   "t": 10.25,
+   "type": "snap",
+   "x": -0.5,
+   "k": 21
+  },
+  {
+   "t": 10.25,
+   "type": "snap",
+   "x": -0.5,
+   "k": 22
+  },
+  {
+   "t": 10.25,
+   "type": "tickset",
+   "x": -0.125,
+   "i": 4
+  },
+  {
+   "t": 10.5,
+   "type": "ringset",
+   "x": -0.125,
+   "i": 5
+  },
+  {
+   "t": 10.75,
+   "type": "snap",
+   "x": -0.6875,
+   "k": 8
+  },
+  {
+   "t": 10.75,
+   "type": "snap",
+   "x": 0.4375,
+   "k": 9
+  },
+  {
+   "t": 10.75,
+   "type": "ringset",
+   "x": -0.5,
+   "i": 6
+  },
+  {
+   "t": 10.75,
+   "type": "ringset",
+   "x": 0.25,
+   "i": 7
+  },
+  {
+   "t": 10.75,
+   "type": "ringset",
+   "x": -0.125,
+   "i": 8
+  },
+  {
+   "t": 10.75,
+   "type": "ringset",
+   "x": -0.4375,
+   "i": 9
+  },
+  {
+   "t": 10.75,
+   "type": "ringset",
+   "x": 0.1875,
+   "i": 10
+  },
+  {
+   "t": 10.75,
+   "type": "tickset",
+   "x": 0.125,
+   "i": 11
+  },
+  {
+   "t": 10.75,
+   "type": "ringset",
+   "x": 0.1875,
+   "i": 12
+  },
+  {
+   "t": 10.75,
+   "type": "tickset",
+   "x": 0.25,
+   "i": 13
+  },
+  {
+   "t": 10.75,
+   "type": "tickset",
+   "x": -0.375,
+   "i": 14
+  },
+  {
+   "t": 10.75,
+   "type": "tickset",
+   "x": -0.5,
+   "i": 15
+  },
+  {
+   "t": 11,
+   "type": "snap",
+   "x": -0.625,
+   "k": 11
+  },
+  {
+   "t": 11,
+   "type": "snap",
+   "x": 0.4375,
+   "k": 13
+  },
+  {
+   "t": 11,
+   "type": "tickset",
+   "x": 0.375,
+   "i": 16
+  },
+  {
+   "t": 11,
+   "type": "tickset",
+   "x": -0.125,
+   "i": 17
+  },
+  {
+   "t": 11,
+   "type": "tickset",
+   "x": -0.125,
+   "i": 18
+  },
+  {
+   "t": 11,
+   "type": "tickset",
+   "x": 0.3125,
+   "i": 19
+  },
+  {
+   "t": 11,
+   "type": "tickset",
+   "x": 0.3125,
+   "i": 20
+  },
+  {
+   "t": 11.25,
+   "type": "snap",
+   "x": 0.5625,
+   "k": 10
+  },
+  {
+   "t": 11.25,
+   "type": "tickset",
+   "x": -0.5625,
+   "i": 21
+  },
+  {
+   "t": 11.5,
+   "type": "snap",
+   "x": 0.5625,
+   "k": 14
+  },
+  {
+   "t": 11.5,
+   "type": "snap",
+   "x": 0.625,
+   "k": 23
+  },
+  {
+   "t": 11.5,
+   "type": "tickset",
+   "x": 0.5,
+   "i": 22
+  },
+  {
+   "t": 11.5,
+   "type": "tickset",
+   "x": 0.4375,
+   "i": 23
+  },
+  {
+   "t": 11.75,
+   "type": "tickset",
+   "x": -0.8125,
+   "i": 24
+  },
+  {
+   "t": 11.75,
+   "type": "tickset",
+   "x": -0.6875,
+   "i": 25
+  },
+  {
+   "t": 11.75,
+   "type": "tickset",
+   "x": 0.5,
+   "i": 26
+  },
+  {
+   "t": 11.75,
+   "type": "tickset",
+   "x": 0.5625,
+   "i": 27
+  },
+  {
+   "t": 12,
+   "type": "snap",
+   "x": 0.75,
+   "k": 24
+  },
+  {
+   "t": 12,
+   "type": "tickset",
+   "x": -0.8125,
+   "i": 28
+  },
+  {
+   "t": 12.25,
+   "type": "tickset",
+   "x": -0.9375,
+   "i": 29
+  },
+  {
+   "t": 12.25,
+   "type": "tickset",
+   "x": 0.6875,
+   "i": 30
+  },
+  {
+   "t": 12.25,
+   "type": "tickset",
+   "x": 0.6875,
+   "i": 31
+  },
+  {
+   "t": 12.25,
+   "type": "tickset",
+   "x": 0.6875,
+   "i": 32
+  },
+  {
+   "t": 13,
+   "type": "tickset",
+   "x": 0.9375,
+   "i": 33
+  },
+  {
+   "t": 13,
+   "type": "tickset",
+   "x": 0.875,
+   "i": 34
+  },
+  {
+   "t": 13,
+   "type": "tickset",
+   "x": 0.9375,
+   "i": 35
+  },
+  {
+   "t": 14,
+   "type": "lock"
+  },
+  {
+   "t": 15,
+   "type": "wipe"
+  },
+  {
+   "t": 15.75,
+   "type": "spoke",
+   "k": 0
+  },
+  {
+   "t": 16,
+   "type": "ghost"
+  },
+  {
+   "t": 16.5,
+   "type": "spoke",
+   "k": 1
+  },
+  {
+   "t": 17.25,
+   "type": "spoke",
+   "k": 2
+  },
+  {
+   "t": 17.5,
+   "type": "angsnap"
+  },
+  {
+   "t": 20.5,
+   "type": "swatch",
+   "k": 0
+  },
+  {
+   "t": 21,
+   "type": "swatch",
+   "k": 1
+  },
+  {
+   "t": 21.5,
+   "type": "swatch",
+   "k": 2
+  },
+  {
+   "t": 22,
+   "type": "swatch",
+   "k": 3
+  },
+  {
+   "t": 22,
+   "type": "caliper"
+  },
+  {
+   "t": 22.5,
+   "type": "swatch",
+   "k": 4
+  },
+  {
+   "t": 23.5,
+   "type": "pop",
+   "k": 0
+  },
+  {
+   "t": 24,
+   "type": "callout",
+   "k": 0
+  },
+  {
+   "t": 25,
+   "type": "callout",
+   "k": 1
+  },
+  {
+   "t": 27,
+   "type": "pop",
+   "k": 1
+  },
+  {
+   "t": 27.5,
+   "type": "zone",
+   "k": 0
+  },
+  {
+   "t": 28,
+   "type": "zone",
+   "k": 1
+  },
+  {
+   "t": 28.5,
+   "type": "zone",
+   "k": 2
+  },
+  {
+   "t": 30.5,
+   "type": "drop"
+  },
+  {
+   "t": 33,
+   "type": "flag"
+  },
+  {
+   "t": 33.5,
+   "type": "dim"
+  },
+  {
+   "t": 34,
+   "type": "pop",
+   "k": 2
+  },
+  {
+   "t": 34.8,
+   "type": "doors",
+   "open": false
+  },
+  {
+   "t": 37.5,
+   "type": "chime",
+   "k": 0
+  },
+  {
+   "t": 37.6,
+   "type": "doors",
+   "open": true
+  },
+  {
+   "t": 38.3,
+   "type": "doors",
+   "open": false
+  },
+  {
+   "t": 41.5,
+   "type": "chime",
+   "k": 1
+  },
+  {
+   "t": 41.6,
+   "type": "doors",
+   "open": true
+  },
+  {
+   "t": 42.3,
+   "type": "doors",
+   "open": false
+  },
+  {
+   "t": 45.5,
+   "type": "arrive"
+  },
+  {
+   "t": 45.6,
+   "type": "doors",
+   "open": true
+  },
+  {
+   "t": 49.5,
+   "type": "wipe"
+  },
+  {
+   "t": 50,
+   "type": "ping",
+   "v": 1,
+   "f": 196
+  },
+  {
+   "t": 50,
+   "type": "plate"
+  }
+ ],
+ "VO": [
+  {
+   "id": "v1",
+   "t": 1.8,
+   "text": "This is Halden. Rivers bend, rails curve, and nothing lines up."
+  },
+  {
+   "id": "v2",
+   "t": 8,
+   "text": "So the map tells a useful lie. It throws away distance, and keeps the connections."
+  },
+  {
+   "id": "v3",
+   "t": 15.15,
+   "text": "Rule 1. Horizontal, vertical, or 45 degrees. Nothing else."
+  },
+  {
+   "id": "v4",
+   "t": 20.05,
+   "text": "Rule 2. One line, one colour, one weight."
+  },
+  {
+   "id": "v5",
+   "t": 23.3,
+   "text": "Rule 3. A tick is a stop. A ring is a change."
+  },
+  {
+   "id": "v6",
+   "t": 26.9,
+   "text": "Zones tell you what it costs."
+  },
+  {
+   "id": "v7",
+   "t": 30.4,
+   "text": "You are here, at Quill Lane. The lantern festival is at Rook Point."
+  },
+  {
+   "id": "v8a",
+   "t": 35,
+   "text": "Fern line, change at Linden."
+  },
+  {
+   "id": "v8b",
+   "t": 38.5,
+   "text": "Round the Ring, change at Ember Wharf."
+  },
+  {
+   "id": "v8c",
+   "t": 42.7,
+   "text": "Saffron to the end."
+  },
+  {
+   "id": "v9",
+   "t": 46.7,
+   "text": "A map doesn't show the city. It shows you the way."
+  }
+ ],
+ "LEGS": [
+  {
+   "t0": 35,
+   "t1": 37.5
+  },
+  {
+   "t0": 38.5,
+   "t1": 41.5
+  },
+  {
+   "t0": 42.5,
+   "t1": 45.5
+  }
+ ],
+ "legLen": [
+  7.243,
+  11.657,
+  12.828
+ ]
+}

@@ -1,0 +1,18 @@
+{
+ "slug": "transit-map",
+ "num": "76",
+ "en": "Transit Map",
+ "cn": "地铁线路图",
+ "category_en": "Graphic & Type",
+ "category_cn": "图形与排版",
+ "film": "Three Angles to Anywhere",
+ "line": "A traveller lost in the curved tangle of an invented city watches its map straighten onto three angles, learns the rules from the legend, and rides two changes to a lantern festival.",
+ "line_cn": "一位旅客迷失在虚构城市弯曲的线路里；地图在眼前被拉直到三种角度，图例讲完规则，他换乘两次，抵达灯笼节。",
+ "uses": [
+  "Processes, pipelines and learning paths",
+  "Itineraries and travel stories",
+  "How-X-connects-to-Y explainers and org flows"
+ ],
+ "frame_sec": 14.6,
+ "dur": 54
+}

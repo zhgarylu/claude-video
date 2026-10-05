@@ -1,0 +1,23 @@
+1
+00:00:05,000 --> 00:00:09,267
+Every change on this board is a journey.
+
+2
+00:00:12,600 --> 00:00:18,600
+Each letter sits on a wheel of forty flaps. It turns one way only.
+
+3
+00:00:19,200 --> 00:00:24,400
+From B back to A is one step. Here, it is thirty-nine.
+
+4
+00:00:27,000 --> 00:00:32,800
+So when a train is late, the board writes the whole line again.
+
+5
+00:00:37,200 --> 00:00:41,267
+The last train leaves in ten seconds.
+
+6
+00:00:51,600 --> 00:00:56,867
+Even going back means going forward, all the way round.

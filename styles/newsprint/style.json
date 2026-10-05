@@ -1,0 +1,18 @@
+{
+ "slug": "newsprint",
+ "num": "73",
+ "en": "Letterpress Newspaper",
+ "cn": "活字报纸头版",
+ "category_en": "Print & Printmaking",
+ "category_cn": "印刷与版画",
+ "film": "Print It True",
+ "line": "A small-town paper prints a fire that never happened; a stop-press stamp pulls the headline out letter by letter, the halftone photograph re-develops, and the correction is set as large as the mistake.",
+ "line_cn": "小镇报纸头版登出一场并不存在的火灾；“停机”印章一盖，标题活字被逐个抽出，网点照片重新显影，更正启事排得和错误标题一样大。",
+ "uses": [
+  "News recaps and timelines of what happened",
+  "History explainers told through successive editions",
+  "Editorial essays and announcements with a headline, a pull quote and a correction"
+ ],
+ "frame_sec": 26.4,
+ "dur": 52.6
+}

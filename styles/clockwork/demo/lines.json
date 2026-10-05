@@ -1,0 +1,56 @@
+[
+{
+"id": "v01",
+"text": "Every process is a chain of small pushes.",
+"voice": "bm_george",
+"speed": 0.93
+},
+{
+"id": "v03",
+"text": "Four to one, twice. Sixteen times slower.",
+"voice": "bm_george",
+"speed": 0.93
+},
+{
+"id": "v04",
+"text": "So everything after it waits.",
+"voice": "bm_george",
+"speed": 0.93
+},
+{
+"id": "v05",
+"text": "Then, all at once.",
+"voice": "bm_george",
+"speed": 0.9
+},
+{
+"id": "v06",
+"text": "A chain runs at the pace of its slowest link.",
+"voice": "bm_george",
+"speed": 0.93
+},
+{
+"id": "v07",
+"text": "Trace it back: more than half the time went to one link.",
+"voice": "bm_george",
+"speed": 0.93
+},
+{
+"id": "v08",
+"text": "So change only that link. Swap one pair for equal gears.",
+"voice": "bm_george",
+"speed": 0.93
+},
+{
+"id": "v09",
+"text": "Same chain. Same pushes. Six seconds sooner.",
+"voice": "bm_george",
+"speed": 0.93
+},
+{
+"id": "v10",
+"text": "Don't hurry the fast links. Find the one that waits.",
+"voice": "bm_george",
+"speed": 0.93
+}
+]

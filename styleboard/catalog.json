@@ -272,6 +272,40 @@
   "dur": 53.3
  },
  {
+  "slug": "lacquer-gold",
+  "num": "75",
+  "en": "Lacquer & Gold",
+  "cn": "漆器描金",
+  "cat": "东方传统",
+  "cat_en": "East Asian Traditions",
+  "film": "Thirty Coats",
+  "line": "A lid takes thirty coats of lacquer, each cured in damp air and polished, before the first gold line is drawn; then it turns in the light, opens, and shows the red that was under everything.",
+  "line_cn": "一只漆盒盖上了三十道漆，每一道都要在潮气里阴干、打磨；直到最后才落下第一笔描金，盒盖在光里转动、掀开，里面是一直垫在底下的朱红。",
+  "uses": [
+   "Heritage and craft stories",
+   "Festival and luxury product films",
+   "Ceremonial invitations and elegant timelines"
+  ],
+  "dur": 56
+ },
+ {
+  "slug": "nianhua",
+  "num": "80",
+  "en": "Woodblock New Year Print",
+  "cn": "木版年画",
+  "cat": "东方传统",
+  "cat_en": "East Asian Traditions",
+  "film": "Five Blocks to a Door",
+  "line": "A carved plank prints a child with a carp and a lotus, one colour block at a time; pasted on a door with a mirrored guardian pair, the old year tears when the door opens, and the plank stays on the bench.",
+  "line_cn": "一块雕好的木板印出抱鲤鱼、举莲花的娃娃，一版一色叠印而成；贴上大门配成对称的门神，门一开旧年的纸被撕开，留下的是工作台上的那块板。",
+  "uses": [
+   "Festivals, greetings and blessings",
+   "Folk tales, proverbs and auspicious-themed products",
+   "How-a-print-is-made explainers"
+  ],
+  "dur": 56
+ },
+ {
   "slug": "risograph",
   "num": "12",
   "en": "Risograph Print",
@@ -370,6 +404,57 @@
    "Museum and science-communication explainers",
    "Species, anatomy and process 'field guide' films",
    "Product or ingredient catalogues dressed as scientific plates"
+  ],
+  "dur": 60
+ },
+ {
+  "slug": "newsprint",
+  "num": "73",
+  "en": "Letterpress Newspaper",
+  "cn": "活字报纸头版",
+  "cat": "印刷与版画",
+  "cat_en": "Print & Printmaking",
+  "film": "Print It True",
+  "line": "A small-town paper prints a fire that never happened; a stop-press stamp pulls the headline out letter by letter, the halftone photograph re-develops, and the correction is set as large as the mistake.",
+  "line_cn": "小镇报纸头版登出一场并不存在的火灾；“停机”印章一盖，标题活字被逐个抽出，网点照片重新显影，更正启事排得和错误标题一样大。",
+  "uses": [
+   "News recaps and timelines of what happened",
+   "History explainers told through successive editions",
+   "Editorial essays and announcements with a headline, a pull quote and a correction"
+  ],
+  "dur": 52.6
+ },
+ {
+  "slug": "tarot",
+  "num": "74",
+  "en": "Tarot Cards",
+  "cn": "塔罗牌",
+  "cat": "印刷与版画",
+  "cat_en": "Print & Printmaking",
+  "film": "Three Cards for a Yes",
+  "line": "A favour is asked and yes is already forming; a shuffled deck deals three cards, a Lantern for what is asked, a Key for what it costs, a Tide for whether it matters in a year, and the last one lands upside down: not yet.",
+  "line_cn": "有人请你帮个忙，“好”字已到嘴边；洗牌、切牌、发三张：灯笼问到底要你做什么，钥匙问代价是什么，潮汐问一年后还重要吗，最后一张倒位落下：先不急着答应。",
+  "uses": [
+   "Three-part judgments and decision aids",
+   "Role and personality profiles",
+   "Fortune-style explainers (playful, never medical)"
+  ],
+  "dur": 58
+ },
+ {
+  "slug": "cyanotype",
+  "num": "79",
+  "en": "Cyanotype",
+  "cn": "蓝晒",
+  "cat": "印刷与版画",
+  "cat_en": "Print & Printmaking",
+  "film": "Reading the Sun",
+  "line": "A strip of sun-sensitive paper is uncovered one band at a time, the wash shows which exposure keeps its whites, and a fern and a feather are printed with exactly that much sun.",
+  "line_cn": "一条涂了感光液的纸条被一段一段揭开，水洗后只有一段留住了白；蕨叶和羽毛就按那一段的曝光时间印出来。",
+  "uses": [
+   "Botanical and science notes",
+   "Memory and archive stories",
+   "Process tutorials and maps"
   ],
   "dur": 60
  },
@@ -559,6 +644,57 @@
    "Launch teasers, countdowns and loading-screen stories"
   ],
   "dur": 49.4
+ },
+ {
+  "slug": "transit-map",
+  "num": "76",
+  "en": "Transit Map",
+  "cn": "地铁线路图",
+  "cat": "图形与排版",
+  "cat_en": "Graphic & Type",
+  "film": "Three Angles to Anywhere",
+  "line": "A traveller lost in the curved tangle of an invented city watches its map straighten onto three angles, learns the rules from the legend, and rides two changes to a lantern festival.",
+  "line_cn": "一位旅客迷失在虚构城市弯曲的线路里；地图在眼前被拉直到三种角度，图例讲完规则，他换乘两次，抵达灯笼节。",
+  "uses": [
+   "Processes, pipelines and learning paths",
+   "Itineraries and travel stories",
+   "How-X-connects-to-Y explainers and org flows"
+  ],
+  "dur": 54
+ },
+ {
+  "slug": "split-flap",
+  "num": "78",
+  "en": "Split-flap Board",
+  "cn": "翻牌显示屏",
+  "cat": "图形与排版",
+  "cat_en": "Graphic & Type",
+  "film": "The Long Way Round",
+  "line": "A night-station departure board can only turn forward: going back from B to A costs thirty-nine flaps, so a delay rewrites a whole line, a countdown ticks on a ten-flap wheel, and a last sentence is spelled cell by cell.",
+  "line_cn": "夜间车站的翻牌显示屏只能向前翻：从 B 退回 A 要翻三十九张牌，所以一次晚点会让整行重写，倒计时在十张牌的数字轮上跳动，最后一句话一格一格拼出来。",
+  "uses": [
+   "Schedules, timetables and countdowns",
+   "Rankings and leaderboards that reorder",
+   "Announcements and one-line quotes"
+  ],
+  "dur": 60
+ },
+ {
+  "slug": "vector-scope",
+  "num": "81",
+  "en": "Vector Oscilloscope",
+  "cn": "矢量示波器",
+  "cat": "图形与排版",
+  "cat_en": "Graphic & Type",
+  "film": "Hold the Fifth",
+  "line": "Two tones drift toward a simple ratio until the picture they draw stands still; then the score itself writes a word on the glass.",
+  "line_cn": "两个音渐渐靠近一个简单的比例，它们画出的图形终于静止；最后由配乐本身在荧光屏上写出一个词。",
+  "uses": [
+   "Audio and signal explainers",
+   "Maths, physics and music visualisation",
+   "Retro sci-fi titles and instrument interfaces"
+  ],
+  "dur": 56
  },
  {
   "slug": "dataviz",
@@ -919,6 +1055,23 @@
   "dur": 56.7
  },
  {
+  "slug": "zoetrope",
+  "num": "82",
+  "en": "Zoetrope & Phenakistoscope",
+  "cn": "前电影光学玩具",
+  "cat": "电影与时代",
+  "cat_en": "Cinema & Eras",
+  "film": "Nothing Moves",
+  "line": "A paper disc of twelve still bird drawings flies when it is spun past a slit and a mirror, flickers when too slow, flies backwards the other way, and crawls the wrong way under the film's own 24 fps shutter; the ring unrolls into a strip and bends into a drum where a gentleman walks.",
+  "line_cn": "一张画着十二只静止小鸟的纸盘，转起来透过狭缝在镜中飞翔；太慢就闪烁，反转就倒飞，在影片自己的 24 帧快门下盘面还会倒爬；画环展开成纸带，卷成转筒，里面走起一位绅士。",
+  "uses": [
+   "How persistence of vision and animation work",
+   "The history of motion pictures",
+   "Loops, cycles and children's science lessons"
+  ],
+  "dur": 54.4
+ },
+ {
   "slug": "brick-toy",
   "num": "37",
   "en": "Brick Toy",
@@ -1036,5 +1189,56 @@
    "Instruction sheets and craft tutorials"
   ],
   "dur": 50
+ },
+ {
+  "slug": "clockwork",
+  "num": "77",
+  "en": "Clockwork & Chain Reaction",
+  "cn": "发条机关",
+  "cat": "材质与 3D",
+  "cat_en": "Materials & 3D",
+  "film": "The Slowest Link",
+  "line": "A chain of brass links starts with a clock's tick; one 16:1 gear train makes everything after it wait, and swapping a single pair of gears gives the same chain back six seconds.",
+  "line_cn": "一串黄铜机关从钟摆的一声滴答开始；其中一组 16:1 的齿轮让后面的一切等着，只换一对齿轮，同一条链就快了六秒。",
+  "uses": [
+   "Cause-and-effect and how-it-works explainers",
+   "Bottlenecks, supply and dependency chains",
+   "Product mechanisms and process post-mortems"
+  ],
+  "dur": 57.8
+ },
+ {
+  "slug": "felt",
+  "num": "83",
+  "en": "Needle Felting",
+  "cn": "羊毛毡",
+  "cat": "材质与 3D",
+  "cat_en": "Materials & 3D",
+  "film": "Mostly Air",
+  "line": "A cloud of wool is poked four thousand times by a barbed needle into a firm ball, a head, a beak and two wings, blended into a rust breast, and given two bead eyes; the bird blinks and peeps in a real silence, and the lamp goes out.",
+  "line_cn": "一团蓬松的羊毛被毡针戳了四千下：缩成紧实的球，接上头、嘴和翅膀，铁锈色的胸口在针下融进羊毛，缝上两粒黑豆眼；静默之后，它眨了一下眼，轻轻叫了一声，台灯熄灭。",
+  "uses": [
+   "Cosy children's and craft content",
+   "Soft characters and tutorials",
+   "Warm product and maker stories"
+  ],
+  "dur": 52
+ },
+ {
+  "slug": "cardboard",
+  "num": "84",
+  "en": "Corrugated Cardboard Craft",
+  "cn": "瓦楞纸手工",
+  "cat": "材质与 3D",
+  "cat_en": "Materials & 3D",
+  "film": "The Wave Inside",
+  "line": "A craft knife opens a board to show the wave between its liners; a thin card gives way under a tin, the same tin sits still on the board, and a flat-pack folded into a taped beam carries three.",
+  "line_cn": "美工刀划开瓦楞纸板，露出两层面纸之间的波浪；薄卡纸在铁罐下垮掉，同样的罐子在瓦楞板上纹丝不动，折成胶带封好的方梁后能扛三个。",
+  "uses": [
+   "DIY, prototyping and maker explainers",
+   "Packaging, unboxing and flat-pack assembly guides",
+   "Children's projects and craft tutorials"
+  ],
+  "dur": 54
  }
 ]
