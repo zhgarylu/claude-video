@@ -127,6 +127,8 @@ Render 6–9 key shots with the real drawing code, tiled into one sheet (`core/r
 - `CREDITS`: every third-party asset in the film (sample libraries, music, fonts, images, the voice engine) with its source and licence (TECHNIQUE.md §11);
 - the source, with a one-command `build.sh` (TECHNIQUE.md §2).
 
+To hand the film over in other shapes or under a size cap, with cover candidates and a plain-language note of what was and wasn't checked, run `python tools/deliver.py <film.mp4> --shape 9x16 --max-mb 50` (tools/README.md).
+
 **Tell the user**, in their language: where the project folder and the film are; that `CREDITS` lists the third-party assets in the film and their licences; and that they are responsible for the materials they use in it.
 
 ## 12. Copyright red lines
