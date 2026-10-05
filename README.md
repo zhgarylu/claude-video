@@ -2,8 +2,8 @@
 
 # Claude Video
 
-**<!--n-->75<!--/n--> film styles, each with a short film made entirely in code, and a workflow for putting a presenter's video inside one.**<br>
-**<!--n-->75<!--/n--> 种影片风格，每种都配一支完全用代码做出来的短片；再加一套"口播视频 + 风格解说"的工作流。**
+**<!--n-->82<!--/n--> film styles, each with a short film made entirely in code, and a workflow for putting a presenter's video inside one.**<br>
+**<!--n-->82<!--/n--> 种影片风格，每种都配一支完全用代码做出来的短片；再加一套"口播视频 + 风格解说"的工作流。**
 
 Pick a style, bring your own story (or your own presenter video), and let your coding agent direct the film.<br>
 选一个风格，带上你自己的故事（或你自己的口播视频），让你的编程 agent 来当导演。
@@ -197,6 +197,10 @@ Browse them with films in the [**gallery · 图鉴**](https://zhgarylu.github.io
 <tr>
 <td width="33%" valign="top"><a href="styles/split-flap/STYLE.md"><img src="docs/frames/split-flap.jpg" alt="Split-flap Board"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Split-flap Board</b> · 翻牌显示屏<br><i>The Long Way Round</i><br><sub>A night-station departure board can only turn forward: going back from B to A costs thirty-nine flaps, so a delay rewrites a whole line, a countdown ticks on a ten-flap wheel, and a last sentence is spelled cell by cell.<br>夜间车站的翻牌显示屏只能向前翻：从 B 退回 A 要翻三十九张牌，所以一次晚点会让整行重写，倒计时在十张牌的数字轮上跳动，最后一句话一格一格拼出来。</sub></td>
 <td width="33%" valign="top"><a href="styles/vector-scope/STYLE.md"><img src="docs/frames/vector-scope.jpg" alt="Vector Oscilloscope"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Vector Oscilloscope</b> · 矢量示波器<br><i>Hold the Fifth</i><br><sub>Two tones drift toward a simple ratio until the picture they draw stands still; then the score itself writes a word on the glass.<br>两个音渐渐靠近一个简单的比例，它们画出的图形终于静止；最后由配乐本身在荧光屏上写出一个词。</sub></td>
+<td width="33%" valign="top"><a href="styles/lyric-video/STYLE.md"><img src="docs/frames/lyric-video.jpg" alt="Lyric Video"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Lyric Video</b> · 歌词视频<br><i>Ten More Minutes</i><br><sub>A sleeper bargains with his alarm for ten more minutes: a spoken-word track whose words land on a 100 BPM grid, one clock-moon-sun disc pulsing with the kick, a hook that grows from a whisper to a full-frame shout across the night, sunrise and red choruses, and a last bar where it shrinks to ten more seconds.<br>一个人跟闹钟讨价还价「再睡十分钟」：念白节奏的曲子，每个词落在 100 BPM 的拍点上，一个随底鼓跳动的钟面（月亮、太阳）当背景，副歌的钩子句从小声一路放大到满屏，最后一小节又缩成「再睡十秒」。</sub></td>
+</tr>
+<tr>
+<td width="33%" valign="top"><a href="styles/flash-sale/STYLE.md"><img src="docs/frames/flash-sale.jpg" alt="Flash Sale Promo"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Flash Sale Promo</b> · 闪购促销<br><i>Mango Lane: Mega Markdown</i><br><sub>An invented shop&#x27;s weekend of markdowns told as the sum you save: starbursts and struck-through prices slam in on the beat, a stock bar drains, a coupon tears at its perforation, a receipt adds up to $134 saved, and a countdown breaks on one beat of silence into a pressed button.<br>一家虚构小店的周末大促，讲成「你省了多少」：星爆和划掉的旧价踩着鼓点砸进来，库存条一格格掉光，优惠券沿齿孔撕开，小票算出省下 134 美元，倒计时在一拍静默后炸开，最后按下按钮。</sub></td>
 </tr>
 </table>
 
@@ -216,6 +220,7 @@ Browse them with films in the [**gallery · 图鉴**](https://zhgarylu.github.io
 <tr>
 <td width="33%" valign="top"><a href="styles/chat-log/STYLE.md"><img src="docs/frames/chat-log.jpg" alt="Chat Log"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Chat Log</b> · 聊天记录体<br><i>She Knows</i><br><sub>A family group chat plans a surprise party, adds the birthday woman by mistake, recalls everything in a panic, and waits through her typing dots for a voice message that turns the secret around.<br>一个家庭群在筹备惊喜生日会，误把寿星拉进了群，大家慌忙撤回，对着她“正在输入…”的圆点干等，直到一条语音把秘密整个翻了过来。</sub></td>
 <td width="33%" valign="top"><a href="styles/danmaku/STYLE.md"><img src="docs/frames/danmaku.jpg" alt="Danmaku Comments"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Danmaku Comments</b> · 弹幕体<br><i>Day 3: I will not kill this starter</i><br><sub>A first sourdough watched through a video player whose scrolling bullet comments are the narrator, the chorus and the joke-teller: doubt turns to coaching, the crowd falls asleep over the proof, a wall of reactions rises with the loaf, and a pause freezes the whole crowd in mid-air.<br>透过一个视频播放器看第一次做酸面包：滚动的弹幕同时是旁白、合唱和段子手。质疑变成指导，醒面时全场睡着，面包胀起时反应刷成一面墙，暂停让整屏弹幕悬在半空。</sub></td>
+<td width="33%" valign="top"><a href="styles/language-lesson/STYLE.md"><img src="docs/frames/language-lesson.jpg" alt="Language Micro-lesson"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Language Micro-lesson</b> · 语言学习微课<br><i>Three Little Words</i><br><sub>An owl teacher turns in, on and at into a quiz game: a card slides up, a stopwatch ticks through the think pause, a one-line rule and a blue clue lead to the answer written in red, then the same cards turn up in German, Japanese and Spanish before the next question starts ticking.<br>一只猫头鹰老师把 in、on、at 变成小测验：卡片从底部滑上来，秒表在思考时间里滴答，一句口诀和蓝色线索引出红笔写下的答案，随后同样的卡片又在德语、日语、西班牙语里出现，最后下一题的秒表开始走动。</sub></td>
 </tr>
 </table>
 
@@ -234,6 +239,8 @@ Browse them with films in the [**gallery · 图鉴**](https://zhgarylu.github.io
 </tr>
 <tr>
 <td width="33%" valign="top"><a href="styles/manga-panel/STYLE.md"><img src="docs/frames/manga-panel.jpg" alt="Manga Panel"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Manga Panel</b> · 漫画黑白网点<br><i>The Last Pineapple Bun</i><br><sub>A girl and a middle-aged salaryman sprint for the last pineapple bun of the day, reach it in the same second, and split it: a black-and-white manga spread read right to left, panel by panel.<br>女孩和中年上班族为当天最后一个菠萝包冲刺，同一秒伸手，最后一人一半：一页从右往左、一格一格读下去的黑白漫画。</sub></td>
+<td width="33%" valign="top"><a href="styles/shonen-battle/STYLE.md"><img src="docs/frames/shonen-battle.jpg" alt="Shonen Battle"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Shonen Battle</b> · 热血少年漫<br><i>Round One: The Jar</i><br><sub>A twelve-year-old cook fights the one enemy nobody in the kitchen has beaten, a sealed pickle jar, with every device of 1990s battle anime: face-off, charge, aura, floor cracks, a three-frame strike and an impact frame, and a result that is much smaller than the build-up.<br>十二岁的小厨师对上厨房里从没人打赢的对手，一罐封了三年的泡菜：对峙、蓄力、气场、地裂、三格出手加一帧冲击画面，而结果比铺垫小得多，只是一声“啵”。</sub></td>
+<td width="33%" valign="top"><a href="styles/sea-adventure/STYLE.md"><img src="docs/frames/sea-adventure.jpg" alt="Sea Adventure Manga"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Sea Adventure Manga</b> · 航海冒险漫<br><i>Five Hats and One Sock</i><br><sub>A tiny captain who lost one sock draws a sea chart, pins up five wanted posters for his crew, sails through a storm to meet a giant hungry duck, digs up a treasure chest holding the wrong sock, and finally pulls back to find the whole ocean is a bathtub.<br>丢了一只袜子的小船长画好海图，给五位船员贴上悬赏通缉令，穿过风暴遇见一只饥饿的巨鸭，挖出的宝箱里却是另一只错的袜子，镜头拉远才发现整片大海原来是一只浴缸。</sub></td>
 </tr>
 </table>
 
@@ -261,6 +268,7 @@ Browse them with films in the [**gallery · 图鉴**](https://zhgarylu.github.io
 </tr>
 <tr>
 <td width="33%" valign="top"><a href="styles/zoetrope/STYLE.md"><img src="docs/frames/zoetrope.jpg" alt="Zoetrope &amp; Phenakistoscope"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Zoetrope &amp; Phenakistoscope</b> · 前电影光学玩具<br><i>Nothing Moves</i><br><sub>A paper disc of twelve still bird drawings flies when it is spun past a slit and a mirror, flickers when too slow, flies backwards the other way, and crawls the wrong way under the film&#x27;s own 24 fps shutter; the ring unrolls into a strip and bends into a drum where a gentleman walks.<br>一张画着十二只静止小鸟的纸盘，转起来透过狭缝在镜中飞翔；太慢就闪烁，反转就倒飞，在影片自己的 24 帧快门下盘面还会倒爬；画环展开成纸带，卷成转筒，里面走起一位绅士。</sub></td>
+<td width="33%" valign="top"><a href="styles/stage-light/STYLE.md"><img src="docs/frames/stage-light.jpg" alt="Stage Light Performance"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Stage Light Performance</b> · 舞台灯光演出<br><i>Second Sunrise</i><br><sub>An invented band plays an invented instrumental to a dark stage: the lights wake one lamp at a time on a stick count-in, a blackout and a full-stage flash split the build from the drop, the break strips to one amber colour while an LED sun rises, and the finale ends on one spot.<br>一支虚构乐队在黑暗舞台上演奏一首虚构的器乐曲：灯光随鼓棒数拍一盏盏亮起，熄灯与全场闪光把铺垫和爆发隔开，间奏收成单一琥珀色、LED 屏上升起太阳，终章停在一束追光上。</sub></td>
 </tr>
 </table>
 
@@ -284,6 +292,7 @@ Browse them with films in the [**gallery · 图鉴**](https://zhgarylu.github.io
 </tr>
 <tr>
 <td width="33%" valign="top"><a href="styles/cardboard/STYLE.md"><img src="docs/frames/cardboard.jpg" alt="Corrugated Cardboard Craft"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Corrugated Cardboard Craft</b> · 瓦楞纸手工<br><i>The Wave Inside</i><br><sub>A craft knife opens a board to show the wave between its liners; a thin card gives way under a tin, the same tin sits still on the board, and a flat-pack folded into a taped beam carries three.<br>美工刀划开瓦楞纸板，露出两层面纸之间的波浪；薄卡纸在铁罐下垮掉，同样的罐子在瓦楞板上纹丝不动，折成胶带封好的方梁后能扛三个。</sub></td>
+<td width="33%" valign="top"><a href="styles/product-hero/STYLE.md"><img src="docs/frames/product-hero.jpg" alt="Product Hero Macro"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Product Hero Macro</b> · 产品英雄镜头<br><i>Tide Flask</i><br><sub>A single drop of condensation slides down a brushed-steel flask in macro; the studio light that reveals it travels over leather, glaze and the double wall, runs a whole day across the finished object, and lands on a price.<br>一滴冷凝水珠滑过拉丝钢水壶的微距镜头；照亮它的影棚光依次扫过皮革、釉面和双层壁，在成品上走完一整天，最后落在价格上。</sub></td>
 </tr>
 </table>
 <!-- styles:end -->

@@ -1,0 +1,24 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Tide Flask</title>
+<style>
+@font-face{font-family:Jost;font-weight:100 900;src:url(fonts/Jost.ttf) format('truetype')}
+html,body{margin:0;background:#111;overflow:hidden}
+#stage{position:absolute;left:0;top:0}#stage canvas{display:block}
+#ui{position:absolute;left:0;top:0;width:1920px;height:1080px;pointer-events:none;font-family:Jost,sans-serif;color:#181a1d}
+#ui .t{position:absolute;white-space:nowrap;opacity:0;will-change:opacity}
+#ui .kick{font-size:26px;font-weight:500;letter-spacing:.42em;text-transform:uppercase}
+#ui .kick.lt{color:#f6f1e8;text-shadow:0 0 16px rgba(0,0,0,.7),0 0 4px rgba(0,0,0,.6),0 1px 2px rgba(0,0,0,.5)}
+#ui .tag{font-size:156px;font-weight:300;letter-spacing:-.025em;line-height:1}
+#ui .sub{font-size:34px;font-weight:400;letter-spacing:.01em;color:rgba(24,26,29,.78)}
+#ui .num{font-size:30px;font-weight:500;letter-spacing:.24em;color:#1d46c7}
+#ui .head{font-size:58px;font-weight:400;letter-spacing:-.01em}
+#ui .body{font-size:30px;font-weight:400;color:rgba(24,26,29,.78);white-space:normal;width:600px;line-height:1.35}
+#ui .lab{font-size:26px;font-weight:500;letter-spacing:.04em}
+#ui .big{font-size:430px;font-weight:200;letter-spacing:-.04em;line-height:1}
+#ui .price{font-size:170px;font-weight:300;letter-spacing:-.03em;line-height:1}
+#ui .cta{font-size:34px;font-weight:500;letter-spacing:.06em;color:#fff;background:#1d46c7;padding:20px 44px;border-radius:60px}
+#ui .dl{font-size:22px;font-weight:500;letter-spacing:.22em;color:rgba(24,26,29,.7)}
+#ui svg{position:absolute;left:0;top:0}
+</style></head><body><div id="stage"></div><div id="ui"><svg width="1920" height="1080" id="svg"></svg></div>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module" src="main.js"></script></body></html>

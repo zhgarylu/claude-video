@@ -1,0 +1,548 @@
+{
+ "BPM": 120,
+ "BEAT": 0.5,
+ "BAR": 2,
+ "DUR": 60,
+ "SHOTS": [
+  {
+   "id": "black",
+   "t0": 0,
+   "t1": 0.4
+  },
+  {
+   "id": "eyes",
+   "t0": 0.4,
+   "t1": 2.4
+  },
+  {
+   "id": "jar",
+   "t0": 2.4,
+   "t1": 4.5
+  },
+  {
+   "id": "wide",
+   "t0": 4.5,
+   "t1": 7.5
+  },
+  {
+   "id": "face",
+   "t0": 7.5,
+   "t1": 14
+  },
+  {
+   "id": "grip",
+   "t0": 14,
+   "t1": 19
+  },
+  {
+   "id": "stance",
+   "t0": 19,
+   "t1": 22.4
+  },
+  {
+   "id": "cut",
+   "t0": 22.4,
+   "t1": 25
+  },
+  {
+   "id": "slump",
+   "t0": 25,
+   "t1": 28
+  },
+  {
+   "id": "flash",
+   "t0": 28,
+   "t1": 34
+  },
+  {
+   "id": "charge",
+   "t0": 34,
+   "t1": 38.5
+  },
+  {
+   "id": "fist",
+   "t0": 38.5,
+   "t1": 41
+  },
+  {
+   "id": "lids",
+   "t0": 41,
+   "t1": 44
+  },
+  {
+   "id": "swing",
+   "t0": 44,
+   "t1": 44.125
+  },
+  {
+   "id": "hush",
+   "t0": 44.125,
+   "t1": 46
+  },
+  {
+   "id": "pop",
+   "t0": 46,
+   "t1": 47.85
+  },
+  {
+   "id": "fall",
+   "t0": 47.85,
+   "t1": 50.4
+  },
+  {
+   "id": "smile",
+   "t0": 50.4,
+   "t1": 52
+  },
+  {
+   "id": "floor",
+   "t0": 52,
+   "t1": 57.3
+  },
+  {
+   "id": "end",
+   "t0": 57.3,
+   "t1": 60
+  }
+ ],
+ "VO": [
+  {
+   "id": "v1",
+   "t": 1,
+   "dur": 3.1,
+   "who": "narr",
+   "text": "In every kitchen, one enemy has never been beaten."
+  },
+  {
+   "id": "v2",
+   "t": 8,
+   "dur": 3.899,
+   "who": "narr",
+   "text": "Grandma's pickles. Sealed for three years. Dinner is in ten minutes."
+  },
+  {
+   "id": "v3",
+   "t": 17.5,
+   "dur": 1.421,
+   "who": "narr",
+   "text": "Round one. Nothing."
+  },
+  {
+   "id": "v4",
+   "t": 21,
+   "dur": 2.844,
+   "who": "narr",
+   "text": "Round two. The floor gives way. The lid does not."
+  },
+  {
+   "id": "v5",
+   "t": 28.4,
+   "dur": 3.388,
+   "who": "gran",
+   "text": "Don't fight it, Haru. Just let a little air in."
+  },
+  {
+   "id": "v6",
+   "t": 47.7,
+   "dur": 2.751,
+   "who": "narr",
+   "text": "And the lid? It had only been waiting to be asked."
+  },
+  {
+   "id": "v7",
+   "t": 52,
+   "dur": 1.244,
+   "who": "gran",
+   "text": "Dinner is ready!"
+  },
+  {
+   "id": "v8",
+   "t": 53.5,
+   "dur": 2.137,
+   "who": "gran",
+   "text": "Haru, what happened to the floor?"
+  }
+ ],
+ "EV": [
+  {
+   "t": 0.1,
+   "type": "tick"
+  },
+  {
+   "t": 0.4,
+   "type": "cut",
+   "shot": "eyes"
+  },
+  {
+   "t": 1,
+   "type": "vo",
+   "id": "v1",
+   "dur": 3.1,
+   "who": "narr"
+  },
+  {
+   "t": 1.1,
+   "type": "tick"
+  },
+  {
+   "t": 2.1,
+   "type": "tick"
+  },
+  {
+   "t": 2.4,
+   "type": "cut",
+   "shot": "jar"
+  },
+  {
+   "t": 3.1,
+   "type": "tick"
+  },
+  {
+   "t": 3.6,
+   "type": "ting"
+  },
+  {
+   "t": 4.1,
+   "type": "tick"
+  },
+  {
+   "t": 4.5,
+   "type": "cut",
+   "shot": "wide"
+  },
+  {
+   "t": 5,
+   "type": "slam"
+  },
+  {
+   "t": 5,
+   "type": "boom",
+   "v": 1
+  },
+  {
+   "t": 7.5,
+   "type": "cut",
+   "shot": "face"
+  },
+  {
+   "t": 8,
+   "type": "vo",
+   "id": "v2",
+   "dur": 3.899,
+   "who": "narr"
+  },
+  {
+   "t": 8.3,
+   "type": "slam"
+  },
+  {
+   "t": 8.9,
+   "type": "slam"
+  },
+  {
+   "t": 14,
+   "type": "cut",
+   "shot": "grip"
+  },
+  {
+   "t": 14,
+   "type": "slam"
+  },
+  {
+   "t": 14.8,
+   "type": "creak"
+  },
+  {
+   "t": 15.6,
+   "type": "kiai",
+   "v": 0.7,
+   "d": 1.7
+  },
+  {
+   "t": 17.5,
+   "type": "vo",
+   "id": "v3",
+   "dur": 1.421,
+   "who": "narr"
+  },
+  {
+   "t": 17.55,
+   "type": "sigh"
+  },
+  {
+   "t": 18.4,
+   "type": "ting"
+  },
+  {
+   "t": 19,
+   "type": "cut",
+   "shot": "stance"
+  },
+  {
+   "t": 19,
+   "type": "slam"
+  },
+  {
+   "t": 19.7,
+   "type": "aura"
+  },
+  {
+   "t": 19.8,
+   "type": "kiai",
+   "v": 1,
+   "d": 1.9
+  },
+  {
+   "t": 20,
+   "type": "crack",
+   "v": 1
+  },
+  {
+   "t": 20.3,
+   "type": "debris"
+  },
+  {
+   "t": 20.45,
+   "type": "crack",
+   "v": 0.8
+  },
+  {
+   "t": 20.8,
+   "type": "debris"
+  },
+  {
+   "t": 20.9,
+   "type": "crack",
+   "v": 0.9
+  },
+  {
+   "t": 21,
+   "type": "vo",
+   "id": "v4",
+   "dur": 2.844,
+   "who": "narr"
+  },
+  {
+   "t": 21.3,
+   "type": "debris"
+  },
+  {
+   "t": 21.5,
+   "type": "crack",
+   "v": 0.7
+  },
+  {
+   "t": 21.9,
+   "type": "debris"
+  },
+  {
+   "t": 22,
+   "type": "crack",
+   "v": 0.5
+  },
+  {
+   "t": 22.4,
+   "type": "cut",
+   "shot": "cut"
+  },
+  {
+   "t": 23.2,
+   "type": "rumble"
+  },
+  {
+   "t": 24,
+   "type": "ting"
+  },
+  {
+   "t": 24.4,
+   "type": "drip"
+  },
+  {
+   "t": 25,
+   "type": "cut",
+   "shot": "slump"
+  },
+  {
+   "t": 25.2,
+   "type": "tick"
+  },
+  {
+   "t": 26.2,
+   "type": "tick"
+  },
+  {
+   "t": 26.3,
+   "type": "drip"
+  },
+  {
+   "t": 27.2,
+   "type": "tick"
+  },
+  {
+   "t": 28,
+   "type": "cut",
+   "shot": "flash"
+  },
+  {
+   "t": 28.4,
+   "type": "vo",
+   "id": "v5",
+   "dur": 3.388,
+   "who": "gran"
+  },
+  {
+   "t": 29.2,
+   "type": "tap"
+  },
+  {
+   "t": 29.9,
+   "type": "tap"
+  },
+  {
+   "t": 30.6,
+   "type": "tap"
+  },
+  {
+   "t": 30.8,
+   "type": "airhint"
+  },
+  {
+   "t": 31.6,
+   "type": "airhint"
+  },
+  {
+   "t": 33.9,
+   "type": "whoosh"
+  },
+  {
+   "t": 34,
+   "type": "cut",
+   "shot": "charge"
+  },
+  {
+   "t": 34,
+   "type": "charge",
+   "d": 9.8
+  },
+  {
+   "t": 38.5,
+   "type": "cut",
+   "shot": "fist"
+  },
+  {
+   "t": 40.08,
+   "type": "grab"
+  },
+  {
+   "t": 41,
+   "type": "cut",
+   "shot": "lids"
+  },
+  {
+   "t": 43.4,
+   "type": "hush"
+  },
+  {
+   "t": 44,
+   "type": "cut",
+   "shot": "swing"
+  },
+  {
+   "t": 44,
+   "type": "swish"
+  },
+  {
+   "t": 44.125,
+   "type": "cut",
+   "shot": "hush"
+  },
+  {
+   "t": 44.125,
+   "type": "boom",
+   "v": 1.6
+  },
+  {
+   "t": 44.3,
+   "type": "tink"
+  },
+  {
+   "t": 45.3,
+   "type": "hiss",
+   "d": 0.7
+  },
+  {
+   "t": 46,
+   "type": "cut",
+   "shot": "pop"
+  },
+  {
+   "t": 46,
+   "type": "pop"
+  },
+  {
+   "t": 46.1,
+   "type": "sparkle"
+  },
+  {
+   "t": 46.6,
+   "type": "sparkle"
+  },
+  {
+   "t": 47.7,
+   "type": "vo",
+   "id": "v6",
+   "dur": 2.751,
+   "who": "narr"
+  },
+  {
+   "t": 47.85,
+   "type": "cut",
+   "shot": "fall"
+  },
+  {
+   "t": 50.05,
+   "type": "land"
+  },
+  {
+   "t": 50.4,
+   "type": "cut",
+   "shot": "smile"
+  },
+  {
+   "t": 52,
+   "type": "cut",
+   "shot": "floor"
+  },
+  {
+   "t": 52,
+   "type": "vo",
+   "id": "v7",
+   "dur": 1.244,
+   "who": "gran"
+  },
+  {
+   "t": 53.5,
+   "type": "vo",
+   "id": "v8",
+   "dur": 2.137,
+   "who": "gran"
+  },
+  {
+   "t": 55.5,
+   "type": "gulp"
+  },
+  {
+   "t": 57.3,
+   "type": "cut",
+   "shot": "end"
+  },
+  {
+   "t": 57.3,
+   "type": "sting"
+  },
+  {
+   "t": 57.3,
+   "type": "slam"
+  }
+ ]
+}

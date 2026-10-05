@@ -1,0 +1,14 @@
+Round One: The Jar (shonen-battle demo): third-party assets
+
+Fonts (SIL Open Font License 1.1, self-hosted in demo/fonts/, not committed; build.sh names the source)
+- Bangers (Vernon Adams / The Bangers Project Authors; google/fonts, ofl/bangers): sound words, shouts, round cards. Licence: demo/fonts/OFL-bangers.txt
+- Anton (Vernon Adams; google/fonts, ofl/anton): name plates, the grip meter, subtitles. Licence: demo/fonts/OFL-anton.txt
+
+Picture
+- Everything is drawn in code on one 2D canvas (demo/ink.js, art.js, film.js): characters, set, speed lines, aura, cracks, impact frames. No images, footage or textures. Haru, the Jar and the grandmother are invented for this film.
+
+Voice
+- Kokoro-82M via kokoro-onnx (Apache 2.0), voices am_onyx (narrator) and bf_isabella (grandmother); checked with faster-whisper (MIT). Run offline by core/tts/tts.py and core/tts/asr_check.py.
+
+Sound
+- The score, the foley and the shouts are synthesised in demo/mix.py (numpy/scipy, core/audio/sfx.py, MIT): taiko, brass stabs, pulse bass, music box, impacts, formant-synthesised kiai. No samples, no recordings, no existing music.

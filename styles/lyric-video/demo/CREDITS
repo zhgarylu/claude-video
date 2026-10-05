@@ -1,0 +1,12 @@
+Ten More Minutes (lyric-video demo): third-party assets
+Fonts (SIL Open Font License 1.1, self-hosted in demo/fonts/, not committed; build.sh names the source)
+- Anton (The Anton Project Authors; google/fonts, ofl/anton): the hook, the chorus and the end-card title. Licence: demo/fonts/OFL-anton.txt
+- Archivo, variable weight and width (The Archivo Project Authors; google/fonts, ofl/archivo): verses, pre-choruses, the bridge, labels. Licence: demo/fonts/OFL-archivo.txt
+Picture
+- Everything is drawn in code on one 2D canvas (demo/main.js, demo/scene.js): the disc, rays, rings, stars, type. No images, footage or textures.
+Words and song
+- The lyrics, the title "Ten More Minutes" and the artist name "The Snooze Button" are original to this demo (no real song, artist or brand).
+Voice
+- Kokoro-82M via kokoro-onnx (Apache 2.0), voice am_michael; spoken, not sung. Aligned with faster-whisper (MIT, model "small", Systran/faster-whisper-small, MIT). Run offline by core/tts/tts.py, core/tts/asr_check.py and demo/tools/place.py.
+Sound
+- The whole score (kick, snare, claps, hats, bass, electric-piano, pad, plucked arpeggio, alarm beeps, ticks, foley for the moving words, ambience) is synthesised in demo/mix.py (numpy/scipy, core/audio/sfx.py, MIT) from the event list and the chord plan. No samples, no recordings.

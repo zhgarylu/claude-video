@@ -1,0 +1,217 @@
+[
+ {
+  "id": "c1",
+  "text": "时间前面，选哪个小词？",
+  "lang": "cmn",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "+20%"
+ },
+ {
+  "id": "c3",
+  "text": "三张卡片，一分钟搞定。",
+  "lang": "cmn",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "+20%"
+ },
+ {
+  "id": "a1",
+  "text": "第一题。",
+  "lang": "cmn",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "+20%"
+ },
+ {
+  "id": "a2",
+  "text": "My birthday is, blank, July.",
+  "voice": "af_heart",
+  "speed": 0.88
+ },
+ {
+  "id": "a3",
+  "text": "选哪个？",
+  "lang": "cmn",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "+20%"
+ },
+ {
+  "id": "a4",
+  "text": "口诀：月份季节，大时间，用",
+  "lang": "cmn",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "+20%"
+ },
+ {
+  "id": "a5",
+  "text": "in July.",
+  "voice": "af_heart",
+  "speed": 0.88
+ },
+ {
+  "id": "a6",
+  "text": "看线索。",
+  "lang": "cmn",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "+20%"
+ },
+ {
+  "id": "a7",
+  "text": "July,",
+  "voice": "af_heart",
+  "speed": 0.85
+ },
+ {
+  "id": "a8",
+  "text": "是月份。",
+  "lang": "cmn",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "+20%"
+ },
+ {
+  "id": "a9",
+  "text": "答案是",
+  "lang": "cmn",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "+20%"
+ },
+ {
+  "id": "a10",
+  "text": "in July!",
+  "voice": "af_heart",
+  "speed": 0.88
+ },
+ {
+  "id": "a11",
+  "text": "跟我读。",
+  "lang": "cmn",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "+20%"
+ },
+ {
+  "id": "a12",
+  "text": "My birthday is in July.",
+  "voice": "af_heart",
+  "speed": 0.62
+ },
+ {
+  "id": "a14",
+  "text": "My birthday is in July.",
+  "voice": "af_heart",
+  "speed": 0.92
+ },
+ {
+  "id": "b2",
+  "text": "The party is, blank, Monday.",
+  "voice": "af_heart",
+  "speed": 0.88
+ },
+ {
+  "id": "b3",
+  "text": "选哪个？",
+  "lang": "cmn",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "+20%"
+ },
+ {
+  "id": "b4",
+  "text": "口诀：具体哪一天，用",
+  "lang": "cmn",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "+20%"
+ },
+ {
+  "id": "b5",
+  "text": "on Monday.",
+  "voice": "af_heart",
+  "speed": 0.88
+ },
+ {
+  "id": "b7",
+  "text": "答案是",
+  "lang": "cmn",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "+20%"
+ },
+ {
+  "id": "b8",
+  "text": "on Monday!",
+  "voice": "af_heart",
+  "speed": 0.88
+ },
+ {
+  "id": "b9",
+  "text": "对比一下。星期几，用",
+  "lang": "cmn",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "+20%"
+ },
+ {
+  "id": "b10",
+  "text": "on Monday.",
+  "voice": "af_heart",
+  "speed": 0.88
+ },
+ {
+  "id": "b11",
+  "text": "几点钟，用",
+  "lang": "cmn",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "+20%"
+ },
+ {
+  "id": "b12",
+  "text": "at seven o'clock.",
+  "voice": "af_heart",
+  "speed": 0.88
+ },
+ {
+  "id": "m1",
+  "text": "同样的卡片，换成别的语言也行。",
+  "lang": "cmn",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "+20%"
+ },
+ {
+  "id": "m2",
+  "text": "德语，选冠词，性别各有颜色。",
+  "lang": "cmn",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "+20%",
+  "asr": "德语、选惯词、性别各有颜色。"
+ },
+ {
+  "id": "m3",
+  "text": "日语，选助词，汉字上方带读音。",
+  "lang": "cmn",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "+20%",
+  "asr": "日语,选注词,汉字上方代读音。"
+ },
+ {
+  "id": "m4",
+  "text": "西班牙语，两个“是”，意思不同。",
+  "lang": "cmn",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "+20%",
+  "asr": "西班牙语,两个式,意思不同。"
+ },
+ {
+  "id": "h1",
+  "text": "下一题。",
+  "lang": "cmn",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "+20%"
+ },
+ {
+  "id": "h2",
+  "text": "She is good, blank, English.",
+  "voice": "af_heart",
+  "speed": 0.88
+ },
+ {
+  "id": "h3",
+  "text": "你选哪个？答案，下一集见。",
+  "lang": "cmn",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "rate": "+20%"
+ }
+]

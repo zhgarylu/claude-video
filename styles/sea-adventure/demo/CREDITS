@@ -1,0 +1,13 @@
+Five Hats and One Sock (sea-adventure demo): third-party assets
+Fonts (SIL Open Font License 1.1, self-hosted in demo/fonts/, not committed; build.sh names the source, google/fonts repository ofl/<family>)
+- Bangers (Vernon Adams; Google Fonts): hand-lettered sound effects. Licence: demo/fonts/OFL-bangers.txt
+- Rye (Tart Workshop): the WANTED header and the bounty stamps
+- Pirata One (Rodrigo Fuenzalida): poster names, the chart title and compass letters
+- Patrick Hand (Patrick Wagesreiter): narration boxes. Licence: demo/fonts/OFL-patrickhand.txt
+- Caveat Brush (Impallari Type): chart labels
+Picture
+- Everything is drawn in code on one 2D canvas (demo/ink.js, chars.js, props.js, scenes.js): linework, hatching, screentone, characters, ship, duck, chart, posters, tub. No images, footage or textures. The crew, the ship, its flag, the sea and every name are invented.
+Voice
+- Kokoro-82M via kokoro-onnx (Apache 2.0), voice bm_george; checked with faster-whisper (MIT). Run offline by core/tts/tts.py and core/tts/asr_check.py.
+Sound and music
+- Synthesised in numpy/scipy (demo/mix.py, core/audio/sfx.py, MIT): sea, rain, foley, the squeaks, a stylised laugh, and an original 6/8 jig (accordion-like reeds, fiddle-like saw, plucked string, tuba, stomp, tambourine). No samples, no recordings, no existing tune.

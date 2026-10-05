@@ -1,0 +1,18 @@
+{
+ "slug": "flash-sale",
+ "num": "92",
+ "en": "Flash Sale Promo",
+ "cn": "闪购促销",
+ "category_en": "Graphic & Type",
+ "category_cn": "图形与排版",
+ "film": "Mango Lane: Mega Markdown",
+ "line": "An invented shop's weekend of markdowns told as the sum you save: starbursts and struck-through prices slam in on the beat, a stock bar drains, a coupon tears at its perforation, a receipt adds up to $134 saved, and a countdown breaks on one beat of silence into a pressed button.",
+ "line_cn": "一家虚构小店的周末大促，讲成「你省了多少」：星爆和划掉的旧价踩着鼓点砸进来，库存条一格格掉光，优惠券沿齿孔撕开，小票算出省下 134 美元，倒计时在一拍静默后炸开，最后按下按钮。",
+ "uses": [
+  "Sale and festival promos",
+  "Limited-time offers and product-drop countdowns",
+  "Coupon, membership and event-ticket campaigns"
+ ],
+ "frame_sec": 7.0,
+ "dur": 50
+}

@@ -1,0 +1,20 @@
+{
+ "slug": "sea-adventure",
+ "num": "88",
+ "en": "Sea Adventure Manga",
+ "cn": "航海冒险漫",
+ "category_en": "Cartoon & Anime",
+ "category_cn": "卡通与动画",
+ "film": "Five Hats and One Sock",
+ "line": "A tiny captain who lost one sock draws a sea chart, pins up five wanted posters for his crew, sails through a storm to meet a giant hungry duck, digs up a treasure chest holding the wrong sock, and finally pulls back to find the whole ocean is a bathtub.",
+ "line_cn": "丢了一只袜子的小船长画好海图，给五位船员贴上悬赏通缉令，穿过风暴遇见一只饥饿的巨鸭，挖出的宝箱里却是另一只错的袜子，镜头拉远才发现整片大海原来是一只浴缸。",
+ "uses": [
+  "Journeys, routes and itineraries on a hand-drawn chart",
+  "Team introductions as wanted posters, with a rank or a bounty",
+  "Rankings, trophies and who-did-what lists",
+  "Feasts, launches and celebrations with big laughing faces",
+  "Maps of a plan with a start, hazards and an X"
+ ],
+ "frame_sec": 37.5,
+ "dur": 60
+}

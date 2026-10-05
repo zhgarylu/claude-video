@@ -903,6 +903,51 @@ window.GALLERY = {
    "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/vector-scope/DEMO.md"
   },
   {
+   "slug": "lyric-video",
+   "num": "89",
+   "en": "Lyric Video",
+   "cn": "歌词视频",
+   "cat": "图形与排版",
+   "cat_en": "Graphic & Type",
+   "film": "Ten More Minutes",
+   "line": "A sleeper bargains with his alarm for ten more minutes: a spoken-word track whose words land on a 100 BPM grid, one clock-moon-sun disc pulsing with the kick, a hook that grows from a whisper to a full-frame shout across the night, sunrise and red choruses, and a last bar where it shrinks to ten more seconds.",
+   "line_cn": "一个人跟闹钟讨价还价「再睡十分钟」：念白节奏的曲子，每个词落在 100 BPM 的拍点上，一个随底鼓跳动的钟面（月亮、太阳）当背景，副歌的钩子句从小声一路放大到满屏，最后一小节又缩成「再睡十秒」。",
+   "uses": [
+    "Songs and jingles with a hook",
+    "Spoken-word and rap pieces",
+    "Slogans and mantras with a beat",
+    "Speeches cut as rhythm"
+   ],
+   "dur": 62.4,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/lyric-video.mp4",
+   "frame": "../docs/frames/lyric-video.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/lyric-video/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/lyric-video/DEMO.md"
+  },
+  {
+   "slug": "flash-sale",
+   "num": "92",
+   "en": "Flash Sale Promo",
+   "cn": "闪购促销",
+   "cat": "图形与排版",
+   "cat_en": "Graphic & Type",
+   "film": "Mango Lane: Mega Markdown",
+   "line": "An invented shop's weekend of markdowns told as the sum you save: starbursts and struck-through prices slam in on the beat, a stock bar drains, a coupon tears at its perforation, a receipt adds up to $134 saved, and a countdown breaks on one beat of silence into a pressed button.",
+   "line_cn": "一家虚构小店的周末大促，讲成「你省了多少」：星爆和划掉的旧价踩着鼓点砸进来，库存条一格格掉光，优惠券沿齿孔撕开，小票算出省下 134 美元，倒计时在一拍静默后炸开，最后按下按钮。",
+   "uses": [
+    "Sale and festival promos",
+    "Limited-time offers and product-drop countdowns",
+    "Coupon, membership and event-ticket campaigns"
+   ],
+   "dur": 50,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/flash-sale.mp4",
+   "frame": "../docs/frames/flash-sale.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/flash-sale/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/flash-sale/DEMO.md"
+  },
+  {
    "slug": "dataviz",
    "num": "23",
    "en": "Data Storytelling",
@@ -1080,6 +1125,28 @@ window.GALLERY = {
    "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/danmaku/DEMO.md"
   },
   {
+   "slug": "language-lesson",
+   "num": "93",
+   "en": "Language Micro-lesson",
+   "cn": "语言学习微课",
+   "cat": "信息与发布",
+   "cat_en": "Information & Keynote",
+   "film": "Three Little Words",
+   "line": "An owl teacher turns in, on and at into a quiz game: a card slides up, a stopwatch ticks through the think pause, a one-line rule and a blue clue lead to the answer written in red, then the same cards turn up in German, Japanese and Spanish before the next question starts ticking.",
+   "line_cn": "一只猫头鹰老师把 in、on、at 变成小测验：卡片从底部滑上来，秒表在思考时间里滴答，一句口诀和蓝色线索引出红笔写下的答案，随后同样的卡片又在德语、日语、西班牙语里出现，最后下一题的秒表开始走动。",
+   "uses": [
+    "Grammar and vocabulary micro-lessons for any language pair, vertical or widescreen",
+    "Exam-style drills, pronunciation tips and minimal pairs (generic, never branded)",
+    "Bilingual explainers and kids' language games with a mascot teacher"
+   ],
+   "dur": 65.4,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/language-lesson.mp4",
+   "frame": "../docs/frames/language-lesson.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/language-lesson/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/language-lesson/DEMO.md"
+  },
+  {
    "slug": "rubber-hose",
    "num": "26",
    "en": "1930s Rubber Hose Cartoon",
@@ -1232,6 +1299,53 @@ window.GALLERY = {
    "frame": "../docs/frames/manga-panel.jpg",
    "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/manga-panel/STYLE.md",
    "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/manga-panel/DEMO.md"
+  },
+  {
+   "slug": "shonen-battle",
+   "num": "87",
+   "en": "Shonen Battle",
+   "cn": "热血少年漫",
+   "cat": "卡通与动画",
+   "cat_en": "Cartoon & Anime",
+   "film": "Round One: The Jar",
+   "line": "A twelve-year-old cook fights the one enemy nobody in the kitchen has beaten, a sealed pickle jar, with every device of 1990s battle anime: face-off, charge, aura, floor cracks, a three-frame strike and an impact frame, and a result that is much smaller than the build-up.",
+   "line_cn": "十二岁的小厨师对上厨房里从没人打赢的对手，一罐封了三年的泡菜：对峙、蓄力、气场、地裂、三格出手加一帧冲击画面，而结果比铺垫小得多，只是一声“啵”。",
+   "uses": [
+    "Action moments, sports and fight pieces",
+    "Product launches told as a power-up and release",
+    "Comparisons as a face-off, rankings as a power meter",
+    "Motivational and training stories, exam or deadline countdowns"
+   ],
+   "dur": 60,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/shonen-battle.mp4",
+   "frame": "../docs/frames/shonen-battle.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/shonen-battle/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/shonen-battle/DEMO.md"
+  },
+  {
+   "slug": "sea-adventure",
+   "num": "88",
+   "en": "Sea Adventure Manga",
+   "cn": "航海冒险漫",
+   "cat": "卡通与动画",
+   "cat_en": "Cartoon & Anime",
+   "film": "Five Hats and One Sock",
+   "line": "A tiny captain who lost one sock draws a sea chart, pins up five wanted posters for his crew, sails through a storm to meet a giant hungry duck, digs up a treasure chest holding the wrong sock, and finally pulls back to find the whole ocean is a bathtub.",
+   "line_cn": "丢了一只袜子的小船长画好海图，给五位船员贴上悬赏通缉令，穿过风暴遇见一只饥饿的巨鸭，挖出的宝箱里却是另一只错的袜子，镜头拉远才发现整片大海原来是一只浴缸。",
+   "uses": [
+    "Journeys, routes and itineraries on a hand-drawn chart",
+    "Team introductions as wanted posters, with a rank or a bounty",
+    "Rankings, trophies and who-did-what lists",
+    "Feasts, launches and celebrations with big laughing faces",
+    "Maps of a plan with a start, hazards and an X"
+   ],
+   "dur": 60,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/sea-adventure.mp4",
+   "frame": "../docs/frames/sea-adventure.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/sea-adventure/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/sea-adventure/DEMO.md"
   },
   {
    "slug": "pixel-rpg",
@@ -1430,6 +1544,28 @@ window.GALLERY = {
    "frame": "../docs/frames/zoetrope.jpg",
    "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/zoetrope/STYLE.md",
    "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/zoetrope/DEMO.md"
+  },
+  {
+   "slug": "stage-light",
+   "num": "90",
+   "en": "Stage Light Performance",
+   "cn": "舞台灯光演出",
+   "cat": "电影与时代",
+   "cat_en": "Cinema & Eras",
+   "film": "Second Sunrise",
+   "line": "An invented band plays an invented instrumental to a dark stage: the lights wake one lamp at a time on a stick count-in, a blackout and a full-stage flash split the build from the drop, the break strips to one amber colour while an LED sun rises, and the finale ends on one spot.",
+   "line_cn": "一支虚构乐队在黑暗舞台上演奏一首虚构的器乐曲：灯光随鼓棒数拍一盏盏亮起，熄灯与全场闪光把铺垫和爆发隔开，间奏收成单一琥珀色、LED 屏上升起太阳，终章停在一束追光上。",
+   "uses": [
+    "Music videos and live-show promos",
+    "Event openers and award-show titles",
+    "Product launches staged as a concert, and countdowns"
+   ],
+   "dur": 60,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/stage-light.mp4",
+   "frame": "../docs/frames/stage-light.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/stage-light/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/stage-light/DEMO.md"
   },
   {
    "slug": "brick-toy",
@@ -1650,6 +1786,29 @@ window.GALLERY = {
    "frame": "../docs/frames/cardboard.jpg",
    "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/cardboard/STYLE.md",
    "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/cardboard/DEMO.md"
+  },
+  {
+   "slug": "product-hero",
+   "num": "91",
+   "en": "Product Hero Macro",
+   "cn": "产品英雄镜头",
+   "cat": "材质与 3D",
+   "cat_en": "Materials & 3D",
+   "film": "Tide Flask",
+   "line": "A single drop of condensation slides down a brushed-steel flask in macro; the studio light that reveals it travels over leather, glaze and the double wall, runs a whole day across the finished object, and lands on a price.",
+   "line_cn": "一滴冷凝水珠滑过拉丝钢水壶的微距镜头；照亮它的影棚光依次扫过皮革、釉面和双层壁，在成品上走完一整天，最后落在价格上。",
+   "uses": [
+    "Product launches and hero reveals",
+    "Feature walkthroughs with exploded views",
+    "Packaging and unboxing reveals",
+    "E-commerce listings and price end cards"
+   ],
+   "dur": 52.5,
+   "added": true,
+   "video": "https://github.com/zhgarylu/claude-video/releases/download/films/product-hero.mp4",
+   "frame": "../docs/frames/product-hero.jpg",
+   "style_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/product-hero/STYLE.md",
+   "demo_md": "https://github.com/zhgarylu/claude-video/blob/main/styles/product-hero/DEMO.md"
   }
  ],
  "demos": [
@@ -1862,8 +2021,8 @@ window.GALLERY = {
   }
  ],
  "counts": {
-  "total": 75,
-  "added": 32,
+  "total": 82,
+  "added": 39,
   "demos": 6
  }
 };

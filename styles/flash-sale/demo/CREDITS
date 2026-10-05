@@ -1,0 +1,10 @@
+Mango Lane: Mega Markdown (flash-sale demo): third-party assets
+Fonts (SIL Open Font License 1.1, self-hosted in demo/fonts/, not committed; build.sh names the source)
+- Anton Regular (The Anton Project Authors; google/fonts repository, ofl/anton): headlines, prices, the clock. Licence: demo/fonts/OFL-anton.txt
+- Barlow Condensed Bold, ExtraBold (The Barlow Project Authors, jpt/barlow; google/fonts repository, ofl/barlowcondensed): product names, labels, dates, fine print. Licence: demo/fonts/OFL-barlow.txt
+Picture
+- Everything is drawn in code on one 2D canvas (demo/draw.js, demo/scenes.js): starbursts, cards, product icons (kettle, headphones, lamp, backpack, mug, fern pot, flask, notebook, speaker, umbrella), coupon, receipt, stock bar, button, cursor. No images, footage or textures. The shop "Mango Lane", its goods, prices, the code MANGO10 and the address mangolane.example are invented; no real brand, product or offer.
+Voice
+- None. The prices are the text. No speech engine, no subtitles file.
+Sound
+- Synthesised in demo/mix.py (numpy/scipy, core/audio/sfx.py, MIT): the original jingle (kick, clap, hats, bass, chord stabs, marimba hook, brass) and every effect. No samples, no recordings, no existing music.

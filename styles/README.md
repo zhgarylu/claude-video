@@ -65,6 +65,8 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | Transit Map | 地铁线路图 | [`transit-map`](transit-map/STYLE.md) | *Three Angles to Anywhere* | ★ added here · 本仓库新增 |
 | Split-flap Board | 翻牌显示屏 | [`split-flap`](split-flap/STYLE.md) | *The Long Way Round* | ★ added here · 本仓库新增 |
 | Vector Oscilloscope | 矢量示波器 | [`vector-scope`](vector-scope/STYLE.md) | *Hold the Fifth* | ★ added here · 本仓库新增 |
+| Lyric Video | 歌词视频 | [`lyric-video`](lyric-video/STYLE.md) | *Ten More Minutes* | ★ added here · 本仓库新增 |
+| Flash Sale Promo | 闪购促销 | [`flash-sale`](flash-sale/STYLE.md) | *Mango Lane: Mega Markdown* | ★ added here · 本仓库新增 |
 
 ## Information & Keynote · 信息与发布
 
@@ -78,6 +80,7 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | Sheet-music Motion | 乐谱音乐可视化 | [`sheet-music`](sheet-music/STYLE.md) | *Four Notes* | ★ added here · 本仓库新增 |
 | Chat Log | 聊天记录体 | [`chat-log`](chat-log/STYLE.md) | *She Knows* | ★ added here · 本仓库新增 |
 | Danmaku Comments | 弹幕体 | [`danmaku`](danmaku/STYLE.md) | *Day 3: I will not kill this starter* | ★ added here · 本仓库新增 |
+| Language Micro-lesson | 语言学习微课 | [`language-lesson`](language-lesson/STYLE.md) | *Three Little Words* | ★ added here · 本仓库新增 |
 
 ## Cartoon & Anime · 卡通与动画
 
@@ -90,6 +93,8 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | Comic Panel Pop Art | 美漫分格波普 | [`comic-pop`](comic-pop/STYLE.md) | *Butter Side Down* | ★ added here · 本仓库新增 |
 | Peking Opera Cel Animation | 国风戏曲动画 | [`opera-cel`](opera-cel/STYLE.md) | *One Gong at Stone Gate* | ★ added here · 本仓库新增 |
 | Manga Panel | 漫画黑白网点 | [`manga-panel`](manga-panel/STYLE.md) | *The Last Pineapple Bun* | ★ added here · 本仓库新增 |
+| Shonen Battle | 热血少年漫 | [`shonen-battle`](shonen-battle/STYLE.md) | *Round One: The Jar* | ★ added here · 本仓库新增 |
+| Sea Adventure Manga | 航海冒险漫 | [`sea-adventure`](sea-adventure/STYLE.md) | *Five Hats and One Sock* | ★ added here · 本仓库新增 |
 
 ## Games · 游戏
 
@@ -109,6 +114,7 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | Liminal Found Footage | 后室 / 新怪谈 | [`backrooms`](backrooms/STYLE.md) | *Night Shift Orientation* | Lemo-Opuscar |
 | Super 8 Home Movie | 老胶片家庭录像 | [`super8`](super8/STYLE.md) | *Dad Was Here Too* | ★ added here · 本仓库新增 |
 | Zoetrope & Phenakistoscope | 前电影光学玩具 | [`zoetrope`](zoetrope/STYLE.md) | *Nothing Moves* | ★ added here · 本仓库新增 |
+| Stage Light Performance | 舞台灯光演出 | [`stage-light`](stage-light/STYLE.md) | *Second Sunrise* | ★ added here · 本仓库新增 |
 
 ## Materials & 3D · 材质与 3D
 
@@ -124,3 +130,4 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | Clockwork & Chain Reaction | 发条机关 | [`clockwork`](clockwork/STYLE.md) | *The Slowest Link* | ★ added here · 本仓库新增 |
 | Needle Felting | 羊毛毡 | [`felt`](felt/STYLE.md) | *Mostly Air* | ★ added here · 本仓库新增 |
 | Corrugated Cardboard Craft | 瓦楞纸手工 | [`cardboard`](cardboard/STYLE.md) | *The Wave Inside* | ★ added here · 本仓库新增 |
+| Product Hero Macro | 产品英雄镜头 | [`product-hero`](product-hero/STYLE.md) | *Tide Flask* | ★ added here · 本仓库新增 |

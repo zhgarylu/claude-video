@@ -1,0 +1,19 @@
+{
+ "slug": "product-hero",
+ "num": "91",
+ "en": "Product Hero Macro",
+ "cn": "产品英雄镜头",
+ "category_en": "Materials & 3D",
+ "category_cn": "材质与 3D",
+ "film": "Tide Flask",
+ "line": "A single drop of condensation slides down a brushed-steel flask in macro; the studio light that reveals it travels over leather, glaze and the double wall, runs a whole day across the finished object, and lands on a price.",
+ "line_cn": "一滴冷凝水珠滑过拉丝钢水壶的微距镜头；照亮它的影棚光依次扫过皮革、釉面和双层壁，在成品上走完一整天，最后落在价格上。",
+ "uses": [
+  "Product launches and hero reveals",
+  "Feature walkthroughs with exploded views",
+  "Packaging and unboxing reveals",
+  "E-commerce listings and price end cards"
+ ],
+ "frame_sec": 9.2,
+ "dur": 52.5
+}

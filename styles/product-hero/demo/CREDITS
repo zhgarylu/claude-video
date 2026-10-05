@@ -1,0 +1,9 @@
+Tide Flask (product-hero demo): third-party assets
+Fonts (SIL Open Font License 1.1, self-hosted in demo/fonts/, not committed; build.sh names the source)
+- Jost, variable weight (The Jost Project Authors, indestructible type; google/fonts repository, ofl/jost): every title, callout, label and the end card. Licence: demo/fonts/OFL-jost.txt
+Picture
+- Rendered live with three.js r170 (MIT) and the library's core/three/post.js (depth of field, bloom, grade). Every surface is procedural: lathe geometry, canvas-drawn brushed-steel roughness, leather grain and glaze textures (demo/textures.js), a studio of emissive cards baked to an environment map every frame. No HDRIs, images, footage or models. The brand "Aldermoor", the "Tide Flask" and the address aldermoor.example are invented; there is no logo.
+Voice
+- None. No speech engine, no subtitles file: the film's words are on-screen titles and callouts.
+Sound
+- Synthesised in demo/mix.py (numpy/scipy, core/audio/sfx.py filters, MIT): electric piano (FM), plucks (Karplus-Strong), pad, sub pulse, foley (water drops, leather, ceramic, metal clicks, whooshes, chime) and room tone. No samples, no recordings.

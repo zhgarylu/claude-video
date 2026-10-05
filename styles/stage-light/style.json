@@ -1,0 +1,18 @@
+{
+ "slug": "stage-light",
+ "num": "90",
+ "en": "Stage Light Performance",
+ "cn": "舞台灯光演出",
+ "category_en": "Cinema & Eras",
+ "category_cn": "电影与时代",
+ "film": "Second Sunrise",
+ "line": "An invented band plays an invented instrumental to a dark stage: the lights wake one lamp at a time on a stick count-in, a blackout and a full-stage flash split the build from the drop, the break strips to one amber colour while an LED sun rises, and the finale ends on one spot.",
+ "line_cn": "一支虚构乐队在黑暗舞台上演奏一首虚构的器乐曲：灯光随鼓棒数拍一盏盏亮起，熄灯与全场闪光把铺垫和爆发隔开，间奏收成单一琥珀色、LED 屏上升起太阳，终章停在一束追光上。",
+ "uses": [
+  "Music videos and live-show promos",
+  "Event openers and award-show titles",
+  "Product launches staged as a concert, and countdowns"
+ ],
+ "frame_sec": 49.6,
+ "dur": 60
+}

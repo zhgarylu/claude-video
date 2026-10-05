@@ -1,0 +1,13 @@
+Three Little Words (language-lesson demo): third-party assets
+Fonts (SIL Open Font License 1.1, self-hosted in demo/fonts/, not committed; tools/fonts.sh names the sources and subsets them to the characters used)
+- Nunito (The Nunito Project Authors, google/fonts ofl/nunito), variable weight: Latin text, titles, option chips. Licence: demo/fonts/OFL-nunito.txt
+- Caveat (The Caveat Project Authors, google/fonts ofl/caveat), variable weight: the handwritten red answer. Licence: demo/fonts/OFL-caveat.txt
+- Noto Sans SC, Noto Sans JP, Noto Sans (IPA), Noto Sans Arabic (Google LLC, Noto Project; google/fonts ofl/notosanssc, notosansjp, notosans, notosansarabic), subset via the Google Fonts API: Chinese, Japanese, phonetic and Arabic text. Licence: demo/fonts/OFL-noto.txt
+Picture
+- Everything is drawn in code on one 2D canvas (demo/kit.js, mascot.js, cards.js, main.js): the cards, the icons, the owl teacher Pip, the stage. No images, footage or textures. The mascot is an original design; no existing character is copied.
+Voice
+- The Mandarin teacher: Microsoft Edge online text-to-speech, voice zh-CN-XiaoxiaoNeural, through the edge-tts package (LGPL-3.0), used via core/tts/tts_zh.py (needs a network connection). Kokoro's offline Mandarin voices were tried first and Whisper could not understand them.
+- The English examples: Kokoro-82M via kokoro-onnx (Apache 2.0), voice af_heart, run offline by core/tts/tts.py.
+- Speech check: faster-whisper (MIT) with the Systran large-v3-turbo model (MIT), core/tts/asr_check.py.
+Sound
+- Every sound is synthesised in numpy/scipy (demo/mix.py, core/audio/sfx.py, MIT): the score (marimba, bass, pad, shaker), card slides, pops, ticks, pencil scratch, ding, flips. No samples, no recordings.

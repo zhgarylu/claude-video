@@ -1,0 +1,10 @@
+Second Sunrise (stage-light demo): third-party assets
+Fonts (SIL Open Font License 1.1, self-hosted in demo/fonts/, not committed; build.sh names the sources)
+- Bebas Neue (The Bebas Neue Project Authors, dharmatype/Bebas-Neue; google/fonts repository, ofl/bebasneue): the band name, the end card and the LED-wall wordmark. Licence: demo/fonts/OFL-bebasneue.txt
+- Barlow Condensed Medium (The Barlow Project Authors, jpt/barlow; google/fonts repository, ofl/barlowcondensed): the small captions. Licence: demo/fonts/OFL-barlowcondensed.txt
+Picture
+- Everything is drawn in code on one 2D canvas (demo/cam.js, cues.js, lights.js, rig.js, band.js, fx.js): the stage, the lamps, the LED wall, the silhouettes, the crowd, confetti and sparks. No images, footage or textures. The band "Vanta Harbor", the song "Second Sunrise", the venue and the crowd are invented; no real act, song, logo or stage set is imitated.
+Voice
+- None: the film is instrumental.
+Sound
+- The song and every sound are synthesised in numpy/scipy (demo/score.py for the arrangement, demo/mix.py, core/audio/sfx.py, MIT): drums, bass, pads, plucks, lead, guitar, electric piano, stabs, crowd, foley. The melody and chords are original. No samples, no recordings, no existing music.

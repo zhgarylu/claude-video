@@ -1,0 +1,50 @@
+[
+ {
+  "id": "v1",
+  "text": "In every kitchen, one enemy has never been beaten.",
+  "voice": "am_onyx",
+  "speed": 0.9
+ },
+ {
+  "id": "v2",
+  "text": "Grandma's pickles. Sealed for three years. Dinner is in ten minutes.",
+  "voice": "am_onyx",
+  "speed": 0.9
+ },
+ {
+  "id": "v3",
+  "text": "Round one. Nothing.",
+  "voice": "am_onyx",
+  "speed": 0.9
+ },
+ {
+  "id": "v4",
+  "text": "Round two. The floor gives way. The lid does not.",
+  "voice": "am_onyx",
+  "speed": 0.9
+ },
+ {
+  "id": "v5",
+  "text": "Don't fight it, Haru. Just let a little air in.",
+  "voice": "bf_isabella",
+  "speed": 0.82
+ },
+ {
+  "id": "v6",
+  "text": "And the lid? It had only been waiting to be asked.",
+  "voice": "am_onyx",
+  "speed": 0.9
+ },
+ {
+  "id": "v7",
+  "text": "Dinner is ready!",
+  "voice": "bf_isabella",
+  "speed": 0.9
+ },
+ {
+  "id": "v8",
+  "text": "Haru, what happened to the floor?",
+  "voice": "bf_isabella",
+  "speed": 0.85
+ }
+]

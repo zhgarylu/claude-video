@@ -1,0 +1,19 @@
+{
+ "slug": "shonen-battle",
+ "num": "87",
+ "en": "Shonen Battle",
+ "cn": "热血少年漫",
+ "category_en": "Cartoon & Anime",
+ "category_cn": "卡通与动画",
+ "film": "Round One: The Jar",
+ "line": "A twelve-year-old cook fights the one enemy nobody in the kitchen has beaten, a sealed pickle jar, with every device of 1990s battle anime: face-off, charge, aura, floor cracks, a three-frame strike and an impact frame, and a result that is much smaller than the build-up.",
+ "line_cn": "十二岁的小厨师对上厨房里从没人打赢的对手，一罐封了三年的泡菜：对峙、蓄力、气场、地裂、三格出手加一帧冲击画面，而结果比铺垫小得多，只是一声“啵”。",
+ "uses": [
+  "Action moments, sports and fight pieces",
+  "Product launches told as a power-up and release",
+  "Comparisons as a face-off, rankings as a power meter",
+  "Motivational and training stories, exam or deadline countdowns"
+ ],
+ "frame_sec": 20.5,
+ "dur": 60
+}

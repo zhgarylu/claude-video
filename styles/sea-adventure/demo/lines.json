@@ -1,0 +1,97 @@
+[
+ {
+  "id": "v01",
+  "text": "Captain Pip lost a sock.",
+  "voice": "bm_george",
+  "speed": 0.95
+ },
+ {
+  "id": "v02",
+  "text": "So he drew a map, and found a crew.",
+  "voice": "bm_george",
+  "speed": 0.95
+ },
+ {
+  "id": "v03",
+  "text": "Pip, the captain.",
+  "voice": "bm_george",
+  "speed": 0.95,
+  "asr": "Pip, the captain."
+ },
+ {
+  "id": "v04",
+  "text": "Brisket, who cooks.",
+  "voice": "bm_george",
+  "speed": 0.95,
+  "asr": "Briskit, who cooks."
+ },
+ {
+  "id": "v05",
+  "text": "Longshanks, who navigates.",
+  "voice": "bm_george",
+  "speed": 0.95,
+  "asr": "Long shanks, who navigates."
+ },
+ {
+  "id": "v06",
+  "text": "Dot, who looks out.",
+  "voice": "bm_george",
+  "speed": 0.95,
+  "asr": "Dart, who looks out."
+ },
+ {
+  "id": "v07",
+  "text": "Barnacle, who fixes things.",
+  "voice": "bm_george",
+  "speed": 0.95
+ },
+ {
+  "id": "v08",
+  "text": "Sometimes.",
+  "voice": "bm_george",
+  "speed": 0.9
+ },
+ {
+  "id": "v09",
+  "text": "Nine long days across the Warm Wide Sea.",
+  "voice": "bm_george",
+  "speed": 0.95
+ },
+ {
+  "id": "v10",
+  "text": "Then came a storm.",
+  "voice": "bm_george",
+  "speed": 0.95
+ },
+ {
+  "id": "v11",
+  "text": "It was a duck. A very large, very hungry duck.",
+  "voice": "bm_george",
+  "speed": 0.95
+ },
+ {
+  "id": "v12",
+  "text": "Brisket shared his lunch.",
+  "voice": "bm_george",
+  "speed": 0.95,
+  "asr": "Briskett shared his lunch."
+ },
+ {
+  "id": "v13",
+  "text": "X marked the spot. Inside was one sock.",
+  "voice": "bm_george",
+  "speed": 0.95
+ },
+ {
+  "id": "v14",
+  "text": "A left one.",
+  "voice": "bm_george",
+  "speed": 0.9
+ },
+ {
+  "id": "v15",
+  "text": "The right one was drying on the tap.",
+  "voice": "bm_george",
+  "speed": 0.95
+ }
+]
