@@ -1,6 +1,6 @@
 """Sound for "How to read a paper": narration from voices/, a warm lo-fi score, marker / pen / paper foley from events.json. numpy only."""
 import os, sys, json
-import numpy as np, soundfile as sf
+import numpy as np, soundfile as sf, soxr
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, '..', '..', '..', 'core', 'audio'))
 import sfx
@@ -38,6 +38,7 @@ for e in EV:
     if ty == 'voice':
         w, sr = sf.read(os.path.join(HERE, 'voices', e['id'] + '.wav'))
         if w.ndim > 1: w = w.mean(1)
+        if sr != SR: w = soxr.resample(w, sr, SR)          # voice files are 24 kHz, the mix is 48 kHz
         s = int(round(t * SR)); vo[s:s + len(w)] += w[:N - s]
     elif ty == 'paper': d = .5; x = sfx.lp(sfx.noise(d), 2500, 2) * np.hanning(int(d * SR)) ** 2; put(fx, x, t, .5 * v)
     elif ty == 'turn': d = .7; x = sfx.bp(sfx.noise(d), 600, 4500, 2) * np.hanning(int(d * SR)); put(fx, x, t, .55 * v)

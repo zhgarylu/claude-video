@@ -1,6 +1,6 @@
 """Sound for "Why is the sky blue?": narration from voices/, a light marimba-and-pluck score, pen and pop foley from events.json. numpy only."""
 import os, sys, json
-import numpy as np, soundfile as sf
+import numpy as np, soundfile as sf, soxr
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, '..', '..', '..', 'core', 'audio'))
 import sfx
@@ -46,6 +46,7 @@ for e in EV:
     if ty == 'voice':
         w, sr = sf.read(os.path.join(HERE, 'voices', e['id'] + '.wav'))
         if w.ndim > 1: w = w.mean(1)
+        if sr != SR: w = soxr.resample(w, sr, SR)          # voice files are 24 kHz, the mix is 48 kHz
         s = int(round(t * SR)); vo[s:s + len(w)] += w[:N - s]
     elif ty == 'pop': put(fx, sfx.pop(1.0), t, .6 * v, pan=(hash((round(t * 10))) % 5 - 2) * .15)
     elif ty == 'whoosh': put(fx, sfx.whoosh(.45, 1.0), t, .55 * v)

@@ -1,6 +1,6 @@
 """Sound for "What happens when you open a web page": narration from voices/, a soft pulse-and-pluck score, UI blips from events.json. numpy only."""
 import os, sys, json
-import numpy as np, soundfile as sf
+import numpy as np, soundfile as sf, soxr
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, '..', '..', '..', 'core', 'audio'))
 import sfx
@@ -41,6 +41,7 @@ for e in EV:
     if ty == 'voice':
         w, sr = sf.read(os.path.join(HERE, 'voices', e['id'] + '.wav'))
         if w.ndim > 1: w = w.mean(1)
+        if sr != SR: w = soxr.resample(w, sr, SR)          # voice files are 24 kHz, the mix is 48 kHz
         s = int(round(t * SR)); vo[s:s + len(w)] += w[:N - s]
     elif ty == 'pop': put(fx, sfx.pop(1.0), t, .5 * v, pan)
     elif ty == 'blip': put(fx, blip(520, 880, .14), t, .22 * v, pan)
