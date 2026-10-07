@@ -2,8 +2,8 @@
 
 # Claude Video
 
-**<!--n-->89<!--/n--> film styles, each with a short film made entirely in code, and a workflow for putting a presenter's video inside one.**<br>
-**<!--n-->89<!--/n--> 种影片风格，每种都配一支完全用代码做出来的短片；再加一套"口播视频 + 风格解说"的工作流。**
+**<!--n-->91<!--/n--> film styles, each with a short film made entirely in code, and a workflow for putting a presenter's video inside one.**<br>
+**<!--n-->91<!--/n--> 种影片风格，每种都配一支完全用代码做出来的短片；再加一套"口播视频 + 风格解说"的工作流。**
 
 Pick a style, bring your own story (or your own presenter video), and let your coding agent direct the film.<br>
 选一个风格，带上你自己的故事（或你自己的口播视频），让你的编程 agent 来当导演。
@@ -93,6 +93,8 @@ The agent reads three guides and works like a small studio · agent 会读三份
 | [`DIRECTOR.md`](DIRECTOR.md) | how to direct: story, sound, rhythm, camera, performance, self-checks<br>怎么导：故事、声音、节奏、镜头、表演、自检 |
 | [`TECHNIQUE.md`](TECHNIQUE.md) | how to build: frame-by-frame rendering, voice, music, mixing<br>怎么做：逐帧渲染、配音、配乐、混音 |
 | [`TALKING-HEAD.md`](TALKING-HEAD.md) | when you bring a presenter's video: brief, prompts for the host video, prep, layout, checks<br>你带来口播视频时：开场提问、生成口播的提示词、预处理、版式、检查 |
+| [`REMAKE.md`](REMAKE.md) | remaking a video: its structure with new content, your own footage restyled, or an editable exact duplicate<br>视频重制：只学结构换内容、自己的素材换风格、或复刻成可编辑可重渲染的工程 |
+| [`BREAKDOWN.md`](BREAKDOWN.md) | existing footage (launch events, keynotes, demos, screen recordings) used at original speed and explained: narration, subtitles, freeze-frame callouts, stamped diagrams<br>现成素材（发布会、演示、录屏）原速使用并解读：配音、字幕、定格批注、标注为解读的示意图 |
 | `styles/<style>/STYLE.md` | what the style looks and sounds like; the story is yours<br>这个风格长什么样、听起来什么样；故事由你定 |
 
 ### Before you start · 开始之前
@@ -230,6 +232,7 @@ Browse them with films in the [**gallery · 图鉴**](https://zhgarylu.github.io
 </tr>
 <tr>
 <td width="33%" valign="top"><a href="styles/paper-annotation/STYLE.md"><img src="docs/frames/paper-annotation.jpg" alt="Paper Annotation"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Paper Annotation</b> · 论文解读体<br><i>How to Read a Paper</i><br><sub>A research paper on a dark desk is read aloud: the camera pushes into a sentence, a yellow marker sweeps it, a red pen rings the numbers, note cards slide in beside the page to say what each part claims, the page turns to a figure and a table where the one comparison is called out, and the film ends on a three-question checklist.<br>一篇论文摊在暗色桌面上被读出来：镜头推进到一句话，黄色荧光笔扫过，红笔圈出数字，批注卡片从页边滑入说明这一段在主张什么；翻页到图表，点出它只和一种基线比较；最后落在读论文的三个问题上。</sub></td>
+<td width="33%" valign="top"><a href="styles/demo-breakdown/STYLE.md"><img src="docs/frames/demo-breakdown.jpg" alt="Demo Breakdown"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Demo Breakdown</b> · 实录解读<br><i>One Button, Sorted Notes</i><br><sub>A 30-second screen recording of an invented note app is broken down in 75 seconds: the clip plays untouched, then pauses on the frame that matters with a box, a zoom and a numbered callout, an amber-stamped drawing guesses how it works, and a closing table sets what the footage showed against what it never said.<br>一段虚构笔记应用的 30 秒操作录屏被拆成 75 秒的解读片：原片原速播放，再停在关键帧上加框、放大、编号批注；琥珀色印章的示意图猜它怎么运转；最后一张对照表列出演示里看到的与从没说的。</sub></td>
 </tr>
 </table>
 
@@ -253,6 +256,7 @@ Browse them with films in the [**gallery · 图鉴**](https://zhgarylu.github.io
 </tr>
 <tr>
 <td width="33%" valign="top"><a href="styles/webtoon-scroll/STYLE.md"><img src="docs/frames/webtoon-scroll.jpg" alt="Webtoon Scroll"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Webtoon Scroll</b> · 条漫竖滚体<br><i>The Umbrella Says No</i><br><sub>One episode of an invented webcomic on a single vertical strip: a commuter loses an argument with her stubborn umbrella through a slow walk, a whip-scroll chase down a staircase, a hard stop in a puddle and a tall silent gutter, until the rain stops and the umbrella turns out to have been a parasol all along.<br>一集原创条漫，整部作品是一条竖滚长卷：通勤的姑娘在和固执的雨伞争执中输了，慢速漫步、飞速下滚的楼梯追逐、泥坑里的急停、一段留白的长间隙之后雨停了，原来那把伞从头到尾是遮阳伞。</sub></td>
+<td width="33%" valign="top"><a href="styles/era-scroll/STYLE.md"><img src="docs/frames/era-scroll.jpg" alt="Era Scroll Walk"></a><br><sup><b>★ Added here · 本仓库新增</b></sup><br><b>Era Scroll Walk</b> · 时代长卷<br><i>The Birth of a Phone</i><br><sub>A small courier carries one message along a single horizontal scroll, walking at an even pace through nine eras of how people send words, each world drawn in the visual language of its own period and revealed by a torn-paper edge, until the message arrives on a phone whose screen turns out to be the whole scroll.<br>一个小信使在一条横向长卷里匀速行走，带着一条口信穿过九个传信时代，每个世界都用当时的视觉语言来画，靠一道撕开的纸边换场，最后口信送到一部手机上，手机屏幕里装下的正是整条长卷。</sub></td>
 </tr>
 </table>
 

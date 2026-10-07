@@ -86,6 +86,7 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | Code Walkthrough | 代码讲解体 | [`code-walkthrough`](code-walkthrough/STYLE.md) | *One Character Short* | ★ added here · 本仓库新增 |
 | Live Architecture Diagram | 动态架构图体 | [`live-architecture`](live-architecture/STYLE.md) | *What Happens When You Open a Web Page* | ★ added here · 本仓库新增 |
 | Paper Annotation | 论文解读体 | [`paper-annotation`](paper-annotation/STYLE.md) | *How to Read a Paper* | ★ added here · 本仓库新增 |
+| Demo Breakdown | 实录解读 | [`demo-breakdown`](demo-breakdown/STYLE.md) | *One Button, Sorted Notes* | ★ added here · 本仓库新增 |
 
 ## Cartoon & Anime · 卡通与动画
 
@@ -101,6 +102,7 @@ Users may name a style in English, in Chinese, or by its folder. Find it here, t
 | Shonen Battle | 热血少年漫 | [`shonen-battle`](shonen-battle/STYLE.md) | *Round One: The Jar* | ★ added here · 本仓库新增 |
 | Sea Adventure Manga | 航海冒险漫 | [`sea-adventure`](sea-adventure/STYLE.md) | *Five Hats and One Sock* | ★ added here · 本仓库新增 |
 | Webtoon Scroll | 条漫竖滚体 | [`webtoon-scroll`](webtoon-scroll/STYLE.md) | *The Umbrella Says No* | ★ added here · 本仓库新增 |
+| Era Scroll Walk | 时代长卷 | [`era-scroll`](era-scroll/STYLE.md) | *The Birth of a Phone* | ★ added here · 本仓库新增 |
 
 ## Games · 游戏
 

@@ -971,6 +971,23 @@
   "dur": 54.2
  },
  {
+  "slug": "demo-breakdown",
+  "num": "102",
+  "en": "Demo Breakdown",
+  "cn": "实录解读",
+  "cat": "信息与发布",
+  "cat_en": "Information & Keynote",
+  "film": "One Button, Sorted Notes",
+  "line": "A 30-second screen recording of an invented note app is broken down in 75 seconds: the clip plays untouched, then pauses on the frame that matters with a box, a zoom and a numbered callout, an amber-stamped drawing guesses how it works, and a closing table sets what the footage showed against what it never said.",
+  "line_cn": "一段虚构笔记应用的 30 秒操作录屏被拆成 75 秒的解读片：原片原速播放，再停在关键帧上加框、放大、编号批注；琥珀色印章的示意图猜它怎么运转；最后一张对照表列出演示里看到的与从没说的。",
+  "uses": [
+   "Launch events and keynotes: pick three to five 10-30 second moments from an hour of footage and explain each as what happens, what the product does, where it applies",
+   "Product screen recordings and GitHub demos: freeze on the frame that proves a feature, zoom to the detail, number the steps, say what was not shown",
+   "Tutorials and walkthroughs: the original clip at its own speed with translated subtitles, pauses at the decisive step and a one-screen takeaway"
+  ],
+  "dur": 75.1
+ },
+ {
   "slug": "rubber-hose",
   "num": "26",
   "en": "1930s Rubber Hose Cartoon",
@@ -1142,6 +1159,23 @@
    "Tutorials and how-tos as numbered panels with balloons, narration boxes and a next-episode or next-lesson bar"
   ],
   "dur": 62.5
+ },
+ {
+  "slug": "era-scroll",
+  "num": "101",
+  "en": "Era Scroll Walk",
+  "cn": "时代长卷",
+  "cat": "卡通与动画",
+  "cat_en": "Cartoon & Anime",
+  "film": "The Birth of a Phone",
+  "line": "A small courier carries one message along a single horizontal scroll, walking at an even pace through nine eras of how people send words, each world drawn in the visual language of its own period and revealed by a torn-paper edge, until the message arrives on a phone whose screen turns out to be the whole scroll.",
+  "line_cn": "一个小信使在一条横向长卷里匀速行走，带着一条口信穿过九个传信时代，每个世界都用当时的视觉语言来画，靠一道撕开的纸边换场，最后口信送到一部手机上，手机屏幕里装下的正是整条长卷。",
+  "uses": [
+   "A place or a company told as one walk through its decades, each decade drawn in the look of its own time, with a year plate in the corner",
+   "A subject followed through different cultures or media: a recipe through cuisines, a language through its alphabets, a river from source to sea",
+   "Product, brand and history stories where the final stretch shows the whole walk collected as a gallery of thumbnails"
+  ],
+  "dur": 89.4
  },
  {
   "slug": "pixel-rpg",

@@ -12,7 +12,7 @@ The user brings a video they admire (their own, or one they have the right to st
 | how text sits on screen (burned-in captions, lower third, big words) | its exact on-screen text |
 | the camera grammar (static, push-ins, cuts on the beat) | |
 
-A "full copy" of someone else's video is a copy of their work. Rebuild the **shape** with new content; the film is the user's own. If the user owns the source and wants it changed (re-captioned, restyled), that is a different job: treat their video as the host video (`TALKING-HEAD.md`).
+A "full copy" of someone else's video is a copy of their work. Rebuild the **shape** with new content; the film is the user's own. If the user owns the source and wants it changed (re-captioned, restyled) or duplicated as an editable project, that is a different job: [`REMAKE.md`](REMAKE.md) (modes `restyle` and `exact`; `structure` is this page with a precise per-beat sheet, `tools/remake/structure.py`).
 
 ## Steps
 

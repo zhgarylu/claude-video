@@ -128,3 +128,9 @@ styles/*/demo/PRODUCTION_LOG*
 *API*KEY*
 .env
 .env.*
+
+# Demo Breakdown: the invented source footage is the demo's input and is committed (1.3 MB); frames, voices and renders are rebuilt
+!styles/demo-breakdown/demo/src/footage.mp4
+styles/demo-breakdown/demo/work/
+styles/demo-breakdown/demo/footage/out/
+styles/*/demo/footage/fonts/

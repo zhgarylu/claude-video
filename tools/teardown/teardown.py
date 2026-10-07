@@ -11,7 +11,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 ap = argparse.ArgumentParser(); ap.add_argument('video', nargs='?'); ap.add_argument('--url'); ap.add_argument('--out'); ap.add_argument('--no-asr', action='store_true'); ap.add_argument('--no-ocr', action='store_true')
-ap.add_argument('--lang', default='auto'); ap.add_argument('--fps', type=float, default=12); ap.add_argument('--model', default='base')
+ap.add_argument('--lang', default='auto'); ap.add_argument('--fps', type=float, default=12); ap.add_argument('--model', default='base'); ap.add_argument('--report', action='store_true', help='also write the 拉片 report (report.html): 3 frames per shot, charts, a model reading of each shot (tools/teardown/lapian.py)')
 A = ap.parse_args()
 HERE = os.path.dirname(os.path.abspath(__file__)); LIB = os.path.dirname(os.path.dirname(HERE))
 def run(*c, **k): return subprocess.run(c, capture_output=True, **k)
@@ -142,3 +142,4 @@ md += ['', '## To remake it', '', 'This measures the video; it does not say what
        '- keep the **structure** (hook in the first seconds, how information arrives, where the pauses and the payoff sit) and the **rhythm** (shot lengths above), in one library style (styles/README.md);',
        '- do not reuse the source footage, voice, music, characters or text unless you own them or have a licence (TEARDOWN.md).']
 open(os.path.join(out, 'teardown.md'), 'w', encoding='utf8').write('\n'.join(md) + '\n'); print('→', os.path.join(out, 'teardown.md'))
+if A.report: sys.exit(subprocess.run([sys.executable, os.path.join(HERE, 'lapian.py'), A.video, '--dir', out, '--lang', A.lang]).returncode)

@@ -1,0 +1,7 @@
+Footage (supplied by the film's maker, who is responsible for the right to use it; every clip is shown at its original speed, with the source named on screen):
+  - demo: 小格笔记（虚构应用）的演示录屏 | source: styles/demo-breakdown/demo/footage/ | licence / permission: CC0: drawn in code for this library; the app and its name are invented | credit: Lemo-Opuscar | used: c1 2.0–9.0 s; f1 frame at 10.9 s; c2 12.8–18.4 s; f2 frame at 15.5 s; c3 19.0–24.2 s; c4 24.4–30.0 s
+Interpretation drawings (stamped "解读示意" on screen): drawn in code for this film; they are not part of the source material and show our reading of it
+Font: Noto Sans SC (SIL OFL 1.1, google/fonts; licence text in fonts/)
+Voice: Microsoft Edge neural voice zh-CN-YunxiNeural via edge-tts (online service: check Microsoft's terms before commercial use)
+Music and sound effects: generated in code (tools/breakdown/mix.py, numpy); no samples
+Facts: FACTS.md

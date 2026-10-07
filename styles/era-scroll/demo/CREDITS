@@ -1,0 +1,11 @@
+The Birth of a Phone (era-scroll demo): third-party assets
+Fonts (SIL Open Font License 1.1, self-hosted in demo/fonts/, not committed; build.sh downloads them from google/fonts)
+- Noto Sans SC and Noto Serif SC (The Noto Project Authors; google/fonts ofl/notosanssc, ofl/notoserifsc): plate, subtitles, end card, printed Chinese. Licences: demo/fonts/OFL-notosanssc.txt, OFL-notoserifsc.txt
+- UnifrakturCook Bold (Peter Wiegel; google/fonts ofl/unifrakturcook): the blackletter page of the letterpress era. Licence: demo/fonts/OFL-unifrakturcook.txt
+- Press Start 2P (CodeMan38; google/fonts ofl/pressstart2p): the 1992 LCD text box. Licence: demo/fonts/OFL-pressstart2p.txt
+Picture
+- Everything is drawn in code on one 2D canvas (demo/scroll.js, eras1.js, eras2.js, eras3.js, main.js): the courier, nine era worlds, the torn edge, the phone. No images, footage or textures. The courier and the story are original; the phone is a generic glass slab with no maker's logo.
+Voice
+- Narration: Microsoft Edge online neural voice zh-CN-YunxiNeural, through the edge-tts Python package (core/tts/tts_zh.py; edge-tts is LGPL-3.0). Voice-checked with faster-whisper (MIT).
+Sound
+- Every other sound is synthesised in numpy/scipy (demo/mix.py, core/audio/sfx.py, MIT): the score (frame drum, bone flute, lyre, zither, organ, harpsichord, celesta, electric piano, chip lead, pad, kalimba), era ambiences, foley. No samples, no recordings.

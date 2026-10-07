@@ -20,3 +20,14 @@ Limits: shot detection misses soft dissolves and counts a hard change inside one
 `--url <page>` downloads the video first with `yt-dlp` if you have it on your PATH (the tool does not install it). Whether you may download and analyse a given video is for you to decide (platform terms, copyright). Prefer a file you own or are licensed to use.
 
 How to use the result to make a film: [`TEARDOWN.md`](../../TEARDOWN.md).
+
+## 拉片 report (`--report`, or `lapian.py` on an existing teardown)
+
+```sh
+.venv/bin/python tools/teardown/teardown.py <video> --lang zh --report        # teardown, then the report
+.venv/bin/python tools/teardown/lapian.py <video> --dir <teardown dir> [--no-vision] [--max-vision 120] [--workers 4] [--model ID]
+```
+
+Adds to the teardown folder: `report.html` (open it: ASL / cuts per minute, a shot-length chart, a loudness curve, a colour strip, distributions of scale / angle / movement / cut type, then **every shot with its first, middle and last frame**, click to enlarge, filter by scale and movement), `lapian.csv`, `lapian.md`, `lapian.json`, `frames/NNN_{a,b,c}.jpg`. Each shot is read by a vision model (scale, angle, movement, composition, light, subject, what happens, its function, how it is cut in) from its three frames, the previous shot's last frame and what is said. Needs an Ark key (`ARK_API_KEY`, or `ARK_KEY_FILE` with a line `火山引擎key：<key>`); `--no-vision` skips it. Cost: about 5.4k prompt tokens per shot. For a feature film use `--max-vision` (the longest shots are read first) or run it on a scene.
+
+The reading is a **first draft**: models are weaker than people at cinematography (scale and movement are mostly right; composition and "function" need a person), and Whisper `base` mishears (use `--model small` with `teardown.py`). The report holds small stills and your own analysis text, not the video; whether you may analyse a given film is yours to judge.

@@ -1,0 +1,18 @@
+{
+ "slug": "era-scroll",
+ "num": "101",
+ "en": "Era Scroll Walk",
+ "cn": "时代长卷",
+ "category_en": "Cartoon & Anime",
+ "category_cn": "卡通与动画",
+ "film": "The Birth of a Phone",
+ "line": "A small courier carries one message along a single horizontal scroll, walking at an even pace through nine eras of how people send words, each world drawn in the visual language of its own period and revealed by a torn-paper edge, until the message arrives on a phone whose screen turns out to be the whole scroll.",
+ "line_cn": "一个小信使在一条横向长卷里匀速行走，带着一条口信穿过九个传信时代，每个世界都用当时的视觉语言来画，靠一道撕开的纸边换场，最后口信送到一部手机上，手机屏幕里装下的正是整条长卷。",
+ "uses": [
+  "A place or a company told as one walk through its decades, each decade drawn in the look of its own time, with a year plate in the corner",
+  "A subject followed through different cultures or media: a recipe through cuisines, a language through its alphabets, a river from source to sea",
+  "Product, brand and history stories where the final stretch shows the whole walk collected as a gallery of thumbnails"
+ ],
+ "frame_sec": 52.4,
+ "dur": 89.4
+}
