@@ -1,6 +1,8 @@
 """Find the moments of a long video that mention something: by what is said (transcript) and what is on screen (OCR).
+For an ARTICLE project (a folder with article.json from article.py) it finds sentences instead: the paragraph id, the section, the sentence to paste into a
+`quote` shot's "text", and the figures near it.
 
-  .venv/bin/python tools/breakdown/find.py <ingest dir> "keyword or phrase" [--top 5] [--min 8] [--max 30] [--json]
+  .venv/bin/python tools/breakdown/find.py <ingest dir | article dir> "keyword or phrase" [--top 5] [--min 8] [--max 30] [--json]
 
 For each candidate it prints the in/out seconds to paste into breakdown.json (snapped to scene cuts when one is near), the sentence, the text on screen
 and a keyframe to look at (open it with the Read tool). Chinese is matched by characters and character pairs, other languages by words; an exact phrase
@@ -8,13 +10,39 @@ scores higher than scattered words. Several words separated by spaces all count.
 import argparse, json, os, re, sys
 ap = argparse.ArgumentParser(); ap.add_argument('dir'); ap.add_argument('query'); ap.add_argument('--top', type=int, default=5); ap.add_argument('--min', type=float, default=8); ap.add_argument('--max', type=float, default=30); ap.add_argument('--json', action='store_true')
 A = ap.parse_args(); D = os.path.abspath(A.dir)
-idx = json.load(open(os.path.join(D, 'index.json'), encoding='utf8')); mm = lambda s: '%d:%04.1f' % (s // 60, s % 60)
+ART = os.path.join(D, 'article.json') if os.path.exists(os.path.join(D, 'article.json')) else os.path.join(D, 'article', 'article.json') if os.path.exists(os.path.join(D, 'article', 'article.json')) else None
+if ART and not os.path.exists(os.path.join(D, 'index.json')): idx = None
+else: idx = json.load(open(os.path.join(D, 'index.json'), encoding='utf8'))
+mm = lambda s: '%d:%04.1f' % (s // 60, s % 60)
 norm = lambda s: re.sub(r'\s+', ' ', s.lower()).strip()
 q = norm(A.query); cjk = re.findall(r'[぀-鿿＀-￯]', q)
 toks = set(re.findall(r'[a-z0-9]+', q))
 chars = [c for c in q if re.match(r'[぀-鿿]', c)]
 toks |= {''.join(chars[i:i + 2]) for i in range(len(chars) - 1)} | (set(chars) if len(chars) == 1 else set())
 if not toks: sys.exit('nothing to search for in %r' % A.query)
+if idx is None:                                   # ── article mode
+    art = json.load(open(ART, encoding='utf8')); figs = {f['id']: f for f in art.get('figures', [])}
+    def sentences(t): return [x.strip() for x in re.split(r'(?<=[。！？!?；])|(?<=[.!?])\s+(?=[A-Z0-9“"(])', t) if x and x.strip()]
+    def score(text):
+        t = norm(text); s = 0.0
+        if q and q in t: s += 1.0
+        hit = [k for k in toks if k in t]; return s + .8 * len(hit) / len(toks)
+    hits = []
+    for sec in art['sections']:
+        for p in sec['paragraphs']:
+            ss = sentences(p['text'])
+            for i, snt in enumerate(ss):
+                sc = score(snt) + .15 * score(p['text'])
+                if sc >= .4: hits.append({'score': round(sc, 2), 'para': p['id'], 'section': sec['id'], 'heading': sec['heading'], 'sentence': snt, 'next': ss[i + 1] if i + 1 < len(ss) else '', 'chars': len(snt), 'figures': [f for f in sec['figures'] if figs.get(f, {}).get('file')]})
+    hits.sort(key=lambda h: -h['score']); hits = hits[:A.top]
+    if not hits: print('no sentence matches %r. Try a shorter word, or the other language, or read article.md' % A.query); sys.exit(1)
+    if A.json: print(json.dumps(hits, ensure_ascii=False, indent=1)); sys.exit(0)
+    for k, h in enumerate(hits, 1):
+        print('#%d  score %.2f   %s (%s) %s  [%d chars]' % (k, h['score'], h['para'], h['heading'][:30] or 'no heading', 'figures: ' + ', '.join(h['figures']) if h['figures'] else '', h['chars']))
+        print('    sentence:  %s' % h['sentence'][:260])
+        if h['next']: print('    then:      %s' % h['next'][:120])
+        print('    use:       {"type": "quote", "text": %s, "ref": "%s"}' % (json.dumps(h['sentence'][:200], ensure_ascii=False), h['para']))
+    sys.exit(0)
 def score(text):
     t = norm(text); s = 0.0
     if q and q in t: s += 1.0

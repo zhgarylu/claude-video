@@ -7,19 +7,19 @@ import { rgba } from './theme.js';
 
 export const P = (sh, lt, k, d = .45) => { const T = sh.sched?.[k]; return T === undefined ? 1 : seg(lt, T, T + d); };
 export const mmss = s => { s = Math.max(0, s); const m = Math.floor(s / 60), r = Math.floor(s % 60); return `${m}:${String(r).padStart(2, '0')}`; };
-const rect4 = r => Array.isArray(r) ? { x: r[0], y: r[1], w: r[2], h: r[3] } : r;
+export const rect4 = r => Array.isArray(r) ? { x: r[0], y: r[1], w: r[2], h: r[3] } : r;
 
 export function ground(R) {
   const { ctx, W, H, th } = R, g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, th.ground); g.addColorStop(1, th.ground2); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
   ctx.strokeStyle = rgba(th.line, .32); ctx.lineWidth = 1; ctx.beginPath(); for (let x = 0; x <= W; x += 96) { ctx.moveTo(x + .5, 0); ctx.lineTo(x + .5, H); } for (let y = 0; y <= H; y += 96) { ctx.moveTo(0, y + .5); ctx.lineTo(W, y + .5); } ctx.stroke();
 }
-const panel = (R, x, y, w, h, o = {}) => {
+export const panel = (R, x, y, w, h, o = {}) => {
   const { ctx, th } = R; ctx.save(); ctx.globalAlpha *= o.alpha ?? 1; ctx.shadowColor = 'rgba(0,0,0,0.28)'; ctx.shadowBlur = 20; ctx.shadowOffsetY = 6;
   ctx.fillStyle = o.fill ?? th.panel; rr(ctx, x, y, w, h, o.r ?? 20); ctx.fill(); ctx.shadowColor = 'transparent';
   ctx.strokeStyle = o.stroke ?? th.line; ctx.lineWidth = o.lw ?? 2.5; if (o.dash) ctx.setLineDash(o.dash); rr(ctx, x, y, w, h, o.r ?? 20); ctx.stroke(); ctx.restore();
 };
-const ptr = (R, sh, lt, k, d) => { const p = P(sh, lt, k, d); return { p, ...pop(p) }; };
-const withPop = (R, o, fn) => { const { ctx } = R; ctx.save(); ctx.globalAlpha *= o.a; ctx.translate(0, o.dy); fn(); ctx.restore(); };
+export const ptr = (R, sh, lt, k, d) => { const p = P(sh, lt, k, d); return { p, ...pop(p) }; };
+export const withPop = (R, o, fn) => { const { ctx } = R; ctx.save(); ctx.globalAlpha *= o.a; ctx.translate(0, o.dy); fn(); ctx.restore(); };
 
 // ───────────────────────────── hook
 export function hook(R, sh, lt) {

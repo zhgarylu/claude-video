@@ -134,3 +134,8 @@ styles/*/demo/PRODUCTION_LOG*
 styles/demo-breakdown/demo/work/
 styles/demo-breakdown/demo/footage/out/
 styles/*/demo/footage/fonts/
+
+# Demo Breakdown, article demo: renders, extracted frames and fonts stay local (code, the invented source and CREDITS are kept)
+styles/demo-breakdown/demo/article/out/
+styles/demo-breakdown/demo/article/work/
+styles/demo-breakdown/demo/article/fonts/*.ttf

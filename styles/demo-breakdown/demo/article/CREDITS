@@ -1,0 +1,13 @@
+Article (its text is quoted or paraphrased in the narration and on quote cards; supplied by the film's maker, who is responsible for the right to use it and must keep the credit on screen):
+  - 两种数法，一张风险图 | site: 潮汐笔记（虚构） | author: 林远（虚构） | date: 2026-03-12 | source: (no URL given) | licence / permission: CC0: an invented article written for this library
+    note: Invented text and invented figures (drawn in code by make_figures.py); every name, place and number is made up.
+    quoted on screen in: q1, q2
+Pictures from the article (shown zoomed and annotated; the source is on screen as long as each picture is):
+  - f1: 图 1：两种数法各数到哪些点位 | source: src/f1.png | licence / permission: CC0: drawn in code for this library | credit: 潮汐笔记（虚构 · 本库自绘） | used: fig1
+  - f2: 图 2：十二个小区的白化风险 | source: src/f2.png | licence / permission: CC0: drawn in code for this library | credit: 潮汐笔记（虚构 · 本库自绘） | used: fig2
+  Rights: the pictures and the article text are not covered by this library's licences; the film is the maker's, with the article's material in it. Check every TODO above before publishing.
+Interpretation drawings (stamped "解读示意" on screen): drawn in code for this film; they are not part of the source material and show our reading of it
+Font: Noto Sans SC (SIL OFL 1.1, google/fonts; licence text in fonts/)
+Voice: Microsoft Edge neural voice zh-CN-YunxiNeural via edge-tts (online service: check Microsoft's terms before commercial use)
+Music and sound effects: generated in code (tools/breakdown/mix.py, numpy); no samples
+Facts: FACTS.md

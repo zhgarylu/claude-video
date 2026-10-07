@@ -53,3 +53,24 @@ None: the film ends on the verdict plate. Unlike a user's film this library demo
 - `demo/breakdown.json` is the film; `demo/index.html` + `main.js` are the template page (`tools/breakdown/template/`). `sh styles/demo-breakdown/demo/build.sh` runs `tools/breakdown/build.sh` and copies the outputs to the style folder.
 - Voice lines that Whisper mis-hears ("便签" → "变迁", "归类" → "规类") carry an `asr` field with what the model heard; the narration itself was not listened to by the person who wrote the tool.
 - Pitfall specific to this demo: the fictional app's controls sit in the middle of its toolbar and its logo at the bottom of the sidebar, because the film's tags and timecode cover the top-left and top-right corners of every clip. A real recording has no such courtesy: pick windows where the action is not under a tag, or move the film's tag with a different `tag` text and shorter section labels.
+
+---
+
+# The article demo — *两种数法，一张风险图* (67 s) · `demo-breakdown-article.mp4` · source in [`demo/article/`](demo/article/)
+
+The second film of this style shows the **article-and-figures** mode (BREAKDOWN.md §8). Nothing in it is third-party: the article (`demo/article/source/article.md`, "潮汐笔记", about a made-up bay and two ways of counting its reefs) is invented text, and its two figures are drawn in code by `demo/article/make_figures.py` (an overlap diagram with 44 / 30 / 17 points, and a twelve-zone map coloured by invented risk). Every tag says so ("虚构"). The first demo film above is untouched.
+
+| # | Time | Shot | What it shows |
+|---|---|---|---|
+| hook | 0.0–6.3 | hook | the finding as a promise: 91 points counted, only 30 by both methods |
+| q1 | 6.3–15.8 | quote | the article's sentence, "只有 30 个两边都数到了" and "约三分之一" swept by the highlighter as the voice reads them (the card is the subtitle, so the burned-in one is hidden) |
+| fig1 | 15.8–27.9 | figure (the overlap diagram, layout `side`) | a box on the overlap, three numbered markers listed beside it, a card; the credit plate under it |
+| q2 | 27.9–36.7 | quote | the next claim; two highlights; the voice introduces it ("文章接着说：…") |
+| fig2 | 36.7–49.3 | figure (the zone map) | a box on the red column, a marker on a white dot (covered by both methods) and one on the red zone without a dot |
+| e1 | 49.3–56.9 | explain / list, stamped | a three-step way to read the map: our reading, the basis says so |
+| take | 56.9–67.5 | compare | what the article said / did not say, the verdict, the source line |
+
+Structure used: *one claim, then the proof* (two times), our own reading, takeaways. Native moves spent: *say it in the author's words, then show it* (q1→fig1, q2→fig2), *zoom the author's picture to the part that carries the claim* (the overlap box, the red column), *close on what was not shown* (take). The same film exists in 9:16 (picture on top, credit plate, card and legend below).
+
+Build: `sh styles/demo-breakdown/demo/article/build.sh` (figures → `article.py` → project → `tools/breakdown/build.sh`, 16:9 and 9:16, about 3.5 minutes). Narration: edge-tts `zh-CN-YunxiNeural` (two lines carry numerals in `speak`); the speech check mis-hears "无人机" and "潜水员" and was not overruled with `asr`, because the narration was not listened to by the person who wrote the tool. The quote highlights are timed from the voice file's pauses (`align.py`), which is an estimate.
+

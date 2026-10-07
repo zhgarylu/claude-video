@@ -1,16 +1,24 @@
 """Start a demo-breakdown project: copies the page template, puts the footage in src/, writes a breakdown.json with one shot of each type to edit.
 
   .venv/bin/python tools/breakdown/new.py films/<name> --source <video> [--source name=<video> ...] [--aspect 16x9|9x16] [--theme dark|light] [--title "…"] [--link]
+  .venv/bin/python tools/breakdown/new.py films/<name> --article work/article [--lang zh|en] [--aspect …] [--theme …]       # an article project (article.py's output folder); --lang = the FILM's language (default: the article's)
 
---link makes src/ a symlink to the original instead of copying it (for long videos). Nothing is downloaded or re-encoded; the footage is used as given."""
+--link makes src/ a symlink to the original instead of copying it (for long videos). Nothing is downloaded or re-encoded; the footage is used as given.
+--article writes a first-draft shot list that follows the guide's structure (hook, then per section a quote and its figures, an original diagram, takeaways with the
+source). Every narration line and label is a "TODO …" placeholder: prep.py refuses to build while any is left."""
 import argparse, json, os, shutil, subprocess, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
-ap = argparse.ArgumentParser(); ap.add_argument('project'); ap.add_argument('--source', action='append', required=True); ap.add_argument('--aspect', default='16x9', choices=['16x9', '9x16'])
+ap = argparse.ArgumentParser(); ap.add_argument('project'); ap.add_argument('--source', action='append'); ap.add_argument('--article'); ap.add_argument('--lang', default=''); ap.add_argument('--aspect', default='16x9', choices=['16x9', '9x16'])
 ap.add_argument('--theme', default='dark', choices=['dark', 'light']); ap.add_argument('--title', default='实录解读'); ap.add_argument('--link', action='store_true')
 A = ap.parse_args(); P = os.path.abspath(A.project)
+if not A.source and not A.article: ap.error('give --source <video> or --article <dir>')
 if os.path.exists(os.path.join(P, 'breakdown.json')): sys.exit('%s already has a breakdown.json' % P)
 os.makedirs(os.path.join(P, 'src'), exist_ok=True)
 for f in ('index.html', 'main.js'): shutil.copy(os.path.join(HERE, 'template', f), os.path.join(P, f))
+if A.article:
+    sys.path.insert(0, HERE); import article_skeleton
+    spec = article_skeleton.make(os.path.abspath(A.article), P, A); json.dump(spec, open(os.path.join(P, 'breakdown.json'), 'w'), ensure_ascii=False, indent=1)
+    print('article project in %s: %d shots (all narration is TODO)\nnext: write TREATMENT.md, replace every TODO in breakdown.json, then sh tools/breakdown/build.sh %s' % (P, len(spec['shots']), A.project)); sys.exit(0)
 sources = {}; durs = {}
 for i, s in enumerate(A.source):
     name, path = s.split('=', 1) if '=' in s and not os.path.exists(s) else (('main' if i == 0 else 'src%d' % (i + 1)), s)

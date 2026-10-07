@@ -6,6 +6,7 @@ Reads   <project>/breakdown.json                      the shot list (tools/break
 Writes  work/voices/<shot>.wav, dur.json              narration (edge-tts, Yunxi by default) and its speech-to-text check
         work/frames/<shot>/NNNN.jpg + meta.json       every clip shot at the film's fps, original speed (and its picture-in-picture)
         work/stills/<shot>.jpg                        every freeze frame (full resolution, up to 2560 px wide)
+        work/images/<source>.jpg|png                  every still-image source (article figures), decoded, EXIF-rotated, at most 4096 px on a side
         work/audio/<shot>.wav                         the source's own sound for each clip shot
         timeline.json                                 shot times, reveal times of every element, subtitle cues, voice and source-audio placement
         out/cues.json, CREDITS, FACTS.md              subtitles for srt.py; credits and a fact sheet skeleton (never overwritten)
@@ -13,6 +14,8 @@ Writes  work/voices/<shot>.wav, dur.json              narration (edge-tts, Yunxi
 
 The footage is the user's: the tool never downloads it (ingest.py --url does, only on request) and never refuses it; CREDITS records where it came from."""
 import argparse, hashlib, json, math, os, re, shutil, subprocess, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from imgprep import IMAGE_EXT, check_image, prepare_image
 
 HERE = os.path.dirname(os.path.abspath(__file__)); LIB = os.path.dirname(os.path.dirname(HERE))
 ap = argparse.ArgumentParser(); ap.add_argument('project'); ap.add_argument('--no-voice', action='store_true'); ap.add_argument('--force', action='store_true'); ap.add_argument('--model', default='small')
@@ -28,17 +31,33 @@ warns = []
 def warn(m): warns.append(m); print('WARN ', m)
 def sh(*c, **k): return subprocess.run(c, capture_output=True, text=True, **k)
 def p(*a): return os.path.join(P, *a)
-for d in ('work/voices', 'work/frames', 'work/stills', 'work/audio', 'out', 'fonts'): os.makedirs(p(*d.split('/')), exist_ok=True)
+for d in ('work/voices', 'work/frames', 'work/stills', 'work/images', 'work/audio', 'out', 'fonts'): os.makedirs(p(*d.split('/')), exist_ok=True)
 
 # ── validate
-ids = set(); TYPES = {'hook', 'clip', 'freeze', 'explain', 'compare'}
+ids = set(); TYPES = {'hook', 'clip', 'freeze', 'explain', 'compare', 'figure', 'quote'}
+is_image = lambda k: os.path.splitext(SRC[k].get('file', ''))[1].lower() in IMAGE_EXT + ('.svg',)
+IMG_SRC = [k for k in SRC if is_image(k)]; VID_SRC = [k for k in SRC if not is_image(k)]; first_src = VID_SRC[0] if VID_SRC else None
 for s in SHOTS:
     if s.get('type') not in TYPES: sys.exit('shot %r: type must be one of %s' % (s.get('id'), sorted(TYPES)))
     if not s.get('id') or not re.fullmatch(r'[A-Za-z0-9_-]+', s['id']) or s['id'] in ids: sys.exit('shot ids must be unique, letters/digits/-/_ only: %r' % s.get('id'))
     ids.add(s['id'])
-    if s['type'] in ('clip', 'freeze') and not (s.get('src') or first_src): sys.exit('shot %s needs a source: add "sources" to breakdown.json' % s['id'])
+    if s['type'] in ('clip', 'freeze') and not (s.get('src') or first_src): sys.exit('shot %s needs a video source: add "sources" to breakdown.json' % s['id'])
+    if s['type'] in ('clip', 'freeze') and s.get('src') and s['src'] not in SRC: sys.exit('shot %s: no source named %r' % (s['id'], s['src']))
+    if s['type'] in ('clip', 'freeze') and s.get('src') in IMG_SRC: sys.exit('shot %s: source %s is a still image: use a figure shot for it' % (s['id'], s['src']))
+    if s['type'] == 'figure':
+        k = s.get('src') or (IMG_SRC[0] if len(IMG_SRC) == 1 else None)
+        if not k or k not in IMG_SRC: sys.exit('figure %s: "src" must name an image source (png / jpg / webp) from "sources"%s' % (s['id'], '' if IMG_SRC else ': there is none'))
+        s['src'] = k
+    if s['type'] == 'quote':
+        if not str(s.get('text') or '').strip(): sys.exit('quote %s: "text" (the sentence from the article) is required' % s['id'])
+        if len(s['text']) > 260: warn('%s: the quoted text is %d characters; a quote card reads best under about 120 (zh) / 220 (latin)' % (s['id'], len(s['text'])))
+    if '"TODO' in json.dumps(s, ensure_ascii=False): sys.exit('shot %s still has a "TODO ..." placeholder: write it or delete it' % s['id'])
+    if re.match(r'\s*TODO', str(s.get('say') or '')): sys.exit('shot %s: the narration is still a TODO placeholder: write it (or delete the shot)' % s['id'])
+    for ref_k in ((s.get('bg') or {}).get('src'),):
+        if ref_k and ref_k not in SRC: sys.exit('shot %s: bg names an unknown source %r' % (s['id'], ref_k))
     if s['type'] == 'clip' and not (s.get('out', 0) > s.get('in', 0) >= 0): sys.exit('clip %s: "in" and "out" (seconds in the source) are required, out > in' % s['id'])
     if s['type'] == 'freeze' and 't' not in s: sys.exit('freeze %s: "t" (seconds in the source) is required' % s['id'])
+    if s['type'] == 'explain' and s.get('kind') == 'list' and len(s.get('items', [])) > (3 if not V else 4): warn('%s: a list of %d items does not fit the explain area at %s (at most %d)' % (s['id'], len(s['items']), '9:16' if V else '16:9', 4 if V else 3))
     if s['type'] == 'explain' and s.get('kind', 'flow') not in ('flow', 'list', 'beforeafter', 'number'): sys.exit('explain %s: kind is flow|list|beforeafter|number' % s['id'])
     if s['type'] in ('explain', 'compare') and not s.get('basis'): warn('%s: add "basis" (what in the source supports this drawing); it is printed under every interpretation' % s['id'])
 def srcof(s):
@@ -48,12 +67,38 @@ probe = {}
 for k, v in SRC.items():
     f = srcfile(k)
     if not os.path.exists(f): sys.exit('source %s: file not found: %s' % (k, f))
+    if k in IMG_SRC:
+        try: im_ = check_image(f)
+        except ValueError as e: sys.exit('image source %s (%s): %s' % (k, v['file'], e))
+        probe[k] = {'w': im_['w'], 'h': im_['h'], 'dur': 0, 'audio': False, 'image': True, 'alpha': im_['alpha']}; continue
     j = json.loads(sh('ffprobe', '-v', 'error', '-show_entries', 'stream=codec_type,width,height,r_frame_rate:format=duration', '-of', 'json', f).stdout)
     vs = next(x for x in j['streams'] if x['codec_type'] == 'video'); probe[k] = {'w': int(vs['width']), 'h': int(vs['height']), 'dur': float(j['format']['duration']), 'audio': any(x['codec_type'] == 'audio' for x in j['streams'])}
 for s in SHOTS:
     if s['type'] in ('clip', 'freeze'):
         k, _ = srcof(s); end = s.get('out', s.get('t', 0))
         if end > probe[k]['dur'] + .05: sys.exit('shot %s asks for %.1f s but source %s is %.1f s long' % (s['id'], end, k, probe[k]['dur']))
+
+# ── still images (article figures): decoded, rotated, downscaled to at most 4096 px; the page loads these
+for k in IMG_SRC:
+    out = None
+    for e_ in ('.jpg', '.png'):
+        c_ = p('work', 'images', k + e_)
+        if os.path.exists(c_) and os.path.getmtime(c_) >= os.path.getmtime(srcfile(k)) and os.path.exists(p('work', 'images', k + '.json')): out = c_
+    if out: m_ = json.load(open(p('work', 'images', k + '.json')))
+    else:
+        try: m_ = prepare_image(srcfile(k), p('work', 'images'), k)
+        except ValueError as e: sys.exit('image source %s: %s' % (k, e))
+        json.dump(m_, open(p('work', 'images', k + '.json'), 'w'))
+    probe[k].update(alpha_out=m_['alpha'], ow=m_['ow'], oh=m_['oh'], w=m_['w'], h=m_['h'])
+for s in SHOTS:
+    if s['type'] == 'figure' and s.get('crop'):
+        c_ = s['crop']; pk = probe[s['src']]; shown = 1100 / max(1e-3, c_[2] * pk['ow'])
+        if shown > 2.5: warn('%s: the crop shows only %d px of the original %s across a ~1100 px wide area (%.1fx): it will look soft' % (s['id'], c_[2] * pk['ow'], s['src'], shown))
+    if s['type'] == 'figure':
+        cap_ = s.get('caption') or (SRC.get(s['src']) or {}).get('caption') or ''; cred_ = (SRC.get(s['src']) or {}).get('credit') or s.get('credit') or ''
+        est = lambda t: sum(32 if re.match(r'[\u3000-\u9fff\uff00-\uffef]', ch) else 17 for ch in t)
+        if cap_ and est('图源：' + cred_) + est(cap_) > 1040: warn('%s: credit and caption together are about %d px wide; the plate under a figure is 1000-1160 px, so the caption will be shortened with "…": shorten it' % (s['id'], est('图源：' + cred_) + est(cap_)))
+    if s['type'] == 'figure' and not (s.get('card') or s.get('markers') or s.get('boxes') or s.get('crop')): warn('%s: a figure with no box, marker, card or crop is only shown, not explained' % s['id'])
 
 # ── fonts
 fp = p('fonts', 'NotoSansSC.ttf')
@@ -73,7 +118,7 @@ vd = {}
 def synth(lines):
     json.dump(lines, open(p('work', 'lines.json'), 'w', encoding='utf8'), ensure_ascii=False, indent=1)
     if A.no_voice: return
-    tts = 'tts_zh.py'
+    tts = 'tts_volc.py' if os.environ.get('BREAKDOWN_TTS') == 'volc' else 'tts_zh.py'      # web build: BREAKDOWN_TTS=volc uses the Doubao voice of the job (same lines.json format)
     r = subprocess.run([PY, os.path.join(LIB, 'core', 'tts', tts), p('work', 'lines.json'), p('work', 'voices')]);
     if r.returncode: sys.exit('voice failed (edge-tts needs a network connection; exit %d)' % r.returncode)
 if lines:
@@ -92,7 +137,7 @@ if lines:
     if changed and not A.no_voice: synth(lines); vd = json.load(open(p('work', 'voices', 'dur.json')))
     lh = hashlib.md5(json.dumps(lines, sort_keys=True).encode()).hexdigest(); okf = p('work', 'voices', '.asr_ok')
     if not A.no_voice and not (os.path.exists(okf) and open(okf).read() == lh):
-        r = subprocess.run([PY, os.path.join(LIB, 'core', 'tts', 'asr_check.py'), p('work', 'lines.json'), p('work', 'voices'), '--lang', LANG if LANG in ('zh', 'en') else 'auto', '--model', A.model])
+        r = subprocess.run([PY, os.path.join(LIB, 'core', 'tts', 'asr_check.py'), p('work', 'lines.json'), p('work', 'voices'), '--lang', os.environ.get('BREAKDOWN_ASR_LANG') or (LANG if LANG in ('zh', 'en') else 'auto'), '--model', A.model] + (['--threshold', os.environ['BREAKDOWN_ASR_THRESHOLD']] if os.environ.get('BREAKDOWN_ASR_THRESHOLD') else []))
         if r.returncode: warn('asr_check: some lines are not heard as written. Listen to them; if they are right, put what the model heard in the shot\'s "asr" field')
         else: open(okf, 'w').write(lh)
 
@@ -112,11 +157,13 @@ def texts_and_items(s):
     elif ty == 'clip':
         lw = s.get('lower')
         if lw: fixed['lower'] = (.5, [lw.get('title', ''), lw.get('sub', '')])
-    elif ty == 'freeze':
+    elif ty in ('freeze', 'figure'):
         for i, b in enumerate(s.get('boxes', [])): items.append(('box:%d' % i, [b.get('label', '')]))
         for i, a in enumerate(s.get('arrows', [])): items.append(('arrow:%d' % i, [a.get('label', '')]))
         for i, m in enumerate(s.get('markers', [])): items.append(('mark:%d' % i, [m.get('text', '')]))
         if s.get('card'): items.append(('card', [s['card'].get('title', ''), s['card'].get('body', '')]))
+    elif ty == 'quote':
+        fixed['text'] = (.15, [s['text']])
     elif ty == 'explain':
         k = s.get('kind', 'flow')
         if s.get('title'): fixed['title'] = (.1, [s['title']])
@@ -139,23 +186,42 @@ def texts_and_items(s):
             for i, c in enumerate(cols): items.append(('col:%d' % i, [c.get('title', '')] + c.get('items', [])))
         if s.get('verdict'): items.append(('verdict', [s['verdict']]))
     return fixed, items
-LEAD = {'hook': .6, 'clip': .4, 'freeze': .5, 'explain': .6, 'compare': .6}; TAIL = .7; MINDUR = {'hook': 4.2, 'freeze': 3.6, 'explain': 4.5, 'compare': 5.0}
+LEAD = {'hook': .6, 'clip': .4, 'freeze': .5, 'explain': .6, 'compare': .6, 'figure': .6, 'quote': .8}; TAIL = .7; MINDUR = {'hook': 4.2, 'freeze': 3.6, 'explain': 4.5, 'compare': 5.0, 'figure': 5.0, 'quote': 5.0}
+def tag_text(s, ty):
+    if ty in ('clip', 'freeze'): return s.get('tag') or spec.get('tag') or '官方演示 · 节选'
+    if ty in ('explain', 'compare'): return '解读示意 · 非官方画面'
+    if ty in ('figure', 'quote'): return s.get('tag') or lab_[ty]
+    return spec.get('series', '实录解读')
+LAB = {'zh': {'figure': '原文配图', 'quote': '原文摘录', 'credit': '图源：', 'from': '出自：', 'unknown': '未注明'}, 'en': {'figure': 'Figure from the article', 'quote': 'Quote from the article', 'credit': 'Source: ', 'from': 'From: ', 'unknown': 'not stated'}}
+lab_ = {**LAB['zh' if LANG in ('zh', 'yue', 'ja') else 'en'], **(spec.get('labels') or {})}
+ART = spec.get('article') or {}
+def credit_of(s):
+    src = SRC.get(s.get('src')) or {}; return lab_['credit'] + (s.get('credit') or src.get('credit') or src.get('title') or lab_['unknown'])
+def attr_of(s):
+    by = s.get('by') or ' \u00B7 '.join(x for x in (ART.get('title'), ART.get('site'), ART.get('author'), ART.get('date')) if x); return (lab_['from'] + by) if by else ''
+# narration timing for highlighted words of a quote (see align.py)
+sys.path.insert(0, HERE)
+from align import char_times, time_of
+
 seen_chrome = set(); tl_shots = []; t_cursor = 0.0
 for n, s in enumerate(SHOTS):
     ty = s['type']; vdur = vd.get(s['id'], 0.0) if s.get('say') else 0.0
     lead = s.get('say_at', LEAD[ty]); vend = lead + vdur
     fixed, items = texts_and_items(s); sched = {}; need = []   # need: (reveal time, text)
     # chrome texts: only the first appearance of each distinct text is read (readcheck ignores later runs)
-    ctag = ('tag', '官方演示 · 节选' if ty in ('clip', 'freeze') else '解读示意 · 非官方画面' if ty in ('explain', 'compare') else spec.get('series', '实录解读'))
-    if ty in ('clip', 'freeze') and (s.get('tag') or spec.get('tag')): ctag = ('tag', s.get('tag') or spec['tag'])
+    ctag = ('tag', tag_text(s, ty))
     chrome = [ctag]
     if ty in ('explain', 'compare'): chrome += [('stamp', '解读示意')]
     if s.get('section'): chrome += [('prog', ' '.join(['%02d' % s['section'], (spec.get('sections') or [''])[s['section'] - 1]]))]
     for key, text in chrome:
         if (key, text) not in seen_chrome: seen_chrome.add((key, text)); need.append((0.0, text))
     if s.get('basis') and ty in ('explain', 'compare'): need.append((0.0, '依据：' + s['basis']))
+    if ty == 'figure':
+        need.append((0.0, credit_of(s)))
+        if s.get('caption') or (SRC.get(s['src']) or {}).get('caption'): need.append((0.0, s.get('caption') or SRC[s['src']]['caption']))
+    if ty == 'quote' and attr_of(s): need.append((0.0, attr_of(s)))
     for key, (t, ts) in fixed.items(): sched[key] = round(t, 2); need += [(t, x) for x in ts if x]
-    if ty == 'freeze':
+    if ty in ('freeze', 'figure'):
         zoom0 = .55; sched['zoom0'] = zoom0; sched['zoom1'] = zoom0 + .95 if s.get('crop') else zoom0
         first = max(lead + .1, sched['zoom1'] + .15 if s.get('crop') else lead + .1)
     else: first = max(lead + .1, max([v[0] for v in fixed.values()] or [0]) + .5) if items else 0
@@ -178,6 +244,24 @@ for n, s in enumerate(SHOTS):
                 tt = sched.get('node:%d' % idx.get(str(e[1]), 0), first); sched['edge:%d' % k_] = round(max(.2, tt - .35), 2)
                 if len(e) > 2 and e[2]: need.append((tt, e[2]))
         if ty == 'explain' and s.get('kind') == 'beforeafter': sched.setdefault('panel:1', sched.get('panel:0', first) + .8)
+    if ty == 'quote':          # highlighted words: swept in when the narration says them (estimated from the voice file's pauses; see align.py)
+        marks = []; anchors = []          # a mark is a phrase of the quote ("text"); in a translated film it may carry "at": the phrase of the NARRATION that says it
+        for m in s.get('marks', []):
+            mt = m.get('text') if isinstance(m, dict) else m; at = (m.get('at') if isinstance(m, dict) else None) or mt
+            if mt and (mt in s['text'] or mt.lower() in s['text'].lower()): marks.append(mt); anchors.append(at)
+            elif mt: warn('%s: highlighted phrase %r is not in the quoted text' % (s['id'], mt))
+        wav = p('work', 'voices', s['id'] + '.wav'); say_ = s.get('say') or ''; tt = None
+        if marks and vdur and os.path.exists(wav) and say_:
+            spoken = s.get('speak') or say_
+            try: tt = char_times(spoken, wav)
+            except Exception as ex: warn('%s: could not time the highlights from the voice (%s); they are spread evenly' % (s['id'], type(ex).__name__))
+        prev_t = lead
+        for i, m in enumerate(marks):
+            t = time_of(say_, tt, anchors[i], (len(s.get('speak') or say_) / max(1, len(say_)))) if tt is not None else None
+            if t is None: t = prev_t + (max(vdur, 3.0) * .8) / max(1, len(marks)) * (1 if i else .3)
+            else: t = lead + t - .05
+            t = max(t, .9, prev_t + .35 if i else .9); sched['hl:%d' % i] = round(t, 2); prev_t = t
+        s['_marks_used'] = marks
     if ty == 'clip':
         base = s['out'] - s['in']; dur = base
         lw = s.get('lower')
@@ -193,6 +277,9 @@ for n, s in enumerate(SHOTS):
     e = {'id': s['id'], 'type': ty, 't0': round(t_cursor, 3), 'dur': round(dur, 3), 'sched': sched, 'section': s.get('section')}
     if ty == 'clip': e['in'] = s['in']; e['out'] = s['out']
     if ty == 'freeze': e['t'] = s['t']
+    if ty == 'figure':
+        e['src'] = s['src']; e['img'] = {'file': 'work/images/%s.%s' % (s['src'], 'png' if probe[s['src']].get('alpha_out') else 'jpg'), 'w': probe[s['src']]['w'], 'h': probe[s['src']]['h'], 'alpha': bool(probe[s['src']].get('alpha_out'))}
+    if ty == 'quote' and s.get('_marks_used') is not None: e['marks'] = s['_marks_used']
     if s.get('say') and vdur: e['voice'] = {'file': 'work/voices/%s.wav' % s['id'], 't0': round(lead, 3), 'dur': round(vdur, 3)}
     tl_shots.append(e); t_cursor += dur
 DUR = round(t_cursor, 3)
@@ -210,6 +297,9 @@ def split_cues(text):
         while len(core) > MAXC + 4: res.append(core[:MAXC]); core = core[MAXC:]
         res.append(core)
     return [re.sub(r'[，。；：、,;:]+$', '', r).strip() for r in res if r.strip()]
+def hide_sub(s):      # a quote card that is read aloud shows the sentence itself: the burned-in subtitle would only repeat it (the .srt keeps the cue)
+    flat = lambda t: re.sub(r'[\s，。；：！？、,.;:!?“”"\'’‘]+', '', t or '').lower()
+    return s['type'] == 'quote' and (s.get('nosub') or flat(s.get('say')) == flat(s.get('text')))
 cues = []
 for s, e in zip(SHOTS, tl_shots):
     if s.get('subs'):
@@ -220,7 +310,7 @@ for s, e in zip(SHOTS, tl_shots):
         raw = [x for x in re.split(r'(?<=[，。；：！？、,.;:!?])', s['say']) if x.strip()]
         v0 = e['t0'] + e['voice']['t0']; tot = sum(w); c0 = v0
         for x, wi in zip(pieces, w):
-            d = e['voice']['dur'] * wi / tot; cues.append({'t0': round(c0, 3), 't1': round(c0 + d, 3), 'text': x}); c0 += d
+            d = e['voice']['dur'] * wi / tot; cues.append({'t0': round(c0, 3), 't1': round(c0 + d, 3), 'text': x, **({'hide': True} if hide_sub(s) else {})}); c0 += d
 # hold at least 1.4 s where the next cue allows it; never overlap
 cues.sort(key=lambda c: c['t0'])
 for i, c in enumerate(cues):
@@ -259,6 +349,12 @@ for s, e in zip(SHOTS, tl_shots):
     elif ty == 'freeze':
         k, _ = srcof(s); f = srcfile(k)
         once('s:' + s['id'], [k, s['t']], [p('work', 'stills', s['id'] + '.jpg')], lambda: cut_still(f, s['t'], p('work', 'stills', s['id'] + '.jpg')))
+    elif ty == 'hook' and s.get('bg') and (s['bg'].get('src') in IMG_SRC):
+        bk = s['bg']['src']; ip_ = p('work', 'images', bk + ('.png' if probe[bk].get('alpha_out') else '.jpg'))
+        def mk_bg(ip_=ip_, bid=s['id']):
+            from PIL import Image
+            im_ = Image.open(ip_).convert('RGB'); k_ = min(1, 1920 / max(im_.size)); im_ = im_.resize((round(im_.size[0] * k_), round(im_.size[1] * k_)), Image.LANCZOS); im_.save(p('work', 'stills', bid + '_bg.jpg'), quality=88)
+        once('b:' + s['id'], [bk, 'img'], [p('work', 'stills', s['id'] + '_bg.jpg')], mk_bg)
     elif ty == 'hook' and s.get('bg'):
         bk = s['bg'].get('src') or first_src; bf = srcfile(bk); bt = s['bg'].get('t', 0)
         once('b:' + s['id'], [bk, bt], [p('work', 'stills', s['id'] + '_bg.jpg')], lambda: cut_still(bf, bt, p('work', 'stills', s['id'] + '_bg.jpg'), 1920))
@@ -268,14 +364,28 @@ json.dump(state, open(state_path, 'w'))
 tl = {'fps': FPS, 'dur': DUR, 'aspect': spec.get('aspect', '16x9'), 'shots': tl_shots, 'cues': cues, 'music': spec.get('music', {})}
 json.dump(tl, open(p('timeline.json'), 'w'), ensure_ascii=False, indent=1); json.dump([{'t0': c['t0'], 't1': c['t1'], 'text': c['text']} for c in cues], open(p('out', 'cues.json'), 'w'), ensure_ascii=False, indent=1)
 if not os.path.exists(p('CREDITS')) or A.force:
-    L_ = ['Footage (supplied by the film\'s maker, who is responsible for the right to use it; every clip is shown at its original speed, with the source named on screen):']
-    for k, v in SRC.items():
-        used = ['%s %s' % (s['id'], ('%.1f–%.1f s' % (s['in'], s['out'])) if s['type'] == 'clip' else ('frame at %.1f s' % s['t'])) for s in SHOTS if s['type'] in ('clip', 'freeze') and (s.get('src') or first_src) == k]
-        L_.append('  - %s: %s | source: %s | licence / permission: %s | credit: %s | used: %s' % (k, v.get('title', '(title?)'), v.get('url') or v.get('file'), v.get('licence') or 'TODO: write the licence or the permission here', v.get('credit', ''), '; '.join(used)))
-        if v.get('note'): L_.append('    note: ' + v['note'])
+    L_ = []
+    if VID_SRC:
+        L_.append('Footage (supplied by the film\'s maker, who is responsible for the right to use it; every clip is shown at its original speed, with the source named on screen):')
+        for k in VID_SRC:
+            v = SRC[k]; used = ['%s %s' % (s['id'], ('%.1f–%.1f s' % (s['in'], s['out'])) if s['type'] == 'clip' else ('frame at %.1f s' % s['t'])) for s in SHOTS if s['type'] in ('clip', 'freeze') and (s.get('src') or first_src) == k]
+            L_.append('  - %s: %s | source: %s | licence / permission: %s | credit: %s | used: %s' % (k, v.get('title', '(title?)'), v.get('url') or v.get('file'), v.get('licence') or 'TODO: write the licence or the permission here', v.get('credit', ''), '; '.join(used)))
+            if v.get('note'): L_.append('    note: ' + v['note'])
+    if ART or IMG_SRC or any(s['type'] == 'quote' for s in SHOTS):
+        L_.append('Article (its text is quoted or paraphrased in the narration and on quote cards; supplied by the film\'s maker, who is responsible for the right to use it and must keep the credit on screen):')
+        L_.append('  - %s | site: %s | author: %s | date: %s | source: %s | licence / permission: %s' % (ART.get('title') or '(title?)', ART.get('site') or '', ART.get('author') or '', ART.get('date') or '', ART.get('url') or '(no URL given)', ART.get('licence') or 'TODO: write the licence or the permission here'))
+        if ART.get('note'): L_.append('    note: ' + ART['note'])
+        qs = [s['id'] for s in SHOTS if s['type'] == 'quote']
+        if qs: L_.append('    quoted on screen in: ' + ', '.join(qs))
+    if IMG_SRC:
+        L_.append('Pictures from the article (shown zoomed and annotated; the source is on screen as long as each picture is):')
+        for k in IMG_SRC:
+            v = SRC[k]; used = [s['id'] for s in SHOTS if s['type'] == 'figure' and s['src'] == k] + [s['id'] + ' (background)' for s in SHOTS if s['type'] == 'hook' and (s.get('bg') or {}).get('src') == k]
+            L_.append('  - %s: %s | source: %s | licence / permission: %s | credit: %s | used: %s' % (k, v.get('title') or v.get('caption') or v.get('alt') or '(title?)', v.get('url') or v.get('file'), v.get('licence') or ART.get('licence') or 'TODO: write the licence or the permission here', v.get('credit') or '(none given)', '; '.join(used) or '(not used)'))
+        L_.append('  Rights: the pictures and the article text are not covered by this library\'s licences; the film is the maker\'s, with the article\'s material in it. Check every TODO above before publishing.')
     L_ += ['Interpretation drawings (stamped "解读示意" on screen): drawn in code for this film; they are not part of the source material and show our reading of it',
            'Font: Noto Sans SC (SIL OFL 1.1, google/fonts; licence text in fonts/)',
-           'Voice: Microsoft Edge neural voice %s via edge-tts (online service: check Microsoft\'s terms before commercial use)' % VNAME,
+           ('Voice: Doubao speech synthesis (Volcengine), voice %s' % VNAME) if os.environ.get('BREAKDOWN_TTS') == 'volc' else 'Voice: Microsoft Edge neural voice %s via edge-tts (online service: check Microsoft\'s terms before commercial use)' % VNAME,
            'Music and sound effects: generated in code (tools/breakdown/mix.py, numpy); no samples',
            'Facts: FACTS.md']
     open(p('CREDITS'), 'w', encoding='utf8').write('\n'.join(L_) + '\n')
@@ -283,7 +393,9 @@ if not os.path.exists(p('FACTS.md')):
     rows = ['# Facts: every claim the narration and the screen make about the source', '', 'Fill the last two columns from the official source before delivery; delete rows that make no claim. Never state more than the footage shows.', '',
             '| shot | what the film says | source time | official source (URL or document) | checked |', '|---|---|---|---|---|']
     for s in SHOTS:
-        if s.get('say'): rows.append('| %s | %s | %s |  |  |' % (s['id'], s['say'].replace('|', '/'), ('%.1f–%.1f s' % (s['in'], s['out'])) if s['type'] == 'clip' else ('%.1f s' % s['t']) if s['type'] == 'freeze' else s.get('basis', '')))
+        if s.get('say'): rows.append('| %s | %s | %s |  |  |' % (s['id'], s['say'].replace('|', '/'), ('%.1f–%.1f s' % (s['in'], s['out'])) if s['type'] == 'clip' else ('%.1f s' % s['t']) if s['type'] == 'freeze' else ('figure %s (%s)' % (s['src'], (SRC[s['src']].get('caption') or SRC[s['src']].get('title') or '').replace('|', '/')[:60])) if s['type'] == 'figure' else ('quote %s: %s' % (s.get('ref', ''), s['text'][:50].replace('|', '/'))) if s['type'] == 'quote' else s.get('basis', '')))
     open(p('FACTS.md'), 'w', encoding='utf8').write('\n'.join(rows) + '\n')
+if ART or IMG_SRC:
+    print('RIGHTS: the article text and its pictures are used on your responsibility (the owner\'s licence or permission, platform terms, fair use where you publish). CREDITS lists each source; fill in every TODO. The credit stays on screen with each figure.')
 print('timeline: %d shots, %.1f s, %d subtitle cues; %d warning(s)' % (len(tl_shots), DUR, len(cues), len(warns)))
 for s in tl_shots: print('  %-10s %-8s %6.1f - %6.1f  (%4.1f s)%s' % (s['id'], s['type'], s['t0'], s['t0'] + s['dur'], s['dur'], '  voice %.1f s' % s['voice']['dur'] if s.get('voice') else ''))

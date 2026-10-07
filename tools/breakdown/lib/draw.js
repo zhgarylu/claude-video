@@ -39,14 +39,14 @@ export function para(R, text, x, y, maxW, o = {}) {
   lines.forEach((ln, i) => { if (!o.dry) ctx.fillText(ln, x, y + size + i * lh - size * .2); wmax = Math.max(wmax, ctx.measureText(ln).width); });
   ctx.restore();
   const h = lines.length * lh, x0 = align === 'center' ? x - wmax / 2 : align === 'right' ? x - wmax : x;
-  if (o.id && !o.dry) R.report(o.id, text, x0, y, x0 + wmax, y + h, alpha);
+  if (o.id && !o.dry) R.report(o.id, text, x0, y, x0 + wmax, y + h, alpha, !!o.stable, size);
   return { w: wmax, h, lines, size, x0 };
 }
 // A single line, no wrapping. Returns its width.
 export function line(R, text, x, y, o = {}) {
   const { ctx } = R, size = o.size ?? R.L.sizes.body; ctx.save(); ctx.font = font(R, o.weight ?? 700, size); ctx.fillStyle = o.color ?? R.th.ink; ctx.textAlign = o.align ?? 'left'; ctx.textBaseline = o.base ?? 'alphabetic';
   ctx.globalAlpha *= o.alpha ?? 1; ctx.fillText(text, x, y); const w = ctx.measureText(text).width; ctx.restore();
-  if (o.id) { const al = o.align ?? 'left', x0 = al === 'center' ? x - w / 2 : al === 'right' ? x - w : x; R.report(o.id, text, x0, y - size * .85, x0 + w, y + size * .25, o.alpha ?? 1); }
+  if (o.id) { const al = o.align ?? 'left', x0 = al === 'center' ? x - w / 2 : al === 'right' ? x - w : x; R.report(o.id, text, x0, y - size * .85, x0 + w, y + size * .25, o.alpha ?? 1, !!o.stable, size); }
   return w;
 }
 export function measure(R, text, weight, size) { R.ctx.font = font(R, weight, size); return R.ctx.measureText(text).width; }
@@ -63,7 +63,7 @@ export function chip(R, text, x, y, o = {}) {
   if (o.dot) { ctx.fillStyle = o.dot; ctx.beginPath(); ctx.arc(tx + size * .22, y + h / 2, size * .2, 0, 6.2832); ctx.fill(); tx += size * .9; }
   ctx.font = font(R, o.weight ?? 800, size); ctx.fillStyle = o.color ?? R.th.plateInk; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(text, tx, y + h / 2 + size * .04);
   ctx.restore();
-  if (o.id) R.report(o.id, text, bx, y, bx + w, y + h, a, o.stable);
+  if (o.id) R.report(o.id, text, bx, y, bx + w, y + h, a, o.stable, size);
   return { x: bx, y, w, h };
 }
 // Numbered circle (markers, list rows).

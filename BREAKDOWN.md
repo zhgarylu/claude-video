@@ -5,6 +5,7 @@ Use this when the user supplies **footage that already exists** (a launch event 
 | If the user… | Use |
 |---|---|
 | has footage and wants it explained, annotated, summarised | **this guide** (style: [`styles/demo-breakdown/`](styles/demo-breakdown/)) |
+| has an **article with its figures** (research post, news, product announcement, blog) and wants a film that quotes the text and shows the pictures, zoomed and annotated | **this guide, §8** (same style, same tools: `article.py`, `figure` and `quote` shots) |
 | has a presenter talking to camera and wants explainer graphics drawn around them | [`TALKING-HEAD.md`](TALKING-HEAD.md) |
 | admires a video and wants the *same shape* about their own topic, none of its footage | [`TEARDOWN.md`](TEARDOWN.md) |
 | wants an existing video redone in a library style (REMAKE.md, if it exists in this checkout) | `REMAKE.md` |
@@ -79,3 +80,33 @@ sh tools/breakdown/build.sh films/<name> --vertical
 node core/render/still.mjs films/<name> 12.5 30 --size 1920x1080     # look at frames
 node tools/breakdown/lint.mjs films/<name> --size 1920x1080
 ```
+
+## 8. Articles with their pictures (图文解读)
+
+The source is an **article and its figures** instead of footage: a research post, a news story, a product announcement, a blog post. The article's text becomes narration and **quote cards**; its own pictures (diagrams, charts, maps, screenshots, photos) are shown **zoomed and annotated** with the credit on screen. Everything else in this guide holds: fixed layout, `explain` drawings stamped 解读示意, narration that never claims more than the source, a closing takeaway with the source line. The article and its pictures are the user's responsibility (their licence or permission, the site's terms, fair use where they publish): put the rights note in the delivery message, keep `CREDITS` honest ("TODO" where no licence was given) and do not refuse or lecture.
+
+**Brief** (one message): which article (a file, pasted text, or, only if the user says so, a URL: `article.py --url`), whose pictures (theirs, or from the page), who it is for and what to stress, the film language (quotes stay in the article's language), 16:9 / 9:16, length (default 60-90 s).
+
+**Workflow**
+1. `article.py <file.md|.txt|.html | --text - | --url …> --out work/article` → `article.json` (sections, paragraph ids `s2p3`, figures with captions and sizes) and `article.md`. Read `article.md`, then **look at every figure** (convert a webp to jpg to open it) and read coordinates off it.
+2. Find the sentences worth quoting: `find.py work/article "keyword" --top 5` prints the sentence, its paragraph id and the figures near it. A quote's `text` must be the article's own words, verbatim.
+3. Write `TREATMENT.md` (three candidate structures, DIRECTOR.md §4). Good shapes: *one picture, then the proof* (the article's central figure first, then its evidence); *section by section* (only for short articles); *claim and check*. About 6-8 shots in 75 s: hook → (quote → figure with callouts) × 2-3 → an original `explain` → takeaways (`compare`) with the source.
+4. `new.py films/<name> --article work/article [--lang zh] [--aspect 9x16] [--theme light]` writes a first-draft shot list with every narration line a `TODO …`; replace them all (`prep.py` refuses to build while one is left), then `sh tools/breakdown/build.sh films/<name> [--vertical]`.
+5. Check as in §2: `lint.mjs` (also reports text under 30 px and text covering a figure's boxes or markers), readcheck, the stills of every figure at full size (do the markers sit beside what they mark? is the zoom soft?), the credit under each figure, `FACTS.md` (every claim to its paragraph or figure).
+
+**Shot types for articles**
+- **`figure`**: one picture (`src` = its source id) on the fixed layout, never stretched. `crop [x,y,w,h]` zooms into a part (fractions of the whole picture); otherwise a slow push, or for a tall / very wide picture a deterministic scroll (`pan: "scroll"`, `scroll: [a,b]`). `boxes` (the rest dims), `arrows`, numbered `markers` (their texts are listed beside / under the picture, never on it), a `card` with the one-sentence finding, a `caption`. A credit plate ("图源：…") is on screen as long as the figure is; `layout` forces `side | wide | full` (default: whichever shows the focus largest). The narration of the section the picture illustrates goes in this shot's `say`.
+- **`quote`**: one sentence of the article typeset big. `text` (verbatim), `ref` (paragraph id, for FACTS), `marks`: phrases of the text swept with a highlighter **when the narration says them** (timed from the voice file's pauses; in a translated film write `{ "text": "took me weeks", "at": "好几周" }`, `at` = the words of your narration). If `say` is the quote itself the burned-in subtitle is hidden (the `.srt` keeps it). The attribution (title · site · author · date) comes from `article`.
+- `hook`, `explain`, `compare` as before; `hook.bg` may name an image source. `clip` and `freeze` stay available when the user also supplies footage.
+
+**Narration.** Say what the picture shows, then what the article concludes from it; "the article says", "the figure shows", "our reading". Numbers, names and dates only from the text or from what is legible in a picture. A quote card is a claim by the author: never edit it, never merge two sentences, mark omissions with "…".
+
+**Pitfalls.** Markers placed on top of what they mark (put them next to it); a crop of a small picture magnified past ~2.5× (prep warns: it will look soft); a long caption that squeezes the credit (the credit is shortened last); an extracted page that includes "related posts" at the end (delete those sections from `article.json` before `new.py`); narration longer than the quote's reading time says it needs; forgetting that pictures on a page are usually someone else's: fill in `licence` and `credit` in `breakdown.json`.
+
+```sh
+.venv/bin/python tools/breakdown/article.py post.md --out work/article --meta site=Example licence="CC BY 4.0"     # or --text - < pasted.txt, or --url https://… (explicit, public pages only)
+.venv/bin/python tools/breakdown/find.py work/article "keyword" --top 5
+.venv/bin/python tools/breakdown/new.py films/<name> --article work/article --lang zh
+sh tools/breakdown/build.sh films/<name> --vertical
+```
+

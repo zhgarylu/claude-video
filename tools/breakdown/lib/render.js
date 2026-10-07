@@ -6,33 +6,37 @@ import { layoutFor } from './layout.js';
 import { clamp, seg, ss, wrap, font, chip, measure } from './draw.js';
 import { Clip, loadStill } from './source.js';
 import { hook, clip, freeze, explain, compare, mmss, ground } from './shots.js';
+import { figure, quote, labelsFor } from './figure.js';
 
-const DRAW = { hook, clip, freeze, explain, compare };
+const DRAW = { hook, clip, freeze, explain, compare, figure, quote };
 export async function createFilm({ canvas, spec, tl, query }) {
   const aspect = query.get('aspect') || spec.aspect || '16x9', [aw, ah] = aspect.split('x').map(Number), V = ah > aw;
   const W = V ? 1080 : 1920, H = V ? 1920 : 1080; canvas.width = W; canvas.height = H; const ctx = canvas.getContext('2d');
   const th = resolveTheme(spec.theme), L = layoutFor(W, H);
   const POSTER = query.has('poster'), DRY = query.has('dry'), AT = parseFloat(query.get('at') || '2');
   const shots = spec.shots.map(s => ({ ...s, ...tl.shots.find(x => x.id === s.id) })), total = (spec.sections || []).length;
-  const clips = new Map(), pips = new Map(), stills = new Map();
+  const clips = new Map(), pips = new Map(), stills = new Map(), labels = labelsFor(spec);
   await Promise.all(shots.flatMap(s => {
     const jobs = [];
     if (s.type === 'clip') jobs.push(new Clip(`work/frames/${s.id}`).init().then(c => clips.set(s.id, c)));
     if (s.type === 'clip' && s.pip) jobs.push(new Clip(`work/frames/${s.id}_pip`).init().then(c => pips.set(s.id, c)).catch(() => 0));
     if (s.type === 'freeze') jobs.push(loadStill(`work/stills/${s.id}.jpg`).then(im => stills.set(s.id, im)));
+    if (s.type === 'figure') jobs.push(loadStill(s.img?.file || `work/images/${s.id}.jpg`).then(im => stills.set(s.id, im)));
     if (s.type === 'hook' && s.bg) jobs.push(loadStill(`work/stills/${s.id}_bg.jpg`).then(im => stills.set(s.id + ':bg', im)));
     return jobs;
   }));
-  const allText = shots.map(s => JSON.stringify(s)).join('') + '解读示意非官方画面原片已暂停个看点结论依据：' + '0123456789 /';
+  const allText = shots.map(s => JSON.stringify(s)).join('') + JSON.stringify(spec.article || {}) + JSON.stringify(spec.sources || {}) + Object.values(labels).join('') + '解读示意非官方画面原片已暂停个看点结论依据：…' + '0123456789 /';
   await Promise.all([500, 600, 700, 800, 900].map(w => document.fonts.load(`${w} 40px "Noto Sans SC"`, allText)));
 
-  let texts = [];
-  const R = { ctx, W, H, L, th, spec, clips, pips, stills, alpha: 1, shot: null, report(id, text, x0, y0, x1, y1, a = 1, stable = false) { if (a * R.alpha > .5) texts.push({ id: stable ? id : `${R.shot.id}:${id}`, text, x0, y0, x1, y1 }); } };
+  let texts = [], focus = [];
+  const R = { ctx, W, H, L, th, spec, labels, focusAdd(id, x0, y0, x1, y1) { focus.push({ id: `${R.shot.id}:${id}`, x0, y0, x1, y1 }); }, clips, pips, stills, alpha: 1, shot: null, report(id, text, x0, y0, x1, y1, a = 1, stable = false, size = 0) { if (a * R.alpha > .5) texts.push({ id: stable ? id : `${R.shot.id}:${id}`, text, x0, y0, x1, y1, size }); } };
   const shotAt = t => shots.find(s => t >= s.t0 && t < s.t0 + s.dur) || shots[shots.length - 1];
 
   function tagOf(sh) {
     if (sh.type === 'clip' || sh.type === 'freeze') return { text: sh.tag ?? spec.tag ?? '官方演示 · 节选', own: false };
     if (sh.type === 'explain' || sh.type === 'compare') return { text: '解读示意 · 非官方画面', own: true };
+    if (sh.type === 'figure') return { text: sh.tag ?? labels.figure, own: false };
+    if (sh.type === 'quote') return { text: sh.tag ?? labels.quote, own: false };
     return { text: spec.series ?? '实录解读', own: false };
   }
   function chrome(sh, lt, a) {
@@ -53,7 +57,7 @@ export async function createFilm({ canvas, spec, tl, query }) {
     ctx.restore();
   }
   function subtitles(t, sh) {
-    const cue = (tl.cues || []).find(c => t >= c.t0 && t < c.t1); if (!cue) return;
+    const cue = (tl.cues || []).find(c => t >= c.t0 && t < c.t1); if (!cue || cue.hide) return;
     const S = L.sub, onFootage = sh.type === 'clip' || sh.type === 'freeze', dark = onFootage || th.dark, a = ss(seg(t, cue.t0, cue.t0 + .12)) * (1 - ss(seg(t, cue.t1 - .08, cue.t1)));
     ctx.save(); ctx.globalAlpha = a; ctx.font = font(R, 800, S.size); let lines = wrap(ctx, cue.text, S.maxW);
     if (lines.length === 2) {            // balance two lines instead of a full line plus an orphan
@@ -86,9 +90,10 @@ export async function createFilm({ canvas, spec, tl, query }) {
   const DUR = tl.dur;
   window.DUR = DUR;
   window.render = t => { t = POSTER ? AT : t; if (DRY) return; texts = []; return prime(t).then(() => { draw(clamp(t, 0, DUR - 1e-3)); }); };
-  window.TEXTS = t => { texts = []; const keep = clips; draw(clamp(t, 0, DUR - 1e-3)); return texts; };
+  window.TEXTS = t => { texts = []; focus = []; draw(clamp(t, 0, DUR - 1e-3)); return texts; };
+  window.FOCUS = t => { texts = []; focus = []; draw(clamp(t, 0, DUR - 1e-3)); return focus; };
   // sound events from the same reveal times
-  const kind = k => k.split(':')[0], EVT = { box: 'box', arrow: 'arrow', mark: 'mark', card: 'card', node: 'node', edge: 'edge', item: 'item', panel: 'panel', col: 'col', row: 'row', verdict: 'verdict', value: 'value', zoom0: 'zoom', kicker: 'hit', title: 'hit', big: 'hit', meta: 'tick', lower: 'lower', head: 'tick' };
+  const kind = k => k.split(':')[0], EVT = { box: 'box', arrow: 'arrow', mark: 'mark', card: 'card', node: 'node', edge: 'edge', item: 'item', panel: 'panel', col: 'col', row: 'row', verdict: 'verdict', value: 'value', zoom0: 'zoom', kicker: 'hit', title: 'hit', big: 'hit', meta: 'tick', lower: 'lower', head: 'tick', hl: 'tick', text: 'none' };
   window.EV = shots.flatMap(s => [{ t: s.t0, type: 'cut', shot: s.type }, ...(s.type === 'freeze' ? [{ t: s.t0 + .02, type: 'shutter' }] : []),
     ...Object.entries(s.sched || {}).filter(([k]) => EVT[kind(k)] && !(s.type === 'hook' && kind(k) === 'title' && false)).map(([k, v]) => ({ t: s.t0 + v, type: EVT[kind(k)], key: k, shot: s.type }))]).sort((a, b) => a.t - b.t);
   window.READY = true;

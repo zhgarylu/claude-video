@@ -1269,7 +1269,8 @@ window.GALLERY = {
    "uses": [
     "Launch events and keynotes: pick three to five 10-30 second moments from an hour of footage and explain each as what happens, what the product does, where it applies",
     "Product screen recordings and GitHub demos: freeze on the frame that proves a feature, zoom to the detail, number the steps, say what was not shown",
-    "Tutorials and walkthroughs: the original clip at its own speed with translated subtitles, pauses at the decisive step and a one-screen takeaway"
+    "Tutorials and walkthroughs: the original clip at its own speed with translated subtitles, pauses at the decisive step and a one-screen takeaway",
+    "Articles with their figures (research posts, news, announcements, blogs): quote the author's sentence with the key phrase highlighted as the voice reaches it, then show the figure zoomed to the part that carries the claim, with the credit on screen, our own stamped diagram and takeaways with the source"
    ],
    "dur": 75.1,
    "added": true,
@@ -1516,7 +1517,7 @@ window.GALLERY = {
     "A subject followed through different cultures or media: a recipe through cuisines, a language through its alphabets, a river from source to sea",
     "Product, brand and history stories where the final stretch shows the whole walk collected as a gallery of thumbnails"
    ],
-   "dur": 89.4,
+   "dur": 90.4,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/era-scroll.mp4",
    "frame": "../docs/frames/era-scroll.jpg",

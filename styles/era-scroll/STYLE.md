@@ -1,14 +1,14 @@
 # Era Scroll Walk · 时代长卷 — Style Prompt
 
 > One continuous horizontal scroll that a small character walks through at an even pace. The world around the walker is a chain of "eras", each drawn in the visual language of its own period, and one era gives way to the next through a torn-paper edge that sweeps in from the right. A year plate in the corner keeps count.
-> References (grammar only): side-scrolling platform games and long picture scrolls (the world as one strip, a hero who never leaves screen-centre-left); museum timelines and "history of X" explainers (an era label, one object per period); the way printmakers, muralists and painters of every age each invented their own marks. Nothing is copied from these: no characters, artworks, scripts or type.
+> References (grammar only): side-scrolling platform games and long picture scrolls (the world as one strip, a hero who never leaves screen-centre-left); museum timelines and "history of X" explainers (an era label, one object per period); the way printmakers, muralists and painters of every age each invented their own marks. Nothing is copied: no characters, artworks, scripts or type.
 
 ## 1. Essence, and what it is not
 
 - **One strip, one walker, one pace.** The camera follows a single character at a constant speed. Nothing cuts; the world slides past.
 - **Every era is a self-contained mini style**: its own palette, mark-making, ornament, type and sound. A frame from the middle of any era could be mistaken for a different style from this library.
 - **The torn edge is the only transition.** A jagged paper edge with fibres and a shadow slides across the screen at the walker's pace; the old era is the sheet, the new one is revealed beneath it.
-- **The walker keeps one silhouette and is re-lit by each era** (palette, line weight, pixel size), and always carries a small tag whose icon changes with the era.
+- **One protagonist, chosen for the topic, recognisable in every era.** A monk with a scripture roll, a chef, a robot, a child with a dog: designed per film, never the demo's courier. Each era re-lights it (palette, line weight, pixel size), it may change outfit, and it may carry one small object whose icon changes with the era.
 - **A year plate** (big year, short caption) in the top-right corner flips as each edge passes it.
 
 Not Webtoon Scroll (that strip is vertical, paged and read by a thumb; here the world is continuous and the viewer rides it), not a slideshow of period pictures (the walker and the edge are one object across all of them), not a side-scroller game (no score, no enemies, no HUD besides the plate).
@@ -17,15 +17,15 @@ Not Webtoon Scroll (that strip is vertical, paged and read by a thumb; here the 
 
 - **The world** is a strip of era segments laid end to end in world coordinates; the screen shows a window onto it. Each segment is an independent painter function that draws only what is inside its own local x range, in layers with their own parallax (far 0.2 to 0.6, mid 0.8, ground 1.0). Layers are built from tiles chosen by a hash of the tile index, so any frame can be drawn alone and nothing repeats visibly.
 - **The compositor** paints the visible eras right to left. Era k is clipped by the torn edge that bounds its right side, so the old era always lies over the new one. Before the clip it throws a soft shadow (stacked offset strokes along the edge); after its content it draws a paper rim (a pale band 20 to 24 px wide with an inner hairline) and loose fibres that stick out past the edge. The edge profile is a deterministic function of y and of the boundary's seed: large swells plus fine tearing.
-- **The walker is drawn once per visible era**, inside that era's clip, so where an edge crosses the body the part behind it wears the old look and the part in front the new one.
+- **The walker is drawn once per visible era**, inside that era's clip, so where an edge crosses the body the part behind wears the old look and the part in front the new one.
 - **Each era uses the marks of its own medium** (pigment spray, wedge impressions, woodcut hatching, rubricated type, engraved lines, whiplash curves, flat shapes, an LCD grid, flat vector), made procedurally (noise tiles, hash-placed motifs, hatching clipped to shapes), never imported images.
 - **Texture is anchored to the world** (it scrolls with its layer); vignette, plate and subtitles live in screen space. Pixel eras draw small and scale up without smoothing; the walker is quantised to the same grid and palette.
 
 ## 3. Colour logic
 
 - **Each era owns its palette** and keeps to it: an era may have two inks on paper, four LCD greens, or ten flat pastels, but never borrows another era's hues.
-- **The walker's colours are mapped, not redrawn.** A style gives the walker a ramp (luminance to colour), a line colour and weight, a rim colour and optional overrides (scarf, cap) so that the silhouette stays readable against the busiest art. A walker that disappears into its background is a failure of the era, not of the walker.
-- **Constant across eras**: the plate, the subtitles and the walker's silhouette.
+- **The walker's colours are mapped, not redrawn.** A style gives the walker a ramp (luminance to colour), a line colour and weight and a rim colour, so that the silhouette stays readable against the busiest art. A walker that disappears into its background is a failure of the era, not of the walker.
+- **Constant across eras**: the plate, the subtitles and the protagonist's identity (head, hat or hair, body type, signature colour or prop).
 - **Value order**: the walker is lighter or darker than what is directly behind it, never equal: a light rim on dark eras, a dark line on light ones. Neighbouring eras differ strongly in hue and value so the edge reads at a glance.
 
 ## 4. Type & subtitles
@@ -85,11 +85,11 @@ Framing rules: the walker fills at least a third of the frame height, stands at 
 
 ## 10. Engine
 
-`demo/scroll.js` is the reusable part: `drawWorld(g, {t, wx, eras, zoom})` (compositor, edge, shadow, rim, fibres), `walker(g, o)` (rig and styles), `burst(...)` (era particles), `plate(...)` (year plate), helpers `bake`, `noiseTile`, `texFill`, `hatch`, `blob`, `rr`, `tagCard`, `bell`. An era painter is a plain object (`bg`, `fg`, `pose`, `held`, `token`, `walk`, `burst`, `gags`, `events`); `demo/eras1.js` to `eras3.js` hold nine of them, `demo/timeline.js` the pace, era boundaries, voice-driven schedule and plate texts. See `demo/RECIPE-NOTES.md` for the API and a minimal example that adds a tenth era (a seed catalogue era with a green palette, two layers and one gag).
+`demo/scroll.js` is the reusable part: `drawWorld(g, {t, wx, eras, zoom})` (compositor, edge, shadow, rim, fibres), `walker(g, o)` (rig, styles and the `look` of the protagonist), `companion(g, o)` (followers), `burst(...)` (era particles), `plate(...)` (year plate), helpers `bake`, `noiseTile`, `texFill`, `hatch`, `blob`, `rr`, `tagCard`, `bell`. An era painter is a plain object (`bg`, `fg`, `pose`, `held`, `token`, `walk`, `burst`, `gags`, `events`); `demo/eras1.js` to `eras3.js` hold nine of them, `demo/timeline.js` the pace, era boundaries, voice-driven schedule and plate texts. **Who walks is data**: `look` (head, hair, hat, neck, outfit, bag, held item, face, body), per film and per era; `companions` add followers. API, a monk example and an extra era sketch: `demo/RECIPE-NOTES.md`. Never reuse the demo's courier.
 
 ## 11. Variation space
 
-The agent decides: the subject, the walker's design (always one character, always the same one), the number of eras (6 to 10; depth beats count), each era's period look, the gags, the order of facts, the voice, the instruments, and the ending.
+The agent decides: the subject, the protagonist (design it from the topic; always one character, the same one in every era, plus optional companions; its outfit may change per era), the number of eras (6 to 10; depth beats count), each era's period look, the gags, the order of facts, the voice, the instruments, and the ending.
 
 - **Three structures:** a chronology (years on the plate); a geography (places on the plate: a river from source to sea, a city's districts); a growth (ages or stages: a plant, a company, a person).
 - **Three openings:** the walker steps into frame while the first era is already drawn; a blank sheet that is torn open by the first edge; the walker already mid-stride under a title written into the first era.

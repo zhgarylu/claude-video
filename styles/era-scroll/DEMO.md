@@ -2,13 +2,15 @@
 
 **One example among many. Don't reuse its story, arc, shots, props or timings.**
 
+**The courier below is this demo's character, one example of a protagonist. Never reuse it: design the protagonist from your own topic (`look`, see `demo/RECIPE-NOTES.md`).**
+
 Demo: *The Birth of a Phone / 一部手机的诞生* (89.4 s, 1920 x 1080, 24 fps, Chinese narration) · `era-scroll.mp4` · subtitles `era-scroll.srt` · source in [`demo/`](demo/)
 
 An unofficial, educational film about real events and products (Morse's telegraph, Bell's patent, the first handheld call, the first SMS, the first iPhone). No logos, photographs or official artwork are used; every fact is listed with its source in [`demo/FACTS.md`](demo/FACTS.md).
 
 ## Story and structure
 
-A courier with a satchel and a red scarf carries one message, "我来过" (I was here), through nine eras of sending words. A hand stencil on a cave wall is the first message; a phone on a desk is the last. In between each era is drawn in the visual language of its own time, and the message tag on the courier's satchel changes icon with every era (hand, wedges, seal, blackletter initial, dots and dashes, sound waves, a sunburst, an envelope), until the courier hands it to a phone, where it arrives as a chat bubble. The phone then lifts out of the desk scene, turns landscape and fills the frame: its photo grid holds a thumbnail of every era just walked.
+A courier with a satchel and a red scarf (the demo's own character; yours is designed from your topic) carries one message, "我来过" (I was here), through nine eras of sending words. A hand stencil on a cave wall is the first message; a phone on a desk is the last. In between each era is drawn in the visual language of its own time, and the message tag on the courier's satchel changes icon with every era (hand, wedges, seal, blackletter initial, dots and dashes, sound waves, a sunburst, an envelope), until the courier hands it to a phone, where it arrives as a chat bubble. The phone then lifts out of the desk scene, turns landscape and fills the frame: its photo grid holds a thumbnail of every era just walked.
 
 Why it fits: the topic is a chain of media, so the format's own device (one world per period, one edge between them) does the explaining; each era needs one dated fact and one gag, which fits a 7 to 8 s slot; and the ending, where the screen contains the scroll, is only possible because the scroll is one object.
 
@@ -39,7 +41,7 @@ Frames: [style frame](demo/stills/styleframe.jpg) · [poster](poster.jpg)
 
 ## Palette and props
 
-Per era (examples): cave `#3c2416` to `#a56e42`, red ochre `#a63a22`; clay `#d9ab6e`, dusk `#2c2750` to `#f3cf94`; woodblock paper `#e8dbb0`, ink `#1c1a22`, indigo `#27407a`, vermilion `#c2412d`; letterpress page `#efe3bf`, rubric `#b3321f`, gold `#cfa13a`; engraving paper `#efe6cc`, ink `#2a2118`; Nouveau sage `#a7b58a`, teal `#2f4a45`, gold `#c9a24a`, rose `#d6998f`; 70s orange `#e8742a`, mustard `#eab62f`, avocado `#7d8c2f`, brown `#5b3a29`; LCD `#0f2214 #2d4f33 #7ba14c #cfe39a`; desk wall `#d6e6f1`, desk `#f2d2a6`. The courier: coat `#2f4e8f`, scarf `#e0453a`, cap `#f0b83c`, satchel `#b9783f`.
+Per era (examples): cave `#3c2416` to `#a56e42`, red ochre `#a63a22`; clay `#d9ab6e`, dusk `#2c2750` to `#f3cf94`; woodblock paper `#e8dbb0`, ink `#1c1a22`, indigo `#27407a`, vermilion `#c2412d`; letterpress page `#efe3bf`, rubric `#b3321f`, gold `#cfa13a`; engraving paper `#efe6cc`, ink `#2a2118`; Nouveau sage `#a7b58a`, teal `#2f4a45`, gold `#c9a24a`, rose `#d6998f`; 70s orange `#e8742a`, mustard `#eab62f`, avocado `#7d8c2f`, brown `#5b3a29`; LCD `#0f2214 #2d4f33 #7ba14c #cfe39a`; desk wall `#d6e6f1`, desk `#f2d2a6`. The demo's courier (not a template): coat `#2f4e8f`, scarf `#e0453a`, cap `#f0b83c`, satchel `#b9783f`; it is the engine's default figure when no `look` is given, which is why the demo needs none.
 
 ## End card
 
