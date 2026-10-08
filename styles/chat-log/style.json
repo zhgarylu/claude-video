@@ -13,6 +13,11 @@
   "Timelines and step lists delivered as messages, one per step, with photos and link cards as the evidence",
   "Product explainers and support flows told as a chat between a user and the product"
  ],
+ "uses_cn": [
+  "以群聊展开的故事：一个秘密、一场争执或一次误会",
+  "以消息形式呈现的时间线和步骤清单，每条消息对应一步，并用照片和链接卡片作为证据",
+  "通过用户与产品之间的对话来讲解产品或演示客服流程"
+ ],
  "frame_sec": 38.2,
  "dur": 59.5
 }

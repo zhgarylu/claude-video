@@ -412,7 +412,7 @@ function renderCats() {
 function filtered() {
   const q = st.q.trim().toLowerCase();
   let a = S.filter(s => (st.cat === 'all' || s.cat_en === st.cat) && (st.origin === 'all' || (st.origin === 'added') === s.added)
-    && (!q || [s.en, s.cn, s.film, s.line, s.line_cn, s.cat, s.cat_en, (s.uses || []).join(' ')].join(' ').toLowerCase().includes(q)));
+    && (!q || [s.en, s.cn, s.film, s.line, s.line_cn, s.cat, s.cat_en, (s.uses || []).join(' '), (s.uses_cn || []).join(' ')].join(' ').toLowerCase().includes(q)));
   if (st.sort === 'dur') a.sort((x, y) => y.dur - x.dur); else if (st.sort === 'name') a.sort((x, y) => x.en.localeCompare(y.en)); else if (st.sort === 'num') a.sort((x, y) => x.num - y.num); else a.sort((x, y) => y.num - x.num);
   return a;
 }
@@ -434,7 +434,7 @@ function open(kind, id, push = true) {
     const s = S.find(x => x.slug === id);
     media = `<img src="${s.frame}" alt="${esc(s.en)}"><span class="play" style="pointer-events:auto;cursor:pointer" data-load="${s.video}" data-poster="${s.frame}"><i></i></span>`;
     info = `<h3>${esc(s.en)}</h3><p class="cn">${esc(s.cn)} · ${esc(lang === 'zh' ? s.cat : s.cat_en)} · ${dur(s.dur)}</p><p class="film">${l.film}: ${esc(s.film)}</p><p>${esc(lang === 'zh' ? s.line_cn : s.line)}</p>
-      <div><b style="font-size:13px">${l.uses}</b><div class="uses">${(s.uses || []).map(u => `<span>${esc(u)}</span>`).join('')}</div></div>
+      <div><b style="font-size:13px">${l.uses}</b><div class="uses">${((lang === 'zh' && s.uses_cn && s.uses_cn.length ? s.uses_cn : s.uses) || []).map(u => `<span>${esc(u)}</span>`).join('')}</div></div>
       <div class="origin${s.added ? ' mine' : ''}">${s.added ? l.org_added : l.org_orig}</div>
       <div class="v-actions"><a class="btn violet" href="${s.video}" target="_blank" rel="noopener">${l.download}</a><a class="btn" href="${s.style_md}" target="_blank" rel="noopener">${l.style_md}</a><a class="btn" href="${s.demo_md}" target="_blank" rel="noopener">${l.demo_md}</a></div>`;
   } else {

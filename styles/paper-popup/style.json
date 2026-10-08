@@ -13,6 +13,11 @@
   "Game trailers",
   "Story films"
  ],
+ "uses_cn": [
+  "童书",
+  "游戏宣传片",
+  "故事短片"
+ ],
  "frame_sec": 26.6,
  "dur": 133.0
 }

@@ -15,7 +15,7 @@ BLOB_URL = f'https://github.com/{REPO}/blob/main'
 CATEGORIES = [('手绘与绘画', 'Hand-drawn & Painting'), ('东方传统', 'East Asian Traditions'), ('印刷与版画', 'Print & Printmaking'),
               ('图形与排版', 'Graphic & Type'), ('信息与发布', 'Information & Keynote'), ('卡通与动画', 'Cartoon & Anime'),
               ('游戏', 'Games'), ('电影与时代', 'Cinema & Eras'), ('材质与 3D', 'Materials & 3D')]
-FIELDS = ('slug', 'num', 'en', 'cn', 'category_en', 'category_cn', 'film', 'line', 'line_cn', 'uses', 'frame_sec', 'dur')
+FIELDS = ('slug', 'num', 'en', 'cn', 'category_en', 'category_cn', 'film', 'line', 'line_cn', 'uses', 'uses_cn', 'frame_sec', 'dur')
 
 
 def film_seconds(mp4):
@@ -49,7 +49,7 @@ def load_styles(refresh_dur):
                 j['dur'] = round(d, 1)
                 open(p, 'w', encoding='utf-8').write(json.dumps(j, ensure_ascii=False, indent=1) + '\n')
         out.append(dict(slug=slug, num=j['num'], en=j['en'], cn=j['cn'], cat=j['category_cn'], cat_en=j['category_en'],
-                        film=j['film'], line=j['line'], line_cn=j['line_cn'], uses=j['uses'], dur=j['dur'], frame_sec=j['frame_sec']))
+                        film=j['film'], line=j['line'], line_cn=j['line_cn'], uses=j['uses'], uses_cn=j.get('uses_cn', []), dur=j['dur'], frame_sec=j['frame_sec']))
     if bad: raise SystemExit('styleboard/build.py:\n  ' + '\n  '.join(bad))
     order = {c: i for i, c in enumerate(CATEGORIES)}
     out.sort(key=lambda s: (order.get((s['cat'], s['cat_en']), 99), int(re.match(r'\d+', s['num']).group()), s['num']))
@@ -121,6 +121,7 @@ def card(s):
     play = (f'<button class="play" type="button" data-src="{esc(s["video"])}" data-poster="{esc(s.get("poster", ""))}" '
             f'aria-label="Play {esc(film)}"><i></i><span>{mmss(s["dur"])}</span></button>') if vid else ''
     uses = ''.join(f'<li>{esc(u)}</li>' for u in s.get('uses', []))
+    uses_cn = ''.join(f'<li>{esc(u)}</li>' for u in s.get('uses_cn', []))
     links = []
     if vid: links.append(f'<a class="watch" href="{esc(s.get("full") or s["video"])}" data-play>Watch the film</a>')
     if s.get('stylemd'): links.append(f'<a href="{esc(s["stylemd"])}" target="_blank" rel="noopener">STYLE.md</a>')
@@ -131,6 +132,7 @@ def card(s):
             f'    <p class="for">for <em>{esc(film)}</em></p>\n'
             f'    <p class="line">{esc(s.get("line", ""))}</p><p class="line-cn">{esc(s.get("line_cn", ""))}</p>\n'
             f'    {f"<ul class=uses aria-label=\"Best for\">{uses}</ul>" if uses else ""}\n'
+            f'    {"<ul class=\"uses cn\" aria-label=\"适合\">" + uses_cn + "</ul>" if uses_cn else ""}\n'
             f'    <nav class="links">{"".join(links)}</nav>\n'
             f'  </div>\n</article>')
 

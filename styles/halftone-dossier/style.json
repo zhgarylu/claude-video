@@ -13,6 +13,11 @@
   "Pet content",
   "Social shorts"
  ],
+ "uses_cn": [
+  "幽默搞笑",
+  "宠物内容",
+  "社交短视频"
+ ],
  "frame_sec": 9.0,
  "dur": 30.0
 }

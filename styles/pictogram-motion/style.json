@@ -13,6 +13,11 @@
   "Visual identity",
   "Event openers"
  ],
+ "uses_cn": [
+  "体育赛事",
+  "视觉识别",
+  "活动开场片"
+ ],
  "frame_sec": 65.44,
  "dur": 163.6
 }

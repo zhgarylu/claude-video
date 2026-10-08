@@ -13,6 +13,11 @@
   "Heritage",
   "Holiday stories"
  ],
+ "uses_cn": [
+  "传奇故事",
+  "历史传承",
+  "节日故事"
+ ],
  "frame_sec": 40.68,
  "dur": 56.5
 }

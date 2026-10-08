@@ -15,6 +15,13 @@
   "Feasts, launches and celebrations with big laughing faces",
   "Maps of a plan with a start, hazards and an X"
  ],
+ "uses_cn": [
+  "在手绘海图上展示旅程、路线和行程",
+  "以悬赏海报形式介绍团队，并标注头衔或赏金",
+  "排名、奖杯和分工清单",
+  "用开怀大笑的大脸呈现盛宴、发布和庆祝",
+  "标注起点、风险和 X 标记的计划地图"
+ ],
  "frame_sec": 37.5,
  "dur": 60
 }

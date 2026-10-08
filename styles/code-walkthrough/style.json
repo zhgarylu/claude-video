@@ -13,6 +13,11 @@
   "A bug post-mortem or a code review: the wrong output, the line at fault, a red and green diff, the rerun",
   "An API tutorial or an architecture tour: request in the editor, response in the terminal, boxes and arrows that grow with the narration"
  ],
+ "uses_cn": [
+  "逐步讲解函数或算法：指针、变量以及当前执行的代码行同步呈现",
+  "Bug 复盘或代码评审：错误输出、问题代码行、红绿差异对比与重新运行",
+  "API 教程或架构导览：编辑器中的请求、终端中的响应，以及随讲解逐步展开的方框和箭头"
+ ],
  "frame_sec": 31.5,
  "dur": 67
 }

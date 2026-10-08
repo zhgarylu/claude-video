@@ -13,6 +13,11 @@
   "Stage-by-stage process explainers",
   "Sports, civic and maker stories"
  ],
+ "uses_cn": [
+  "活动与宣传公告",
+  "分阶段流程解说",
+  "体育、公共事务与创客故事"
+ ],
  "frame_sec": 5.5,
  "dur": 52.0
 }

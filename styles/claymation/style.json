@@ -13,6 +13,11 @@
   "Food & craft",
   "Gentle explainers"
  ],
+ "uses_cn": [
+  "儿童与家庭故事",
+  "美食与手作",
+  "温和的科普讲解"
+ ],
  "frame_sec": 31.5,
  "dur": 50.8
 }

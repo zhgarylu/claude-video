@@ -13,6 +13,11 @@
   "Fact-check and critical-reading videos that need to show the exact sentence being discussed",
   "Study and exam-review videos on any text: contract clauses, policy documents, textbook passages"
  ],
+ "uses_cn": [
+  "把论文、报告或白皮书读给大众听：核心结论、对照比较、局限所在",
+  "需要展示正在讨论的原句的事实核查与批判性阅读视频",
+  "围绕合同条款、政策文件、教材段落等文本的学习与考试复习视频"
+ ],
  "frame_sec": 38.0,
  "dur": 54.2
 }

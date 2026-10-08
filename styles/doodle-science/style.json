@@ -13,6 +13,11 @@
   "Explainers for kids and general audiences that need a friendly guide character",
   "Short-video knowledge channels that draw the answer in front of the viewer instead of showing stock footage"
  ],
+ "uses_cn": [
+  "用一分钟解释科学、地理或日常生活中的「为什么」问题",
+  "面向儿童和大众的科普内容，需要一个亲切的引导角色",
+  "短视频知识频道：在观众面前把答案画出来，而不是使用素材影像"
+ ],
  "frame_sec": 32.2,
  "dur": 65.3
 }

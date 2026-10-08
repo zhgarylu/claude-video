@@ -13,6 +13,11 @@
   "Hardware launches",
   "Tech explainers"
  ],
+ "uses_cn": [
+  "工程领域",
+  "硬件发布",
+  "科技解说"
+ ],
  "frame_sec": 33.62,
  "dur": 46.7
 }

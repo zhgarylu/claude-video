@@ -13,6 +13,11 @@
   "Reports",
   "Climate & science"
  ],
+ "uses_cn": [
+  "数据新闻",
+  "报告",
+  "气候与科学"
+ ],
  "frame_sec": 42.0,
  "dur": 50.0
 }

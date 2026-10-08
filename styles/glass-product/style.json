@@ -13,6 +13,11 @@
   "Consumer tech",
   "Beauty"
  ],
+ "uses_cn": [
+  "产品发布",
+  "消费电子",
+  "美妆"
+ ],
  "frame_sec": 19.2,
  "dur": 32.0
 }

@@ -13,6 +13,11 @@
   "Fantasy",
   "Story films"
  ],
+ "uses_cn": [
+  "游戏预告",
+  "奇幻题材",
+  "剧情短片"
+ ],
  "frame_sec": 55.08,
  "dur": 76.5
 }

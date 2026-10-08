@@ -13,6 +13,11 @@
   "Memory and archive stories",
   "Process tutorials and maps"
  ],
+ "uses_cn": [
+  "植物与科学笔记",
+  "记忆与档案故事",
+  "流程教程与地图"
+ ],
  "frame_sec": 49.2,
  "dur": 60
 }

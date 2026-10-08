@@ -13,6 +13,11 @@
   "Fashion, lifestyle and youth-culture brands",
   "Launch teasers, countdowns and loading-screen stories"
  ],
+ "uses_cn": [
+  "怀旧、音乐与专辑风格视觉",
+  "时尚、生活方式及青年文化品牌",
+  "新品预告、倒计时和加载画面故事"
+ ],
  "frame_sec": 42.8,
  "dur": 49.4
 }

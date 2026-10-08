@@ -13,6 +13,11 @@
   "Reviews, recaps and event highlights",
   "Humour: spoilers, corrections and running jokes"
  ],
+ "uses_cn": [
+  "借一群观众的即时反应讲解一个过程",
+  "影评、剧情回顾和活动高光",
+  "制造笑点：剧透、纠错和反复出现的梗"
+ ],
  "frame_sec": 43.6,
  "dur": 60
 }

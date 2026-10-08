@@ -13,6 +13,11 @@
   "Help-centre explainers",
   "How-to steps"
  ],
+ "uses_cn": [
+  "产品设置指南",
+  "帮助中心讲解视频",
+  "操作步骤教学"
+ ],
  "frame_sec": 3.2,
  "dur": 40.0
 }

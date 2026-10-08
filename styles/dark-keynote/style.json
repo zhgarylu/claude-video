@@ -13,6 +13,11 @@
   "SaaS",
   "Keynotes"
  ],
+ "uses_cn": [
+  "产品发布",
+  "SaaS",
+  "主题演讲"
+ ],
  "frame_sec": 8.4,
  "dur": 42.0
 }

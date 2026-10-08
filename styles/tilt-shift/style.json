@@ -13,6 +13,11 @@
   "Real estate",
   "Transport"
  ],
+ "uses_cn": [
+  "城市宣传片",
+  "房地产",
+  "交通运输"
+ ],
  "frame_sec": 22.8,
  "dur": 38.0
 }

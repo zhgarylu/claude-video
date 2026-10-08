@@ -13,6 +13,11 @@
   "Bottlenecks, supply and dependency chains",
   "Product mechanisms and process post-mortems"
  ],
+ "uses_cn": [
+  "因果关系和运行原理解说",
+  "瓶颈、供应链与依赖链",
+  "产品机制与流程复盘"
+ ],
  "frame_sec": 8.2,
  "dur": 57.8
 }

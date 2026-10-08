@@ -13,6 +13,11 @@
   "Countdowns, progress and score recaps",
   "Product feature lists told as stages"
  ],
+ "uses_cn": [
+  "游戏预告与怀旧内容",
+  "倒计时、进度与分数回顾",
+  "以闯关形式呈现的产品功能清单"
+ ],
  "frame_sec": 14.5,
  "dur": 54.4
 }

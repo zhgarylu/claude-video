@@ -13,6 +13,11 @@
   "Use two",
   "Use three"
  ],
+ "uses_cn": [
+  "用途一",
+  "用途二",
+  "用途三"
+ ],
  "frame_sec": 12.0,
  "dur": 0
 }

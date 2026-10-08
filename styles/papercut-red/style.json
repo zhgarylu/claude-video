@@ -13,6 +13,11 @@
   "Festive greetings",
   "Folk tales"
  ],
+ "uses_cn": [
+  "农历新年",
+  "节日祝福",
+  "民间故事"
+ ],
  "frame_sec": 35.28,
  "dur": 49.0
 }

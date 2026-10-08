@@ -13,6 +13,11 @@
   "Limited-time offers and product-drop countdowns",
   "Coupon, membership and event-ticket campaigns"
  ],
+ "uses_cn": [
+  "大促与节日营销",
+  "限时优惠与新品发布倒计时",
+  "优惠券、会员及活动票务宣传"
+ ],
  "frame_sec": 7.0,
  "dur": 50
 }

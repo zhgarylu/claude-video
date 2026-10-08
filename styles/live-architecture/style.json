@@ -13,6 +13,11 @@
   "Tech-channel explainers that need the viewer to follow a thing moving through boxes",
   "Architecture reviews and onboarding videos: layers, boundaries and what each layer protects"
  ],
+ "uses_cn": [
+  "讲解系统如何运作：请求路径、数据管道、支付流程、AI 服务",
+  "需要观众跟随某个对象在各方框间流转的科技频道讲解视频",
+  "架构评审与新人入职视频：层级、边界，以及各层分别保护什么"
+ ],
  "frame_sec": 38.0,
  "dur": 56.0
 }

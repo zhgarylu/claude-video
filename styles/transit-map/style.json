@@ -13,6 +13,11 @@
   "Itineraries and travel stories",
   "How-X-connects-to-Y explainers and org flows"
  ],
+ "uses_cn": [
+  "流程、管线与学习路径",
+  "行程与旅行故事",
+  "解释事物关联与组织流程的图示"
+ ],
  "frame_sec": 14.6,
  "dur": 54
 }

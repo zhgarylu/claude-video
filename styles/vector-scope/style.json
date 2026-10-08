@@ -13,6 +13,11 @@
   "Maths, physics and music visualisation",
   "Retro sci-fi titles and instrument interfaces"
  ],
+ "uses_cn": [
+  "音频与信号原理讲解",
+  "数学、物理与音乐可视化",
+  "复古科幻片头和仪器界面"
+ ],
  "frame_sec": 21.9,
  "dur": 56
 }

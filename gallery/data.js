@@ -15,6 +15,11 @@ window.GALLERY = {
     "Bedtime stories",
     "Kids' learning"
    ],
+   "uses_cn": [
+    "绘本",
+    "睡前故事",
+    "儿童启蒙"
+   ],
    "dur": 52.0,
    "added": false,
    "video": "https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/crayon-book.mp4",
@@ -36,6 +41,11 @@ window.GALLERY = {
     "Nature documentary",
     "Travel",
     "Science explainers"
+   ],
+   "uses_cn": [
+    "自然纪录片",
+    "旅行",
+    "科学原理讲解"
    ],
    "dur": 113.6,
    "added": false,
@@ -59,6 +69,11 @@ window.GALLERY = {
     "Cultural brands",
     "Poetry"
    ],
+   "uses_cn": [
+    "武侠题材",
+    "文化品牌",
+    "诗词内容"
+   ],
    "dur": 48.0,
    "added": false,
    "video": "https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/ink-wash.mp4",
@@ -80,6 +95,11 @@ window.GALLERY = {
     "Music videos",
     "Art & culture",
     "Emotional ads"
+   ],
+   "uses_cn": [
+    "音乐视频",
+    "艺术与文化",
+    "情感向广告"
    ],
    "dur": 39.7,
    "added": false,
@@ -103,6 +123,11 @@ window.GALLERY = {
     "Life milestones",
     "Minimal ads"
    ],
+   "uses_cn": [
+    "品牌故事",
+    "人生重要时刻",
+    "极简广告"
+   ],
    "dur": 47.5,
    "added": false,
    "video": "https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/one-line.mp4",
@@ -124,6 +149,11 @@ window.GALLERY = {
     "Explainers",
     "Online courses",
     "Science"
+   ],
+   "uses_cn": [
+    "原理解说",
+    "在线课程",
+    "科学"
    ],
    "dur": 111.0,
    "added": false,
@@ -147,6 +177,11 @@ window.GALLERY = {
     "Architecture",
     "Lifestyle brands"
    ],
+   "uses_cn": [
+    "城市与旅行",
+    "建筑",
+    "生活方式品牌"
+   ],
    "dur": 32.4,
    "added": false,
    "video": "https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/urban-sketch.mp4",
@@ -168,6 +203,11 @@ window.GALLERY = {
     "Craft and repair stories",
     "Gentle brand films",
     "Seasonal greetings and keepsakes"
+   ],
+   "uses_cn": [
+    "手工艺与修补故事",
+    "温柔质感的品牌影片",
+    "节日问候与纪念品"
    ],
    "dur": 50,
    "added": true,
@@ -191,6 +231,11 @@ window.GALLERY = {
     "Documentary and place portraits",
     "Quiet explainers about change and loss"
    ],
+   "uses_cn": [
+    "关于记忆与时间流逝的故事",
+    "纪录片与地方肖像",
+    "讲述变化与失去的沉静科普片"
+   ],
    "dur": 57,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/charcoal.mp4",
@@ -212,6 +257,11 @@ window.GALLERY = {
     "Life stories & memorials",
     "Brand origins & journeys",
     "Seasons, time & change"
+   ],
+   "uses_cn": [
+    "人生故事与纪念",
+    "品牌起源与发展历程",
+    "季节、时间与变迁"
    ],
    "dur": 58.4,
    "added": true,
@@ -235,6 +285,11 @@ window.GALLERY = {
     "Explainers for kids and general audiences that need a friendly guide character",
     "Short-video knowledge channels that draw the answer in front of the viewer instead of showing stock footage"
    ],
+   "uses_cn": [
+    "用一分钟解释科学、地理或日常生活中的「为什么」问题",
+    "面向儿童和大众的科普内容，需要一个亲切的引导角色",
+    "短视频知识频道：在观众面前把答案画出来，而不是使用素材影像"
+   ],
    "dur": 65.3,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/doodle-science.mp4",
@@ -256,6 +311,11 @@ window.GALLERY = {
     "Myths & folklore",
     "Heritage",
     "Festivals"
+   ],
+   "uses_cn": [
+    "神话与民间传说",
+    "文化遗产",
+    "节日"
    ],
    "dur": 54.4,
    "added": false,
@@ -279,6 +339,11 @@ window.GALLERY = {
     "Japanese culture",
     "Poetry"
    ],
+   "uses_cn": [
+    "旅行",
+    "日本文化",
+    "诗歌"
+   ],
    "dur": 44.0,
    "added": false,
    "video": "https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/ukiyoe.mp4",
@@ -300,6 +365,11 @@ window.GALLERY = {
     "Lunar New Year",
     "Festive greetings",
     "Folk tales"
+   ],
+   "uses_cn": [
+    "农历新年",
+    "节日祝福",
+    "民间故事"
    ],
    "dur": 49.0,
    "added": false,
@@ -323,6 +393,11 @@ window.GALLERY = {
     "Gift brands",
     "Cultural stories"
    ],
+   "uses_cn": [
+    "节日",
+    "礼品品牌",
+    "文化故事"
+   ],
    "dur": 121.8,
    "added": false,
    "video": "https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/paper-lantern.mp4",
@@ -344,6 +419,11 @@ window.GALLERY = {
     "Cultural and heritage stories",
     "Craft, tea and tableware brands",
     "Poetry and landscape narratives"
+   ],
+   "uses_cn": [
+    "文化与遗产故事",
+    "工艺、茶与餐具品牌",
+    "诗歌与山水叙事"
    ],
    "dur": 54.0,
    "added": true,
@@ -367,6 +447,11 @@ window.GALLERY = {
     "Silk-road, tea and craft origin stories",
     "Festival, calligraphy and pattern-design brands"
    ],
+   "uses_cn": [
+    "非遗与博物馆影片",
+    "丝绸之路、茶和工艺的起源故事",
+    "节日、书法与纹样设计品牌"
+   ],
    "dur": 53.3,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/dunhuang.mp4",
@@ -388,6 +473,11 @@ window.GALLERY = {
     "Heritage and craft stories",
     "Festival and luxury product films",
     "Ceremonial invitations and elegant timelines"
+   ],
+   "uses_cn": [
+    "非遗与手工艺故事",
+    "节日及奢侈品宣传片",
+    "仪式邀请函与雅致时间线"
    ],
    "dur": 56,
    "added": true,
@@ -411,6 +501,11 @@ window.GALLERY = {
     "Folk tales, proverbs and auspicious-themed products",
     "How-a-print-is-made explainers"
    ],
+   "uses_cn": [
+    "节日、问候与祝福",
+    "民间故事、谚语及吉祥主题产品",
+    "版画制作过程科普"
+   ],
    "dur": 56,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/nianhua.mp4",
@@ -432,6 +527,11 @@ window.GALLERY = {
     "Indie brands",
     "Zines",
     "Lifestyle"
+   ],
+   "uses_cn": [
+    "独立品牌",
+    "独立杂志",
+    "生活方式"
    ],
    "dur": 40.0,
    "added": false,
@@ -455,6 +555,11 @@ window.GALLERY = {
     "Pet content",
     "Social shorts"
    ],
+   "uses_cn": [
+    "幽默搞笑",
+    "宠物内容",
+    "社交短视频"
+   ],
    "dur": 30.0,
    "added": false,
    "video": "https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/halftone-dossier.mp4",
@@ -476,6 +581,11 @@ window.GALLERY = {
     "Folk tales",
     "Craft brands",
     "Book trailers"
+   ],
+   "uses_cn": [
+    "民间故事",
+    "手工艺品牌",
+    "图书预告片"
    ],
    "dur": 58.5,
    "added": false,
@@ -499,6 +609,11 @@ window.GALLERY = {
     "Science explainers",
     "Brand heritage"
    ],
+   "uses_cn": [
+    "博物馆说明牌",
+    "科学科普",
+    "品牌传承"
+   ],
    "dur": 40.0,
    "added": false,
    "video": "https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/engraving.mp4",
@@ -520,6 +635,11 @@ window.GALLERY = {
     "Trail & destination guides",
     "Tourism promos",
     "Event posters"
+   ],
+   "uses_cn": [
+    "路线与目的地指南",
+    "旅游宣传片",
+    "活动海报"
    ],
    "dur": 38.4,
    "added": false,
@@ -543,6 +663,11 @@ window.GALLERY = {
     "Species, anatomy and process 'field guide' films",
     "Product or ingredient catalogues dressed as scientific plates"
    ],
+   "uses_cn": [
+    "博物馆与科普讲解视频",
+    "物种、解剖结构与流程类的“野外图鉴”影片",
+    "包装成科学图鉴的产品或成分目录"
+   ],
    "dur": 60,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/natural-history.mp4",
@@ -564,6 +689,11 @@ window.GALLERY = {
     "News recaps and timelines of what happened",
     "History explainers told through successive editions",
     "Editorial essays and announcements with a headline, a pull quote and a correction"
+   ],
+   "uses_cn": [
+    "新闻回顾与事件时间线",
+    "通过一期期版面讲述的历史科普",
+    "社论文章与公告，含标题、引文和更正声明"
    ],
    "dur": 52.6,
    "added": true,
@@ -587,6 +717,11 @@ window.GALLERY = {
     "Role and personality profiles",
     "Fortune-style explainers (playful, never medical)"
    ],
+   "uses_cn": [
+    "三部分判断与决策辅助",
+    "角色与性格画像",
+    "占卜风格的科普解说（趣味用途，绝不用于医疗）"
+   ],
    "dur": 58,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/tarot.mp4",
@@ -608,6 +743,11 @@ window.GALLERY = {
     "Botanical and science notes",
     "Memory and archive stories",
     "Process tutorials and maps"
+   ],
+   "uses_cn": [
+    "植物与科学笔记",
+    "记忆与档案故事",
+    "流程教程与地图"
    ],
    "dur": 60,
    "added": true,
@@ -631,6 +771,11 @@ window.GALLERY = {
     "Events",
     "Design education"
    ],
+   "uses_cn": [
+    "品牌识别",
+    "活动",
+    "设计教育"
+   ],
    "dur": 44.0,
    "added": false,
    "video": "https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/swiss-motion.mp4",
@@ -652,6 +797,11 @@ window.GALLERY = {
     "Title sequences",
     "Event openers",
     "Trailers"
+   ],
+   "uses_cn": [
+    "片头序列",
+    "活动开场",
+    "预告片"
    ],
    "dur": 44.1,
    "added": false,
@@ -675,6 +825,11 @@ window.GALLERY = {
     "Galas",
     "Invitations"
    ],
+   "uses_cn": [
+    "奢华与酒店业",
+    "晚宴盛会",
+    "邀请函"
+   ],
    "dur": 58.4,
    "added": false,
    "video": "https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/art-deco.mp4",
@@ -696,6 +851,11 @@ window.GALLERY = {
     "Engineering",
     "Hardware launches",
     "Tech explainers"
+   ],
+   "uses_cn": [
+    "工程领域",
+    "硬件发布",
+    "科技解说"
    ],
    "dur": 46.7,
    "added": false,
@@ -719,6 +879,11 @@ window.GALLERY = {
     "Heritage",
     "Holiday stories"
    ],
+   "uses_cn": [
+    "传奇故事",
+    "历史传承",
+    "节日故事"
+   ],
    "dur": 56.5,
    "added": false,
    "video": "https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/stained-glass.mp4",
@@ -740,6 +905,11 @@ window.GALLERY = {
     "Sports events",
     "Visual identity",
     "Event openers"
+   ],
+   "uses_cn": [
+    "体育赛事",
+    "视觉识别",
+    "活动开场片"
    ],
    "dur": 163.6,
    "added": false,
@@ -763,6 +933,11 @@ window.GALLERY = {
     "Sci-fi",
     "Tech brands"
    ],
+   "uses_cn": [
+    "开发者工具",
+    "科幻",
+    "科技品牌"
+   ],
    "dur": 59.8,
    "added": false,
    "video": "https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/ascii-crt.mp4",
@@ -784,6 +959,11 @@ window.GALLERY = {
     "Bars, diners & night economy",
     "Openings, countdowns & event teasers",
     "Brand and slogan reveals"
+   ],
+   "uses_cn": [
+    "酒吧、餐厅与夜间经济场景",
+    "开业、倒计时与活动预热短片",
+    "品牌与标语揭晓"
    ],
    "dur": 54.0,
    "added": true,
@@ -807,6 +987,11 @@ window.GALLERY = {
     "Theatre, concerts & exhibitions",
     "Seasonal and nature storytelling"
    ],
+   "uses_cn": [
+    "植物、香水与美妆品牌",
+    "戏剧、音乐会与展览",
+    "季节与自然主题叙事"
+   ],
    "dur": 52.5,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/art-nouveau.mp4",
@@ -828,6 +1013,11 @@ window.GALLERY = {
     "Event and campaign announcements",
     "Stage-by-stage process explainers",
     "Sports, civic and maker stories"
+   ],
+   "uses_cn": [
+    "活动与宣传公告",
+    "分阶段流程解说",
+    "体育、公共事务与创客故事"
    ],
    "dur": 52.0,
    "added": true,
@@ -851,6 +1041,11 @@ window.GALLERY = {
     "Fashion, lifestyle and youth-culture brands",
     "Launch teasers, countdowns and loading-screen stories"
    ],
+   "uses_cn": [
+    "怀旧、音乐与专辑风格视觉",
+    "时尚、生活方式及青年文化品牌",
+    "新品预告、倒计时和加载画面故事"
+   ],
    "dur": 49.4,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/y2k-vaporwave.mp4",
@@ -872,6 +1067,11 @@ window.GALLERY = {
     "Processes, pipelines and learning paths",
     "Itineraries and travel stories",
     "How-X-connects-to-Y explainers and org flows"
+   ],
+   "uses_cn": [
+    "流程、管线与学习路径",
+    "行程与旅行故事",
+    "解释事物关联与组织流程的图示"
    ],
    "dur": 54,
    "added": true,
@@ -895,6 +1095,11 @@ window.GALLERY = {
     "Rankings and leaderboards that reorder",
     "Announcements and one-line quotes"
    ],
+   "uses_cn": [
+    "日程、时刻表和倒计时",
+    "会重新排序的排名与排行榜",
+    "公告和一句话引用"
+   ],
    "dur": 60,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/split-flap.mp4",
@@ -916,6 +1121,11 @@ window.GALLERY = {
     "Audio and signal explainers",
     "Maths, physics and music visualisation",
     "Retro sci-fi titles and instrument interfaces"
+   ],
+   "uses_cn": [
+    "音频与信号原理讲解",
+    "数学、物理与音乐可视化",
+    "复古科幻片头和仪器界面"
    ],
    "dur": 56,
    "added": true,
@@ -940,6 +1150,12 @@ window.GALLERY = {
     "Slogans and mantras with a beat",
     "Speeches cut as rhythm"
    ],
+   "uses_cn": [
+    "带记忆点的歌曲与广告曲",
+    "口播与说唱作品",
+    "有节拍感的口号与箴言",
+    "按节奏剪辑的演讲片段"
+   ],
    "dur": 62.4,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/lyric-video.mp4",
@@ -961,6 +1177,11 @@ window.GALLERY = {
     "Sale and festival promos",
     "Limited-time offers and product-drop countdowns",
     "Coupon, membership and event-ticket campaigns"
+   ],
+   "uses_cn": [
+    "大促与节日营销",
+    "限时优惠与新品发布倒计时",
+    "优惠券、会员及活动票务宣传"
    ],
    "dur": 50,
    "added": true,
@@ -984,6 +1205,11 @@ window.GALLERY = {
     "Reports",
     "Climate & science"
    ],
+   "uses_cn": [
+    "数据新闻",
+    "报告",
+    "气候与科学"
+   ],
    "dur": 50.0,
    "added": false,
    "video": "https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/dataviz.mp4",
@@ -1005,6 +1231,11 @@ window.GALLERY = {
     "Process explainers",
     "Supply chains",
     "Annual reports"
+   ],
+   "uses_cn": [
+    "流程讲解",
+    "供应链",
+    "年度报告"
    ],
    "dur": 58.8,
    "added": false,
@@ -1028,6 +1259,11 @@ window.GALLERY = {
     "SaaS",
     "Keynotes"
    ],
+   "uses_cn": [
+    "产品发布",
+    "SaaS",
+    "主题演讲"
+   ],
    "dur": 42.0,
    "added": false,
    "video": "https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/dark-keynote.mp4",
@@ -1050,6 +1286,11 @@ window.GALLERY = {
     "Feature launches",
     "Onboarding"
    ],
+   "uses_cn": [
+    "产品教程",
+    "功能发布",
+    "新手引导"
+   ],
    "dur": 59.4,
    "added": false,
    "video": "https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/living-screencast.mp4",
@@ -1071,6 +1312,11 @@ window.GALLERY = {
     "Product spec walkthroughs",
     "Launch & crowdfunding videos",
     "Trade-show screens"
+   ],
+   "uses_cn": [
+    "产品参数演示",
+    "新品发布与众筹视频",
+    "展会大屏"
    ],
    "dur": 39.0,
    "added": false,
@@ -1095,6 +1341,12 @@ window.GALLERY = {
     "Brand sting",
     "Music lesson"
    ],
+   "uses_cn": [
+    "讲解一个音乐概念",
+    "播客片头",
+    "品牌音效签名",
+    "音乐课程"
+   ],
    "dur": 50.0,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/sheet-music.mp4",
@@ -1116,6 +1368,11 @@ window.GALLERY = {
     "Stories told as a group conversation: a secret, an argument, a misunderstanding",
     "Timelines and step lists delivered as messages, one per step, with photos and link cards as the evidence",
     "Product explainers and support flows told as a chat between a user and the product"
+   ],
+   "uses_cn": [
+    "以群聊展开的故事：一个秘密、一场争执或一次误会",
+    "以消息形式呈现的时间线和步骤清单，每条消息对应一步，并用照片和链接卡片作为证据",
+    "通过用户与产品之间的对话来讲解产品或演示客服流程"
    ],
    "dur": 59.5,
    "added": true,
@@ -1139,6 +1396,11 @@ window.GALLERY = {
     "Reviews, recaps and event highlights",
     "Humour: spoilers, corrections and running jokes"
    ],
+   "uses_cn": [
+    "借一群观众的即时反应讲解一个过程",
+    "影评、剧情回顾和活动高光",
+    "制造笑点：剧透、纠错和反复出现的梗"
+   ],
    "dur": 60,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/danmaku.mp4",
@@ -1160,6 +1422,11 @@ window.GALLERY = {
     "Grammar and vocabulary micro-lessons for any language pair, vertical or widescreen",
     "Exam-style drills, pronunciation tips and minimal pairs (generic, never branded)",
     "Bilingual explainers and kids' language games with a mascot teacher"
+   ],
+   "uses_cn": [
+    "任意语言对的语法与词汇微课，支持竖屏或宽屏",
+    "考试题型训练、发音技巧与最小对立体（通用内容，不带任何品牌）",
+    "双语讲解，以及由吉祥物老师主持的儿童语言游戏"
    ],
    "dur": 65.4,
    "added": true,
@@ -1183,6 +1450,11 @@ window.GALLERY = {
     "Recipes, workouts and craft how-tos told one action per page",
     "Onboarding, safety and maintenance steps for products and tools"
    ],
+   "uses_cn": [
+    "家具、设备与套件安装指南",
+    "每页只讲一个动作的食谱、健身与手工教程",
+    "产品和工具的入门、安全与维护步骤"
+   ],
    "dur": 58,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/assembly-manual.mp4",
@@ -1204,6 +1476,11 @@ window.GALLERY = {
     "Explaining a function or an algorithm step by step: pointers, variables and the line that runs, in lockstep",
     "A bug post-mortem or a code review: the wrong output, the line at fault, a red and green diff, the rerun",
     "An API tutorial or an architecture tour: request in the editor, response in the terminal, boxes and arrows that grow with the narration"
+   ],
+   "uses_cn": [
+    "逐步讲解函数或算法：指针、变量以及当前执行的代码行同步呈现",
+    "Bug 复盘或代码评审：错误输出、问题代码行、红绿差异对比与重新运行",
+    "API 教程或架构导览：编辑器中的请求、终端中的响应，以及随讲解逐步展开的方框和箭头"
    ],
    "dur": 67,
    "added": true,
@@ -1227,6 +1504,11 @@ window.GALLERY = {
     "Tech-channel explainers that need the viewer to follow a thing moving through boxes",
     "Architecture reviews and onboarding videos: layers, boundaries and what each layer protects"
    ],
+   "uses_cn": [
+    "讲解系统如何运作：请求路径、数据管道、支付流程、AI 服务",
+    "需要观众跟随某个对象在各方框间流转的科技频道讲解视频",
+    "架构评审与新人入职视频：层级、边界，以及各层分别保护什么"
+   ],
    "dur": 56.0,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/live-architecture.mp4",
@@ -1248,6 +1530,11 @@ window.GALLERY = {
     "Reading a paper, a report or a white paper for a general audience: what it claims, what it compares against, where it fails",
     "Fact-check and critical-reading videos that need to show the exact sentence being discussed",
     "Study and exam-review videos on any text: contract clauses, policy documents, textbook passages"
+   ],
+   "uses_cn": [
+    "把论文、报告或白皮书读给大众听：核心结论、对照比较、局限所在",
+    "需要展示正在讨论的原句的事实核查与批判性阅读视频",
+    "围绕合同条款、政策文件、教材段落等文本的学习与考试复习视频"
    ],
    "dur": 54.2,
    "added": true,
@@ -1273,6 +1560,13 @@ window.GALLERY = {
     "Articles with their figures (research posts, news, announcements, blogs): quote the author's sentence with the key phrase highlighted as the voice reaches it, then show the figure zoomed to the part that carries the claim, with the credit on screen, our own stamped diagram and takeaways with the source",
     "News and announcement digests: a freshly released official demo or launch clip read in 60-90 seconds, with the source and date on screen, the source's own numbers attributed, one stamped diagram, and a conclusion that splits what the source claims from what is still to verify"
    ],
+   "uses_cn": [
+    "发布会和主题演讲：从一小时素材中挑出三到五个 10 到 30 秒的片段，分别说明发生了什么、产品能做什么、适用场景在哪里",
+    "产品录屏和 GitHub 演示：定格在能证明功能的画面，放大细节，给步骤编号，并指出没有展示的内容",
+    "教程和操作演示：原片按正常速度播放并配翻译字幕，在关键步骤暂停，最后用一整页总结要点",
+    "带图表的文章（研究帖、新闻、公告、博客）：引用作者原句，旁白读到关键短语时高亮显示；随后展示图表并放大支撑论点的部位，画面注明出处，再配上我们自己带标记的示意图和带来源的结论",
+    "新闻和公告摘要：用 60 到 90 秒解读刚发布的官方演示或发布片段，画面标明来源和日期，源方数据明确归属，配一张带标记的示意图，结论中区分源方主张和尚待验证的内容"
+   ],
    "dur": 75.1,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/demo-breakdown.mp4",
@@ -1294,6 +1588,11 @@ window.GALLERY = {
     "Food & drink",
     "Retro ads",
     "Kids"
+   ],
+   "uses_cn": [
+    "餐饮",
+    "复古广告",
+    "儿童"
    ],
    "dur": 50.0,
    "added": false,
@@ -1317,6 +1616,11 @@ window.GALLERY = {
     "Game trailers",
     "Nostalgia"
    ],
+   "uses_cn": [
+    "音乐视频",
+    "游戏预告片",
+    "怀旧题材"
+   ],
    "dur": 59.0,
    "added": false,
    "video": "https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/cel-anime-80s.mp4",
@@ -1338,6 +1642,11 @@ window.GALLERY = {
     "Comedy",
     "Tech brands",
     "Social shorts"
+   ],
+   "uses_cn": [
+    "喜剧",
+    "科技品牌",
+    "社交短视频"
    ],
    "dur": 57.5,
    "added": false,
@@ -1361,6 +1670,11 @@ window.GALLERY = {
     "Help-centre explainers",
     "How-to steps"
    ],
+   "uses_cn": [
+    "产品设置指南",
+    "帮助中心讲解视频",
+    "操作步骤教学"
+   ],
    "dur": 40.0,
    "added": false,
    "video": "https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/midcentury-toon.mp4",
@@ -1382,6 +1696,11 @@ window.GALLERY = {
     "Explainers with a punchline",
     "Product or feature stories in beats",
     "Social shorts and ads"
+   ],
+   "uses_cn": [
+    "带包袱笑点的解说",
+    "分拍呈现的产品或功能故事",
+    "社交短视频与广告"
    ],
    "dur": 47.1,
    "added": true,
@@ -1405,6 +1724,11 @@ window.GALLERY = {
     "Brand legends and origin stories",
     "Fables and idioms for learners"
    ],
+   "uses_cn": [
+    "非遗与节日影片",
+    "品牌传说与起源故事",
+    "面向学习者的寓言和成语故事"
+   ],
    "dur": 52.5,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/opera-cel.mp4",
@@ -1426,6 +1750,11 @@ window.GALLERY = {
     "Comic-style explainers and how-tos",
     "Slice-of-life and gag shorts",
     "Chapter openers, trailers and social teasers"
+   ],
+   "uses_cn": [
+    "漫画风格的讲解与操作教学",
+    "日常向与搞笑短片",
+    "章节开场、预告片和社交平台悬念短片"
    ],
    "dur": 55.2,
    "added": true,
@@ -1449,6 +1778,12 @@ window.GALLERY = {
     "Product launches told as a power-up and release",
     "Comparisons as a face-off, rankings as a power meter",
     "Motivational and training stories, exam or deadline countdowns"
+   ],
+   "uses_cn": [
+    "动作场面、运动与格斗片段",
+    "把产品发布讲成蓄力升级后的爆发",
+    "用对决方式做对比，用战力表呈现排名",
+    "励志与训练故事，考试或截止日期倒计时"
    ],
    "dur": 60,
    "added": true,
@@ -1474,6 +1809,13 @@ window.GALLERY = {
     "Feasts, launches and celebrations with big laughing faces",
     "Maps of a plan with a start, hazards and an X"
    ],
+   "uses_cn": [
+    "在手绘海图上展示旅程、路线和行程",
+    "以悬赏海报形式介绍团队，并标注头衔或赏金",
+    "排名、奖杯和分工清单",
+    "用开怀大笑的大脸呈现盛宴、发布和庆祝",
+    "标注起点、风险和 X 标记的计划地图"
+   ],
    "dur": 60,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/sea-adventure.mp4",
@@ -1495,6 +1837,11 @@ window.GALLERY = {
     "Short stories and daily-life comics told as an episode, with gutters as timing and a cliffhanger end bar",
     "Explainers and product stories told as a character walking down one long strip: one panel per idea, a whip scroll for the big reveal",
     "Tutorials and how-tos as numbered panels with balloons, narration boxes and a next-episode or next-lesson bar"
+   ],
+   "uses_cn": [
+    "以分集形式讲述短篇故事和日常漫画，用分格间隔控制节奏，并在结尾设置悬念条",
+    "以角色沿长卷前行的方式呈现讲解和产品故事：一格讲一个要点，快速滑到时揭晓亮点",
+    "将教程与操作指南做成带编号的分格，搭配对话气泡、旁白框，以及下一集或下一课入口条"
    ],
    "dur": 62.5,
    "added": true,
@@ -1518,6 +1865,11 @@ window.GALLERY = {
     "A subject followed through different cultures or media: a recipe through cuisines, a language through its alphabets, a river from source to sea",
     "Product, brand and history stories where the final stretch shows the whole walk collected as a gallery of thumbnails"
    ],
+   "uses_cn": [
+    "用一场穿越数十年的行走讲述一个地方或公司的故事；每个年代都采用当时的视觉风格，并在角落标注年份牌",
+    "追踪一个主题在不同文化或媒介中的演变：一道菜在各菜系中的变化、一种语言在不同字母体系中的流变、一条河从源头到入海口的历程",
+    "产品、品牌和历史故事，最后一段把整段旅程浓缩成一排缩略图画廊"
+   ],
    "dur": 90.4,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/era-scroll.mp4",
@@ -1539,6 +1891,11 @@ window.GALLERY = {
     "Game trailers",
     "Recaps",
     "Nostalgia"
+   ],
+   "uses_cn": [
+    "游戏预告",
+    "内容回顾",
+    "怀旧"
    ],
    "dur": 54.5,
    "added": false,
@@ -1562,6 +1919,11 @@ window.GALLERY = {
     "Fantasy",
     "Story films"
    ],
+   "uses_cn": [
+    "游戏预告",
+    "奇幻题材",
+    "剧情短片"
+   ],
    "dur": 76.5,
    "added": false,
    "video": "https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/hd-2d.mp4",
@@ -1583,6 +1945,11 @@ window.GALLERY = {
     "Game trailers",
     "Onboarding",
     "Social shorts"
+   ],
+   "uses_cn": [
+    "游戏预告片",
+    "新手引导",
+    "社交平台短片"
    ],
    "dur": 59.8,
    "added": false,
@@ -1606,6 +1973,11 @@ window.GALLERY = {
     "Year in review",
     "Variety shows"
    ],
+   "uses_cn": [
+    "科技发展时间线",
+    "年度回顾",
+    "综艺节目"
+   ],
    "dur": 148.8,
    "added": false,
    "video": "https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/game-show.mp4",
@@ -1627,6 +1999,11 @@ window.GALLERY = {
     "Game trailers and nostalgia pieces",
     "Countdowns, progress and score recaps",
     "Product feature lists told as stages"
+   ],
+   "uses_cn": [
+    "游戏预告与怀旧内容",
+    "倒计时、进度与分数回顾",
+    "以闯关形式呈现的产品功能清单"
    ],
    "dur": 54.4,
    "added": true,
@@ -1650,6 +2027,11 @@ window.GALLERY = {
     "Framework, service or tool face-offs for a technical audience",
     "Diet, city, route or option comparisons with a clear verdict"
    ],
+   "uses_cn": [
+    "双向产品对比（手机、套餐、家电、工具）",
+    "面向技术受众的框架、服务或工具对决",
+    "饮食、城市、路线或方案对比，并给出明确结论"
+   ],
    "dur": 56,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/versus-screen.mp4",
@@ -1671,6 +2053,11 @@ window.GALLERY = {
     "Comedy",
     "Retro brands",
     "Silent storytelling"
+   ],
+   "uses_cn": [
+    "喜剧",
+    "复古品牌",
+    "无声叙事"
    ],
    "dur": 54.2,
    "added": false,
@@ -1694,6 +2081,11 @@ window.GALLERY = {
     "Mystery & ARG",
     "Game teasers"
    ],
+   "uses_cn": [
+    "恐怖",
+    "悬疑与 ARG",
+    "游戏预告"
+   ],
    "dur": 59.7,
    "added": false,
    "video": "https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/backrooms.mp4",
@@ -1715,6 +2107,11 @@ window.GALLERY = {
     "Family, travel & memory films",
     "Nostalgic brand stories",
     "Anniversaries & tributes"
+   ],
+   "uses_cn": [
+    "家庭、旅行与回忆影像",
+    "怀旧品牌故事",
+    "周年纪念与致敬"
    ],
    "dur": 56.7,
    "added": true,
@@ -1738,6 +2135,11 @@ window.GALLERY = {
     "The history of motion pictures",
     "Loops, cycles and children's science lessons"
    ],
+   "uses_cn": [
+    "讲解视觉暂留与动画原理",
+    "电影发展史",
+    "循环、周期主题与儿童科学课"
+   ],
    "dur": 54.4,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/zoetrope.mp4",
@@ -1759,6 +2161,11 @@ window.GALLERY = {
     "Music videos and live-show promos",
     "Event openers and award-show titles",
     "Product launches staged as a concert, and countdowns"
+   ],
+   "uses_cn": [
+    "音乐视频和现场演出宣传",
+    "活动开场与颁奖典礼片头",
+    "以演唱会形式呈现的产品发布会，以及倒计时"
    ],
    "dur": 60,
    "added": true,
@@ -1782,6 +2189,11 @@ window.GALLERY = {
     "Product builds",
     "Space"
    ],
+   "uses_cn": [
+    "玩具与儿童内容",
+    "产品拼搭",
+    "太空主题"
+   ],
    "dur": 54.0,
    "added": false,
    "video": "https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/brick-toy.mp4",
@@ -1803,6 +2215,11 @@ window.GALLERY = {
     "Children's books",
     "Game trailers",
     "Story films"
+   ],
+   "uses_cn": [
+    "童书",
+    "游戏宣传片",
+    "故事短片"
    ],
    "dur": 133.0,
    "added": false,
@@ -1826,6 +2243,11 @@ window.GALLERY = {
     "Real estate",
     "Transport"
    ],
+   "uses_cn": [
+    "城市宣传片",
+    "房地产",
+    "交通运输"
+   ],
    "dur": 38.0,
    "added": false,
    "video": "https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/tilt-shift.mp4",
@@ -1847,6 +2269,11 @@ window.GALLERY = {
     "Game trailers",
     "World building",
     "Calm content"
+   ],
+   "uses_cn": [
+    "游戏预告片",
+    "世界观构建",
+    "舒缓内容"
    ],
    "dur": 53.0,
    "added": false,
@@ -1870,6 +2297,11 @@ window.GALLERY = {
     "Consumer tech",
     "Beauty"
    ],
+   "uses_cn": [
+    "产品发布",
+    "消费电子",
+    "美妆"
+   ],
    "dur": 32.0,
    "added": false,
    "video": "https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/glass-product.mp4",
@@ -1891,6 +2323,11 @@ window.GALLERY = {
     "Kids & family stories",
     "Food & craft",
     "Gentle explainers"
+   ],
+   "uses_cn": [
+    "儿童与家庭故事",
+    "美食与手作",
+    "温和的科普讲解"
    ],
    "dur": 50.8,
    "added": true,
@@ -1914,6 +2351,11 @@ window.GALLERY = {
     "Product packaging and unboxing",
     "Instruction sheets and craft tutorials"
    ],
+   "uses_cn": [
+    "原理解析",
+    "产品包装与开箱",
+    "说明书与手工教程"
+   ],
    "dur": 50,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/origami.mp4",
@@ -1935,6 +2377,11 @@ window.GALLERY = {
     "Cause-and-effect and how-it-works explainers",
     "Bottlenecks, supply and dependency chains",
     "Product mechanisms and process post-mortems"
+   ],
+   "uses_cn": [
+    "因果关系和运行原理解说",
+    "瓶颈、供应链与依赖链",
+    "产品机制与流程复盘"
    ],
    "dur": 57.8,
    "added": true,
@@ -1958,6 +2405,11 @@ window.GALLERY = {
     "Soft characters and tutorials",
     "Warm product and maker stories"
    ],
+   "uses_cn": [
+    "温馨的儿童与手工艺内容",
+    "软萌角色和教程",
+    "温暖的产品与创作者故事"
+   ],
    "dur": 52,
    "added": true,
    "video": "https://github.com/zhgarylu/claude-video/releases/download/films/felt.mp4",
@@ -1979,6 +2431,11 @@ window.GALLERY = {
     "DIY, prototyping and maker explainers",
     "Packaging, unboxing and flat-pack assembly guides",
     "Children's projects and craft tutorials"
+   ],
+   "uses_cn": [
+    "DIY、原型制作与创客解说",
+    "包装、开箱与平板包装组装指南",
+    "儿童项目与手工教程"
    ],
    "dur": 54,
    "added": true,
@@ -2002,6 +2459,12 @@ window.GALLERY = {
     "Feature walkthroughs with exploded views",
     "Packaging and unboxing reveals",
     "E-commerce listings and price end cards"
+   ],
+   "uses_cn": [
+    "产品发布与主角级亮相",
+    "带分解视图的功能讲解",
+    "包装与开箱揭晓",
+    "电商商品页与价格结尾卡"
    ],
    "dur": 52.5,
    "added": true,

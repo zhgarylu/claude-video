@@ -13,6 +13,11 @@
   "Role and personality profiles",
   "Fortune-style explainers (playful, never medical)"
  ],
+ "uses_cn": [
+  "三部分判断与决策辅助",
+  "角色与性格画像",
+  "占卜风格的科普解说（趣味用途，绝不用于医疗）"
+ ],
  "frame_sec": 50.2,
  "dur": 58
 }

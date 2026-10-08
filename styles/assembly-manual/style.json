@@ -13,6 +13,11 @@
   "Recipes, workouts and craft how-tos told one action per page",
   "Onboarding, safety and maintenance steps for products and tools"
  ],
+ "uses_cn": [
+  "家具、设备与套件安装指南",
+  "每页只讲一个动作的食谱、健身与手工教程",
+  "产品和工具的入门、安全与维护步骤"
+ ],
  "frame_sec": 53.0,
  "dur": 58
 }

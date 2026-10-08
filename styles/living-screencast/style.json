@@ -13,6 +13,11 @@
   "Feature launches",
   "Onboarding"
  ],
+ "uses_cn": [
+  "产品教程",
+  "功能发布",
+  "新手引导"
+ ],
  "frame_sec": 5.94,
  "dur": 59.4
 }

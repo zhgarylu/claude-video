@@ -13,6 +13,11 @@
   "History explainers told through successive editions",
   "Editorial essays and announcements with a headline, a pull quote and a correction"
  ],
+ "uses_cn": [
+  "新闻回顾与事件时间线",
+  "通过一期期版面讲述的历史科普",
+  "社论文章与公告，含标题、引文和更正声明"
+ ],
  "frame_sec": 26.4,
  "dur": 52.6
 }

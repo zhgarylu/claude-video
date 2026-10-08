@@ -13,6 +13,11 @@
   "Product packaging and unboxing",
   "Instruction sheets and craft tutorials"
  ],
+ "uses_cn": [
+  "原理解析",
+  "产品包装与开箱",
+  "说明书与手工教程"
+ ],
  "frame_sec": 32.5,
  "dur": 50
 }

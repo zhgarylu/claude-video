@@ -13,6 +13,11 @@
   "Onboarding",
   "Social shorts"
  ],
+ "uses_cn": [
+  "游戏预告片",
+  "新手引导",
+  "社交平台短片"
+ ],
  "frame_sec": 23.92,
  "dur": 59.8
 }

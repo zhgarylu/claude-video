@@ -13,6 +13,11 @@
   "Rankings and leaderboards that reorder",
   "Announcements and one-line quotes"
  ],
+ "uses_cn": [
+  "日程、时刻表和倒计时",
+  "会重新排序的排名与排行榜",
+  "公告和一句话引用"
+ ],
  "frame_sec": 35.2,
  "dur": 60
 }

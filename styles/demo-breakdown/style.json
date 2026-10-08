@@ -15,6 +15,13 @@
   "Articles with their figures (research posts, news, announcements, blogs): quote the author's sentence with the key phrase highlighted as the voice reaches it, then show the figure zoomed to the part that carries the claim, with the credit on screen, our own stamped diagram and takeaways with the source",
   "News and announcement digests: a freshly released official demo or launch clip read in 60-90 seconds, with the source and date on screen, the source's own numbers attributed, one stamped diagram, and a conclusion that splits what the source claims from what is still to verify"
  ],
+ "uses_cn": [
+  "发布会和主题演讲：从一小时素材中挑出三到五个 10 到 30 秒的片段，分别说明发生了什么、产品能做什么、适用场景在哪里",
+  "产品录屏和 GitHub 演示：定格在能证明功能的画面，放大细节，给步骤编号，并指出没有展示的内容",
+  "教程和操作演示：原片按正常速度播放并配翻译字幕，在关键步骤暂停，最后用一整页总结要点",
+  "带图表的文章（研究帖、新闻、公告、博客）：引用作者原句，旁白读到关键短语时高亮显示；随后展示图表并放大支撑论点的部位，画面注明出处，再配上我们自己带标记的示意图和带来源的结论",
+  "新闻和公告摘要：用 60 到 90 秒解读刚发布的官方演示或发布片段，画面标明来源和日期，源方数据明确归属，配一张带标记的示意图，结论中区分源方主张和尚待验证的内容"
+ ],
  "frame_sec": 42.5,
  "dur": 75.1
 }

@@ -13,6 +13,11 @@
   "Documentary and place portraits",
   "Quiet explainers about change and loss"
  ],
+ "uses_cn": [
+  "关于记忆与时间流逝的故事",
+  "纪录片与地方肖像",
+  "讲述变化与失去的沉静科普片"
+ ],
  "frame_sec": 31.0,
  "dur": 57
 }

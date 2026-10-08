@@ -13,6 +13,11 @@
   "Event openers and award-show titles",
   "Product launches staged as a concert, and countdowns"
  ],
+ "uses_cn": [
+  "音乐视频和现场演出宣传",
+  "活动开场与颁奖典礼片头",
+  "以演唱会形式呈现的产品发布会，以及倒计时"
+ ],
  "frame_sec": 49.6,
  "dur": 60
 }

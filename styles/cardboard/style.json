@@ -13,6 +13,11 @@
   "Packaging, unboxing and flat-pack assembly guides",
   "Children's projects and craft tutorials"
  ],
+ "uses_cn": [
+  "DIY、原型制作与创客解说",
+  "包装、开箱与平板包装组装指南",
+  "儿童项目与手工教程"
+ ],
  "frame_sec": 5.4,
  "dur": 54
 }

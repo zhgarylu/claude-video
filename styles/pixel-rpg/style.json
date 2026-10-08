@@ -13,6 +13,11 @@
   "Recaps",
   "Nostalgia"
  ],
+ "uses_cn": [
+  "游戏预告",
+  "内容回顾",
+  "怀旧"
+ ],
  "frame_sec": 27.25,
  "dur": 54.5
 }

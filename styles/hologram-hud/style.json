@@ -13,6 +13,11 @@
   "Launch & crowdfunding videos",
   "Trade-show screens"
  ],
+ "uses_cn": [
+  "产品参数演示",
+  "新品发布与众筹视频",
+  "展会大屏"
+ ],
  "frame_sec": 25.5,
  "dur": 39.0
 }

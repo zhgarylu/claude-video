@@ -14,6 +14,12 @@
   "Brand sting",
   "Music lesson"
  ],
+ "uses_cn": [
+  "讲解一个音乐概念",
+  "播客片头",
+  "品牌音效签名",
+  "音乐课程"
+ ],
  "frame_sec": 37.3,
  "dur": 50.0
 }

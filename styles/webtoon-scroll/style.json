@@ -13,6 +13,11 @@
   "Explainers and product stories told as a character walking down one long strip: one panel per idea, a whip scroll for the big reveal",
   "Tutorials and how-tos as numbered panels with balloons, narration boxes and a next-episode or next-lesson bar"
  ],
+ "uses_cn": [
+  "以分集形式讲述短篇故事和日常漫画，用分格间隔控制节奏，并在结尾设置悬念条",
+  "以角色沿长卷前行的方式呈现讲解和产品故事：一格讲一个要点，快速滑到时揭晓亮点",
+  "将教程与操作指南做成带编号的分格，搭配对话气泡、旁白框，以及下一集或下一课入口条"
+ ],
  "frame_sec": 48.5,
  "dur": 62.5
 }

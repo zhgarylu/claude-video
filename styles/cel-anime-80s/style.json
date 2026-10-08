@@ -13,6 +13,11 @@
   "Game trailers",
   "Nostalgia"
  ],
+ "uses_cn": [
+  "音乐视频",
+  "游戏预告片",
+  "怀旧题材"
+ ],
  "frame_sec": 17.7,
  "dur": 59.0
 }

@@ -13,6 +13,11 @@
   "Event openers",
   "Trailers"
  ],
+ "uses_cn": [
+  "片头序列",
+  "活动开场",
+  "预告片"
+ ],
  "frame_sec": 26.46,
  "dur": 44.1
 }

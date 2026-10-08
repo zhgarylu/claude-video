@@ -13,6 +13,11 @@
   "Tourism promos",
   "Event posters"
  ],
+ "uses_cn": [
+  "路线与目的地指南",
+  "旅游宣传片",
+  "活动海报"
+ ],
  "frame_sec": 34.0,
  "dur": 38.4
 }
