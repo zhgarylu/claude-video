@@ -139,3 +139,13 @@ styles/*/demo/footage/fonts/
 styles/demo-breakdown/demo/article/out/
 styles/demo-breakdown/demo/article/work/
 styles/demo-breakdown/demo/article/fonts/*.ttf
+!styles/demo-breakdown/demo/news/src/footage.mp4
+styles/demo-breakdown/demo/news/out/
+styles/demo-breakdown/demo/news/work/
+styles/demo-breakdown/demo/news/fonts/*.ttf
+styles/demo-breakdown/demo/news/footage/out/
+styles/demo-breakdown/demo/news/footage/fonts/
+!styles/demo-breakdown/demo/news/stills/news-hook.jpg
+!styles/demo-breakdown/demo/news/stills/news-freeze.jpg
+!styles/demo-breakdown/demo/news/stills/news-conclusion.jpg
+!styles/demo-breakdown/demo/news/stills/news-poster.jpg

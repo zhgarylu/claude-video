@@ -11,6 +11,7 @@ This repository is a library of film styles. Each style has a `styles/<slug>/STY
 | The user's **own** video to restyle with new graphics, or to duplicate as an editable, re-renderable project (change a caption, a cut, a language) | [`REMAKE.md`](REMAKE.md): ask the rights question first, then `structure` / `restyle` / `exact` |
 | The user brings **existing footage** (a launch event, keynote, official demo, screen recording, GitHub demo, tutorial) and wants it explained: original clips plus narration, subtitles, freeze-frame breakdowns, stamped diagrams | [`BREAKDOWN.md`](BREAKDOWN.md) (style `demo-breakdown`, tools in `tools/breakdown/`) |
 | The user brings an **article with its figures** (research post, news, announcement, blog) and wants a film that quotes it and shows the pictures zoomed and annotated | [`BREAKDOWN.md`](BREAKDOWN.md) §8 (same style `demo-breakdown`, tools `article.py`, `figure` and `quote` shots) |
+| The user brings a **fresh news or announcement video** (an official demo, a launch clip) and wants a short commentary: what the source says, what is only claimed, what to verify | [`BREAKDOWN.md`](BREAKDOWN.md) §9 (news digest 资讯速读: `new.py --preset news`, warnings from `prep.py`) |
 | Directing: story, sound, rhythm, camera, checks, delivery | [`DIRECTOR.md`](DIRECTOR.md) |
 | Building: install, pages, voice, music, mix | [`TECHNIQUE.md`](TECHNIQUE.md) |
 | Tool commands and flags | [`core/README.md`](core/README.md) |

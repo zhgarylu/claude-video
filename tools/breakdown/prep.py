@@ -29,6 +29,17 @@ FPS = int(spec.get('fps', 24)); LANG = spec.get('lang', 'zh'); V = spec.get('asp
 SHOTS = spec['shots']; SRC = spec.get('sources', {}); first_src = next(iter(SRC), None)
 warns = []
 def warn(m): warns.append(m); print('WARN ', m)
+# spoken stage directions: the freeze, the box and the callout are the film's own effects; the voice never announces them
+_DIR = r'(?:停在这里|停在这儿|再停一下|先停一下|停一下|暂停一下|先暂停|定格在这里|定格一下|画面停住|看这里|请看这里|注意看|大家看|你看这里|我们来看一下|接下来看|Pause here|Hold on|Let\'s pause|Look here|Notice here)'
+DIRECTION_LEAD = re.compile(r'^\s*' + _DIR + r'\s*[：:，,。.！!、\-—]*\s*', re.I)
+DIRECTION_ANY = re.compile(_DIR, re.I)
+def strip_directions(t):
+    out = t
+    for _ in range(3):
+        n = DIRECTION_LEAD.sub('', out, count=1)
+        if n == out: break
+        out = n
+    return out
 def sh(*c, **k): return subprocess.run(c, capture_output=True, text=True, **k)
 def p(*a): return os.path.join(P, *a)
 for d in ('work/voices', 'work/frames', 'work/stills', 'work/images', 'work/audio', 'out', 'fonts'): os.makedirs(p(*d.split('/')), exist_ok=True)
@@ -53,6 +64,12 @@ for s in SHOTS:
         if len(s['text']) > 260: warn('%s: the quoted text is %d characters; a quote card reads best under about 120 (zh) / 220 (latin)' % (s['id'], len(s['text'])))
     if '"TODO' in json.dumps(s, ensure_ascii=False): sys.exit('shot %s still has a "TODO ..." placeholder: write it or delete it' % s['id'])
     if re.match(r'\s*TODO', str(s.get('say') or '')): sys.exit('shot %s: the narration is still a TODO placeholder: write it (or delete the shot)' % s['id'])
+    for _k in ('say', 'speak'):                                                  # stage directions are the film's own plan, never narration
+        if s.get(_k):
+            _new = strip_directions(str(s[_k]))
+            if _new != s[_k]: warn('%s: removed a spoken stage direction from %s (%r -> %r): the pause is shown by the picture, the narration says what it means' % (s['id'], _k, str(s[_k])[:24], _new[:24])); s[_k] = _new
+            _m = DIRECTION_ANY.search(s[_k])
+            if _m: warn('%s: the narration says %r: that announces the film\'s own layout (pause, look here, next); say what the picture shows instead' % (s['id'], _m.group(0)))
     for ref_k in ((s.get('bg') or {}).get('src'),):
         if ref_k and ref_k not in SRC: sys.exit('shot %s: bg names an unknown source %r' % (s['id'], ref_k))
     if s['type'] == 'clip' and not (s.get('out', 0) > s.get('in', 0) >= 0): sys.exit('clip %s: "in" and "out" (seconds in the source) are required, out > in' % s['id'])
@@ -60,6 +77,47 @@ for s in SHOTS:
     if s['type'] == 'explain' and s.get('kind') == 'list' and len(s.get('items', [])) > (3 if not V else 4): warn('%s: a list of %d items does not fit the explain area at %s (at most %d)' % (s['id'], len(s['items']), '9:16' if V else '16:9', 4 if V else 3))
     if s['type'] == 'explain' and s.get('kind', 'flow') not in ('flow', 'list', 'beforeafter', 'number'): sys.exit('explain %s: kind is flow|list|beforeafter|number' % s['id'])
     if s['type'] in ('explain', 'compare') and not s.get('basis'): warn('%s: add "basis" (what in the source supports this drawing); it is printed under every interpretation' % s['id'])
+# ── news digest (spec "preset": "news"): extra guard rails, printed as warnings, never a hard failure (BREAKDOWN.md section 9)
+NEWS = spec.get('preset') == 'news'; NEWS_NOTES = []
+def news_warn(m): NEWS_NOTES.append(m); warn('news: ' + m)
+if NEWS:
+    for k_ in ('news', 'sections'):
+        if '"TODO' in json.dumps(spec.get(k_), ensure_ascii=False): sys.exit('"%s" in breakdown.json still has a "TODO ..." placeholder: write it (the source and the date go on screen)' % k_)
+    NW = spec.get('news') or {}; NKEYS = {'id', 'type', 'kind', 'src', 'file', 'dir', 'side', 'pos', 'sound', 'layout', 'rect', 'at', 'from', 'to', 'crop', 'n'}
+    def strings(o, key=''):
+        if isinstance(o, str):
+            if key not in NKEYS: yield o
+        elif isinstance(o, dict):
+            for k_, v_ in o.items(): yield from strings(v_, k_)
+        elif isinstance(o, list):
+            for v_ in o: yield from strings(v_, key)
+    hooks = [s for s in SHOTS if s['type'] == 'hook']
+    DATE_RE = r'\d{4}\s*[./\-年]\s*\d{1,2}|\d{1,2}\s*[./\-月]\s*\d{1,2}\s*日?|(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+\d{1,2}'
+    if not hooks: news_warn('there is no hook shot, so the source and the date are not on screen')
+    else:
+        metas = [m_ for hk in hooks for m_ in (hk.get('meta') or [])]
+        if not re.search(DATE_RE, ' '.join(metas), re.I): news_warn('the hook has no publication date chip in "meta" (for example "2026.10.06 发布"): the viewer must see when the source was published')
+        if not any(re.search(r'来源|出自|发布方|官方|source|official|via|from|by ', m_, re.I) for m_ in metas): news_warn('the hook has no source chip in "meta" (for example "来源：某公司发布页"): name the source on screen')
+        if not hooks[0].get('kicker'): news_warn('the hook has no "kicker" (company and product name)')
+    if not NW.get('published'): news_warn('"news.published" (the publication date of the source) is missing')
+    if not (NW.get('title') or NW.get('url')): news_warn('"news.title" / "news.url" (what the source is) is missing')
+    if not NW.get('claims'): news_warn('"news.claims" is empty: list the official claims the film is allowed to repeat, and check FACTS.md against them')
+    if not 2 <= len(spec.get('sections') or []) <= 4: news_warn('a news digest has 2-4 key points ("sections"), this one has %d' % len(spec.get('sections') or []))
+    for s in SHOTS:
+        if s['type'] in ('explain', 'compare') and not s.get('basis'): news_warn('%s: no "basis" line: every explain and conclusion shot names what in the source supports it (printed as 依据：…)' % s['id'])
+        if s.get('verified') and s['type'] in ('clip', 'freeze') and '官方' in (s.get('tag') or spec.get('tag') or '') + '': news_warn('%s: marked verified but its tag still says it is the official demo: give it its own "tag" (for example 我们的实测)' % s['id'])
+    NOT_OURS = r'(不是|并非|非|并不是)[^，。；,.;]{0,8}(实测|测试|评测)|not\s+(an?\s+|our\s+)?(own\s+|independent\s+)?(test|measurement|benchmark|review)|(reading|read) of (an?|the) official'
+    say_all = ' '.join(str(s.get('say') or '') + ' ' + str(s.get('verdict') or '') for s in SHOTS)
+    if not any(s.get('verified') for s in SHOTS) and not re.search(NOT_OURS, say_all, re.I): news_warn('no narration line says this is a reading of an official demo and not our own test (for example "这是官方演示解读，不是我们的实测"), and no key point is marked "verified": true')
+    cmps = [s for s in SHOTS if s['type'] == 'compare']
+    if not any(len(s.get('cols') or [c_ for c_ in (s.get('left'), s.get('right')) if c_]) >= 2 for s in cmps): news_warn('the conclusion has no claims split: a compare shot with two columns, what the source says / what is still to verify')
+    elif not any(s.get('verdict') for s in cmps): news_warn('the conclusion has no "verdict" (the one action line the viewer can take away)')
+    HYPE = r'颠覆|革命性|史诗|碾压|吊打|炸裂|王炸|史无前例|划时代|秒杀|遥遥领先|重磅|震撼|惊艳|完爆|无敌|天花板|吊炸天|yyds|revolutionary|game[- ]?chang|groundbreaking|jaw[- ]?dropping|mind[- ]?blowing|insane|unprecedented|best ever|crush(es|ed|ing)? |blazing'
+    for s in SHOTS:
+        m_ = re.search(HYPE, ' '.join(strings(s)), re.I)
+        if m_: news_warn('%s: hype word "%s": say what the source shows, not how impressive it is' % (s['id'], m_.group(0).strip()))
+    for k_, v_ in SRC.items():
+        if not is_image(k_) and not (v_.get('credit') or v_.get('url')): news_warn('source %s has no "credit" or "url": the source is credited on screen and in CREDITS, and the licence or permission is the maker\'s to fill in' % k_)
 def srcof(s):
     k = s.get('src') or first_src; return k, SRC[k]
 def srcfile(k): return p(SRC[k]['file']) if not os.path.isabs(SRC[k]['file']) else SRC[k]['file']
@@ -383,19 +441,32 @@ if not os.path.exists(p('CREDITS')) or A.force:
             v = SRC[k]; used = [s['id'] for s in SHOTS if s['type'] == 'figure' and s['src'] == k] + [s['id'] + ' (background)' for s in SHOTS if s['type'] == 'hook' and (s.get('bg') or {}).get('src') == k]
             L_.append('  - %s: %s | source: %s | licence / permission: %s | credit: %s | used: %s' % (k, v.get('title') or v.get('caption') or v.get('alt') or '(title?)', v.get('url') or v.get('file'), v.get('licence') or ART.get('licence') or 'TODO: write the licence or the permission here', v.get('credit') or '(none given)', '; '.join(used) or '(not used)'))
         L_.append('  Rights: the pictures and the article text are not covered by this library\'s licences; the film is the maker\'s, with the article\'s material in it. Check every TODO above before publishing.')
+    if NEWS:
+        nw_ = spec.get('news') or {}
+        L_.append('News digest: the film reads %s%s, published %s. The claims are the source\'s, repeated as such; nothing in the film is our own measurement unless a shot says so. The source is credited on screen (hook) and here.' % (nw_.get('title') or 'the source', (' (' + nw_['url'] + ')') if nw_.get('url') else '', nw_.get('published') or '(date?)'))
     L_ += ['Interpretation drawings (stamped "解读示意" on screen): drawn in code for this film; they are not part of the source material and show our reading of it',
            'Font: Noto Sans SC (SIL OFL 1.1, google/fonts; licence text in fonts/)',
            ('Voice: Doubao speech synthesis (Volcengine), voice %s' % VNAME) if os.environ.get('BREAKDOWN_TTS') == 'volc' else 'Voice: Microsoft Edge neural voice %s via edge-tts (online service: check Microsoft\'s terms before commercial use)' % VNAME,
-           'Music and sound effects: generated in code (tools/breakdown/mix.py, numpy); no samples',
+           ('Music: %s | source: %s | licence: %s (the sound effects are generated in code, tools/breakdown/mix.py)' % (' - '.join(x for x in ((spec.get('music') or {}).get('title'), (spec.get('music') or {}).get('artist')) if x) or (spec.get('music') or {}).get('file'), (spec.get('music') or {}).get('source') or (spec.get('music') or {}).get('url') or 'TODO: source URL', (spec.get('music') or {}).get('licence') or 'TODO: licence name')) if (spec.get('music') or {}).get('file') else 'Music and sound effects: generated in code (tools/breakdown/mix.py, numpy); no samples',
            'Facts: FACTS.md']
     open(p('CREDITS'), 'w', encoding='utf8').write('\n'.join(L_) + '\n')
 if not os.path.exists(p('FACTS.md')):
     rows = ['# Facts: every claim the narration and the screen make about the source', '', 'Fill the last two columns from the official source before delivery; delete rows that make no claim. Never state more than the footage shows.', '',
             '| shot | what the film says | source time | official source (URL or document) | checked |', '|---|---|---|---|---|']
+    if NEWS:
+        nw_ = spec.get('news') or {}
+        rows[2:2] = ['News digest: for every row say whose claim it is: **official** (the source says it: quote it exactly, with its page), **on screen** (the frame shows it: give the time), or **ours** (a reading, or something we tested: say how). Numbers are exactly as the source gives them; estimates are marked. An official claim is never presented as our measurement.', '',
+                     'Source: %s | %s | published %s' % (nw_.get('title', ''), nw_.get('url', ''), nw_.get('published', '')), 'Official claims the film may repeat (news.claims): ' + ('; '.join(str(c_) for c_ in nw_.get('claims', [])) or '(none listed)'), '']
     for s in SHOTS:
         if s.get('say'): rows.append('| %s | %s | %s |  |  |' % (s['id'], s['say'].replace('|', '/'), ('%.1f–%.1f s' % (s['in'], s['out'])) if s['type'] == 'clip' else ('%.1f s' % s['t']) if s['type'] == 'freeze' else ('figure %s (%s)' % (s['src'], (SRC[s['src']].get('caption') or SRC[s['src']].get('title') or '').replace('|', '/')[:60])) if s['type'] == 'figure' else ('quote %s: %s' % (s.get('ref', ''), s['text'][:50].replace('|', '/'))) if s['type'] == 'quote' else s.get('basis', '')))
     open(p('FACTS.md'), 'w', encoding='utf8').write('\n'.join(rows) + '\n')
 if ART or IMG_SRC:
     print('RIGHTS: the article text and its pictures are used on your responsibility (the owner\'s licence or permission, platform terms, fair use where you publish). CREDITS lists each source; fill in every TODO. The credit stays on screen with each figure.')
+if NEWS:
+    nw_ = spec.get('news') or {}; lines_ = ['News digest check for %s' % (spec.get('title') or os.path.basename(P)), 'Source: %s | %s | published %s' % (nw_.get('title', ''), nw_.get('url', ''), nw_.get('published', '')), '']
+    lines_ += ['  - ' + m for m in NEWS_NOTES] if NEWS_NOTES else ['  (no warnings from the automatic rules)']
+    lines_ += ['', 'Before publishing, check by hand: the source link opens and is the page you used; the publication date is right; every official claim in the film is in news.claims or on a source frame;', 'numbers are exactly as the source gives them (estimates marked); nothing the source did not say; what remains unverified is said aloud; the source is credited on screen and in CREDITS; the rights note went to the user.']
+    open(p('out', 'news-check.txt'), 'w', encoding='utf8').write('\n'.join(lines_) + '\n')
+    print('NEWS DIGEST: %d point(s) to settle before publishing (also in out/news-check.txt)' % len(NEWS_NOTES))
 print('timeline: %d shots, %.1f s, %d subtitle cues; %d warning(s)' % (len(tl_shots), DUR, len(cues), len(warns)))
 for s in tl_shots: print('  %-10s %-8s %6.1f - %6.1f  (%4.1f s)%s' % (s['id'], s['type'], s['t0'], s['t0'] + s['dur'], s['dur'], '  voice %.1f s' % s['voice']['dur'] if s.get('voice') else ''))

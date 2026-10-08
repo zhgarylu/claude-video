@@ -74,3 +74,25 @@ Structure used: *one claim, then the proof* (two times), our own reading, takeaw
 
 Build: `sh styles/demo-breakdown/demo/article/build.sh` (figures → `article.py` → project → `tools/breakdown/build.sh`, 16:9 and 9:16, about 3.5 minutes). Narration: edge-tts `zh-CN-YunxiNeural` (two lines carry numerals in `speak`); the speech check mis-hears "无人机" and "潜水员" and was not overruled with `asr`, because the narration was not listened to by the person who wrote the tool. The quote highlights are timed from the voice file's pauses (`align.py`), which is an estimate.
 
+---
+
+# The news-digest demo — *絮语 Mini：官方演示速读* (70.7 s, −14.2 LUFS, true peak −1.1 dB) · `demo-breakdown-news.mp4` · source in [`demo/news/`](demo/news/)
+
+The third film of this style shows the **news-digest** way of working (BREAKDOWN.md §9): a fresh official release read in 71 seconds (70.7 s), with the source and date on screen, the source's own number attributed, and a conclusion that splits what the source says from what is still to verify. **Everything is invented**: the company (岚屿实验室, Lanyu Labs), the product (絮语 Mini, an on-device transcription app), the release page, the date (2026-09-18) and every number. The "official demo clip" (`demo/news/src/footage.mp4`, 19 s, 1080x1920 portrait, a phone showing the app) is drawn in code by `demo/news/footage/`, the same way the first demo's footage is; the film pillar-boxes it on the blurred backdrop like any portrait phone clip. Every tag and chip says "虚构". The other demos are untouched.
+
+Structure used: hook (what and who, source and date) → two key points, each *clip → freeze on the source's own evidence* → a stamped diagram of how it probably works → a conclusion with the claims split and one action line.
+
+| # | Time | Shot | What it shows |
+|---|---|---|---|
+| hook | 0.0–10.1 | hook | kicker "岚屿实验室 · 絮语 Mini（虚构）", the headline, "官方说：全程在手机本地完成", chips: source and publish date, tag "2 个看点" |
+| c1 | 10.1–18.1 | clip 1.6–9.6 s (portrait) | choose a 2:40 recording, tap, the transcript fills; lower third names the demo and its input; a highlight on the button |
+| f1 | 18.1–28.7 | freeze 9.4 s, zoom | boxes on the airplane-mode icon with the 离线运行 badge and on the "用时 6 秒" banner; callout "官方演示的读数 — 6 秒是演示机型上的，不是我们测的" |
+| c2 | 28.7–35.9 | clip 10.8–18.0 s | tap 生成纪要, the minutes sheet slides up: one decision, three to-dos with source timestamps |
+| f2 | 35.9–44.4 | freeze 17.8 s, zoom | box on the three to-dos; a box on the three to-dos labelled "每条都带原文时间" (no card: the card would cover the timestamps); the voice says the quality of the minutes cannot be judged from the demo |
+| e1 | 44.4–55.3 | explain / flow, stamped | file → local transcription → text, then minutes; basis "官方发布页「工作方式」一节；内部流程为推测；非独立实测" |
+| cmp | 55.3–70.5 | compare, stamped | 官方说的 / 要自己验证的, verdict plate "先用自己的一段录音试一轮", basis "官方发布页与演示片；非独立实测" |
+
+Native moves spent: *say whose number it is* (f1), *pause on the evidence*, *zoom into the detail*, *redraw it as a flow and say it is a guess* (e1), *close on what was not shown* (cmp). The narration says openly, in the conclusion, "这是官方演示解读，不是我们的实测". `prep.py`'s news-digest check passes with no warnings on this film (`demo/news/out/news-check.txt`).
+
+Build: `sh styles/demo-breakdown/demo/news/build.sh` (footage → `tools/breakdown/build.sh` → the style folder; about 3 minutes; the invented footage is skipped when `demo/news/src/footage.mp4` exists). Narration: edge-tts `zh-CN-YunxiNeural`; the speech check mis-hears the invented names (岚屿 → 蓝宇, 絮语 → 序语) and "纪要", and was not overruled with `asr`, because the narration was not listened to by the person who wrote the tool. Sound: the footage's own UI sounds are ducked under the voice; music and foley as in the other demos.
+

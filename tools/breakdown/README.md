@@ -14,12 +14,16 @@ sh tools/breakdown/build.sh films/<name> [--vertical]                           
 .venv/bin/python tools/breakdown/new.py films/<name> --article work/article [--lang zh]   # first-draft shot list, every narration a TODO
 ```
 
+# a news digest (资讯速读): an official demo or launch clip, a short commentary film with guard rails (BREAKDOWN.md section 9)
+.venv/bin/python tools/breakdown/new.py films/<name> --preset news --source <video> [--points 2-4] [--news-title "…"] [--news-url …] [--published YYYY-MM-DD] [--lang zh|en]   # --news is the same flag
+
 | File | What it does |
 |---|---|
 | `ingest.py <video>\|--url … --out dir` | Probe; transcript with word times (faster-whisper, `--lang`, `--model small`); scene cuts; keyframes every 3-8 s; OCR of on-screen text (macOS Vision, the helper `tools/teardown/ocr.swift`; skipped elsewhere); writes `index.json`, `index.md`, `transcript.txt`. `--url` runs `yt-dlp` only if it is already on the PATH (never installed) and prints the rights note. |
 | `find.py <dir> "phrase" [--top 5] [--min 8] [--max 30] [--json]` | Searches speech and screen text (Chinese by characters and pairs, others by words), clusters hits, snaps to scene cuts, prints `{"in","out"}` seconds, the sentence, the on-screen text and a keyframe path. |
 | `new.py <project> --source <video>…` | Copies `template/` (`index.html`, `main.js`), puts the footage in `src/` (`--link` links instead of copying), writes a first `breakdown.json`. |
-| `prep.py <project>` | Validates the spec; voice (`core/tts/tts_zh.py`, edge-tts Yunxi by default) and its speech-to-text check; cuts every clip to JPEG frames at 24 fps and every freeze to one still; extracts each clip's own sound; computes `timeline.json` (shot times, reveal time of every element, subtitle cues) from the narration lengths and the reading-time rule; writes `CREDITS` and a `FACTS.md` skeleton (never overwritten). A clip whose narration is too long is sped up to +22 % and re-voiced; beyond that it warns. |
+| `new.py <project> --preset news --source <video>` | A news-digest project (`--news` is the same flag; `--points 2-4`, `--news-title`, `--news-url`, `--published`, `--lang zh\|en`): hook, a clip and a freeze per key point, one stamped diagram, a conclusion with a two-column claims split; `"preset": "news"` and a `"news"` block; every narration, label and the `news` block are `TODO …`, so `prep.py` refuses to build until they are written. `news_skeleton.py` holds the draft. |
+| `prep.py <project>` | Validates the spec; voice (`core/tts/tts_zh.py`, edge-tts Yunxi by default) and its speech-to-text check; cuts every clip to JPEG frames at 24 fps and every freeze to one still; extracts each clip's own sound; computes `timeline.json` (shot times, reveal time of every element, subtitle cues) from the narration lengths and the reading-time rule; writes `CREDITS` and a `FACTS.md` skeleton (never overwritten). A clip whose narration is too long is sped up to +22 % and re-voiced; beyond that it warns. With `"preset": "news"` it also prints the news-digest warning list (below) and writes `out/news-check.txt`. |
 | `mix.py <project>` | Voice, each clip's own sound (`mute`, `duck` = 13 dB down under the voice, `keep`), a quiet music bed (A minor pad, soft pluck, sub; ducked 8 dB under the voice, 12 dB more under a kept clip), light foley from the page's events (shutter, ticks, whooshes, pops). |
 | `lint.mjs <project>` | Samples the page every 0.25 s; reports text boxes that overlap, leave the frame, or run into the subtitle band, text set under 30 px, and text that covers a figure's boxes or markers (`window.FOCUS`). |
 | `build.sh <project> [--vertical]` | prep, events, readcheck, lint, mix, `.srt`, render, master to −14 LUFS, a 16:9 and a 9:16 poster, `tools/check.py`. `--vertical` also renders the 9:16 film. Environment: `NAME`, `OUT_DIR`, `NOVOICE=1`, `WORKERS`. |
@@ -41,15 +45,21 @@ Every shot shares it, so nothing jumps. 16:9 (1920×1080): tag plate top-left (w
 { "title": "…", "series": "实录解读", "lang": "zh", "aspect": "16x9", "fps": 24,
   "theme": "dark",                       // "dark" | "light" | { "base": "dark", "accent": "#7CE0FF", "accentInk": "#04121A", … } (theme.js lists every key)
   "voice": { "name": "zh-CN-YunxiNeural", "rate": "+0%" },
-  "music": { "bpm": 92, "level": 1.0 },
+  "music": { "bpm": 92, "level": 1.0 },  // or a supplied track instead of the synthesised bed: { "file": "src/music/x.mp3", "level": 1.0, "start": 0, "fade_out": 3, "under_db": 8, "title": "…", "artist": "…", "source": "https://…", "licence": "…" }  (file: mp3/wav/m4a, decoded by ffmpeg, trimmed from `start` s, looped if shorter than the film, levelled about 16 dB under the voice while it speaks (bed = voice RMS - under_db, then ducked 8 dB under the voice, 12 dB more under a kept clip), faded in 1.5 s and out over `fade_out` s; the foley stays; title/artist/source/licence are written into CREDITS; keep the track's licence terms yourself)
   "tag": "官方演示 · 节选",               // the default source label on clip and freeze shots; a shot's own "tag" overrides
   "sources": { "main": { "file": "src/talk.mp4", "title": "…", "url": "…", "licence": "…", "credit": "…", "note": "…" },   // → CREDITS
                "f1": { "file": "src/f1.png", "caption": "…", "credit": "Site · Article", "url": "…", "licence": "…" } },       // a still image (png / jpg / webp) is a source too: used by figure shots; "credit" is printed on screen
   "article": { "title": "…", "author": "…", "site": "…", "date": "…", "url": "…", "licence": "…", "note": "…" },          // article films: the attribution of quote cards and the CREDITS entry
-  "labels": { "figure": "…", "quote": "…", "credit": "图源：", "from": "出自：" },                                        // optional: the fixed labels of figure and quote shots (default: Chinese or English by "lang")
+  "labels": { "figure": "…", "quote": "…", "credit": "图源：", "from": "出自：", "points": "{n} 个看点", "concl": "结论", "paused": "已暂停", "orig": "原片" },                                        // optional: the fixed labels of figure and quote shots (default: Chinese or English by "lang"; `points`, `concl`, `paused`, `orig` are the hook's key-point count, the conclusion tag and the timecode chips)
+  "preset": "news",                      // optional: a news digest (BREAKDOWN.md section 9). prep.py adds the warning list below, CREDITS a "News digest" line, FACTS.md a "whose claim" preface
+  "news": { "title": "…", "url": "…", "published": "2026-09-18", "claims": ["the official claims the film may repeat, in the source's words"], "verified": false },   // title/url as plain text: never fetched. TODO strings here stop prep.py like TODOs in shots
   "sections": ["第一个看点", "第二个看点"],    // the top-right tag; a shot says which with "section": 1
   "shots": [ … ] }
 ```
+
+A `clip` or `freeze` of a news digest may carry `"verified": true` (the maker tested this point; give the shot its own `tag`, for example 我们的实测): such a film may leave out the "not our test" line, for that point only.
+
+**News-digest warnings** (`"preset": "news"`; printed by `prep.py` as `WARN news: …`, also in `out/news-check.txt`; never a hard failure): the hook has no publish-date chip in `meta`, no source chip, no `kicker`; `news.published`, `news.title` / `news.url` or `news.claims` is missing; the film does not have 2-4 `sections`; an `explain` or `compare` has no `basis`; no narration line (`say`, `verdict`) says it is a reading of an official demo and not our test, and no shot is `verified`; no `compare` has two columns (the claims split) or none has a `verdict` (the action line); a hype word (颠覆, 炸裂, 碾压, revolutionary, …) appears on screen or in the narration; a `verified` shot still wears the official tag; a video source has neither `credit` nor `url`.
 
 Common to every shot: `id` (unique, `[A-Za-z0-9_-]`), `type`, `section`, `say` (the narration, also the subtitle text), `speak` (how to read it aloud when different: numbers, names), `asr` (what speech-to-text is allowed to hear), `rate`, `say_at` (seconds into the shot where the voice starts), `dur` (minimum length for non-clip shots), `src` (which source; default the first). Times in `sched` are computed; give an item its own `time` (seconds from the shot start) to override the automatic spread over the narration.
 

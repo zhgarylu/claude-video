@@ -1,0 +1,8 @@
+Footage (supplied by the film's maker, who is responsible for the right to use it; every clip is shown at its original speed, with the source named on screen):
+  - main: 絮语 Mini 官方演示（虚构产品） | source: fictional: no real page exists | licence / permission: CC0: drawn in code for this library; the company, the product and the release are invented | credit: 岚屿实验室（虚构）· Lemo-Opuscar | used: c1 1.6–9.6 s; f1 frame at 9.4 s; c2 10.8–18.0 s; f2 frame at 17.8 s
+News digest: the film reads 岚屿实验室发布絮语 Mini（虚构） (fictional: no real page exists), published 2026-09-18. The claims are the source's, repeated as such; nothing in the film is our own measurement unless a shot says so. The source is credited on screen (hook) and here.
+Interpretation drawings (stamped "解读示意" on screen): drawn in code for this film; they are not part of the source material and show our reading of it
+Font: Noto Sans SC (SIL OFL 1.1, google/fonts; licence text in fonts/)
+Voice: Microsoft Edge neural voice zh-CN-YunxiNeural via edge-tts (online service: check Microsoft's terms before commercial use)
+Music and sound effects: generated in code (tools/breakdown/mix.py, numpy); no samples
+Facts: FACTS.md

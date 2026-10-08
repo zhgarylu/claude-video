@@ -62,7 +62,7 @@ def pluck(f, d=.9):
 def sub(f, d):
     t = np.arange(int(d * SR)) / SR; return (np.sin(2 * np.pi * f * t) + .3 * np.sin(2 * np.pi * f * 2 * t)) * np.minimum(1, t / .03) * np.minimum(1, (d - t) / .15)
 CH = [(45, [57, 60, 64, 71]), (41, [57, 60, 65, 69]), (48, [55, 60, 64, 67]), (43, [55, 59, 62, 69])]      # Am9, Fmaj7, C, G6
-bars = int(DUR / (4 * BEAT)) + 2
+bars = int(DUR / (4 * BEAT)) + 2 if not M.get('file') else 0      # a music file replaces the synthesised bed (see below)
 for b in range(bars):
     root, ch = CH[b % 4]; t0 = b * 4 * BEAT; ramp = min(1.0, .35 + b / 6)
     for k, n in enumerate(ch): put(mus, stereo(pad(mtof(n), 4 * BEAT + 1.0)) * np.array([1 - .12 * k, .88 + .12 * k]), t0 + .02 * k, .5 * ramp)
@@ -74,8 +74,30 @@ for b in range(bars):
     if b >= 2:
         for i in range(8):
             if i % 2 == 1: put(mus, stereo(sfx.hp(sfx.noise(.05), 6000, 2) * np.exp(-np.arange(int(.05 * SR)) / SR / .015)), t0 + i * BEAT / 2, .05 * ramp)
-mus *= LEVEL * 0.1 * (duck(env, 8) * (1 - .75 * keep_env))[:, None]
-fi, fo = int(1.2 * SR), int(2.2 * SR); mus[:fi] *= np.linspace(0, 1, fi)[:, None]; end = int(DUR * SR); mus[end - fo:end] *= np.linspace(1, 0, fo)[:, None]; mus[end:] = 0
+vm0 = np.abs(voice[:, 0]) > 1e-3
+if M.get('file'):
+    # a supplied track: decoded by ffmpeg, trimmed from `start` (s), looped if shorter than the film, levelled to sit MUSIC_DB under the voice (before the extra ducking), faded in 1.5 s and out over `fade_out` s
+    import subprocess, tempfile
+    mf = M['file'] if os.path.isabs(M['file']) else os.path.join(P, M['file'])
+    if not os.path.exists(mf): sys.exit('music file not found: ' + mf)
+    tmp = os.path.join(tempfile.gettempdir(), 'bd_music_%d.wav' % os.getpid())
+    r = subprocess.run(['ffmpeg', '-v', 'error', '-y', '-ss', str(M.get('start', 0)), '-i', mf, '-vn', '-ac', '2', '-ar', str(SR), '-c:a', 'pcm_f32le', tmp], capture_output=True, text=True)
+    if r.returncode: sys.exit('ffmpeg could not read the music file: ' + r.stderr[-300:])
+    raw, _ = sf.read(tmp, dtype='float32'); os.remove(tmp); raw = stereo(raw)
+    if len(raw) < N: raw = np.tile(raw, (int(np.ceil(N / len(raw))), 1))             # loop (the seam is covered by the 0.5 s crossfade below only if the track is long enough; a film longer than the track repeats it)
+    raw = raw[:N].copy(); fl = int(.02 * SR)
+    k = int(3.0 * SR); e = np.sqrt(np.convolve((raw ** 2).mean(1), np.ones(k) / k, 'same') + 1e-9)      # slow envelope of the track
+    tgt = float(np.median(e[vm0])) if vm0.any() else float(np.median(e))
+    raw *= np.clip((tgt / e) ** .6, .5, 2.0)[:, None].astype(np.float32)                                # flatten a crescendo partly, so the voice stays on top late in the film
+    ref = float(np.sqrt((raw[vm0] ** 2).mean() if vm0.any() else (raw ** 2).mean()) + 1e-9)
+    vdb = 20 * np.log10(np.sqrt((voice[vm0] ** 2).mean()) + 1e-9) if vm0.any() else -20.0
+    mus = raw / ref * 10 ** ((vdb - float(M.get('under_db', 8))) / 20) * LEVEL         # bed RMS = voice RMS - under_db; the 8 dB duck below makes it ~16 dB under the voice while speaking
+    mus *= (duck(env, 8) * (1 - .75 * keep_env))[:, None]
+    fi = int(1.5 * SR); fo = int(float(M.get('fade_out', 3)) * SR); end = int(DUR * SR)
+    mus[:fi] *= np.linspace(0, 1, fi)[:, None]; mus[end - fo:end] *= np.linspace(1, 0, fo)[:, None]; mus[end:] = 0
+else:
+    mus *= LEVEL * 0.1 * (duck(env, 8) * (1 - .75 * keep_env))[:, None]
+    fi, fo = int(1.2 * SR), int(2.2 * SR); mus[:fi] *= np.linspace(0, 1, fi)[:, None]; end = int(DUR * SR); mus[end - fo:end] *= np.linspace(1, 0, fo)[:, None]; mus[end:] = 0
 
 # ── foley from the page's events
 fx = np.zeros((N, 2), np.float32); last = {}

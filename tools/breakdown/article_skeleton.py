@@ -41,7 +41,7 @@ def make(art_dir, P, A):
         for fid in sec['figures']:
             if fid not in figs or used_fig >= 4: continue
             used_fig += 1
-            shots.append({'id': 'fig%d' % used_fig, 'type': 'figure', 'section': i + 1, 'src': fid, 'crop': None, 'boxes': [{'rect': [0.1, 0.1, 0.3, 0.3], 'label': T('看这里', 'look here')}],
+            shots.append({'id': 'fig%d' % used_fig, 'type': 'figure', 'section': i + 1, 'src': fid, 'crop': None, 'boxes': [{'rect': [0.1, 0.1, 0.3, 0.3], 'label': T('关键部分', 'key part')}],
                           'markers': [{'n': 1, 'at': [0.25, 0.25], 'text': T('这一处说明什么', 'what this shows')}], 'card': {'title': T('图里的发现', 'what the figure shows'), 'body': T('只写图能证明的一句话。', 'one sentence the figure proves.')}, 'say': T('先说图画了什么，再说它支持哪句话。', 'what the figure draws, then which sentence it supports.')})
             if not diagram_done:
                 diagram_done = True

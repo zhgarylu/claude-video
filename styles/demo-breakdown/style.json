@@ -12,7 +12,8 @@
   "Launch events and keynotes: pick three to five 10-30 second moments from an hour of footage and explain each as what happens, what the product does, where it applies",
   "Product screen recordings and GitHub demos: freeze on the frame that proves a feature, zoom to the detail, number the steps, say what was not shown",
   "Tutorials and walkthroughs: the original clip at its own speed with translated subtitles, pauses at the decisive step and a one-screen takeaway",
-  "Articles with their figures (research posts, news, announcements, blogs): quote the author's sentence with the key phrase highlighted as the voice reaches it, then show the figure zoomed to the part that carries the claim, with the credit on screen, our own stamped diagram and takeaways with the source"
+  "Articles with their figures (research posts, news, announcements, blogs): quote the author's sentence with the key phrase highlighted as the voice reaches it, then show the figure zoomed to the part that carries the claim, with the credit on screen, our own stamped diagram and takeaways with the source",
+  "News and announcement digests: a freshly released official demo or launch clip read in 60-90 seconds, with the source and date on screen, the source's own numbers attributed, one stamped diagram, and a conclusion that splits what the source claims from what is still to verify"
  ],
  "frame_sec": 42.5,
  "dur": 75.1

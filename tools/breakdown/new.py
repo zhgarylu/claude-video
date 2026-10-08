@@ -3,6 +3,8 @@
   .venv/bin/python tools/breakdown/new.py films/<name> --source <video> [--source name=<video> ...] [--aspect 16x9|9x16] [--theme dark|light] [--title "…"] [--link]
   .venv/bin/python tools/breakdown/new.py films/<name> --article work/article [--lang zh|en] [--aspect …] [--theme …]       # an article project (article.py's output folder); --lang = the FILM's language (default: the article's)
 
+  .venv/bin/python tools/breakdown/new.py films/<name> --preset news --source <video> [--points 2-4] [--news-title "…"] [--news-url …] [--published YYYY-MM-DD] [--lang zh|en]    # a news digest (BREAKDOWN.md section 9); --news is the same
+
 --link makes src/ a symlink to the original instead of copying it (for long videos). Nothing is downloaded or re-encoded; the footage is used as given.
 --article writes a first-draft shot list that follows the guide's structure (hook, then per section a quote and its figures, an original diagram, takeaways with the
 source). Every narration line and label is a "TODO …" placeholder: prep.py refuses to build while any is left."""
@@ -10,7 +12,11 @@ import argparse, json, os, shutil, subprocess, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 ap = argparse.ArgumentParser(); ap.add_argument('project'); ap.add_argument('--source', action='append'); ap.add_argument('--article'); ap.add_argument('--lang', default=''); ap.add_argument('--aspect', default='16x9', choices=['16x9', '9x16'])
 ap.add_argument('--theme', default='dark', choices=['dark', 'light']); ap.add_argument('--title', default='实录解读'); ap.add_argument('--link', action='store_true')
+ap.add_argument('--preset', choices=['news']); ap.add_argument('--news', action='store_true'); ap.add_argument('--points', type=int, default=2); ap.add_argument('--news-title', default=''); ap.add_argument('--news-url', default=''); ap.add_argument('--published', default='')
 A = ap.parse_args(); P = os.path.abspath(A.project)
+if A.news: A.preset = 'news'
+if A.preset == 'news' and A.article: ap.error('the news preset works on footage: give --source <video>, not --article')
+if A.preset == 'news' and not 1 < A.points < 5: ap.error('--points is 2, 3 or 4')
 if not A.source and not A.article: ap.error('give --source <video> or --article <dir>')
 if os.path.exists(os.path.join(P, 'breakdown.json')): sys.exit('%s already has a breakdown.json' % P)
 os.makedirs(os.path.join(P, 'src'), exist_ok=True)
@@ -29,12 +35,16 @@ for i, s in enumerate(A.source):
     durs[name] = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', path], capture_output=True, text=True).stdout)
     sources[name] = {'file': 'src/' + os.path.basename(path), 'title': os.path.basename(path), 'url': '', 'licence': '', 'credit': ''}
 k = next(iter(sources)); d = durs[k]
+if A.preset == 'news':
+    sys.path.insert(0, HERE); import news_skeleton
+    spec = news_skeleton.make(P, A, sources, durs); json.dump(spec, open(os.path.join(P, 'breakdown.json'), 'w'), ensure_ascii=False, indent=1)
+    print('news-digest project in %s: %d shots (every narration, label and the "news" block are TODO)\nnext: write TREATMENT.md, replace every TODO in breakdown.json (the source and date go on the hook), then sh tools/breakdown/build.sh %s' % (P, len(spec['shots']), A.project)); sys.exit(0)
 spec = {'title': A.title, 'series': '实录解读', 'lang': 'zh', 'aspect': A.aspect, 'fps': 24, 'theme': A.theme, 'voice': {'name': 'zh-CN-YunxiNeural', 'rate': '+0%'},
         'tag': '官方演示 · 节选', 'sources': sources, 'sections': ['第一个看点', '第二个看点'],
         'shots': [
           {'id': 'hook', 'type': 'hook', 'kicker': '实录解读', 'title': '一句话说清这段演示', 'sub': '来源与节选', 'meta': ['来源：…', '节选 30 秒'], 'say': '先看结论，再看它是怎么做到的。'},
           {'id': 'c1', 'type': 'clip', 'section': 1, 'in': 0, 'out': round(min(8, d), 1), 'sound': 'duck', 'lower': {'title': '产品名', 'sub': '一句话说明'}, 'say': '画面里发生了什么。'},
-          {'id': 'f1', 'type': 'freeze', 'section': 1, 't': round(min(6, d - .1), 1), 'crop': [0.3, 0.3, 0.4, 0.4], 'boxes': [{'rect': [0.4, 0.4, 0.2, 0.2], 'label': '看这里'}],
+          {'id': 'f1', 'type': 'freeze', 'section': 1, 't': round(min(6, d - .1), 1), 'crop': [0.3, 0.3, 0.4, 0.4], 'boxes': [{'rect': [0.4, 0.4, 0.2, 0.2], 'label': '关键读数'}],
            'markers': [{'n': 1, 'at': [0.5, 0.5], 'text': '关键一点', 'dir': 'r'}], 'card': {'side': 'r', 'title': '产品在做什么', 'body': '只写画面能证明的事。'}, 'say': '停一下，这一处是产品的工作。'},
           {'id': 'e1', 'type': 'explain', 'kind': 'flow', 'section': 1, 'title': '它大概是这样跑的', 'nodes': [{'label': '输入', 'sub': '用户给了什么'}, {'label': '处理', 'sub': '我们的推测'}, {'label': '结果', 'sub': '画面里看到的'}], 'basis': '演示片 0:00–0:08 · 内部流程为推测', 'say': '我们的理解是：输入、处理、结果。内部怎么做，演示里没说。'},
           {'id': 'cmp', 'type': 'compare', 'title': '看到的与没看到的', 'left': {'title': '演示里看到的', 'items': ['…']}, 'right': {'title': '演示里没说的', 'items': ['…']}, 'verdict': '一句话结论', 'basis': '演示片全程', 'say': '总结一下。'}]}

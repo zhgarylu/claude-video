@@ -8,8 +8,8 @@ import { P, ptr, withPop, panel, rect4, ground } from './shots.js';
 import { rgba } from './theme.js';
 
 export const LABELS = {
-  zh: { figure: '原文配图', quote: '原文摘录', credit: '图源：', from: '出自：', unknown: '未注明' },
-  en: { figure: 'Figure from the article', quote: 'Quote from the article', credit: 'Source: ', from: 'From: ', unknown: 'not stated' },
+  zh: { figure: '原文配图', quote: '原文摘录', credit: '图源：', from: '出自：', unknown: '未注明', points: '{n} 个看点', concl: '结论', paused: '已暂停', orig: '原片' },
+  en: { figure: 'Figure from the article', quote: 'Quote from the article', credit: 'Source: ', from: 'From: ', unknown: 'not stated', points: '{n} key points', concl: 'Takeaway', paused: 'Paused', orig: 'Source' },
 };
 export const labelsFor = spec => ({ ...(LABELS[['zh', 'yue', 'ja'].includes(spec.lang || 'zh') ? 'zh' : 'en']), ...(spec.labels || {}) });
 export const MIN_TEXT = 30;                                  // px at 1080 wide/high: nothing the film draws is smaller

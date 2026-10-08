@@ -44,16 +44,16 @@ export async function createFilm({ canvas, spec, tl, query }) {
     ctx.save(); ctx.globalAlpha *= a;
     chip(R, tg.text, L.tag.x, L.tag.y, { size: S, h: L.tag.h, dot: tg.own ? th.warnInk : th.accent, bg: tg.own ? th.warn : th.plate, color: tg.own ? th.warnInk : th.plateInk, border: tg.own ? null : rgba(th.accent, .7), id: 'tag', stable: true });
     let label = '', n = sh.section;
-    if (sh.type === 'hook') label = total ? `${total} 个看点` : '';
+    if (sh.type === 'hook') label = total ? labels.points.replace('{n}', total) : '';
     else if (n) label = `${String(n).padStart(2, '0')} / ${String(total).padStart(2, '0')}  ${(spec.sections || [])[n - 1] ?? ''}`.trim();
-    else if (sh.type === 'compare') label = '结论';
+    else if (sh.type === 'compare') label = labels.concl;
     if (label) {
       let size = S; const maxW = L.W - 2 * L.M - 640 + (V ? 300 : 0); while (size > 30 && measure(R, label, 800, size) + 44 > maxW) size -= 2;
       const c = chip(R, label, L.prog.xr, L.prog.y, { size, h: L.prog.h, align: 'right', id: 'prog', stable: true });
       if (n && total) { ctx.fillStyle = rgba(th.accent, .3); ctx.fillRect(c.x + 8, c.y + c.h + 6, c.w - 16, 6); ctx.fillStyle = th.accent; ctx.fillRect(c.x + 8, c.y + c.h + 6, (c.w - 16) * ((n - 1 + clamp(lt / sh.dur)) / total), 6); }
     }
-    if (sh.type === 'clip') chip(R, `原片 ${mmss((sh.in ?? 0) + lt)}`, L.tc.x, L.tc.y, { size: 30, h: L.tc.h, weight: 700, color: th.muted, shadow: false });
-    if (sh.type === 'freeze') chip(R, `已暂停 ${mmss(sh.t ?? 0)}`, L.tc.x, L.tc.y, { size: 30, h: L.tc.h, weight: 700, color: th.muted, shadow: false });
+    if (sh.type === 'clip') chip(R, `${labels.orig} ${mmss((sh.in ?? 0) + lt)}`, L.tc.x, L.tc.y, { size: 30, h: L.tc.h, weight: 700, color: th.muted, shadow: false });
+    if (sh.type === 'freeze') chip(R, `${labels.paused} ${mmss(sh.t ?? 0)}`, L.tc.x, L.tc.y, { size: 30, h: L.tc.h, weight: 700, color: th.muted, shadow: false });
     ctx.restore();
   }
   function subtitles(t, sh) {

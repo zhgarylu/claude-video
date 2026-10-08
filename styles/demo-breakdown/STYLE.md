@@ -4,7 +4,7 @@
 > References (grammar only): the "official demo, explained" explainers of tech news channels; a magazine's "figure, annotated" page with its credit line; a broadcast lower third and source bug; a sports-analysis telestrator (pause, circle, number); a museum label that says "interpretation". Take the labelling discipline and the pause-and-point rhythm; never copy a channel's logo, template, music or wording.
 > Not a talking-head film (that keeps a presenter on screen and draws around them: `TALKING-HEAD.md`), not a remake of a video's structure (`TEARDOWN.md`), not a keynote slide deck, not a screencast we record ourselves (Living Screencast).
 
-The footage (or the article and its pictures) is the user's and is **not** part of the library; this style's demos use an invented app recorded in code and an invented article with two figures drawn in code. How to work with it: [`BREAKDOWN.md`](../../BREAKDOWN.md) (§8 for articles) and [`tools/breakdown/`](../../tools/breakdown/README.md).
+The footage (or the article and its pictures) is the user's and is **not** part of the library; this style's demos use an invented app recorded in code, an invented article with two figures drawn in code, and an invented "official release" clip (a made-up phone app) drawn in code. How to work with it: [`BREAKDOWN.md`](../../BREAKDOWN.md) (§8 for articles, §9 for a news digest) and [`tools/breakdown/`](../../tools/breakdown/README.md).
 
 ## 1. Essence, and what it is not
 
@@ -68,6 +68,7 @@ Voice first: a calm, close, steady narrator (Chinese: edge-tts Yunxi; the voice 
 - **Say it in the author's words, then show it.** A `quote` card with the key phrase highlighted as the voice reaches it, then the `figure` that proves it. *Fits content like:* a research post's central claim and its chart; a product announcement's headline number and the screenshot behind it.
 - **Zoom the author's picture to the part that carries the claim.** `crop` plus `boxes`, a numbered legend beside the picture. *Fits content like:* the overlap region of a Venn-style diagram; the south-east of a coloured map; one panel of a multi-panel figure.
 - **Travel through a long picture.** A tall infographic or a key-plus-chart composite scrolled once, boxes appearing where the narration arrives. *Fits content like:* a timeline graphic; a ternary key beside the map it colours.
+- **Say whose number it is.** In a news digest the freeze stops on a figure the source gives and the callout says so ("官方演示的读数，不是我们测的"), then the conclusion splits the claims into *what the source says* and *what is still to verify*. *Fits content like:* a launch clip's "6 seconds" readout; a keynote's benchmark bar; a teaser's "works offline" badge.
 - **Close on what was not shown.** The `compare` shot puts "seen in the footage" next to "not said", then a verdict the viewer can act on. *Fits content like:* a launch with no benchmarks; a GitHub demo without failure cases; a tutorial that skips setup.
 
 ## 9. Pitfalls of the medium
@@ -82,6 +83,7 @@ Voice first: a calm, close, steady narrator (Chinese: edge-tts Yunxi; the voice 
 - **A marker on top of what it marks.** In a figure the marker's text lives in the legend; put the numbered disc next to the thing, not over it.
 - **Magnifying a small picture.** A crop that shows only a few hundred pixels of the original looks soft; prep warns above 2.5×.
 - **A credit that vanishes.** The credit plate is shortened last and never dropped; keep the source's name short, put long captions in the narration.
+- **An official claim passing as our measurement.** A source's number, speed or comparison is quoted as the source's, with its conditions, on screen and in the voice; the film says once, near the end, that it is a reading of an official demo and not our test (`prep.py` checks it in a news digest).
 - **A paraphrase on a quote card.** The card's text must be in the article word for word (an ellipsis may skip the middle); anything else is narration.
 
 ## 10. Engine
@@ -90,7 +92,7 @@ Voice first: a calm, close, steady narrator (Chinese: edge-tts Yunxi; the voice 
 
 ## 11. Variation space
 
-The agent decides, for each film: which moments, how many (three to five), the order, the hook, the narration, the explain kinds, the theme within the colour logic, 16:9 or 9:16 or both. Three structures far from the demo: **a day-in-the-life** (one product used across three hours of screen time, one freeze per task); **a claim-and-check** (the speaker's claim as a `big` hook, then the evidence clip, then a `compare` of claim against what was shown); **a release-notes tour** (each new feature is a clip, a freeze with markers and a one-line explain, numbered as the section tag). Three openings: the strongest clip with no title; a `number` explain ("3 倍") before any footage; a `big` series word over a dimmed frame. An article film adds: **one picture, then the proof** (the article's central figure first, then its evidence), **claim and check** (the author's sentence as a quote, then the figure that does or does not bear it out), **section by section** (only for a short article). Three endings: a verdict plate; a `number` that sums up; the last clip frozen with a card saying what to try first.
+The agent decides, for each film: which moments, how many (three to five), the order, the hook, the narration, the explain kinds, the theme within the colour logic, 16:9 or 9:16 or both. Three structures far from the demo: **a day-in-the-life** (one product used across three hours of screen time, one freeze per task); **a claim-and-check** (the speaker's claim as a `big` hook, then the evidence clip, then a `compare` of claim against what was shown); **a release-notes tour** (each new feature is a clip, a freeze with markers and a one-line explain, numbered as the section tag). Three openings: the strongest clip with no title; a `number` explain ("3 倍") before any footage; a `big` series word over a dimmed frame. An article film adds: **one picture, then the proof** (the article's central figure first, then its evidence), **claim and check** (the author's sentence as a quote, then the figure that does or does not bear it out), **section by section** (only for a short article). A **news digest** (`BREAKDOWN.md` §9) is a fourth kind: one fresh official clip, two to four key points, each as clip then freeze with the source's number or badge boxed and attributed, one stamped diagram with its basis line, and a conclusion that splits *what the source says* from *what to verify* and ends on an action line; the hook carries the source and the publish date. Three endings: a verdict plate; a `number` that sums up; the last clip frozen with a card saying what to try first.
 
 ---
 
