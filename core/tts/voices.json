@@ -1,0 +1,2005 @@
+{
+ "engine": "volc",
+ "sample_text": "你好，这是一段试听。我会用这个声音，为你的短片配音。",
+ "voices": [
+  {
+   "id": "edge:zh-CN-YunxiNeural",
+   "name": "云希",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": true,
+   "engine": "edge",
+   "hint": "微软 edge-tts 的男声（我们之前一直用的 Yunxi）",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_m191_uranus_bigtts",
+   "name": "云舟",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": true,
+   "hint": "默认音色；通用，稳重自然",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ],
+   "default": true
+  },
+  {
+   "id": "zh_male_taocheng_uranus_bigtts",
+   "name": "小天",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": true,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_liufei_uranus_bigtts",
+   "name": "刘飞",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": true,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_ruyayichen_uranus_bigtts",
+   "name": "儒雅逸辰",
+   "scene": "视频配音",
+   "gender": "male",
+   "featured": true,
+   "hint": "视频配音",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_jieshuoxiaoming_uranus_bigtts",
+   "name": "解说小明",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": true,
+   "hint": "解说风格",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_cixingjieshuonan_uranus_bigtts",
+   "name": "磁性解说男声",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": true,
+   "hint": "磁性的解说男声",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_guanggaojieshuo_uranus_bigtts",
+   "name": "广告解说",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": true,
+   "hint": "广告、产品解说",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_xuanyijieshuo_uranus_bigtts",
+   "name": "悬疑解说",
+   "scene": "有声阅读",
+   "gender": "male",
+   "featured": true,
+   "hint": "悬疑、故事讲述",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_yuanboxiaoshu_uranus_bigtts",
+   "name": "渊博小叔",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": true,
+   "hint": "知识类讲解",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_yizhipiannan_uranus_bigtts",
+   "name": "译制片男",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": true,
+   "hint": "译制片腔调",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_shenyeboke_uranus_bigtts",
+   "name": "深夜播客",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": true,
+   "hint": "深夜播客，低沉",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_dayi_uranus_bigtts",
+   "name": "大壹",
+   "scene": "视频配音",
+   "gender": "male",
+   "featured": true,
+   "hint": "视频配音",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_vv_uranus_bigtts",
+   "name": "Vivi",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": true,
+   "hint": "Vivi，通用，清晰自然",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_xiaohe_uranus_bigtts",
+   "name": "小何",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": true,
+   "hint": "通用",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_gaolengyujie_uranus_bigtts",
+   "name": "高冷御姐",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": true,
+   "hint": "冷静、偏慢",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_zhixingnv_uranus_bigtts",
+   "name": "知性女声",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": true,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_liuchangnv_uranus_bigtts",
+   "name": "流畅女声",
+   "scene": "视频配音",
+   "gender": "female",
+   "featured": true,
+   "hint": "视频配音",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_xiaoxue_uranus_bigtts",
+   "name": "儿童绘本",
+   "scene": "有声阅读",
+   "gender": "female",
+   "featured": true,
+   "hint": "儿童绘本、故事",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_shaoergushi_uranus_bigtts",
+   "name": "少儿故事",
+   "scene": "有声阅读",
+   "gender": "female",
+   "featured": true,
+   "hint": "少儿故事",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_yingyujiaoxue_uranus_bigtts",
+   "name": "Tina老师",
+   "scene": "教育场景",
+   "gender": "female",
+   "featured": true,
+   "hint": "教学讲解",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_tianmeixiaoyuan_uranus_bigtts",
+   "name": "甜美小源",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": true,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_sophie_uranus_bigtts",
+   "name": "魅力苏菲",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": true,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_chanmeinv_uranus_bigtts",
+   "name": "谄媚女声",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_jiaochuannv_uranus_bigtts",
+   "name": "娇喘女声",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_jitangmei_uranus_bigtts",
+   "name": "鸡汤妹妹",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_kailangjiejie_uranus_bigtts",
+   "name": "开朗姐姐",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_linjianvhai_uranus_bigtts",
+   "name": "邻家女孩",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_meilinvyou_uranus_bigtts",
+   "name": "魅力女友",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_mengyatou_uranus_bigtts",
+   "name": "萌丫头",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_popo_uranus_bigtts",
+   "name": "婆婆",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_qiaopinv_uranus_bigtts",
+   "name": "俏皮女声",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_qingchezizi_uranus_bigtts",
+   "name": "清澈梓梓",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_qingxinnvsheng_uranus_bigtts",
+   "name": "清新女声",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_qinqienv_uranus_bigtts",
+   "name": "亲切女声",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_roumeinvyou_uranus_bigtts",
+   "name": "柔美女友",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_shuangkuaisisi_uranus_bigtts",
+   "name": "爽快思思",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_tianmeitaozi_uranus_bigtts",
+   "name": "甜美桃子",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_tianmeiyueyue_uranus_bigtts",
+   "name": "甜美悦悦",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_tiexinnvsheng_uranus_bigtts",
+   "name": "贴心女声",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_tvbnv_uranus_bigtts",
+   "name": "TVB女声",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_wenjingmaomao_uranus_bigtts",
+   "name": "文静毛毛",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_wenroumama_uranus_bigtts",
+   "name": "温柔妈妈",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_wenroushunv_uranus_bigtts",
+   "name": "温柔淑女",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_wenrouxiaoya_uranus_bigtts",
+   "name": "温柔小雅",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_xinlingjitang_uranus_bigtts",
+   "name": "心灵鸡汤",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_aojiaobazong_uranus_bigtts",
+   "name": "傲娇霸总",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_dongfanghaoran_uranus_bigtts",
+   "name": "东方浩然",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_fanjuanqingnian_uranus_bigtts",
+   "name": "反卷青年",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_gaolengchenwen_uranus_bigtts",
+   "name": "高冷沉稳",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_huolixiaoge_uranus_bigtts",
+   "name": "活力小哥",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_kailangdidi_uranus_bigtts",
+   "name": "开朗弟弟",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_kailangxuezhang_uranus_bigtts",
+   "name": "开朗学长",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_kuailexiaodong_uranus_bigtts",
+   "name": "快乐小东",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_liangsangmengzai_uranus_bigtts",
+   "name": "亮嗓萌仔",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_linjiananhai_uranus_bigtts",
+   "name": "邻家男孩",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_naiqimengwa_uranus_bigtts",
+   "name": "奶气萌娃",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_qingshuangnanda_uranus_bigtts",
+   "name": "清爽男大",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_ruyaqingnian_uranus_bigtts",
+   "name": "儒雅青年",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_shaonianzixin_uranus_bigtts",
+   "name": "少年梓辛",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_tiancaitongsheng_uranus_bigtts",
+   "name": "天才童声",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_wennuanahu_uranus_bigtts",
+   "name": "温暖阿虎",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_wenrouxiaoge_uranus_bigtts",
+   "name": "温柔小哥",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_yangguangqingnian_uranus_bigtts",
+   "name": "阳光青年",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_youyoujunzi_uranus_bigtts",
+   "name": "悠悠君子",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "hint": "通用场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_jitangnv_uranus_bigtts",
+   "name": "鸡汤女",
+   "scene": "视频配音",
+   "gender": "female",
+   "featured": false,
+   "hint": "视频配音",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_mizai_uranus_bigtts",
+   "name": "黑猫侦探社咪仔",
+   "scene": "视频配音",
+   "gender": "female",
+   "featured": false,
+   "hint": "视频配音",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_peiqi_uranus_bigtts",
+   "name": "佩奇猪",
+   "scene": "视频配音",
+   "gender": "female",
+   "featured": false,
+   "hint": "视频配音",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_sunwukong_uranus_bigtts",
+   "name": "猴哥",
+   "scene": "视频配音",
+   "gender": "male",
+   "featured": false,
+   "hint": "视频配音",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_baqiqingshu_uranus_bigtts",
+   "name": "霸气青叔",
+   "scene": "有声阅读",
+   "gender": "male",
+   "featured": false,
+   "hint": "有声阅读",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_kefunvsheng_uranus_bigtts",
+   "name": "暖阳女声",
+   "scene": "客服场景",
+   "gender": "female",
+   "featured": false,
+   "hint": "客服场景",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_cancan_uranus_bigtts",
+   "name": "知性灿灿",
+   "scene": "角色扮演",
+   "gender": "female",
+   "featured": false,
+   "hint": "角色扮演",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_chunribu_uranus_bigtts",
+   "name": "春日部姐姐",
+   "scene": "角色扮演",
+   "gender": "female",
+   "featured": false,
+   "hint": "角色扮演",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_ganmaodianyin_uranus_bigtts",
+   "name": "感冒电音姐姐",
+   "scene": "角色扮演",
+   "gender": "female",
+   "featured": false,
+   "hint": "角色扮演",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_gufengshaoyu_uranus_bigtts",
+   "name": "古风少御",
+   "scene": "角色扮演",
+   "gender": "female",
+   "featured": false,
+   "hint": "角色扮演",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_gujie_uranus_bigtts",
+   "name": "顾姐",
+   "scene": "角色扮演",
+   "gender": "female",
+   "featured": false,
+   "hint": "角色扮演",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_lingling_uranus_bigtts",
+   "name": "玲玲姐姐",
+   "scene": "角色扮演",
+   "gender": "female",
+   "featured": false,
+   "hint": "角色扮演",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_linxiao_uranus_bigtts",
+   "name": "林潇",
+   "scene": "角色扮演",
+   "gender": "female",
+   "featured": false,
+   "hint": "角色扮演",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_nvleishen_uranus_bigtts",
+   "name": "女雷神",
+   "scene": "角色扮演",
+   "gender": "female",
+   "featured": false,
+   "hint": "角色扮演",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_sajiaoxuemei_uranus_bigtts",
+   "name": "撒娇学妹",
+   "scene": "角色扮演",
+   "gender": "female",
+   "featured": false,
+   "hint": "角色扮演",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_wuzetian_uranus_bigtts",
+   "name": "武则天",
+   "scene": "角色扮演",
+   "gender": "female",
+   "featured": false,
+   "hint": "角色扮演",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_yingtaowanzi_uranus_bigtts",
+   "name": "樱桃丸子",
+   "scene": "角色扮演",
+   "gender": "female",
+   "featured": false,
+   "hint": "角色扮演",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_female_zhishuaiyingzi_uranus_bigtts",
+   "name": "直率英子",
+   "scene": "角色扮演",
+   "gender": "female",
+   "featured": false,
+   "hint": "角色扮演",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_lanyinmianbao_uranus_bigtts",
+   "name": "懒音绵宝",
+   "scene": "角色扮演",
+   "gender": "male",
+   "featured": false,
+   "hint": "角色扮演",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_lubanqihao_uranus_bigtts",
+   "name": "鲁班七号",
+   "scene": "角色扮演",
+   "gender": "male",
+   "featured": false,
+   "hint": "角色扮演",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_qingcang_uranus_bigtts",
+   "name": "擎苍",
+   "scene": "角色扮演",
+   "gender": "male",
+   "featured": false,
+   "hint": "角色扮演",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_silang_uranus_bigtts",
+   "name": "四郎",
+   "scene": "角色扮演",
+   "gender": "male",
+   "featured": false,
+   "hint": "角色扮演",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_tangseng_uranus_bigtts",
+   "name": "唐僧",
+   "scene": "角色扮演",
+   "gender": "male",
+   "featured": false,
+   "hint": "角色扮演",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_xionger_uranus_bigtts",
+   "name": "熊二",
+   "scene": "角色扮演",
+   "gender": "male",
+   "featured": false,
+   "hint": "角色扮演",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_zhuangzhou_uranus_bigtts",
+   "name": "庄周",
+   "scene": "角色扮演",
+   "gender": "male",
+   "featured": false,
+   "hint": "角色扮演",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "zh_male_zhubajie_uranus_bigtts",
+   "name": "猪八戒",
+   "scene": "角色扮演",
+   "gender": "male",
+   "featured": false,
+   "hint": "角色扮演",
+   "engine": "volc",
+   "langs": [
+    "zh"
+   ]
+  },
+  {
+   "id": "en_male_tim_uranus_bigtts",
+   "name": "Tim",
+   "scene": "外语音色",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 外语音色",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_female_dacey_uranus_bigtts",
+   "name": "Dacey",
+   "scene": "外语音色",
+   "gender": "female",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 外语音色",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_female_stokie_uranus_bigtts",
+   "name": "Stokie",
+   "scene": "外语音色",
+   "gender": "female",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 外语音色",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_alberto_uranus_bigtts",
+   "name": "Alberto",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 通用场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_alex_uranus_bigtts",
+   "name": "Alex",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": true,
+   "engine": "volc",
+   "hint": "美式英语 · 通用场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_female_allison_uranus_bigtts",
+   "name": "Allison",
+   "scene": "视频配音",
+   "gender": "female",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 视频配音",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_bill_jones_corey_uranus_bigtts",
+   "name": "Bill",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 通用场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_brad_pitt_p1_uranus_bigtts",
+   "name": "Brad_Pitt",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 通用场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_female_brittney_uranus_bigtts",
+   "name": "Brittney",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 通用场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_female_brittney_pimintel_uranus_bigtts",
+   "name": "Zoe",
+   "scene": "有声阅读",
+   "gender": "female",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 有声阅读",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_bruce_uranus_bigtts",
+   "name": "Adrian",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 通用场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_chandler_p1_uranus_bigtts",
+   "name": "Leo",
+   "scene": "趣味口音",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 趣味口音",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_cowboy_john_b_uranus_bigtts",
+   "name": "John",
+   "scene": "趣味口音",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 趣味口音",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_david_uranus_bigtts",
+   "name": "David",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": true,
+   "engine": "volc",
+   "hint": "美式英语 · 通用场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_diyuwenrounan_uranus_bigtts",
+   "name": "Julian",
+   "scene": "有声阅读",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 有声阅读",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_godfather_uranus_bigtts",
+   "name": "Godfather",
+   "scene": "有声阅读",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 有声阅读",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_gollum_uranus_bigtts",
+   "name": "Gollum",
+   "scene": "角色扮演",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 角色扮演",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_hades_uranus_bigtts",
+   "name": "Beau",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 通用场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_female_hayley_uranus_bigtts",
+   "name": "Hayley",
+   "scene": "教学场景",
+   "gender": "female",
+   "featured": true,
+   "engine": "volc",
+   "hint": "美式英语 · 教学场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_jamie_uranus_bigtts",
+   "name": "Jamie",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": true,
+   "engine": "volc",
+   "hint": "美式英语 · 通用场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_female_jane_uranus_bigtts",
+   "name": "Jane",
+   "scene": "视频配音",
+   "gender": "female",
+   "featured": true,
+   "engine": "volc",
+   "hint": "美式英语 · 视频配音",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_female_jenny_uranus_bigtts",
+   "name": "Jenny",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": true,
+   "engine": "volc",
+   "hint": "美式英语 · 通用场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_jidongchuanjiaoshi_uranus_bigtts",
+   "name": "Blaze",
+   "scene": "趣味口音",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 趣味口音",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_jimmy_uranus_bigtts",
+   "name": "Jimmy",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 通用场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_female_joanne_uranus_bigtts",
+   "name": "Joanne",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": true,
+   "engine": "volc",
+   "hint": "美式英语 · 通用场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_joker_uranus_bigtts",
+   "name": "Joker",
+   "scene": "趣味口音",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 趣味口音",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_josh_uranus_bigtts",
+   "name": "Josh",
+   "scene": "视频配音",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 视频配音",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_josh_coery_uranus_bigtts",
+   "name": "Josiah",
+   "scene": "教学场景",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 教学场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_kevin_uranus_bigtts",
+   "name": "Kevin",
+   "scene": "教学场景",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 教学场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_knightley_uranus_bigtts",
+   "name": "Knightley",
+   "scene": "有声阅读",
+   "gender": "male",
+   "featured": true,
+   "engine": "volc",
+   "hint": "英式英语 · 有声阅读",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_female_lana_del_rey_kelley_d_p1_uranus_bigtts",
+   "name": "Lynn",
+   "scene": "角色扮演",
+   "gender": "female",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 角色扮演",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_female_lana_del_rey_parky_s_p1_uranus_bigtts",
+   "name": "Ivy",
+   "scene": "客服场景",
+   "gender": "female",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 客服场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_marcus_uranus_bigtts",
+   "name": "Marcus",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": true,
+   "engine": "volc",
+   "hint": "美式英语 · 通用场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_female_mel_uranus_bigtts",
+   "name": "Mel",
+   "scene": "教学场景",
+   "gender": "female",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 教学场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_michael_uranus_bigtts",
+   "name": "Hank",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 通用场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_michael_kevin_uranus_bigtts",
+   "name": "Michael_Kevin",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 通用场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_female_myra_uranus_bigtts",
+   "name": "Myra",
+   "scene": "教学场景",
+   "gender": "female",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 教学场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_female_myra_cmb_uranus_bigtts",
+   "name": "Sunny",
+   "scene": "教学场景",
+   "gender": "female",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 教学场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_female_nadia_uranus_bigtts",
+   "name": "Blair",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 通用场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_female_natasha_uranus_bigtts",
+   "name": "Natasha",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 通用场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_female_rachel_p1_uranus_bigtts",
+   "name": "Rachel",
+   "scene": "趣味口音",
+   "gender": "female",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 趣味口音",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_ronald_uranus_bigtts",
+   "name": "Ronald",
+   "scene": "有声阅读",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 有声阅读",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_russell_uranus_bigtts",
+   "name": "Russell",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "英式英语 · 通用场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_female_scarlet_p1_uranus_bigtts",
+   "name": "Scarlet",
+   "scene": "客服场景",
+   "gender": "female",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 客服场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_female_sharron_uranus_bigtts",
+   "name": "Sharron",
+   "scene": "趣味口音",
+   "gender": "female",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 趣味口音",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_simba_p1_uranus_bigtts",
+   "name": "Simba",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 通用场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_female_skye_uranus_bigtts",
+   "name": "Skye",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": true,
+   "engine": "volc",
+   "hint": "美式英语 · 通用场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_tom_hiddleston_p1_uranus_bigtts",
+   "name": "Tom",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 通用场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_valentino_uranus_bigtts",
+   "name": "Valentino",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 通用场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_valentino_corey_uranus_bigtts",
+   "name": "Clark",
+   "scene": "视频配音",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 视频配音",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_female_wenrouzhishijieshuonv_uranus_bigtts",
+   "name": "Megan",
+   "scene": "客服场景",
+   "gender": "female",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 客服场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_female_xinwenjieshuonv_uranus_bigtts",
+   "name": "Kayla",
+   "scene": "角色扮演",
+   "gender": "female",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 角色扮演",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_male_yangguangjieshuonan_uranus_bigtts",
+   "name": "Dylan",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 通用场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "en_female_zendaya_p1_uranus_bigtts",
+   "name": "Zendaya",
+   "scene": "教学场景",
+   "gender": "female",
+   "featured": false,
+   "engine": "volc",
+   "hint": "美式英语 · 教学场景",
+   "langs": [
+    "en"
+   ]
+  },
+  {
+   "id": "ja_female_bv024_uranus_bigtts",
+   "name": "Bonnie",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": true,
+   "engine": "volc",
+   "hint": "日语 · 通用场景",
+   "langs": [
+    "ja"
+   ]
+  },
+  {
+   "id": "ja_female_bv520_uranus_bigtts",
+   "name": "Poppy",
+   "scene": "视频配音",
+   "gender": "female",
+   "featured": false,
+   "engine": "volc",
+   "hint": "日语 · 视频配音",
+   "langs": [
+    "ja"
+   ]
+  },
+  {
+   "id": "ja_female_bv521_uranus_bigtts",
+   "name": "Aoi",
+   "scene": "趣味口音",
+   "gender": "female",
+   "featured": false,
+   "engine": "volc",
+   "hint": "日语 · 趣味口音",
+   "langs": [
+    "ja"
+   ]
+  },
+  {
+   "id": "ja_female_bv522_uranus_bigtts",
+   "name": "Hana",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": true,
+   "engine": "volc",
+   "hint": "日语 · 通用场景",
+   "langs": [
+    "ja"
+   ]
+  },
+  {
+   "id": "ja_female_bv523_uranus_bigtts",
+   "name": "Lily",
+   "scene": "趣味口音",
+   "gender": "female",
+   "featured": false,
+   "engine": "volc",
+   "hint": "日语 · 趣味口音",
+   "langs": [
+    "ja"
+   ]
+  },
+  {
+   "id": "ja_male_bv524_uranus_bigtts",
+   "name": "Ken",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": true,
+   "engine": "volc",
+   "hint": "日语 · 通用场景",
+   "langs": [
+    "ja"
+   ]
+  },
+  {
+   "id": "ja_female_minimi_uranus_bigtts",
+   "name": "Minimi",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": true,
+   "engine": "volc",
+   "hint": "日语 · 通用场景",
+   "langs": [
+    "ja"
+   ]
+  },
+  {
+   "id": "ja_female_shirou_uranus_bigtts",
+   "name": "Shirou",
+   "scene": "视频配音",
+   "gender": "female",
+   "featured": false,
+   "engine": "volc",
+   "hint": "日语 · 视频配音",
+   "langs": [
+    "ja"
+   ]
+  },
+  {
+   "id": "es_female_bv084_uranus_bigtts",
+   "name": "Gracie",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": true,
+   "engine": "volc",
+   "hint": "西班牙语 · 通用场景",
+   "langs": [
+    "es"
+   ]
+  },
+  {
+   "id": "es_male_dani_uranus_bigtts",
+   "name": "Dani",
+   "scene": "有声阅读",
+   "gender": "male",
+   "featured": true,
+   "engine": "volc",
+   "hint": "西班牙语 · 有声阅读",
+   "langs": [
+    "es"
+   ]
+  },
+  {
+   "id": "es_male_guillem_uranus_bigtts",
+   "name": "Guillem",
+   "scene": "有声阅读",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "西班牙语 · 有声阅读",
+   "langs": [
+    "es"
+   ]
+  },
+  {
+   "id": "es_female_ht_mx_f6_uranus_bigtts",
+   "name": "Marisol",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": false,
+   "engine": "volc",
+   "hint": "西班牙语 · 通用场景",
+   "langs": [
+    "es"
+   ]
+  },
+  {
+   "id": "mx_male_felipe_uranus_bigtts",
+   "name": "Felipe",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": true,
+   "engine": "volc",
+   "hint": "墨西哥西班牙语 · 通用场景",
+   "langs": [
+    "es"
+   ]
+  },
+  {
+   "id": "mx_female_leslie_uranus_bigtts",
+   "name": "Leslie",
+   "scene": "通用场景",
+   "gender": "female",
+   "featured": true,
+   "engine": "volc",
+   "hint": "墨西哥西班牙语 · 通用场景",
+   "langs": [
+    "es"
+   ]
+  },
+  {
+   "id": "mx_male_marcelo_uranus_bigtts",
+   "name": "Marcelo",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": false,
+   "engine": "volc",
+   "hint": "墨西哥西班牙语 · 通用场景",
+   "langs": [
+    "es"
+   ]
+  },
+  {
+   "id": "fr_male_usseau_uranus_bigtts",
+   "name": "Usseau",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": true,
+   "engine": "volc",
+   "hint": "法语 · 通用场景",
+   "langs": [
+    "fr"
+   ]
+  },
+  {
+   "id": "de_male_sven_uranus_bigtts",
+   "name": "Sven",
+   "scene": "通用场景",
+   "gender": "male",
+   "featured": true,
+   "engine": "volc",
+   "hint": "德语 · 通用场景",
+   "langs": [
+    "de"
+   ]
+  },
+  {
+   "id": "edge:zh-HK-HiuMaanNeural",
+   "name": "曉曼",
+   "scene": "粤语",
+   "gender": "female",
+   "featured": true,
+   "engine": "edge",
+   "hint": "香港粤语 · 女声，清晰自然（推荐）",
+   "langs": [
+    "yue"
+   ]
+  },
+  {
+   "id": "edge:zh-HK-HiuGaaiNeural",
+   "name": "曉佳",
+   "scene": "粤语",
+   "gender": "female",
+   "featured": true,
+   "engine": "edge",
+   "hint": "香港粤语 · 女声，亲切",
+   "langs": [
+    "yue"
+   ]
+  },
+  {
+   "id": "edge:zh-HK-WanLungNeural",
+   "name": "雲龍",
+   "scene": "粤语",
+   "gender": "male",
+   "featured": true,
+   "engine": "edge",
+   "hint": "香港粤语 · 男声，沉稳",
+   "langs": [
+    "yue"
+   ]
+  }
+ ],
+ "defaults": {
+  "zh": "zh_male_m191_uranus_bigtts",
+  "yue": "edge:zh-HK-HiuMaanNeural",
+  "en": "en_male_alex_uranus_bigtts",
+  "ja": "ja_female_bv522_uranus_bigtts",
+  "es": "es_male_dani_uranus_bigtts",
+  "fr": "fr_male_usseau_uranus_bigtts",
+  "de": "de_male_sven_uranus_bigtts"
+ },
+ "sample_texts": {
+  "zh": "你好，这是一段试听。我会用这个声音，为你的短片配音。",
+  "yue": "你好，呢段係試聽。我會用呢把聲，為你嘅短片配音。",
+  "en": "Hello, this is a short audition. I will narrate your film with this voice.",
+  "ja": "こんにちは、これは試聴です。この声で、あなたの短編映画のナレーションをします。",
+  "es": "Hola, esta es una breve prueba. Narraré tu película con esta voz.",
+  "fr": "Bonjour, ceci est un court essai. Je raconterai votre film avec cette voix.",
+  "de": "Hallo, das ist eine kurze Hörprobe. Mit dieser Stimme erzähle ich Ihren Film."
+ }
+}

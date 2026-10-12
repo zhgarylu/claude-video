@@ -13,7 +13,7 @@ lines.json 里可加 "asr" 字段覆盖期望文本（专有名词、拟声词�
 import sys, json, re, os, argparse, difflib, unicodedata
 
 CJK = re.compile('[㐀-鿿豈-﫿぀-ヿ가-힯]')
-CHAR_LANGS = {'zh', 'ja', 'ko'}           # 这些语言按字符比，其余按词比
+CHAR_LANGS = {'zh', 'ja', 'ko', 'yue', 'es', 'fr', 'de'}           # 这些语言按字符比，其余按词比
 _DIGITS = str.maketrans('零〇一二三四五六七八九', '00123456789')
 
 
@@ -106,7 +106,7 @@ def main():
         y, sr = sf.read(os.path.join(a.voices_dir, L['id'] + '.wav'))
         if y.ndim > 1: y = y.mean(1)
         y = soxr.resample(y, sr, 16000, quality='HQ'); pad = np.zeros(int(.6 * 16000))   # 与 librosa 默认的 soxr_hq 相同
-        kw = dict(initial_prompt='以下是普通话的句子。') if lang == 'zh' else {}          # 提示成简体，避免转写出繁体
+        kw = dict(initial_prompt='以下是普通话的句子。') if lang == 'zh' else dict(initial_prompt='以下係廣東話嘅句子。') if lang == 'yue' else {}          # 提示成简体，避免转写出繁体
         segs, _ = m.transcribe(np.concatenate([pad, y, pad]).astype(np.float32), beam_size=5, language=lang, word_timestamps=True, **kw)
         tail = (len(y) + len(pad)) / 16000 - .5   # Whisper sometimes repeats the line inside the trailing pad: drop such no-speech segments
         segs = [s for s in segs if not (s.no_speech_prob > .5 and s.start > tail)]; got = ' '.join(s.text.strip() for s in segs)
